@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'enroll-front-end-root',
+  selector: 'coverme-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

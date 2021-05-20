@@ -36,7 +36,7 @@
       "projectType": "application",
       "root": "apps/coverme",
       "sourceRoot": "apps/coverme/src",
-      "prefix": "enroll-front-end",
+      "prefix": "coverme",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

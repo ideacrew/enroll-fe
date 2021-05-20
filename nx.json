@@ -7,19 +7,14 @@
     ".eslintrc.json": "*"
   },
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "trunk"
   },
-  "npmScope": "enroll-front-end",
+  "npmScope": "enroll",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MzZhMDQ0YTUtZTkxOC00YTI3LWEwZGUtYzNkMGRlY2MxYWM5fHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
         "showUsageWarnings": true
@@ -32,9 +27,7 @@
     },
     "coverme-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "coverme"
-      ]
+      "implicitDependencies": ["coverme"]
     }
   }
 }
