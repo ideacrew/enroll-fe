@@ -20,7 +20,8 @@
       "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "e2eTestRunner": "cypress",
+      "strict": true
     },
     "@nrwl/angular:library": {
       "style": "scss",
@@ -146,6 +147,121 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/coverme-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "dchbx": {
+      "projectType": "application",
+      "root": "apps/dchbx",
+      "sourceRoot": "apps/dchbx/src",
+      "prefix": "dchbx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/dchbx",
+            "index": "apps/dchbx/src/index.html",
+            "main": "apps/dchbx/src/main.ts",
+            "polyfills": "apps/dchbx/src/polyfills.ts",
+            "tsConfig": "apps/dchbx/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/dchbx/src/favicon.ico", "apps/dchbx/src/assets"],
+            "styles": ["apps/dchbx/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/dchbx/src/environments/environment.ts",
+                  "with": "apps/dchbx/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "dchbx:build:production"
+            },
+            "development": {
+              "browserTarget": "dchbx:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dchbx:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/dchbx/src/**/*.ts",
+              "apps/dchbx/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/dchbx"],
+          "options": {
+            "jestConfig": "apps/dchbx/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "dchbx-e2e": {
+      "root": "apps/dchbx-e2e",
+      "sourceRoot": "apps/dchbx-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/dchbx-e2e/cypress.json",
+            "tsConfig": "apps/dchbx-e2e/tsconfig.e2e.json",
+            "devServerTarget": "dchbx:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dchbx:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/dchbx-e2e/**/*.{js,ts}"]
           }
         }
       }

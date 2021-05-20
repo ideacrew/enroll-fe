@@ -28,6 +28,13 @@
     "coverme-e2e": {
       "tags": [],
       "implicitDependencies": ["coverme"]
+    },
+    "dchbx": {
+      "tags": []
+    },
+    "dchbx-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dchbx"]
     }
   }
 }
