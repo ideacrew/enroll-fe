@@ -106,4 +106,4 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Application
-        run: npm run affected --target=deploy
+        run: npx nx affected --target=deploy
