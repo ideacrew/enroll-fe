@@ -123,6 +123,16 @@
             "jestConfig": "apps/coverme/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npm run build -- --project=coverme",
+              "npx firebase deploy --only hosting:coverme"
+            ],
+            "parallel": false
+          }
         }
       }
     },
@@ -237,6 +247,16 @@
           "options": {
             "jestConfig": "apps/dchbx/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npm run build -- --project=dchbx",
+              "npx firebase deploy --only hosting:dchbx"
+            ],
+            "parallel": false
           }
         }
       }
