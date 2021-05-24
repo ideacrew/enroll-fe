@@ -12,7 +12,13 @@
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
-              { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
+              { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] },
+              {
+                "sourceTag": "client:dchbx",
+                "onlyDependOnLibsWithTags": [
+                  "client:dchbx", "scope:shared"
+                ]
+              }
             ]
           }
         ]

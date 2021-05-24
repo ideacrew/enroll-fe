@@ -23,14 +23,14 @@
   },
   "projects": {
     "coverme": {
-      "tags": []
+      "tags": ["client:coverme"]
     },
     "coverme-e2e": {
       "tags": [],
       "implicitDependencies": ["coverme"]
     },
     "dchbx": {
-      "tags": []
+      "tags": ["client:dchbx"]
     },
     "dchbx-e2e": {
       "tags": [],
