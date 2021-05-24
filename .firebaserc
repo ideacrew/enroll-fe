@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "enroll-fe"
+  },
+  "targets": {
+    "enroll-fe": {
+      "hosting": {
+        "coverme": [
+          "enroll-coverme"
+        ],
+        "dchbx": [
+          "enroll-dchbx"
+        ]
+      }
+    }
+  }
+}
