@@ -20,9 +20,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node14-
+            v2-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -42,9 +42,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node14-
+            v2-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -65,9 +65,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node14-
+            v2-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -87,20 +87,20 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node14-
+            v2-${{ runner.os }}-node14-
       - uses: actions/cache@v2
         with:
           path: ~/.cache/Cypress
-          key: cypress-cache-v1-${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          key: cypress-cache-v2-${{ runner.os }}-${{ hashFiles('**/package.json') }}
           restore-keys: |
-            cypress-cache-v1-${{ runner.os }}
+            cypress-cache-v2-${{ runner.os }}
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Application
-        run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk --parallel
+        run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk
   build:
     name: build
     runs-on: ubuntu-latest
@@ -115,9 +115,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node14-
+            v2-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -138,9 +138,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node14-
+            v2-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
