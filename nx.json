@@ -35,6 +35,13 @@
     "dchbx-e2e": {
       "tags": [],
       "implicitDependencies": ["dchbx"]
+    },
+    "health-connector": {
+      "tags": ["client:health-connector", "type:app"]
+    },
+    "health-connector-e2e": {
+      "tags": [],
+      "implicitDependencies": ["health-connector"]
     }
   }
 }

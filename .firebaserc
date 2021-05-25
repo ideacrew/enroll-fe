@@ -10,6 +10,9 @@
         ],
         "dchbx": [
           "enroll-dchbx"
+        ],
+        "health-connector": [
+          "enroll-health-connector"
         ]
       }
     }

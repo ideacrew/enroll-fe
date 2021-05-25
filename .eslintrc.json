@@ -18,6 +18,17 @@
                 "onlyDependOnLibsWithTags": ["client:dchbx", "scope:shared"]
               },
               {
+                "sourceTag": "client:health-connector",
+                "onlyDependOnLibsWithTags": [
+                  "client:health-connector",
+                  "scope:shared"
+                ]
+              },
+              {
+                "sourceTag": "client:coverme",
+                "onlyDependOnLibsWithTags": ["client:coverme", "scope:shared"]
+              },
+              {
                 "sourceTag": "type:app",
                 "onlyDependOnLibsWithTags": ["type:feature", "type:util"]
               }
