@@ -145,4 +145,4 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Application
-        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk --parallel
+        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk --parallel --args="--token=${{ secrets.FIREBASE_TOKEN }}"
