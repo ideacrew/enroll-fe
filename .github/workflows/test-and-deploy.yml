@@ -2,8 +2,8 @@ name: test and deploy front end
 
 on:
   push:
-    branches:
-      - trunk
+    # branches:
+    #   - trunk
 
 jobs:
   format:
