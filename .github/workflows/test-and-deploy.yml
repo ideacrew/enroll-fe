@@ -90,6 +90,12 @@ jobs:
           key: ${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node14-
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-cache-v1-${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            cypress-cache-v1-${{ runner.os }}
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
