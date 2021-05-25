@@ -1,5 +1,6 @@
 {
   "simple": "Welcome to the DCHBX marketplace",
   "marketPlaceShortName": "DCHBX",
-  "evenMoreFlexible": "Welcome to the {{marketPlaceShortName}} marketplace"
+  "evenMoreFlexible": "Welcome to the {{marketPlaceShortName}} marketplace",
+  "continue": "Continue"
 }
