@@ -15,9 +15,11 @@
               { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] },
               {
                 "sourceTag": "client:dchbx",
-                "onlyDependOnLibsWithTags": [
-                  "client:dchbx", "scope:shared"
-                ]
+                "onlyDependOnLibsWithTags": ["client:dchbx", "scope:shared"]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:util"]
               }
             ]
           }
