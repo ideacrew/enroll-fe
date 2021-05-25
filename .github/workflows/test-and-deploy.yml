@@ -45,7 +45,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Lint Application
-        run: npm run affected:lint
+        run: npx nx affected:lint --base=origin/trunk~1 --head=origin/trunk
   test:
     name: test
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test Application
-        run: npm run affected:test
+        run: npx nx affected:test --base=origin/trunk~1 --head=origin/trunk
   build:
     name: build
     runs-on: ubuntu-latest
@@ -85,7 +85,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Application
-        run: npm run affected:build
+        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk
   deploy:
     name: deploy
     needs: [format, lint, test, build]
@@ -106,4 +106,4 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Application
-        run: npx nx affected --target=deploy
+        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk
