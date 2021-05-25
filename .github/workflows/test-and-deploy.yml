@@ -48,7 +48,7 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      - run: git fetch --no-tags --prune --depth=5 origin trunk
+      # - run: git fetch --no-tags --prune --depth=5 origin trunk
       - name: Lint Application
         run: npx nx affected:lint --base=origin/trunk~1 --head=origin/trunk
   test:
@@ -119,7 +119,7 @@ jobs:
         run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk
   deploy:
     name: deploy
-    needs: [format, lint, test, build]
+    needs: [format, lint, test, e2e, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
