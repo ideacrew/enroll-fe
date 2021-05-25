@@ -129,7 +129,7 @@
           "options": {
             "commands": [
               "npm run build -- --project=coverme",
-              "npx firebase deploy --only hosting:coverme --token {args.token}"
+              "npx firebase deploy --only hosting:coverme --token $FIREBASE_TOKEN"
             ],
             "parallel": false
           }
@@ -254,7 +254,7 @@
           "options": {
             "commands": [
               "npm run build -- --project=dchbx",
-              "npx firebase deploy --only hosting:dchbx --token {args.token}"
+              "npx firebase deploy --only hosting:dchbx --token $FIREBASE_TOKEN"
             ],
             "parallel": false
           }
