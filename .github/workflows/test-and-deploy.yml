@@ -83,14 +83,16 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - uses: actions/cache@v2
+      - name: Cache node_modules
+        uses: actions/cache@v2
         id: npm-cache
         with:
           path: node_modules
           key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             v2-${{ runner.os }}-node14-
-      - uses: actions/cache@v2
+      - name: Cache cypress
+        uses: actions/cache@v2
         with:
           path: ~/.cache/Cypress
           key: cypress-cache-v2-${{ runner.os }}-${{ hashFiles('**/package.json') }}
@@ -147,4 +149,4 @@ jobs:
       - name: Build Application
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk"
+        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk
