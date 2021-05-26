@@ -48,8 +48,7 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      # - run: git fetch --no-tags --prune --depth=5 origin trunk
-      - name: Lint Application
+      - name: Lint Application(s)
         run: npx nx affected:lint --base=origin/trunk~1 --head=origin/trunk --parallel
   test:
     name: test
@@ -71,7 +70,7 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Test Application
+      - name: Test Application(s)
         run: npx nx affected:test --base=origin/trunk~1 --head=origin/trunk --parallel
   e2e:
     name: e2e
@@ -101,7 +100,7 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Build Application
+      - name: Build Application(s)
         run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk
   build:
     name: build
@@ -123,7 +122,7 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Build Application
+      - name: Build Application(s)
         run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --parallel
   deploy:
     name: deploy
@@ -146,7 +145,7 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Build Application
+      - name: Deploy Application(s)
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk

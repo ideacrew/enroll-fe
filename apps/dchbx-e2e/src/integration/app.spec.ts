@@ -8,6 +8,6 @@ describe('dchbx', () => {
     // cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('DCHBX Update 2!');
+    getGreeting().contains('Welcome to DC Health Link');
   });
 });

@@ -53,7 +53,10 @@
               "apps/coverme/src/favicon.ico",
               "apps/coverme/src/assets"
             ],
-            "styles": ["apps/coverme/src/styles.scss"],
+            "styles": [
+              "libs/ui/base/theme/src/lib/styles/global.scss",
+              "apps/coverme/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -99,7 +102,10 @@
               "browserTarget": "coverme:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4203
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -178,7 +184,10 @@
             "tsConfig": "apps/dchbx/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["apps/dchbx/src/favicon.ico", "apps/dchbx/src/assets"],
-            "styles": ["apps/dchbx/src/styles.scss"],
+            "styles": [
+              "libs/ui/base/theme/src/lib/styles/global.scss",
+              "apps/dchbx/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -224,7 +233,10 @@
               "browserTarget": "dchbx:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4201
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -291,7 +303,7 @@
       "projectType": "application",
       "root": "apps/health-connector",
       "sourceRoot": "apps/health-connector/src",
-      "prefix": "health-connector",
+      "prefix": "mhc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -306,7 +318,10 @@
               "apps/health-connector/src/favicon.ico",
               "apps/health-connector/src/assets"
             ],
-            "styles": ["apps/health-connector/src/styles.scss"],
+            "styles": [
+              "libs/ui/base/theme/src/lib/styles/global.scss",
+              "apps/health-connector/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -352,7 +367,10 @@
               "browserTarget": "health-connector:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4202
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -411,6 +429,31 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/health-connector-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui-base-theme": {
+      "projectType": "library",
+      "root": "libs/ui/base/theme",
+      "sourceRoot": "libs/ui/base/theme/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/base/theme"],
+          "options": {
+            "jestConfig": "libs/ui/base/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/base/theme/src/**/*.ts",
+              "libs/ui/base/theme/src/**/*.html"
+            ]
           }
         }
       }

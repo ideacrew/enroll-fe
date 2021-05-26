@@ -1,0 +1,19 @@
+:root {
+  --content-width: 68.75rem;
+  --box-shadow-010: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --box-shadow-020: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+// [class$='-container'] {
+//   margin: 0 auto;
+// }
+.app-container,
+.page-container,
+.content-container,
+.nav-container,
+.header-container,
+.footer-container,
+.alert-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}

@@ -1,0 +1,68 @@
+:root {
+  --focus-color: var(--yellow-050);
+  --focus-width: 2px;
+  --border-color: var(--neutral-060);
+  --border-width: 2px;
+}
+
+input[type='text'] {
+  border-radius: 4px;
+  padding: var(--s-1) var(--s-2);
+  color: var(--neutral-100);
+  border: var(--border-width) solid var(--border-color);
+  font-size: 1rem;
+  line-height: 1;
+
+  &.ng-invalid {
+    --border-color: var(--red-060);
+  }
+
+  &:focus {
+    --border-color: var(--blue-100);
+
+    outline: 0;
+    box-shadow: 0 0 0 4px var(--focus-color),
+      inset 0 0 0 1px var(--border-color);
+  }
+}
+
+.hbx-input-label {
+  line-height: 1;
+  margin-bottom: var(--s-2);
+}
+
+.input-group {
+  label {
+    display: block;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.input-collection {
+  display: flex;
+
+  > * + * {
+    margin-left: var(--s0);
+  }
+}
+
+.hbx-error-message {
+  display: none;
+  margin-top: var(--s-3);
+  color: var(--red-060);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.form-group.ng-invalid,
+.input-group.ng-invalid {
+  border-left: 4px solid var(--red-060);
+  padding-left: var(--s-2);
+
+  .hbx-error-message {
+    display: block;
+  }
+}

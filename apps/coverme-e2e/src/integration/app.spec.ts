@@ -8,6 +8,6 @@ describe('coverme', () => {
     // cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to the DCHBX marketplace');
+    getGreeting().contains('Welcome to Maine Cover ME');
   });
 });

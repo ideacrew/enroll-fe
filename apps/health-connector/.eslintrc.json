@@ -16,7 +16,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "healthConnector",
+            "prefix": "mhc",
             "style": "camelCase"
           }
         ],
@@ -24,7 +24,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "health-connector",
+            "prefix": "mhc",
             "style": "kebab-case"
           }
         ]

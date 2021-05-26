@@ -1,10 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-*,
-*::before,
-*::after {
-  box-sizing: content-box;
-}
+/* You can add global styles to this file, and also import other style files */
 
-:root {
-  --primary-color: green;
-}
+@import 'scss/fonts';
