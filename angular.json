@@ -56,6 +56,11 @@
                 "glob": "**/*",
                 "input": "libs/ui/base/theme/src/lib/assets/icons",
                 "output": "/assets/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/i18n/coverme/src/lib/assets/i18n",
+                "output": "/assets/i18n"
               }
             ],
             "styles": [
@@ -498,6 +503,126 @@
             "lintFilePatterns": [
               "libs/ui/base/shell/src/**/*.ts",
               "libs/ui/base/shell/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "testing-i18n": {
+      "projectType": "library",
+      "root": "libs/testing/i18n",
+      "sourceRoot": "libs/testing/i18n/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/testing/i18n/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/testing/i18n/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/testing/i18n/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/testing/i18n"],
+          "options": {
+            "jestConfig": "libs/testing/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/testing/i18n/src/**/*.ts",
+              "libs/testing/i18n/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "i18n-coverme": {
+      "projectType": "library",
+      "root": "libs/i18n/coverme",
+      "sourceRoot": "libs/i18n/coverme/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/i18n/coverme/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/i18n/coverme/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/i18n/coverme/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/i18n/coverme"],
+          "options": {
+            "jestConfig": "libs/i18n/coverme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/i18n/coverme/src/**/*.ts",
+              "libs/i18n/coverme/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "i18n-util": {
+      "projectType": "library",
+      "root": "libs/i18n/util",
+      "sourceRoot": "libs/i18n/util/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/i18n/util/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/i18n/util/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/i18n/util/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/i18n/util"],
+          "options": {
+            "jestConfig": "libs/i18n/util/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/i18n/util/src/**/*.ts",
+              "libs/i18n/util/src/**/*.html"
             ]
           }
         }

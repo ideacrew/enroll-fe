@@ -32,3 +32,8 @@
 body {
   background-color: var(--body-color, chartreuse);
 }
+
+h1,
+h2 {
+  color: var(--heading-color);
+}

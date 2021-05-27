@@ -1,0 +1,13 @@
+<enroll-welcome></enroll-welcome>
+<ng-container *transloco="let t">
+  <div class="available-links">
+    <a class="enroll-button outline" routerLink="/financial-assistance">{{
+      t('financialAssistance')
+    }}</a>
+  </div>
+  <img
+    class="welcome-image"
+    src="/assets/images/welcome.webp"
+    alt="{{ t('welcomeAlt') }}"
+  />
+</ng-container>

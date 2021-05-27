@@ -1,12 +1,7 @@
 <enroll-header phoneNumber="800-965-7476" tty="711"></enroll-header>
-<enroll-welcome></enroll-welcome>
-<ng-container *transloco="let t">
-  <img
-    class="welcome-image"
-    src="/assets/images/welcome.webp"
-    alt="{{ t('welcomeAlt') }}"
-  />
-</ng-container>
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>
 <enroll-footer
   email="smallbusiness@coverme.gov"
   phoneNumber="800-965-7476"

@@ -1,5 +1,6 @@
 {
   "welcome": "Welcome to Maine Cover ME",
+  "welcomeAlt": "Man fishing on boat looking like he has health insurance",
   "tagLine": "Maine's Official Health Insurance Marketplace",
   "marketPlaceShortName": "DCHBX",
   "evenMoreFlexible": "Welcome to the {{marketPlaceShortName}} marketplace",
@@ -9,5 +10,6 @@
     "supportEmail": "smallbusiness@coverme.gov",
     "help": "Get Help"
   },
-  "customerService": "Customer Service"
+  "customerService": "Customer Service",
+  "financialAssistance": "Financial Assistance"
 }

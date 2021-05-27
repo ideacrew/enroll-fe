@@ -58,4 +58,14 @@
   --theme-tertiary-170: hsl(200, 29%, 10%);
   --theme-tertiary-180: hsl(198, 29%, 7%);
   --theme-tertiary-190: hsl(204, 29%, 3%);
+
+  // Button Colors
+  --button-primary-fill: var(--theme-secondary-100);
+
+  // Heading Colors
+  --heading-color: var(--theme-secondary-100);
+}
+
+.button {
+  background-color: var(--button-primary-fill);
 }

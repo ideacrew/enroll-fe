@@ -29,7 +29,7 @@
     },
     "coverme-e2e": {
       "tags": [],
-      "implicitDependencies": ["coverme"]
+      "implicitDependencies": ["coverme", "ui-base-theme", "i18n-coverme"]
     },
     "dchbx": {
       "tags": ["client:dchbx"],
@@ -52,6 +52,15 @@
     },
     "ui-base-shell": {
       "tags": ["scope:shared"]
+    },
+    "testing-i18n": {
+      "tags": ["scope:shared", "type:testing"]
+    },
+    "i18n-coverme": {
+      "tags": ["scope:coverme", "type:i18n"]
+    },
+    "i18n-util": {
+      "tags": ["scope:shared", "type:i18n", "type:util"]
     }
   }
 }

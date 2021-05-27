@@ -7,6 +7,12 @@
   margin: var(--s2) auto;
 }
 
+.content-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  min-height: calc(100vh - var(--header-height));
+}
+
 // [class$='-container'] {
 //   margin: 0 auto;
 // }
