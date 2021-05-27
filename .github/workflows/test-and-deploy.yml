@@ -100,7 +100,7 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Build Application(s)
+      - name: Run e2e Tests
         run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk --parallel --browser=chrome --headless=true
   build:
     name: build
