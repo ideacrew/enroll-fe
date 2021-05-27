@@ -9,7 +9,7 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: repeat(12, calc(var(--content-width) / 12));
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr;
   column-gap: var(--s-1);
   align-content: center;
@@ -32,7 +32,29 @@
 }
 
 .tag-line {
-  grid-column: span 8;
+  grid-column: span 7;
   align-self: center;
   font-weight: 400;
+}
+
+.customer-service {
+  grid-column: 10 / span 3;
+  align-self: center;
+  justify-self: end;
+  text-align: right;
+
+  .phone-link {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--type-primary);
+  }
+
+  svg {
+    transform: scale(-1, 1);
+  }
 }
