@@ -70,6 +70,7 @@
     "eslint": "^7.22.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.23.3",
     "firebase-tools": "^9.11.0",
     "jest": "26.2.2",
     "jest-preset-angular": "8.4.0",
