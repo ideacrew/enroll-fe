@@ -1,7 +1,30 @@
-.ea-button {
-  
-}
+.enroll-button {
+  --button-color: var(--theme-secondary-100);
+  --dchbx-blue: hsl(203, 100%, 31%);
 
+  position: relative;
+  font-size: 0.875rem;
+  padding: 6px 10px;
+  background-color: var(--button-color);
+  text-decoration: none;
+  color: var(--grey-000);
+  border-radius: 2px;
+  border: 2px solid var(--button-color);
+  line-height: 1.429;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: none;
+    outline: rgb(255, 255, 255) solid 1px;
+    z-index: 1;
+  }
+}
 
 .hbx-button {
   --content-height: var(--s-1);
