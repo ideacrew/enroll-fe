@@ -1,0 +1,38 @@
+.header {
+  background-color: var(--grey-000);
+  border-bottom: 3px solid var(--theme-secondary-100);
+  height: var(--header-height);
+}
+
+.container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(12, calc(var(--content-width) / 12));
+  grid-template-rows: 1fr;
+  column-gap: var(--s-1);
+  align-content: center;
+  // height: var(--header-height);
+  height: 100%;
+}
+
+.home-link {
+  padding-right: var(--s0);
+  border-right: 1px solid var(--grey-040, chartreuse);
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.client-logo {
+  max-height: 40px;
+  display: inline;
+}
+
+.tag-line {
+  grid-column: span 8;
+  align-self: center;
+  font-weight: 400;
+}

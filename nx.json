@@ -51,7 +51,7 @@
       "tags": ["scope:shared"]
     },
     "ui-base-shell": {
-      "tags": []
+      "tags": ["scope:shared"]
     }
   }
 }

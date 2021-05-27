@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
 
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+
 @NgModule({
-  imports: [CommonModule, TranslocoModule],
-  declarations: [FooterComponent],
-  exports: [FooterComponent],
+  imports: [CommonModule, RouterModule, TranslocoModule],
+  declarations: [FooterComponent, HeaderComponent],
+  exports: [FooterComponent, HeaderComponent],
 })
 export class UiBaseShellModule {}

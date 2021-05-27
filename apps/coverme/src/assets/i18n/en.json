@@ -1,6 +1,6 @@
 {
-  "simple": "Welcome to Maine Cover ME",
-  "simple2": "Maine's Official Health Insurance Marketplace",
+  "welcome": "Welcome to Maine Cover ME",
+  "tagLine": "Maine's Official Health Insurance Marketplace",
   "marketPlaceShortName": "DCHBX",
   "evenMoreFlexible": "Welcome to the {{marketPlaceShortName}} marketplace",
   "shell": {
