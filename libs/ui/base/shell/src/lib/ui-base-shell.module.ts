@@ -5,10 +5,11 @@ import { TranslocoModule } from '@ngneat/transloco';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, TranslocoModule],
-  declarations: [FooterComponent, HeaderComponent],
-  exports: [FooterComponent, HeaderComponent],
+  declarations: [FooterComponent, HeaderComponent, WelcomeComponent],
+  exports: [FooterComponent, HeaderComponent, WelcomeComponent],
 })
 export class UiBaseShellModule {}
