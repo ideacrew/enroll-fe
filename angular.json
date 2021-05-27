@@ -50,7 +50,7 @@
             "tsConfig": "apps/coverme/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/coverme/src/favicon.ico",
+              "apps/coverme/src/favicon.svg",
               "apps/coverme/src/assets",
               {
                 "glob": "**/*",
