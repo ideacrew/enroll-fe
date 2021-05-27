@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/apps/dchbx',
     '<rootDir>/apps/health-connector',
     '<rootDir>/libs/ui/base/theme',
+    '<rootDir>/libs/ui/base/shell',
   ],
 };

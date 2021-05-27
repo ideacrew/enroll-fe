@@ -51,7 +51,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/coverme/src/favicon.ico",
-              "apps/coverme/src/assets"
+              "apps/coverme/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/ui/base/theme/src/lib/assets/icons",
+                "output": "/assets/icons"
+              }
             ],
             "styles": [
               "libs/ui/base/theme/src/lib/styles/global.scss",
@@ -453,6 +458,46 @@
             "lintFilePatterns": [
               "libs/ui/base/theme/src/**/*.ts",
               "libs/ui/base/theme/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-base-shell": {
+      "projectType": "library",
+      "root": "libs/ui/base/shell",
+      "sourceRoot": "libs/ui/base/shell/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/ui/base/shell/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/base/shell/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ui/base/shell/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/base/shell"],
+          "options": {
+            "jestConfig": "libs/ui/base/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/base/shell/src/**/*.ts",
+              "libs/ui/base/shell/src/**/*.html"
             ]
           }
         }

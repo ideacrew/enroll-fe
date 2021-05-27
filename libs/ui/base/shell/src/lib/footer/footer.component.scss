@@ -1,0 +1,28 @@
+.footer {
+  color: var(--grey-000);
+  background-color: var(--theme-secondary-100);
+  padding: var(--s0) 0;
+}
+
+.container {
+  max-width: 71.25rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr repeat(3, max-content);
+  column-gap: var(--s0);
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-3);
+  }
+
+  a {
+    color: var(--grey-000);
+    text-decoration: none;
+  }
+}
+
+.phone-icon {
+  transform: scale(-1, 1);
+}

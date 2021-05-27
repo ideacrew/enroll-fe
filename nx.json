@@ -49,6 +49,9 @@
     },
     "ui-base-theme": {
       "tags": ["scope:shared"]
+    },
+    "ui-base-shell": {
+      "tags": []
     }
   }
 }

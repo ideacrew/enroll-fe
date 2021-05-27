@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@enroll/ui/base/theme": ["libs/ui/base/theme/src/index.ts"]
+      "@enroll/ui/base/theme": ["libs/ui/base/theme/src/index.ts"],
+      "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
