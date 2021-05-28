@@ -23,9 +23,9 @@
   --error-color: #a21e1f;
   --error-tint: #f8c0c0;
 
-  --type-primary: var(--grey-160);
-  --type-secondary: var(--grey-130);
-  --type-placeholder: var(--grey-090);
+  --type-primary: var(--grey-160, chartreuse);
+  --type-secondary: var(--grey-130, chartreuse);
+  --type-placeholder: var(--grey-090, chartreuse);
   --type-disabled: hsl(20, 1%, 52%); // new color?
 }
 
@@ -35,5 +35,5 @@ body {
 
 h1,
 h2 {
-  color: var(--heading-color);
+  color: var(--heading-color, chartreuse);
 }

@@ -1,4 +1,7 @@
 .available-links {
   margin-top: var(--s1);
+  display: flex;
+  justify-content: center;
+  gap: var(--s0);
   text-align: center;
 }

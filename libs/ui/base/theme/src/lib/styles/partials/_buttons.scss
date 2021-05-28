@@ -1,128 +1,96 @@
-.enroll-button {
-  --button-color: var(--theme-secondary-100);
-  --dchbx-blue: hsl(203, 100%, 31%);
+:root {
+  --button-text-color: var(--grey-000, chartreuse);
+  --button-fill-color: var(--button-primary-color, chartreuse);
+  --button-focus-ring-color: var(--grey-000, chartreuse);
+  --button-border-color: var(--button-primary-color, chartreuse);
+}
 
-  position: relative;
-  font-size: 0.875rem;
-  padding: 6px 10px;
-  background-color: var(--button-color);
-  text-decoration: none;
-  color: var(--grey-000);
-  border-radius: 2px;
-  border: 2px solid var(--button-color);
-  line-height: 1.429;
+// Primary button at rest
+a.enroll-button,
+button.enroll-button {
+  // Reset
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
 
-  &:focus {
-    outline: 0;
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentcolor;
   }
 
-  &:focus::after {
+  // Display styles
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  // Static properties
+  position: relative;
+  font-size: 0.875rem;
+  padding: 0.375rem 0.625rem;
+  text-decoration: none;
+  border-radius: 0.125rem;
+  line-height: 1;
+  min-width: 10ch;
+  text-align: center;
+  border-width: 0.125rem;
+  border-style: solid;
+
+  // Dynamic properties
+  background-color: var(--button-fill-color, chartreuse);
+  color: var(--button-text-color, chartreuse);
+  border-color: var(--button-border-color, chartreuse);
+
+  // Animation properties
+  transition-timing-function: ease-in-out;
+  transition-duration: 220ms;
+  transition-property: background-color, color, border-color;
+
+  // State styles
+  &:hover {
+    --button-fill-color: var(--button-primary-hover);
+    --button-border-color: var(--button-primary-hover);
+  }
+
+  &:focus {
+    outline-style: solid;
+    outline-color: transparent;
+  }
+
+  &:focus::after,
+  &:focus-visible::after {
     content: '';
     position: absolute;
     inset: 2px;
     border: none;
-    outline: rgb(255, 255, 255) solid 1px;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: var(--button-focus-ring-color);
     z-index: 1;
   }
-}
 
-.hbx-button {
-  --content-height: var(--s-1);
-  --content-color: var(--neutral-070);
-  --background-color: var(--neutral-010);
-  --border-color: transparent;
-  --focus-color: var(--content-color);
-  --padding: var(--s-4) var(--s-2);
-
-  line-height: 1;
-  -webkit-appearance: none;
-  padding: var(--padding);
-  text-transform: uppercase;
-  background-color: var(--background-color);
-  color: var(--content-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--content-height);
-  border-radius: 2px;
-  border: 1px solid var(--border-color);
-
-  &.large {
-    --content-height: var(--s0);
-  }
-
-  > * + * {
-    margin-left: 4px;
-  }
-
-  &:focus {
-    outline-color: var(--focus-color);
-  }
-
-  .svg-icon {
-    fill: var(--content-color);
-    height: var(--content-height);
-    width: var(--content-height);
-  }
-
-  &.terminating {
-    --background-color: var(--red-010);
-    --border-color: var(--red-070);
-    --content-color: var(--red-070);
-  }
-
-  &.text-only {
-    --background-color: transparent;
-
-    &:hover {
-      --background-color: transparent;
-    }
-  }
-
-  &:hover:not([disabled]):not(.text-only) {
-    --content-color: var(--neutral-100);
-    --border-color: var(--neutral-100);
-    --background-color: var(--neutral-020);
-  }
-
-  &.outline {
-    --border-color: var(--neutral-070);
-  }
-
-  &[disabled] {
-    cursor: not-allowed;
+  &:active {
+    --button-fill-color: var(--button-primary-active);
+    --button-border-color: var(--button-primary-active);
   }
 }
 
-.hbx-close-button {
-  height: 2rem;
-  width: 2rem;
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 0;
-  background-color: transparent;
-  padding: 0;
+a.enroll-button.outline,
+button.enroll-button.outline {
+  --button-text-color: var(--button-primary-color, chartreuse);
+  --button-fill-color: var(--grey-000, chartreuse);
+  --button-focus-ring-color: var(--grey-000, chartreuse);
 
-  .svg-icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: var(--neutral-070);
+  &:hover {
+    --button-text-color: var(--button-primary-hover);
   }
 
-  &:hover .svg-icon {
-    fill: var(--neutral-100);
+  &:active {
+    --button-text-color: var(--button-primary-active);
   }
 
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 4px var(--yellow-050), inset 0 0 0 2px var(--neutral-100);
-
-    .svg-icon {
-      fill: var(--neutral-100);
-    }
+  &:focus::after,
+  &:focus-visible::after {
+    --button-focus-ring-color: var(--grey-160);
   }
 }

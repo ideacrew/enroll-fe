@@ -9,7 +9,7 @@
 
 .content-container {
   max-width: var(--content-width);
-  margin: 0 auto;
+  margin: var(--s2) auto;
   min-height: calc(100vh - var(--header-height));
 }
 
