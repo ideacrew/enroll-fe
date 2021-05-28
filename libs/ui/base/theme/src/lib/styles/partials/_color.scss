@@ -14,14 +14,15 @@
 
   --body-color: hsl(0, 0%, 97%);
 
-  --info-color: #005689;
-  --info-tint: #cce5f3;
-  --success-color: #027314;
-  --success-tint: #c6f1cd;
-  --warning-color: #e5a900;
-  --warning-tint: #ffecb4;
-  --error-color: #a21e1f;
-  --error-tint: #f8c0c0;
+  --info-color: hsl(202, 100%, 27%);
+  --info-tint: hsl(202, 62%, 88%);
+  --success-color: hsl(130, 97%, 23%);
+  --success-tint: hsl(130, 61%, 86%);
+  --warning-color: hsl(44, 100%, 45%);
+  --warning-tint: hsl(45, 100%, 85%);
+  --error-shade: hsl(0, 68%, 32%);
+  --error-color: hsl(0, 69%, 38%);
+  --error-tint: hsl(0, 80%, 86%);
 
   --type-primary: var(--grey-160, chartreuse);
   --type-secondary: var(--grey-130, chartreuse);

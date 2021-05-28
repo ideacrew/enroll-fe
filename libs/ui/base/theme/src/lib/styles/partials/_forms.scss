@@ -1,39 +1,52 @@
 :root {
-  --focus-color: var(--yellow-050);
-  --focus-width: 2px;
-  --border-color: var(--neutral-060);
-  --border-width: 2px;
+  // Base variables for input fields and labels
+  --input-label-color: var(--grey-160);
+  --input-field-text-color: var(--type-primary);
+  --input-field-border-color: hsl(
+    30,
+    2%,
+    56%
+  ); // custom color to get 3:1 contrast ratio
+  --input-field-background-color: var(--grey-000);
 }
 
-input[type='text'] {
-  border-radius: 4px;
-  padding: var(--s-1) var(--s-2);
-  color: var(--neutral-100);
-  border: var(--border-width) solid var(--border-color);
-  font-size: 1rem;
+.enroll-input {
+  // Static properties
+  border-radius: 0.1875rem;
+  font-size: 0.875rem;
+  font-size: max(0.875rem, 1em);
+  border-width: 2px;
+  padding: 0.375em 0.5em;
+  border-style: solid;
   line-height: 1;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  transition-property: border-color, background-color, color;
 
-  &.ng-invalid {
-    --border-color: var(--red-060);
-  }
+  // Dynamic properties
+  background-color: var(--input-field-background-color);
+  border-color: var(--input-field-border-color);
+  color: var(--input-field-text-color);
 
   &:focus {
-    --border-color: var(--blue-100);
-
+    --input-field-border-color: var(--input-field-focus-color);
     outline: 0;
-    box-shadow: 0 0 0 4px var(--focus-color),
-      inset 0 0 0 1px var(--border-color);
+  }
+
+  &.ng-invalid {
+    --border-color: var(--error-color);
   }
 }
 
-.hbx-input-label {
+.enroll-input-label {
   line-height: 1;
-  margin-bottom: var(--s-2);
+  font-size: 0.875rem;
 }
 
-.input-group {
+.enroll-input-group {
   label {
     display: block;
+    margin-bottom: var(--s-2);
   }
 
   input {
