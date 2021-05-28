@@ -21,7 +21,10 @@
       "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
       "@enroll/testing/i18n": ["libs/testing/i18n/src/index.ts"],
       "@enroll/i18n/coverme": ["libs/i18n/coverme/src/index.ts"],
-      "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"]
+      "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"],
+      "@enroll/financial-assistance/shell": [
+        "libs/financial-assistance/shell/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
