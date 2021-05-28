@@ -101,7 +101,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Run e2e Tests
-        run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk --parallel --browser=chrome --headless=true
+        run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk --browser=chrome --headless=true
   build:
     name: build
     runs-on: ubuntu-latest
