@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/libs/i18n/coverme',
     '<rootDir>/libs/i18n/util',
     '<rootDir>/libs/financial-assistance/shell',
+    '<rootDir>/libs/financial-assistance/applications',
   ],
 };

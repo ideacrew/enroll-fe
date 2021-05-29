@@ -17,6 +17,13 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
         component: WelcomePageComponent,
       },
       {
+        path: 'financial-assistance',
+        loadChildren: () =>
+          import('@enroll/financial-assistance/shell').then(
+            (m) => m.FinancialAssistanceShellModule
+          ),
+      },
+      {
         path: '**',
         redirectTo: 'welcome',
         pathMatch: 'full',

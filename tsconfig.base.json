@@ -24,6 +24,9 @@
       "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"],
       "@enroll/financial-assistance/shell": [
         "libs/financial-assistance/shell/src/index.ts"
+      ],
+      "@enroll/financial-assistance/applications": [
+        "libs/financial-assistance/applications/src/index.ts"
       ]
     }
   },

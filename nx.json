@@ -64,6 +64,9 @@
     },
     "financial-assistance-shell": {
       "tags": ["scope:shared", "type:feature"]
+    },
+    "financial-assistance-applications": {
+      "tags": ["scope:shared"]
     }
   }
 }

@@ -6,7 +6,14 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
+      {
+        path: 'applications',
+        loadChildren: () =>
+          import('@enroll/financial-assistance/applications').then(
+            (m) => m.FinancialAssistanceApplicationsModule
+          ),
+      },
+      { path: '', pathMatch: 'full', redirectTo: 'applications' },
     ]),
   ],
 })
