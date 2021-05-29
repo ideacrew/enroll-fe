@@ -1,0 +1,36 @@
+<h1>Cost Savings Applications</h1>
+<p>
+  If you started or completed an application for premium reductions, it will be
+  listed below. If the status says it’s a draft, that means you haven’t
+  completed the application. Select ‘Actions’ to view or update an application.
+</p>
+<a routerLink="application-checklist" class="enroll-button" type="button"
+  >Start New Application</a
+>
+
+<!-- Extract into component with applications as input -->
+<table class="enroll-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Status</th>
+      <th>Started On</th>
+      <th>Submitted On</th>
+      <th>Determination</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>269000183</td>
+      <td>draft</td>
+      <td>{{ startedOnDate | date: 'medium' }}</td>
+      <td></td>
+      <td></td>
+      <td>
+        <a routerLink="269000183/edit">Edit</a>,
+        <a routerLink="269000183/review">Review</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

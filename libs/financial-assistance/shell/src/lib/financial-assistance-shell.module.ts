@@ -7,13 +7,19 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule.forChild([
       {
+        // when applications is hit, lazy load the module
         path: 'applications',
         loadChildren: () =>
           import('@enroll/financial-assistance/applications').then(
             (m) => m.FinancialAssistanceApplicationsModule
           ),
       },
-      { path: '', pathMatch: 'full', redirectTo: 'applications' },
+      {
+        // anything besides /applications will redirect to /applications
+        path: '**',
+        pathMatch: 'full',
+        redirectTo: 'applications',
+      },
     ]),
   ],
 })

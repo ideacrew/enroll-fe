@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ApplicationsPageComponent } from './applications-page/applications-page.component';
+import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: ApplicationsPageComponent },
+      {
+        path: '', // matches /applications
+        component: ApplicationsListPageComponent,
+      },
     ]),
   ],
-  declarations: [ApplicationsPageComponent],
+  declarations: [ApplicationsListPageComponent],
 })
 export class FinancialAssistanceApplicationsModule {}
