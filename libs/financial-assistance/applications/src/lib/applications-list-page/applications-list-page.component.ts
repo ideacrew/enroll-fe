@@ -7,5 +7,4 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ApplicationsListPageComponent {
   startedOnDate = new Date('2021-05-28');
-  constructor() {}
 }
