@@ -7,5 +7,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaxInfoComponent {
-  canBeClaimed: 'yes' | 'no' = 'yes';
+  // Don't initialize this variable, it is a radio option
+  canBeClaimed!: 'yes' | 'no';
 }
