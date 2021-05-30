@@ -9,4 +9,5 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 export class TaxInfoComponent {
   // Don't initialize this variable, it is a radio option
   canBeClaimed!: 'yes' | 'no';
+  // trigger deployment
 }
