@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 import { EditApplicationComponent } from './edit-application/edit-application.component';
 import { TaxInfoComponent } from './tax-info/tax-info.component';
+import { ReviewApplicationComponent } from './review-application/review-application.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,10 @@ import { TaxInfoComponent } from './tax-info/tax-info.component';
         component: EditApplicationComponent,
       },
       {
+        path: ':applicationId/review',
+        component: ReviewApplicationComponent,
+      },
+      {
         path: ':applicationId/applicants/:applicantId/tax-info',
         component: TaxInfoComponent,
       },
@@ -30,6 +35,7 @@ import { TaxInfoComponent } from './tax-info/tax-info.component';
     ApplicationsListPageComponent,
     EditApplicationComponent,
     TaxInfoComponent,
+    ReviewApplicationComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}
