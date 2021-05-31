@@ -12,11 +12,14 @@
 
 .enroll-input {
   // Static properties
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
   border-radius: 0.1875rem;
   font-size: 0.875rem;
   font-size: max(0.875rem, 1em);
   border-width: 2px;
-  padding: 0.375em 0.5em;
+  padding: 0 0.5em;
   border-style: solid;
   line-height: 1;
   transition-duration: 200ms;
@@ -38,9 +41,30 @@
   }
 }
 
+.enroll-fieldset-group {
+  display: flex;
+  gap: var(--s0);
+  justify-content: stretch;
+  width: 100%;
+
+  .enroll-input-group,
+  .enroll-checkbox-group {
+    flex: 1 1 100%;
+  }
+}
+
 .enroll-input-label {
   line-height: 1;
   font-size: 0.875rem;
+}
+
+.enroll-checkbox-group {
+  display: flex;
+  align-items: center;
+
+  .enroll-checkbox-label {
+    display: inline-block;
+  }
 }
 
 .enroll-input-group {
@@ -54,12 +78,8 @@
   }
 }
 
-.input-collection {
-  display: flex;
-
-  > * + * {
-    margin-left: var(--s0);
-  }
+.enroll-fieldset {
+  flex: 1 1 100%;
 }
 
 .hbx-error-message {
