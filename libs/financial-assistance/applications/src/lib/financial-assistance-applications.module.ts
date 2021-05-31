@@ -7,6 +7,7 @@ import { ApplicationsListPageComponent } from './applications-list-page/applicat
 import { EditApplicationComponent } from './edit-application/edit-application.component';
 import { TaxInfoComponent } from './tax-info/tax-info.component';
 import { ReviewApplicationComponent } from './review-application/review-application.component';
+import { AddNewPersonComponent } from './add-new-person/add-new-person.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,10 @@ import { ReviewApplicationComponent } from './review-application/review-applicat
         component: ReviewApplicationComponent,
       },
       {
+        path: ':applicationId/add-new-person',
+        component: AddNewPersonComponent,
+      },
+      {
         path: ':applicationId/applicants/:applicantId/tax-info',
         component: TaxInfoComponent,
       },
@@ -36,6 +41,7 @@ import { ReviewApplicationComponent } from './review-application/review-applicat
     EditApplicationComponent,
     TaxInfoComponent,
     ReviewApplicationComponent,
+    AddNewPersonComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}
