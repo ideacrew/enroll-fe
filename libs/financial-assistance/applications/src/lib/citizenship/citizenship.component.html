@@ -1,0 +1,210 @@
+<h1>
+  Citizenship Information for
+  {{
+    newHouseholdMember.firstNameHasValue
+      ? newHouseholdMember.fullName
+      : 'new person'
+  }}
+</h1>
+<fieldset class="enroll-fieldset" aria-describedby="us-citizen-hint">
+  <legend>
+    <h2>
+      Is
+      {{
+        newHouseholdMember.firstNameHasValue
+          ? newHouseholdMember.firstName
+          : 'this person'
+      }}
+      a US Citizen or US National? *
+    </h2>
+  </legend>
+  <div id="us-citizen-hint" class="enroll-hint">
+    {{
+      newHouseholdMember.firstNameHasValue
+        ? newHouseholdMember.firstName
+        : 'This person'
+    }}
+    is a US citizen if they were born in the US or certain US territories, had a
+    parent who was a US citizen when you were born, or became a US citizen
+    through adoption or naturalization. A US national is a US citizen or anyone
+    who owes permanent allegiance to the US.
+  </div>
+  <div class="enroll-radios">
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="citizen-yes"
+        name="citizen-or-national"
+        type="radio"
+        value="yes"
+        [(ngModel)]="newHouseholdMember.citizenOrNational"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="citizen-yes">
+        Yes
+      </label>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="citizen-no"
+        name="citizen-or-national"
+        type="radio"
+        value="no"
+        [(ngModel)]="newHouseholdMember.citizenOrNational"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="citizen-no">
+        No
+      </label>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset
+  class="enroll-fieldset"
+  aria-describedby="naturalized-citizen-hint"
+  *ngIf="newHouseholdMember.citizenOrNational === 'yes'"
+>
+  <legend>
+    <h2>
+      Is
+      {{
+        newHouseholdMember.firstNameHasValue
+          ? newHouseholdMember.firstName
+          : 'this person'
+      }}
+      a naturalized citizen? *
+    </h2>
+  </legend>
+  <div id="naturalized-citizen-hint" class="enroll-hint">
+    A naturalized citizen is someone who wasn’t born a US citizen. A person can
+    apply to be a naturalized citizen after being a permanent resident (green
+    card holder) for a certain period of time, and if they meet certain other
+    legal requirements.
+  </div>
+  <div class="enroll-radios">
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-yes"
+        name="naturalized-citizen"
+        type="radio"
+        value="yes"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="naturalized-yes">
+        Yes
+      </label>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-no"
+        name="naturalized-citizen"
+        type="radio"
+        value="no"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="naturalized-no">
+        No
+      </label>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset
+  class="enroll-fieldset"
+  aria-describedby="naturalized-citizen-hint"
+  *ngIf="newHouseholdMember.citizenOrNational === 'no'"
+>
+  <legend>
+    <h2>
+      Does
+      {{
+        newHouseholdMember.firstNameHasValue
+          ? newHouseholdMember.firstName
+          : 'this person'
+      }}
+      have eligible immigration status? *
+    </h2>
+  </legend>
+  <div id="naturalized-citizen-hint" class="enroll-hint">
+    <p>
+      Anyone with an eligible immigration status may qualify to get health
+      insurance coverage through DC Health Link. There are many eligible
+      categories. Some common types include but aren’t limited to:
+    </p>
+    <ul>
+      <li>Lawful permanent resident (LPR/green card holder)</li>
+      <li>
+        Asylee or applicant for asylum who has an approved employment
+        authorization
+      </li>
+      <li>Refugee</li>
+      <li>
+        Individuals with non-immigrant status, such as those who have worker
+        visas or student visas
+      </li>
+      <li>
+        Temporary Protected Status (TPS) or applicants for TPS with an approved
+        employment authorization
+      </li>
+      <li>
+        Victim of trafficking and his or her spouse, child, sibling, or parent,
+        and applicants for a victim of trafficking visa
+      </li>
+    </ul>
+    <p>
+      If you don’t see your status on this list,
+      <a
+        target="__blank"
+        rel="noopener noreferrer"
+        href="https://dchealthlink.com/sites/default/files/v2/forms/Eligible%20Immigration%20Status%20List_0.pdf"
+      >
+        view the full list of eligible immigration statuses
+      </a>
+      to see if you may qualify to get coverage through DC Health Link.
+    </p>
+  </div>
+  <div class="enroll-radios">
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-yes"
+        name="naturalized-citizen"
+        type="radio"
+        value="yes"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="naturalized-yes">
+        Yes
+      </label>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-no"
+        name="naturalized-citizen"
+        type="radio"
+        value="no"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="naturalized-no">
+        No
+      </label>
+    </div>
+  </div>
+</fieldset>

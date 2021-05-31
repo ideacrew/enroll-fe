@@ -8,6 +8,8 @@ import { EditApplicationComponent } from './edit-application/edit-application.co
 import { TaxInfoComponent } from './tax-info/tax-info.component';
 import { ReviewApplicationComponent } from './review-application/review-application.component';
 import { AddNewPersonComponent } from './add-new-person/add-new-person.component';
+import { CitizenshipComponent } from './citizenship/citizenship.component';
+import { BasicInformationComponent } from './basic-information/basic-information.component';
 
 @NgModule({
   imports: [
@@ -29,6 +31,11 @@ import { AddNewPersonComponent } from './add-new-person/add-new-person.component
       {
         path: ':applicationId/add-new-person',
         component: AddNewPersonComponent,
+        children: [
+          { path: 'basic-information', component: BasicInformationComponent },
+          { path: 'citizenship', component: CitizenshipComponent },
+          { path: '', redirectTo: 'basic-information' },
+        ],
       },
       {
         path: ':applicationId/applicants/:applicantId/tax-info',
@@ -42,6 +49,8 @@ import { AddNewPersonComponent } from './add-new-person/add-new-person.component
     TaxInfoComponent,
     ReviewApplicationComponent,
     AddNewPersonComponent,
+    CitizenshipComponent,
+    BasicInformationComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}

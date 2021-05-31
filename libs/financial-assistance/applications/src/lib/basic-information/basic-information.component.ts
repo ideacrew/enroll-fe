@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 import { NewHouseholdMemberService } from '../new-household-member.service';
 
 @Component({
-  templateUrl: './add-new-person.component.html',
-  styleUrls: ['./add-new-person.component.scss'],
+  templateUrl: './basic-information.component.html',
+  styleUrls: ['./basic-information.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddNewPersonComponent {
+export class BasicInformationComponent {
   constructor(public newHouseholdMember: NewHouseholdMemberService) {}
 }
