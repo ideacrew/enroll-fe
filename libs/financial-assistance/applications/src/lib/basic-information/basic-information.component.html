@@ -23,7 +23,7 @@
       />
     </div>
     <div class="enroll-input-group">
-      <label class="enroll-label" for="middle-name"> Middle Name </label>
+      <label class="enroll-label" for="middle-name">Middle Name</label>
       <input
         class="enroll-input"
         id="middle-name"
@@ -32,7 +32,7 @@
       />
     </div>
     <div class="enroll-input-group">
-      <label class="enroll-label" for="last-name"> Last Name * </label>
+      <label class="enroll-label" for="last-name">Last Name *</label>
       <input
         class="enroll-input"
         id="last-name"
@@ -387,7 +387,7 @@
   </div>
 </fieldset>
 <a
-  *ngIf="newHouseholdMember.needsCoverage"
+  *ngIf="newHouseholdMember.needsCoverage === 'yes'"
   routerLink="../citizenship"
   class="enroll-button"
   >Provide additional information about
@@ -396,4 +396,16 @@
       ? newHouseholdMember.firstName
       : 'this person'
   }}</a
+>
+<a
+  *ngIf="newHouseholdMember.needsCoverage === 'no'"
+  routerLink="../citizenship"
+  class="enroll-button"
+  >Add
+  {{
+    newHouseholdMember.firstNameHasValue
+      ? newHouseholdMember.firstName
+      : 'this person'
+  }}
+  to your household</a
 >
