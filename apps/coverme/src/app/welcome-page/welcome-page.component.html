@@ -2,12 +2,11 @@
 <ng-container *transloco="let t">
   <div class="available-links">
     <a class="enroll-button outline" routerLink="/financial-assistance">{{
+      t('myInsuredPortal')
+    }}</a>
+    <a class="enroll-button outline" routerLink="/financial-assistance">{{
       t('financialAssistance')
     }}</a>
-  </div>
-  <div class="enroll-input-group">
-    <label class="enroll-input-label" for="first-name">First Name</label>
-    <input class="enroll-input" type="text" name="first-name" id="first-name" />
   </div>
   <img
     class="welcome-image"
