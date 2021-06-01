@@ -10,6 +10,19 @@ import { ReviewApplicationComponent } from './review-application/review-applicat
 import { AddNewPersonComponent } from './add-new-person/add-new-person.component';
 import { CitizenshipComponent } from './citizenship/citizenship.component';
 import { BasicInformationComponent } from './basic-information/basic-information.component';
+import { ImmigrationDocumentComponent } from './immigration-document/immigration-document.component';
+import { AlienNumberComponent } from './immigration-document/alien-number/alien-number.component';
+import { ExpirationDateComponent } from './immigration-document/expiration-date/expiration-date.component';
+import { CardNumberComponent } from './immigration-document/card-number/card-number.component';
+import { CertificateNumberComponent } from './immigration-document/certificate-number/certificate-number.component';
+import { NaturalizationNumberComponent } from './immigration-document/naturalization-number/naturalization-number.component';
+import { PassportNumberComponent } from './immigration-document/passport-number/passport-number.component';
+import { VisaNumberComponent } from './immigration-document/visa-number/visa-number.component';
+import { CitizenshipCountryComponent } from './immigration-document/citizenship-country/citizenship-country.component';
+import { StampDateComponent } from './immigration-document/stamp-date/stamp-date.component';
+import { I94NumberComponent } from './immigration-document/i94-number/i94-number.component';
+import { SevisIdComponent } from './immigration-document/sevis-id/sevis-id.component';
+import { DocumentDescriptionComponent } from './immigration-document/document-description/document-description.component';
 
 @NgModule({
   imports: [
@@ -51,6 +64,19 @@ import { BasicInformationComponent } from './basic-information/basic-information
     AddNewPersonComponent,
     CitizenshipComponent,
     BasicInformationComponent,
+    ImmigrationDocumentComponent,
+    AlienNumberComponent,
+    ExpirationDateComponent,
+    CardNumberComponent,
+    CertificateNumberComponent,
+    NaturalizationNumberComponent,
+    PassportNumberComponent,
+    VisaNumberComponent,
+    CitizenshipCountryComponent,
+    StampDateComponent,
+    I94NumberComponent,
+    SevisIdComponent,
+    DocumentDescriptionComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}

@@ -27,6 +27,9 @@
       ],
       "@enroll/financial-assistance/applications": [
         "libs/financial-assistance/applications/src/index.ts"
+      ],
+      "@enroll/financial-assistance/entities": [
+        "libs/financial-assistance/entities/src/index.ts"
       ]
     }
   },

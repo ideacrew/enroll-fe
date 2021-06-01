@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/libs/i18n/util',
     '<rootDir>/libs/financial-assistance/shell',
     '<rootDir>/libs/financial-assistance/applications',
+    '<rootDir>/libs/financial-assistance/entities',
   ],
 };

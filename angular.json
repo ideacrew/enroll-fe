@@ -707,6 +707,46 @@
           }
         }
       }
+    },
+    "financial-assistance-entities": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/entities",
+      "sourceRoot": "libs/financial-assistance/entities/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/financial-assistance/entities/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/entities/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/entities/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/entities"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/entities/src/**/*.ts",
+              "libs/financial-assistance/entities/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }
