@@ -366,14 +366,7 @@
     </div>
   </fieldset>
 </ng-container>
-<!-- <a routerLink="../citizenship" class="enroll-button"
-  >Continue providing information about
-  {{
-    newHouseholdMember.firstNameHasValue
-      ? newHouseholdMember.firstName
-      : 'this person'
-  }}
-</a> -->
+
 <ng-container *ngIf="newHouseholdMember.eligibleImmigration === 'yes'">
   <fieldset>
     <legend>
@@ -382,3 +375,12 @@
     <enroll-immigration-document></enroll-immigration-document>
   </fieldset>
 </ng-container>
+
+<a routerLink="../tribal-membership" class="enroll-button"
+  >Continue providing information about
+  {{
+    newHouseholdMember.firstNameHasValue
+      ? newHouseholdMember.firstName
+      : 'this person'
+  }}
+</a>

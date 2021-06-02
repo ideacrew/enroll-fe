@@ -23,6 +23,7 @@ import { StampDateComponent } from './immigration-document/stamp-date/stamp-date
 import { I94NumberComponent } from './immigration-document/i94-number/i94-number.component';
 import { SevisIdComponent } from './immigration-document/sevis-id/sevis-id.component';
 import { DocumentDescriptionComponent } from './immigration-document/document-description/document-description.component';
+import { TribalMembershipComponent } from './tribal-membership/tribal-membership.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { DocumentDescriptionComponent } from './immigration-document/document-de
         children: [
           { path: 'basic-information', component: BasicInformationComponent },
           { path: 'citizenship', component: CitizenshipComponent },
+          { path: 'tribal-membership', component: TribalMembershipComponent },
           { path: '', redirectTo: 'basic-information' },
         ],
       },
@@ -77,6 +79,7 @@ import { DocumentDescriptionComponent } from './immigration-document/document-de
     I94NumberComponent,
     SevisIdComponent,
     DocumentDescriptionComponent,
+    TribalMembershipComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}

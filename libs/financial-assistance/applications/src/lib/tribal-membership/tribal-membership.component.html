@@ -1,0 +1,87 @@
+<fieldset>
+  <legend>
+    <h1>
+      Is
+      {{
+        newHouseholdMember.firstNameHasValue
+          ? newHouseholdMember.firstName
+          : 'this person'
+      }}
+      a member of an American Indian or Alaska Native Tribe?
+    </h1>
+  </legend>
+
+  <p class="enroll-hint">
+    American Indians, members of federally recognized Tribes, Alaska Native
+    Claims Settlement Act (ANCSA) corporation shareholders, and those eligible
+    for services from the Indian Health Service, Tribal Program, or Urban Indian
+    Health Program are eligible for enhanced savings, benefits and protections
+    through DC Health Link. Apply for financial assistance prior to enrolling in
+    a health plan to determine eligibility for the savings, benefits and
+    protections available.
+  </p>
+
+  <div class="enroll-fieldset-group">
+    <!-- Radio Group -->
+    <div class="enroll-radios">
+      <!-- Radio option with input, label, and help text -->
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="tribal-yes"
+          name="tribal-membership"
+          type="radio"
+          value="yes"
+          [(ngModel)]="newHouseholdMember.tribalMembership"
+        />
+
+        <!-- Radio label -->
+        <label class="enroll-label enroll-radios__label" for="tribal-yes">
+          Yes
+        </label>
+      </div>
+
+      <!-- Radio option with input, label, and help text -->
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="tribal-no"
+          name="tribal-membership"
+          type="radio"
+          value="no"
+          [(ngModel)]="newHouseholdMember.tribalMembership"
+        />
+        <!-- Radio label -->
+        <label class="enroll-label enroll-radios__label" for="tribal-no">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="newHouseholdMember.tribalMembership === 'yes'"
+    class="enroll-fieldset-group"
+  >
+    <div class="enroll-input-group">
+      <label class="enroll-label" for="address-1"> Tribal ID * </label>
+      <input
+        class="enroll-input"
+        id="address-1"
+        name="address-1"
+        type="text"
+        [(ngModel)]="newHouseholdMember.tribalId"
+      />
+    </div>
+  </div>
+</fieldset>
+
+<a routerLink="../tribal-membership" class="enroll-button"
+  >Continue providing information about
+  {{
+    newHouseholdMember.firstNameHasValue
+      ? newHouseholdMember.firstName
+      : 'this person'
+  }}
+</a>

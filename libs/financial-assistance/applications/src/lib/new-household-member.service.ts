@@ -9,12 +9,14 @@ export class NewHouseholdMemberService {
   firstName!: string;
   lastName!: string;
   needsCoverage: 'yes' | 'no' = 'yes';
-  livesWithPrimary: 'yes' | 'no' = 'no';
+  livesWithPrimary!: 'yes' | 'no';
   citizenOrNational: 'yes' | 'no' = 'no';
   naturalized!: 'yes' | 'no';
   naturalizedDocument!: string;
   eligibleImmigration: 'yes' | 'no' = 'yes';
   immigrationDocument!: VlpDocumentKind;
+  tribalMembership!: 'yes' | 'no';
+  tribalId!: string;
 
   get firstNameHasValue(): boolean {
     return this.firstName?.length > 0;
