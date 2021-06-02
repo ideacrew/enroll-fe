@@ -1,0 +1,82 @@
+<fieldset>
+  <legend>
+    <h1>
+      Is
+      {{
+        newHouseholdMember.firstNameHasValue
+          ? newHouseholdMember.firstName
+          : 'this person'
+      }}
+      currently incarcerated?
+    </h1>
+  </legend>
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="sign-in"
+        name="sign-in"
+        type="radio"
+        value="yes"
+        aria-describedby="file-taxes-yes-hint"
+      />
+
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="sign-in">
+        Yes
+      </label>
+
+      <!-- Help Text -->
+      <div id="file-taxes-yes-hint" class="enroll-hint enroll-radios__hint">
+        Select 'yes' if
+        {{
+          newHouseholdMember.firstNameHasValue
+            ? newHouseholdMember.firstName
+            : 'this person'
+        }}
+        serving a term in prison or is currently staying in a halfway house
+      </div>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="sign-in-2"
+        name="sign-in"
+        type="radio"
+        value="no"
+        aria-describedby="file-taxes-no-hint"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="sign-in-2">
+        No
+      </label>
+      <!-- Help text -->
+      <div id="file-taxes-no-hint" class="enroll-hint enroll-radios__hint">
+        Select 'no' if
+        {{
+          newHouseholdMember.firstNameHasValue
+            ? newHouseholdMember.firstName
+            : 'this person'
+        }}
+        is on probation, parole, or home confinement or being held in jail or
+        prison, but hasn't been convicted of a crime (in other words, charges
+        are pending)
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<a routerLink="../race-and-ethnicity" class="enroll-button"
+  >Continue providing information about
+  {{
+    newHouseholdMember.firstNameHasValue
+      ? newHouseholdMember.firstName
+      : 'this person'
+  }}
+</a>

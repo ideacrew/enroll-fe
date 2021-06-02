@@ -24,6 +24,7 @@ import { I94NumberComponent } from './immigration-document/i94-number/i94-number
 import { SevisIdComponent } from './immigration-document/sevis-id/sevis-id.component';
 import { DocumentDescriptionComponent } from './immigration-document/document-description/document-description.component';
 import { TribalMembershipComponent } from './tribal-membership/tribal-membership.component';
+import { IncarcerationStatusComponent } from './incarceration-status/incarceration-status.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,10 @@ import { TribalMembershipComponent } from './tribal-membership/tribal-membership
           { path: 'basic-information', component: BasicInformationComponent },
           { path: 'citizenship', component: CitizenshipComponent },
           { path: 'tribal-membership', component: TribalMembershipComponent },
+          {
+            path: 'incarceration-status',
+            component: IncarcerationStatusComponent,
+          },
           { path: '', redirectTo: 'basic-information' },
         ],
       },
@@ -80,6 +85,7 @@ import { TribalMembershipComponent } from './tribal-membership/tribal-membership
     SevisIdComponent,
     DocumentDescriptionComponent,
     TribalMembershipComponent,
+    IncarcerationStatusComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}
