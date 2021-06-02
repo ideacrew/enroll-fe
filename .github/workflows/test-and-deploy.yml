@@ -123,7 +123,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Application(s)
-        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --parallel
+        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --parallel --with-deps
   deploy:
     name: deploy
     needs: [format, lint, test, e2e, build]
