@@ -17,6 +17,7 @@ export class NewHouseholdMemberService {
   immigrationDocument!: VlpDocumentKind;
   tribalMembership!: 'yes' | 'no';
   tribalId!: string;
+  tribalHealth!: 'yes' | 'no' | undefined;
 
   get firstNameHasValue(): boolean {
     return this.firstName?.length > 0;
