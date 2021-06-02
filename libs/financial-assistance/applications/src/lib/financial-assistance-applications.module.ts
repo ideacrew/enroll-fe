@@ -25,6 +25,9 @@ import { SevisIdComponent } from './immigration-document/sevis-id/sevis-id.compo
 import { DocumentDescriptionComponent } from './immigration-document/document-description/document-description.component';
 import { TribalMembershipComponent } from './tribal-membership/tribal-membership.component';
 import { IncarcerationStatusComponent } from './incarceration-status/incarceration-status.component';
+import { RaceAndEthnicityComponent } from './race-and-ethnicity/race-and-ethnicity.component';
+import { UniqueIdPipe } from './unique-id.pipe';
+import { NaturalizedCitizenComponent } from './citizenship/naturalized-citizen/naturalized-citizen.component';
 
 @NgModule({
   imports: [
@@ -50,6 +53,7 @@ import { IncarcerationStatusComponent } from './incarceration-status/incarcerati
           { path: 'basic-information', component: BasicInformationComponent },
           { path: 'citizenship', component: CitizenshipComponent },
           { path: 'tribal-membership', component: TribalMembershipComponent },
+          { path: 'race-and-ethnicity', component: RaceAndEthnicityComponent },
           {
             path: 'incarceration-status',
             component: IncarcerationStatusComponent,
@@ -86,6 +90,9 @@ import { IncarcerationStatusComponent } from './incarceration-status/incarcerati
     DocumentDescriptionComponent,
     TribalMembershipComponent,
     IncarcerationStatusComponent,
+    RaceAndEthnicityComponent,
+    UniqueIdPipe,
+    NaturalizedCitizenComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}

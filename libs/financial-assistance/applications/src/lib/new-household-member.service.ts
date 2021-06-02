@@ -8,12 +8,12 @@ import { VlpDocumentKind } from '@enroll/financial-assistance/entities';
 export class NewHouseholdMemberService {
   firstName!: string;
   lastName!: string;
-  needsCoverage: 'yes' | 'no' = 'yes';
+  needsCoverage!: 'yes' | 'no';
   livesWithPrimary!: 'yes' | 'no';
-  citizenOrNational: 'yes' | 'no' = 'no';
-  naturalized!: 'yes' | 'no';
+  citizenOrNational!: 'yes' | 'no';
+  naturalized!: 'yes' | 'no' | undefined;
   naturalizedDocument!: string;
-  eligibleImmigration: 'yes' | 'no' = 'yes';
+  eligibleImmigration!: 'yes' | 'no';
   immigrationDocument!: VlpDocumentKind;
   tribalMembership!: 'yes' | 'no';
   tribalId!: string;

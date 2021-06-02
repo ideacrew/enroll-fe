@@ -42,7 +42,8 @@
 }
 
 .enroll-fieldset-group {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--s0);
   justify-content: stretch;
   width: 100%;

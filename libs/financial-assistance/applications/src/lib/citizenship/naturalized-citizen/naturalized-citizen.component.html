@@ -1,0 +1,127 @@
+<fieldset class="enroll-fieldset" aria-describedby="naturalized-citizen-hint">
+  <legend>
+    <h2>
+      Is
+      {{
+        newHouseholdMember.firstNameHasValue
+          ? newHouseholdMember.firstName
+          : 'this person'
+      }}
+      a naturalized citizen? *
+    </h2>
+  </legend>
+  <div id="naturalized-citizen-hint" class="enroll-hint">
+    A naturalized citizen is someone who wasn’t born a US citizen. A person can
+    apply to be a naturalized citizen after being a permanent resident (green
+    card holder) for a certain period of time, and if they meet certain other
+    legal requirements.
+  </div>
+  <div class="enroll-radios">
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-yes"
+        name="naturalized-citizen"
+        type="radio"
+        value="yes"
+        [(ngModel)]="newHouseholdMember.naturalized"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="naturalized-yes">
+        Yes
+      </label>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-no"
+        name="naturalized-citizen"
+        type="radio"
+        value="no"
+        [(ngModel)]="newHouseholdMember.naturalized"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="naturalized-no">
+        No
+      </label>
+    </div>
+  </div>
+</fieldset>
+<ng-container *ngIf="newHouseholdMember.naturalized === 'yes'">
+  <fieldset>
+    <legend>
+      <h2>
+        Which document type does
+        {{
+          newHouseholdMember.firstNameHasValue
+            ? newHouseholdMember.firstName
+            : 'this person'
+        }}
+        have?
+      </h2>
+    </legend>
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-doc-citizenship"
+        name="naturalized-document"
+        type="radio"
+        value="certOfCitizenship"
+        [(ngModel)]="newHouseholdMember.naturalizedDocument"
+      />
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="naturalized-doc-citizenship"
+      >
+        Certificate of Citizenship
+      </label>
+    </div>
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="naturalized-doc-naturalization-cert"
+        name="naturalized-document"
+        type="radio"
+        value="naturalizationCertificate"
+        [(ngModel)]="newHouseholdMember.naturalizedDocument"
+      />
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="naturalized-doc-naturalization-cert"
+      >
+        Naturalization Certificate
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset *ngIf="newHouseholdMember.naturalizedDocument">
+    <legend>
+      <h2>
+        {{
+          newHouseholdMember.firstNameHasValue
+            ? newHouseholdMember.firstName
+            : 'This person'
+        }}'s document numbers
+      </h2>
+    </legend>
+    <div class="enroll-fieldset-group">
+      <enroll-certificate-number
+        *ngIf="newHouseholdMember.naturalizedDocument === 'certOfCitizenship'"
+      ></enroll-certificate-number>
+      <enroll-naturalization-number
+        *ngIf="
+          newHouseholdMember.naturalizedDocument === 'naturalizationCertificate'
+        "
+      ></enroll-naturalization-number>
+      <enroll-alien-number></enroll-alien-number>
+    </div>
+  </fieldset>
+</ng-container>
