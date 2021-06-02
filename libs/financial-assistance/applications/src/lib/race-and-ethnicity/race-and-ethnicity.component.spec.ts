@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UniqueIdPipe } from '../unique-id.pipe';
 
 import { RaceAndEthnicityComponent } from './race-and-ethnicity.component';
 
@@ -8,9 +9,8 @@ describe('RaceAndEthnicityComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RaceAndEthnicityComponent ]
-    })
-    .compileComponents();
+      declarations: [RaceAndEthnicityComponent, UniqueIdPipe],
+    }).compileComponents();
   });
 
   beforeEach(() => {
