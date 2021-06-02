@@ -13,5 +13,6 @@ export class NaturalizedCitizenComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.newHouseholdMember.naturalized = undefined;
+    this.newHouseholdMember.naturalizedDocument = undefined;
   }
 }

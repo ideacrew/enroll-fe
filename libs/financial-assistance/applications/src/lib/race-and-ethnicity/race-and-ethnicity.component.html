@@ -66,3 +66,13 @@
     <div class="enroll-checkboxes__item"></div>
   </div>
 </fieldset>
+
+<a routerLink="../../edit" class="enroll-button"
+  >Add
+  {{
+    newHouseholdMember.firstNameHasValue
+      ? newHouseholdMember.firstName
+      : 'this person'
+  }}
+  to household
+</a>

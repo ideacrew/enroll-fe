@@ -28,6 +28,7 @@ import { IncarcerationStatusComponent } from './incarceration-status/incarcerati
 import { RaceAndEthnicityComponent } from './race-and-ethnicity/race-and-ethnicity.component';
 import { UniqueIdPipe } from './unique-id.pipe';
 import { NaturalizedCitizenComponent } from './citizenship/naturalized-citizen/naturalized-citizen.component';
+import { ImmigrationStatusComponent } from './citizenship/immigration-status/immigration-status.component';
 
 @NgModule({
   imports: [
@@ -93,6 +94,7 @@ import { NaturalizedCitizenComponent } from './citizenship/naturalized-citizen/n
     RaceAndEthnicityComponent,
     UniqueIdPipe,
     NaturalizedCitizenComponent,
+    ImmigrationStatusComponent,
   ],
 })
 export class FinancialAssistanceApplicationsModule {}

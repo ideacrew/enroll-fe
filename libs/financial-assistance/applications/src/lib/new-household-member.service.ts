@@ -12,8 +12,8 @@ export class NewHouseholdMemberService {
   livesWithPrimary!: 'yes' | 'no';
   citizenOrNational!: 'yes' | 'no';
   naturalized!: 'yes' | 'no' | undefined;
-  naturalizedDocument!: string;
-  eligibleImmigration!: 'yes' | 'no';
+  naturalizedDocument!: string | undefined;
+  eligibleImmigration!: 'yes' | 'no' | undefined;
   immigrationDocument!: VlpDocumentKind;
   tribalMembership!: 'yes' | 'no';
   tribalId!: string;
