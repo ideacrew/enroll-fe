@@ -71,10 +71,6 @@ export const loader = ['en', 'es'].reduce(
           { path: '', redirectTo: 'basic-information' },
         ],
       },
-      // {
-      //   path: ':applicationId/applicants/:applicantId/tax-info',
-      //   component: TaxInfoComponent,
-      // },
       {
         path: ':applicationId/applicants/:applicantId',
         loadChildren: () =>

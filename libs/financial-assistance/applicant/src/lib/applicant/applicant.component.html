@@ -1,1 +1,33 @@
-<router-outlet></router-outlet>
+<nav class="applicant-nav">
+  <div class="sticky">
+    <span>Income and Coverage Info</span>
+    <ul>
+      <li><a routerLink="tax-info" routerLinkActive="active">Tax Info</a></li>
+      <li>
+        <a routerLink="job-income" routerLinkActive="active">Job Income</a>
+      </li>
+      <li>
+        <a routerLink="other-income" routerLinkActive="active">Other Income</a>
+      </li>
+      <li>
+        <a routerLink="income-adjustments" routerLinkActive="active"
+          >Income Adjustments</a
+        >
+      </li>
+      <li>
+        <a routerLink="health-coverage" routerLinkActive="active"
+          >Health Coverage</a
+        >
+      </li>
+      <li>
+        <a routerLink="other-questions" routerLinkActive="active"
+          >Other Questions</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-with-nav">
+  <router-outlet></router-outlet>
+</div>
