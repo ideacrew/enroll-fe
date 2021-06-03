@@ -4,8 +4,25 @@
   gap: var(--s2);
 }
 
+.sticky > ul {
+  padding-left: 0;
+}
+
+li > ul {
+  display: none;
+  padding-left: var(--s0);
+}
+
+ul {
+  list-style: none;
+}
+
 .active {
   font-weight: 600;
+}
+
+.active + ul {
+  display: block;
 }
 
 .sticky {
