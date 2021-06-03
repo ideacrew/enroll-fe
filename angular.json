@@ -747,6 +747,46 @@
           }
         }
       }
+    },
+    "financial-assistance-applicant": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/applicant",
+      "sourceRoot": "libs/financial-assistance/applicant/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/financial-assistance/applicant/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/applicant/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/applicant/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/applicant"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/applicant/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/applicant/src/**/*.ts",
+              "libs/financial-assistance/applicant/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

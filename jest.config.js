@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/libs/financial-assistance/shell',
     '<rootDir>/libs/financial-assistance/applications',
     '<rootDir>/libs/financial-assistance/entities',
+    '<rootDir>/libs/financial-assistance/applicant',
   ],
 };

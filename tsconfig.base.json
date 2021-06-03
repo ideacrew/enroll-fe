@@ -30,6 +30,9 @@
       ],
       "@enroll/financial-assistance/entities": [
         "libs/financial-assistance/entities/src/index.ts"
+      ],
+      "@enroll/financial-assistance/applicant": [
+        "libs/financial-assistance/applicant/src/index.ts"
       ]
     }
   },

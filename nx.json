@@ -66,10 +66,13 @@
       "tags": ["scope:shared", "type:feature"]
     },
     "financial-assistance-applications": {
-      "tags": ["scope:shared"]
+      "tags": ["scope:shared", "scope:faa"]
     },
     "financial-assistance-entities": {
-      "tags": []
+      "tags": ["scope:faa"]
+    },
+    "financial-assistance-applicant": {
+      "tags": ["scope:faa", "type:feature"]
     }
   }
 }
