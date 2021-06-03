@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { ApplicantComponent } from './applicant/applicant.component';
-import { TaxInfoComponent } from './tax-info/tax-info.component';
 import { OtherIncomeComponent } from './other-income/other-income.component';
 import { IncomeAdjustmentsComponent } from './income-adjustments/income-adjustments.component';
 import { HealthCoverageComponent } from './health-coverage/health-coverage.component';
@@ -19,6 +18,8 @@ import { BlindComponent } from './blind/blind.component';
 import { DailyAssistanceComponent } from './daily-assistance/daily-assistance.component';
 import { MedicalBillsComponent } from './medical-bills/medical-bills.component';
 import { DisabilityComponent } from './disability/disability.component';
+import { FilingTaxesComponent } from './filing-taxes/filing-taxes.component';
+import { TaxDependentComponent } from './tax-dependent/tax-dependent.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,15 @@ import { DisabilityComponent } from './disability/disability.component';
         path: '',
         component: ApplicantComponent,
         children: [
-          { path: 'tax-info', component: TaxInfoComponent },
+          {
+            path: 'tax-info/filing-taxes',
+            component: FilingTaxesComponent,
+          },
+          {
+            path: 'tax-info/tax-dependent',
+            component: TaxDependentComponent,
+          },
+          { path: 'tax-info', redirectTo: 'tax-info/filing-taxes' },
           {
             path: 'job-income/employer-income',
             component: EmployerIncomeComponent,
@@ -98,7 +107,6 @@ import { DisabilityComponent } from './disability/disability.component';
   ],
   declarations: [
     ApplicantComponent,
-    TaxInfoComponent,
     OtherIncomeComponent,
     IncomeAdjustmentsComponent,
     HealthCoverageComponent,
@@ -113,6 +121,8 @@ import { DisabilityComponent } from './disability/disability.component';
     DailyAssistanceComponent,
     MedicalBillsComponent,
     DisabilityComponent,
+    FilingTaxesComponent,
+    TaxDependentComponent,
   ],
 })
 export class FinancialAssistanceApplicantModule {}

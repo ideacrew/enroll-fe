@@ -2,7 +2,23 @@
   <div class="sticky">
     <span>Income and Coverage Info</span>
     <ul>
-      <li><a routerLink="tax-info" routerLinkActive="active">Tax Info</a></li>
+      <li>
+        <a routerLink="tax-info" routerLinkActive="active">Tax Info</a>
+        <ul>
+          <li>
+            <a routerLinkActive="active" routerLink="tax-info/filing-taxes"
+              >Filing Taxes</a
+            >
+          </li>
+          <li>
+            <a
+              routerLinkActive="active"
+              routerLink="tax-info/tax-dependent"
+              >Tax Dependent</a
+            >
+          </li>
+        </ul>
+      </li>
       <li>
         <a routerLink="job-income" routerLinkActive="active">Job Income</a>
         <ul>
@@ -37,23 +53,6 @@
           </li>
         </ul>
       </li>
-      <!-- <li>
-        <a routerLink="other-income" routerLinkActive="active">Other Income</a>
-        <ul>
-          <li>
-            <a
-              routerLink="other-income/unemployment-income"
-              routerLinkActive="active"
-            ></a>
-          </li>
-          <li>
-            <a
-              routerLink="other-income/other-sources"
-              routerLinkActive="active"
-            ></a>
-          </li>
-        </ul>
-      </li> -->
       <li>
         <a routerLink="income-adjustments" routerLinkActive="active"
           >Income Adjustments</a
