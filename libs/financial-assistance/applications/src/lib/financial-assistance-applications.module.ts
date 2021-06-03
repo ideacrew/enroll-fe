@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 import { EditApplicationComponent } from './edit-application/edit-application.component';
@@ -30,10 +31,19 @@ import { UniqueIdPipe } from './unique-id.pipe';
 import { NaturalizedCitizenComponent } from './citizenship/naturalized-citizen/naturalized-citizen.component';
 import { ImmigrationStatusComponent } from './citizenship/immigration-status/immigration-status.component';
 
+export const loader = ['en', 'es'].reduce(
+  (acc: { [language: string]: unknown }, lang: string) => {
+    acc[lang] = () => import(`./i18n/${lang}.json`);
+    return acc;
+  },
+  {}
+);
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    TranslocoModule,
     RouterModule.forChild([
       {
         path: '', // matches /applications
@@ -95,6 +105,15 @@ import { ImmigrationStatusComponent } from './citizenship/immigration-status/imm
     UniqueIdPipe,
     NaturalizedCitizenComponent,
     ImmigrationStatusComponent,
+  ],
+  providers: [
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {
+        scope: 'faa',
+        loader,
+      },
+    },
   ],
 })
 export class FinancialAssistanceApplicationsModule {}
