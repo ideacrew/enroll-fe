@@ -5,4 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./blind.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BlindComponent {}
+export class BlindComponent {
+  isSelfAttestedBlind: boolean | undefined;
+}

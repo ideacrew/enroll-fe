@@ -1,1 +1,100 @@
-<p>income-adjustments works!</p>
+<fieldset class="enroll-fieldset">
+  <!-- Question and Help Text -->
+  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+    <h1 class="enroll-fieldset__heading">
+      Does this person expect to have income adjustments in 2021? *
+    </h1>
+  </legend>
+
+  <div class="enroll-hint">
+    Income adjustments are certain types of expenses you can claim on your
+    federal tax return that lower the amount of taxable income:
+    <ul>
+      <li>Alimony paid</li>
+      <li>
+        Certain business expenses of reservists, performing artists, and
+        fee-basis government officials
+      </li>
+      <li>Deductible part of the self-employment tax</li>
+      <li>Domestic production activities deduction</li>
+      <li>Educator expenses</li>
+      <li>Health savings account deduction</li>
+      <li>IRA deduction</li>
+      <li>Moving expenses</li>
+      <li>Penalty on early withdrawal of savings</li>
+      <li>Self-employed health insurance deduction</li>
+      <li>Self-employed SEP, SIMPLE and qualified plans</li>
+      <li>Student loan interest deduction</li>
+      <li>Tuition and fees</li>
+    </ul>
+  </div>
+
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="income-adjustments-yes"
+        name="income-adjustments"
+        type="radio"
+        value="yes"
+        aria-describedby="income-adjustments-yes-hint"
+        [(ngModel)]="hasIncomeAdjustments"
+      />
+
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="income-adjustments-yes"
+      >
+        Yes
+      </label>
+
+      <!-- Help Text -->
+      <div
+        id="income-adjustments-yes-hint"
+        class="enroll-hint enroll-radios__hint"
+      >
+        Select 'yes' if this person expects to have any of the types of expenses
+        listed above for the year you’re applying for coverage.
+      </div>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="income-adjustments-no"
+        name="income-adjustments"
+        type="radio"
+        value="no"
+        aria-describedby="income-adjustments-no-hint"
+        [(ngModel)]="hasIncomeAdjustments"
+      />
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="income-adjustments-no"
+      >
+        No
+      </label>
+      <!-- Help text -->
+      <div
+        id="income-adjustments-no-hint"
+        class="enroll-hint enroll-radios__hint"
+      >
+        Answer no if you had no income adjustments.
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<a
+  *ngIf="hasIncomeAdjustments !== undefined"
+  class="enroll-button"
+  routerLink="../health-coverage"
+  >Continue to Health Coverage</a
+>

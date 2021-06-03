@@ -5,4 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./other-income.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OtherIncomeComponent {}
+export class OtherIncomeComponent {
+  hasOtherIncome: 'yes' | 'no' | undefined;
+}

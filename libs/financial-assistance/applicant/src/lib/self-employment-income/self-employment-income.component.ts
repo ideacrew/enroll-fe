@@ -5,4 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./self-employment-income.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelfEmploymentIncomeComponent {}
+export class SelfEmploymentIncomeComponent {
+  hasSelfEmploymentIncome: 'yes' | 'no' | undefined;
+}

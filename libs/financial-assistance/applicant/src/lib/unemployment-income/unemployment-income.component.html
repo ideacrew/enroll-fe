@@ -1,1 +1,94 @@
-<p>unemployment-income works!</p>
+<fieldset class="enroll-fieldset" aria-describedby="unemployment-income-hint">
+  <!-- Question and Help Text -->
+  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+    <h1 class="enroll-fieldset__heading">
+      Did this person receive Unemployment Income at any point in 2021? *
+    </h1>
+  </legend>
+  <div id="unemployment-income-hint" class="enroll-hint">
+    We need to know about any unemployment income this person received in 2021
+    to check if they qualify for lower monthly premiums under the
+    <a
+      target="__blank"
+      rel="noopener noreferrer"
+      href="https://www.dchealthlink.com/coronavirus/americanrescueplan"
+      >American Rescue Plan</a
+    >.
+  </div>
+
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="unemployment-income-yes"
+        name="unemployment-income"
+        type="radio"
+        value="yes"
+        aria-describedby="unemployment-income-yes-hint"
+        [(ngModel)]="hasUnemploymentIncome"
+      />
+
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="unemployment-income-yes"
+      >
+        Yes
+      </label>
+
+      <!-- Help Text -->
+      <div
+        id="unemployment-income-yes-hint"
+        class="enroll-hint enroll-radios__hint"
+      >
+        Select ‘yes’ if this person received one or more types of unemployment
+        income listed below at any point in 2021, even if they no longer receive
+        this income.
+        <ul>
+          <li>Regular unemployment compensation</li>
+          <li>Pandemic Emergency Unemployment Compensation (PEUC)</li>
+          <li>Extended unemployment compensation</li>
+          <li>Pandemic Unemployment Assistance (PUA)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="unemployment-income-no"
+        name="unemployment-income"
+        type="radio"
+        value="no"
+        aria-describedby="unemployment-income-no-hint"
+        [(ngModel)]="hasUnemploymentIncome"
+      />
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="unemployment-income-no"
+      >
+        No
+      </label>
+      <!-- Help text -->
+      <div
+        id="unemployment-income-no-hint"
+        class="enroll-hint enroll-radios__hint"
+      >
+        Answer no if you had no unemployment income.
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<a
+  *ngIf="hasUnemploymentIncome !== undefined"
+  class="enroll-button"
+  routerLink="../other-sources"
+  >Continue to Other Sources of Income</a
+>

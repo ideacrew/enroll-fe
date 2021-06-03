@@ -5,4 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./disability.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DisabilityComponent {}
+export class DisabilityComponent {
+  isSelfAttestedDisabled: boolean | undefined;
+}

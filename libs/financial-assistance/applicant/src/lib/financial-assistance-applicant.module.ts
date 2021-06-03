@@ -15,11 +15,12 @@ import { PotentialCoverageComponent } from './potential-coverage/potential-cover
 import { PregnantComponent } from './pregnant/pregnant.component';
 import { StudentComponent } from './student/student.component';
 import { BlindComponent } from './blind/blind.component';
-import { DailyAssistanceComponent } from './daily-assistance/daily-assistance.component';
+import { LongTermCareComponent } from './long-term-care/long-term-care.component';
 import { MedicalBillsComponent } from './medical-bills/medical-bills.component';
 import { DisabilityComponent } from './disability/disability.component';
 import { FilingTaxesComponent } from './filing-taxes/filing-taxes.component';
 import { TaxDependentComponent } from './tax-dependent/tax-dependent.component';
+import { FosterCareComponent } from './foster-care/foster-care.component';
 
 @NgModule({
   imports: [
@@ -85,12 +86,16 @@ import { TaxDependentComponent } from './tax-dependent/tax-dependent.component';
             component: StudentComponent,
           },
           {
+            path: 'other-questions/foster-care',
+            component: FosterCareComponent,
+          },
+          {
             path: 'other-questions/blind',
             component: BlindComponent,
           },
           {
             path: 'other-questions/daily-assistance',
-            component: DailyAssistanceComponent,
+            component: LongTermCareComponent,
           },
           {
             path: 'other-questions/medical-bills',
@@ -118,11 +123,12 @@ import { TaxDependentComponent } from './tax-dependent/tax-dependent.component';
     PregnantComponent,
     StudentComponent,
     BlindComponent,
-    DailyAssistanceComponent,
+    LongTermCareComponent,
     MedicalBillsComponent,
     DisabilityComponent,
     FilingTaxesComponent,
     TaxDependentComponent,
+    FosterCareComponent,
   ],
 })
 export class FinancialAssistanceApplicantModule {}

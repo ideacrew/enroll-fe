@@ -6,4 +6,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./potential-coverage.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PotentialCoverageComponent {}
+export class PotentialCoverageComponent {
+  hasEligibleHealthCoverage: 'yes' | 'no' | undefined;
+}

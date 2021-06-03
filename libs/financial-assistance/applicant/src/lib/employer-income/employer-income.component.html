@@ -1,1 +1,75 @@
-<p>employer-income works!</p>
+<fieldset class="enroll-fieldset" aria-describedby="employer-income-hint">
+  <!-- Question and Help Text -->
+  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+    <h1 class="enroll-fieldset__heading">
+      Does this person have income from an employer in 2021? *
+    </h1>
+  </legend>
+  <div id="employer-income-hint" class="enroll-hint">
+    We need to know about all income this person receives from an employer,
+    including wages, tips, salaries, and bonuses.
+  </div>
+
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="employer-income-yes"
+        name="employer-income"
+        type="radio"
+        value="yes"
+        aria-describedby="employer-income-yes-hint"
+        [(ngModel)]="hasEmployerIncome"
+      />
+
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="employer-income-yes"
+      >
+        Yes
+      </label>
+
+      <!-- Help Text -->
+      <div
+        id="employer-income-yes-hint"
+        class="enroll-hint enroll-radios__hint"
+      >
+        Select ‘yes’ if this person is considered an employee of a business, or
+        receives a W-2 federal form from any employer.
+      </div>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="employer-income-no"
+        name="employer-income"
+        type="radio"
+        value="no"
+        aria-describedby="employer-income-no-hint"
+        [(ngModel)]="hasEmployerIncome"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="employer-income-no">
+        No
+      </label>
+      <!-- Help text -->
+      <div id="employer-income-no-hint" class="enroll-hint enroll-radios__hint">
+        Answer no if you had no income from an employer.
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<a
+  *ngIf="hasEmployerIncome !== undefined"
+  class="enroll-button"
+  routerLink="../self-employment-income"
+  >Continue to Self-Employment Income</a
+>

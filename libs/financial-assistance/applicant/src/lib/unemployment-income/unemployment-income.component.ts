@@ -5,4 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./unemployment-income.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UnemploymentIncomeComponent {}
+export class UnemploymentIncomeComponent {
+  hasUnemploymentIncome: 'yes' | 'no' | undefined;
+}

@@ -5,4 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./medical-bills.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MedicalBillsComponent {}
+export class MedicalBillsComponent {
+  needHelpPayingBills: boolean | undefined;
+}
