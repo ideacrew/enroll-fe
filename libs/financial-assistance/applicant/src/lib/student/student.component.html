@@ -20,7 +20,7 @@
         name="student"
         type="radio"
         [value]="true"
-        [(ngModel)]="student.isStudent"
+        [(ngModel)]="student.is_student"
       />
 
       <!-- Radio label -->
@@ -38,7 +38,7 @@
         name="student"
         type="radio"
         [value]="false"
-        [(ngModel)]="student.isStudent"
+        [(ngModel)]="student.is_student"
       />
       <!-- Radio label -->
       <label class="enroll-label enroll-radios__label" for="student-no">
@@ -49,7 +49,7 @@
 </fieldset>
 
 <a
-  *ngIf="student.isStudent === false"
+  *ngIf="student.is_student === false"
   class="enroll-button"
   routerLink="../blind"
   >Continue to Blind</a

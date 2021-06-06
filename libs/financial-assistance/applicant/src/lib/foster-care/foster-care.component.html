@@ -22,7 +22,7 @@
         name="foster-care"
         type="radio"
         [value]="true"
-        [(ngModel)]="fosterCare.isFormerFosterCare"
+        [(ngModel)]="fosterCare.is_former_foster_care"
       />
 
       <!-- Radio label -->
@@ -40,7 +40,7 @@
         name="foster-care"
         type="radio"
         [value]="false"
-        [(ngModel)]="fosterCare.isFormerFosterCare"
+        [(ngModel)]="fosterCare.is_former_foster_care"
       />
       <!-- Radio label -->
       <label class="enroll-label enroll-radios__label" for="foster-care-no">
@@ -51,7 +51,7 @@
 </fieldset>
 
 <a
-  *ngIf="fosterCare.isFormerFosterCare === false"
+  *ngIf="fosterCare.is_former_foster_care === false"
   class="enroll-button"
   routerLink="../student"
   >Continue to Student</a

@@ -20,7 +20,7 @@
         name="pregnant"
         type="radio"
         [value]="true"
-        [(ngModel)]="pregnant.isPregnant"
+        [(ngModel)]="pregnant.is_pregnant"
       />
 
       <!-- Radio label -->
@@ -38,7 +38,7 @@
         name="pregnant"
         type="radio"
         [value]="false"
-        [(ngModel)]="pregnant.isPregnant"
+        [(ngModel)]="pregnant.is_pregnant"
       />
       <!-- Radio label -->
       <label class="enroll-label enroll-radios__label" for="pregnant-no">
@@ -49,7 +49,7 @@
 </fieldset>
 
 <a
-  *ngIf="pregnant.isPregnant === false"
+  *ngIf="pregnant.is_pregnant === false"
   class="enroll-button"
   routerLink="../foster-care"
   >Continue to Foster Care</a
