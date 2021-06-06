@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FosterCareInformation } from '@enroll/financial-assistance/entities';
 
@@ -8,6 +9,6 @@ import { FosterCareInformation } from '@enroll/financial-assistance/entities';
 })
 export class FosterCareComponent {
   fosterCare: FosterCareInformation = {
-    isFormerFosterCare: undefined,
+    is_former_foster_care: undefined,
   };
 }

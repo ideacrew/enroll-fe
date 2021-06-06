@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { PregnancyInformation } from '@enroll/financial-assistance/entities';
@@ -9,6 +10,6 @@ import { PregnancyInformation } from '@enroll/financial-assistance/entities';
 })
 export class PregnantComponent {
   pregnant: PregnancyInformation = {
-    isPregnant: false,
+    is_pregnant: false,
   };
 }

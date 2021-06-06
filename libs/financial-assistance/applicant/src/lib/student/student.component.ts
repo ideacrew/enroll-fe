@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { StudentInformation } from '@enroll/financial-assistance/entities';
@@ -9,6 +10,6 @@ import { StudentInformation } from '@enroll/financial-assistance/entities';
 })
 export class StudentComponent {
   student: StudentInformation = {
-    isStudent: undefined,
+    is_student: undefined,
   };
 }
