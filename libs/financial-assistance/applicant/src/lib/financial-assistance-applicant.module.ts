@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApplicantComponent } from './applicant/applicant.component';
 import { OtherIncomeComponent } from './other-income/other-income.component';
@@ -26,6 +26,7 @@ import { FosterCareComponent } from './foster-care/foster-care.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',

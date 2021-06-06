@@ -1,12 +1,15 @@
+import { UsStateAbbreviationKind } from './usStateAbbreviation';
+
+/* eslint-disable @typescript-eslint/naming-convention */
 interface NoFosterCare {
-  isFormerFosterCare: false | undefined;
+  is_former_foster_care: false | undefined;
 }
 
 interface FosterCare {
-  isFormerFosterCare: true;
-  ageLeftFosterCare: number;
-  fosterCareUsState: string;
-  hadMedicaidDuringFosterCare: boolean;
+  is_former_foster_care: true;
+  age_left_foster_care: number;
+  foster_care_us_state: UsStateAbbreviationKind;
+  had_medicaid_during_foster_care: boolean;
 }
 
 export type FosterCareInformation = NoFosterCare | FosterCare;

@@ -111,7 +111,7 @@ export const loader = ['en', 'es'].reduce(
     {
       provide: TRANSLOCO_SCOPE,
       useValue: {
-        scope: 'faa',
+        scope: 'faaDefault',
         loader,
       },
     },

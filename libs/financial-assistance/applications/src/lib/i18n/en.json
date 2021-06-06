@@ -1,3 +1,4 @@
 {
-  "key": "value"
+  "key": "default key value",
+  "applicationListTitle": "default list title"
 }
