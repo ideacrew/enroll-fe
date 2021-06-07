@@ -8,8 +8,6 @@ import { OtherIncomeComponent } from './other-income/other-income.component';
 import { IncomeAdjustmentsComponent } from './income-adjustments/income-adjustments.component';
 import { HealthCoverageComponent } from './health-coverage/health-coverage.component';
 import { OtherQuestionsComponent } from './other-questions/other-questions.component';
-import { EmployerIncomeComponent } from './employer-income/employer-income.component';
-import { SelfEmploymentIncomeComponent } from './self-employment-income/self-employment-income.component';
 import { UnemploymentIncomeComponent } from './unemployment-income/unemployment-income.component';
 import { PotentialCoverageComponent } from './potential-coverage/potential-coverage.component';
 import { PregnantComponent } from './pregnant/pregnant.component';
@@ -20,6 +18,7 @@ import { MedicalBillsComponent } from './medical-bills/medical-bills.component';
 import { DisabilityComponent } from './disability/disability.component';
 import { FosterCareComponent } from './foster-care/foster-care.component';
 import { TaxInfoModule } from './tax-info/tax-info.module';
+import { JobIncomeModule } from './job-income/job-income.module';
 
 @NgModule({
   imports: [
@@ -32,18 +31,8 @@ import { TaxInfoModule } from './tax-info/tax-info.module';
         component: ApplicantComponent,
         children: [
           { path: 'tax-info', loadChildren: () => TaxInfoModule },
-          {
-            path: 'job-income/employer-income',
-            component: EmployerIncomeComponent,
-          },
-          {
-            path: 'job-income/self-employment-income',
-            component: SelfEmploymentIncomeComponent,
-          },
-          {
-            path: 'job-income',
-            redirectTo: 'job-income/employer-income',
-          },
+          { path: 'job-income', loadChildren: () => JobIncomeModule },
+
           {
             path: 'other-income/other-sources',
             component: OtherIncomeComponent,
@@ -108,8 +97,6 @@ import { TaxInfoModule } from './tax-info/tax-info.module';
     IncomeAdjustmentsComponent,
     HealthCoverageComponent,
     OtherQuestionsComponent,
-    EmployerIncomeComponent,
-    SelfEmploymentIncomeComponent,
     UnemploymentIncomeComponent,
     PotentialCoverageComponent,
     PregnantComponent,
