@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApplicantComponent } from './applicant/applicant.component';
-import { IncomeAdjustmentsComponent } from './income-adjustments/income-adjustments.component';
 import { HealthCoverageComponent } from './health-coverage/health-coverage.component';
 import { OtherQuestionsComponent } from './other-questions/other-questions.component';
 import { PotentialCoverageComponent } from './potential-coverage/potential-coverage.component';
@@ -18,6 +17,7 @@ import { FosterCareComponent } from './foster-care/foster-care.component';
 import { TaxInfoModule } from './tax-info/tax-info.module';
 import { JobIncomeModule } from './job-income/job-income.module';
 import { OtherIncomeModule } from './other-income/other-income.module';
+import { DeductionsModule } from './deductions/deductions.module';
 
 @NgModule({
   imports: [
@@ -36,7 +36,7 @@ import { OtherIncomeModule } from './other-income/other-income.module';
             loadChildren: () => OtherIncomeModule,
           },
 
-          { path: 'income-adjustments', component: IncomeAdjustmentsComponent },
+          { path: 'income-adjustments', loadChildren: () => DeductionsModule },
           {
             path: 'health-coverage/currently-enrolled',
             component: HealthCoverageComponent,
@@ -84,7 +84,6 @@ import { OtherIncomeModule } from './other-income/other-income.module';
   ],
   declarations: [
     ApplicantComponent,
-    IncomeAdjustmentsComponent,
     HealthCoverageComponent,
     OtherQuestionsComponent,
     PotentialCoverageComponent,
