@@ -26,15 +26,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>269000183</td>
-        <td>draft</td>
-        <td>{{ startedOnDate | date: 'medium' }}</td>
-        <td></td>
-        <td></td>
-        <td>
-          <a routerLink="269000183/edit">Edit</a>,
-          <a routerLink="269000183/review">Review</a>
+      <tr
+        *ngFor="let application of applications$ | async"
+        class="application-row"
+      >
+        <td class="application-id">{{ application.id }}</td>
+        <td class="application-status">{{ application.status }}</td>
+        <td class="application-started-on">
+          {{ application.startedOn | date: 'medium' }}
+        </td>
+        <td class="application-submitted-on"></td>
+        <td class="application-determination"></td>
+        <td class="application-actions">
+          <a class="enroll-button" routerLink="269000183/edit">Edit</a>
         </td>
       </tr>
     </tbody>
