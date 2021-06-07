@@ -4,9 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApplicantComponent } from './applicant/applicant.component';
-import { HealthCoverageComponent } from './health-coverage/health-coverage.component';
 import { OtherQuestionsComponent } from './other-questions/other-questions.component';
-import { PotentialCoverageComponent } from './potential-coverage/potential-coverage.component';
 import { PregnantComponent } from './pregnant/pregnant.component';
 import { StudentComponent } from './student/student.component';
 import { BlindComponent } from './blind/blind.component';
@@ -18,6 +16,7 @@ import { TaxInfoModule } from './tax-info/tax-info.module';
 import { JobIncomeModule } from './job-income/job-income.module';
 import { OtherIncomeModule } from './other-income/other-income.module';
 import { DeductionsModule } from './deductions/deductions.module';
+import { BenefitsModule } from './benefits/benefits.module';
 
 @NgModule({
   imports: [
@@ -37,18 +36,8 @@ import { DeductionsModule } from './deductions/deductions.module';
           },
 
           { path: 'income-adjustments', loadChildren: () => DeductionsModule },
-          {
-            path: 'health-coverage/currently-enrolled',
-            component: HealthCoverageComponent,
-          },
-          {
-            path: 'health-coverage/potential-coverage',
-            component: PotentialCoverageComponent,
-          },
-          {
-            path: 'health-coverage',
-            redirectTo: 'health-coverage/currently-enrolled',
-          },
+          { path: 'health-coverage', loadChildren: () => BenefitsModule },
+
           {
             path: 'other-questions/pregnant',
             component: PregnantComponent,
@@ -81,12 +70,11 @@ import { DeductionsModule } from './deductions/deductions.module';
         ],
       },
     ]),
+    BenefitsModule,
   ],
   declarations: [
     ApplicantComponent,
-    HealthCoverageComponent,
     OtherQuestionsComponent,
-    PotentialCoverageComponent,
     PregnantComponent,
     StudentComponent,
     BlindComponent,
