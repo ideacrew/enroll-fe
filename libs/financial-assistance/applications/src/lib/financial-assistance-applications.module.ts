@@ -29,6 +29,7 @@ import { RaceAndEthnicityComponent } from './race-and-ethnicity/race-and-ethnici
 import { UniqueIdPipe } from './unique-id.pipe';
 import { NaturalizedCitizenComponent } from './citizenship/naturalized-citizen/naturalized-citizen.component';
 import { ImmigrationStatusComponent } from './citizenship/immigration-status/immigration-status.component';
+import { ApplicationChecklistComponent } from './application-checklist/application-checklist.component';
 
 export const loader = ['en', 'es'].reduce(
   (acc: { [language: string]: unknown }, lang: string) => {
@@ -47,6 +48,10 @@ export const loader = ['en', 'es'].reduce(
       {
         path: '', // matches /applications
         component: ApplicationsListPageComponent,
+      },
+      {
+        path: ':applicationId/application-checklist',
+        component: ApplicationChecklistComponent,
       },
       {
         path: ':applicationId/edit',
@@ -106,6 +111,7 @@ export const loader = ['en', 'es'].reduce(
     UniqueIdPipe,
     NaturalizedCitizenComponent,
     ImmigrationStatusComponent,
+    ApplicationChecklistComponent,
   ],
   providers: [
     {
