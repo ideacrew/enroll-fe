@@ -20,9 +20,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v2-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -42,9 +42,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v2-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -64,9 +64,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v2-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -87,9 +87,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v2-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node14-
       - name: Cache cypress
         uses: actions/cache@v2
         with:
@@ -116,9 +116,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v2-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -139,9 +139,9 @@ jobs:
         id: npm-cache
         with:
           path: node_modules
-          key: v2-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v2-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node14-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
