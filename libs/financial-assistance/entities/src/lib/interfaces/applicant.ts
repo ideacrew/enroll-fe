@@ -5,7 +5,7 @@ import { Benefit } from './benefit';
 import { CitizenImmigrationStatusInformation } from './citizenImmigrationStatusInformation';
 import { Deduction } from './deduction';
 import { Demographic } from './demographic';
-import { FamilyMemberReference } from './familyMemberReference';
+import { FamilyMemberReference } from './family';
 import { FosterCareInformation } from './fosterCare';
 import { IdentifyingInformation } from './identifyingInformation';
 import { Income } from './income';

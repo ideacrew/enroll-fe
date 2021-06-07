@@ -11,7 +11,7 @@ export * from './gender';
 export * from './attestation';
 export * from './nativeAmericanInformation';
 export * from './citizenImmigrationStatusInformation';
-export * from './familyMemberReference';
 export * from './taxFilerKind';
 export * from './identifyingInformation';
 export * from './benefit';
+export * from './family';
