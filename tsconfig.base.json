@@ -33,6 +33,9 @@
       ],
       "@enroll/financial-assistance/applicant": [
         "libs/financial-assistance/applicant/src/index.ts"
+      ],
+      "@enroll/financial-assistance/data-access": [
+        "libs/financial-assistance/data-access/src/index.ts"
       ]
     }
   },

@@ -12,5 +12,6 @@ module.exports = {
     '<rootDir>/libs/financial-assistance/applications',
     '<rootDir>/libs/financial-assistance/entities',
     '<rootDir>/libs/financial-assistance/applicant',
+    '<rootDir>/libs/financial-assistance/data-access',
   ],
 };

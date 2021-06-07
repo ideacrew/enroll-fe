@@ -73,6 +73,9 @@
     },
     "financial-assistance-applicant": {
       "tags": ["scope:faa", "type:feature"]
+    },
+    "financial-assistance-data-access": {
+      "tags": ["scope:faa", "type:data-access"]
     }
   }
 }
