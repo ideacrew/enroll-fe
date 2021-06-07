@@ -94,9 +94,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/Cypress
-          key: cypress-cache-v2-${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          key: cypress-cache-v7-${{ runner.os }}-${{ hashFiles('**/package.json') }}
           restore-keys: |
-            cypress-cache-v2-${{ runner.os }}
+            cypress-cache-v7-${{ runner.os }}
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
