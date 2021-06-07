@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/employer-income',
+    redirectTo: 'employer-income',
   },
 ];
 

@@ -4,11 +4,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApplicantComponent } from './applicant/applicant.component';
-import { OtherIncomeComponent } from './other-income/other-income.component';
 import { IncomeAdjustmentsComponent } from './income-adjustments/income-adjustments.component';
 import { HealthCoverageComponent } from './health-coverage/health-coverage.component';
 import { OtherQuestionsComponent } from './other-questions/other-questions.component';
-import { UnemploymentIncomeComponent } from './unemployment-income/unemployment-income.component';
 import { PotentialCoverageComponent } from './potential-coverage/potential-coverage.component';
 import { PregnantComponent } from './pregnant/pregnant.component';
 import { StudentComponent } from './student/student.component';
@@ -19,6 +17,7 @@ import { DisabilityComponent } from './disability/disability.component';
 import { FosterCareComponent } from './foster-care/foster-care.component';
 import { TaxInfoModule } from './tax-info/tax-info.module';
 import { JobIncomeModule } from './job-income/job-income.module';
+import { OtherIncomeModule } from './other-income/other-income.module';
 
 @NgModule({
   imports: [
@@ -32,19 +31,11 @@ import { JobIncomeModule } from './job-income/job-income.module';
         children: [
           { path: 'tax-info', loadChildren: () => TaxInfoModule },
           { path: 'job-income', loadChildren: () => JobIncomeModule },
-
-          {
-            path: 'other-income/other-sources',
-            component: OtherIncomeComponent,
-          },
-          {
-            path: 'other-income/unemployment-income',
-            component: UnemploymentIncomeComponent,
-          },
           {
             path: 'other-income',
-            redirectTo: 'other-income/unemployment-income',
+            loadChildren: () => OtherIncomeModule,
           },
+
           { path: 'income-adjustments', component: IncomeAdjustmentsComponent },
           {
             path: 'health-coverage/currently-enrolled',
@@ -93,11 +84,9 @@ import { JobIncomeModule } from './job-income/job-income.module';
   ],
   declarations: [
     ApplicantComponent,
-    OtherIncomeComponent,
     IncomeAdjustmentsComponent,
     HealthCoverageComponent,
     OtherQuestionsComponent,
-    UnemploymentIncomeComponent,
     PotentialCoverageComponent,
     PregnantComponent,
     StudentComponent,

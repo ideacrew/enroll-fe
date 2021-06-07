@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  templateUrl: './other-income.component.html',
-  styleUrls: ['./other-income.component.scss'],
+  templateUrl: './other-income-sources.component.html',
+  styleUrls: ['./other-income-sources.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OtherIncomeComponent {
+export class OtherIncomeSourcesComponent {
   hasOtherIncome: 'yes' | 'no' | undefined;
 }
