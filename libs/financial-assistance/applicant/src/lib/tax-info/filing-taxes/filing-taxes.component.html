@@ -63,6 +63,7 @@
   </div>
 </fieldset>
 
+<!-- Driven by whether or not the applicant has a spouse -->
 <fieldset *ngIf="willFileTaxes === 'yes'" class="enroll-fieldset">
   <!-- Question and Help Text -->
   <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
@@ -119,6 +120,7 @@
     </div>
   </div>
 </fieldset>
+
 <a
   *ngIf="willFileTaxes !== undefined"
   class="enroll-button"
