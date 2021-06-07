@@ -91,6 +91,10 @@ export interface Applicant {
   is_temporarily_out_of_state: boolean;
   is_claimed_as_dependent_by_non_applicant: boolean;
 
+  addresses: unknown[];
+  emails: unknown[];
+  phones: unknown[];
+
   // TBD
   // mitc_income?: MitcIncome;
   // mitc_relationships?: MitcRelationship[];
