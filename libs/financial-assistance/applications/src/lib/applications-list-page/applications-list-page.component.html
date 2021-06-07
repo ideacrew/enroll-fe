@@ -1,6 +1,8 @@
 <ng-container *transloco="let t">
-  <h1>{{ t('faaDefault.applicationListTitle') }}</h1>
-  <h1>{{ t('faa.applicationListTitle') }}</h1>
+  <h1>
+    {{ t('faa.applicationListTitle') || t('faaDefault.applicationListTitle') }}
+  </h1>
+
   <p>
     If you started or completed an application for premium reductions, it will
     be listed below. If the status says it’s a draft, that means you haven’t

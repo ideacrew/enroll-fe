@@ -16,7 +16,6 @@
   "financialAssistance": "Financial Assistance",
   "myInsuredPortal": "My Insured Portal",
 
-  "faa": {
-    "applicationListTitle": "cme scoped list title"
-  }
+  "faa": {},
+  "applicationListTitle": "cme scoped list title"
 }

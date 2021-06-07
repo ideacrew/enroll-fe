@@ -6,6 +6,8 @@ import {
   TRANSLOCO_CONFIG,
   translocoConfig,
   TranslocoModule,
+  TranslocoMissingHandler,
+  TRANSLOCO_MISSING_HANDLER,
 } from '@ngneat/transloco';
 import { Injectable, NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
@@ -16,6 +18,12 @@ export class TranslocoHttpLoader implements TranslocoLoader {
 
   getTranslation(lang: string) {
     return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
+  }
+}
+
+class CustomHandler implements TranslocoMissingHandler {
+  handle() {
+    return null;
   }
 }
 
@@ -35,6 +43,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
       }),
     },
     { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader },
+    { provide: TRANSLOCO_MISSING_HANDLER, useClass: CustomHandler },
   ],
 })
 export class TranslocoRootModule {}
