@@ -18,9 +18,8 @@ import { BlindComponent } from './blind/blind.component';
 import { LongTermCareComponent } from './long-term-care/long-term-care.component';
 import { MedicalBillsComponent } from './medical-bills/medical-bills.component';
 import { DisabilityComponent } from './disability/disability.component';
-import { FilingTaxesComponent } from './filing-taxes/filing-taxes.component';
-import { TaxDependentComponent } from './tax-dependent/tax-dependent.component';
 import { FosterCareComponent } from './foster-care/foster-care.component';
+import { TaxInfoModule } from './tax-info/tax-info.module';
 
 @NgModule({
   imports: [
@@ -32,15 +31,7 @@ import { FosterCareComponent } from './foster-care/foster-care.component';
         path: '',
         component: ApplicantComponent,
         children: [
-          {
-            path: 'tax-info/filing-taxes',
-            component: FilingTaxesComponent,
-          },
-          {
-            path: 'tax-info/tax-dependent',
-            component: TaxDependentComponent,
-          },
-          { path: 'tax-info', redirectTo: 'tax-info/filing-taxes' },
+          { path: 'tax-info', loadChildren: () => TaxInfoModule },
           {
             path: 'job-income/employer-income',
             component: EmployerIncomeComponent,
@@ -127,8 +118,6 @@ import { FosterCareComponent } from './foster-care/foster-care.component';
     LongTermCareComponent,
     MedicalBillsComponent,
     DisabilityComponent,
-    FilingTaxesComponent,
-    TaxDependentComponent,
     FosterCareComponent,
   ],
 })
