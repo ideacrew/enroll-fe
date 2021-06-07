@@ -8,5 +8,7 @@
   "video": false,
   "videosFolder": "../../dist/cypress/apps/coverme-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/coverme-e2e/screenshots",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "viewportHeight": 900,
+  "viewportWidth": 1400
 }
