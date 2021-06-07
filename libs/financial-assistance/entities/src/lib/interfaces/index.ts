@@ -15,3 +15,4 @@ export * from './taxFilerKind';
 export * from './identifyingInformation';
 export * from './benefit';
 export * from './family';
+export * from './application';
