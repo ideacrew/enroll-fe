@@ -16,14 +16,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Ted Crisp</td>
+    <tr *ngFor="let applicant of applicants$ | async; index as i">
+      <td>{{ applicant.fullName }}</td>
       <td>51</td>
-      <td>Male</td>
-      <td>Self</td>
-      <td>Info Needed</td>
+      <td>{{ applicant.gender | titlecase }}</td>
+      <td>{{ applicant.relationship | titlecase }}</td>
+      <td>{{ applicant.status | titlecase }}</td>
       <td>
-        <a routerLink="../applicants/abc1234/tax-info"
+        <a
+          [attr.data-cy]="'edit-applicant-' + i"
+          class="enroll-button"
+          routerLink="../applicants/abc1234/tax-info"
           >Edit Income & Coverage Info</a
         >
       </td>

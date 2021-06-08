@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
+import { ActivatedRouteStub } from '../activated-route-stub';
 import { EditApplicationComponent } from './edit-application.component';
 
 describe('EditApplicationComponent', () => {
@@ -8,9 +11,20 @@ describe('EditApplicationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditApplicationComponent ]
-    })
-    .compileComponents();
+      providers: [
+        {
+          provide: HttpClient,
+          useValue: {
+            get: jest.fn(),
+          },
+        },
+        {
+          provide: ActivatedRoute,
+          useClass: ActivatedRouteStub,
+        },
+      ],
+      declarations: [EditApplicationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
