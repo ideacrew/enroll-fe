@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { NewHouseholdMemberService } from '../new-household-member.service';
 import { CitizenshipComponent } from './citizenship.component';
 
 describe('CitizenshipComponent', () => {
@@ -8,9 +9,9 @@ describe('CitizenshipComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CitizenshipComponent ]
-    })
-    .compileComponents();
+      providers: [NewHouseholdMemberService],
+      declarations: [CitizenshipComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
