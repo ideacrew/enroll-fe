@@ -8,6 +8,7 @@ import { EditApplicationComponent } from './edit-application.component';
 describe('EditApplicationComponent', () => {
   let component: EditApplicationComponent;
   let fixture: ComponentFixture<EditApplicationComponent>;
+  const activatedRoute = new ActivatedRouteStub();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -20,7 +21,7 @@ describe('EditApplicationComponent', () => {
         },
         {
           provide: ActivatedRoute,
-          useClass: ActivatedRouteStub,
+          useValue: activatedRoute,
         },
       ],
       declarations: [EditApplicationComponent],
@@ -28,6 +29,7 @@ describe('EditApplicationComponent', () => {
   });
 
   beforeEach(() => {
+    activatedRoute.setParamMap({ applicationId: '234908327u4' });
     fixture = TestBed.createComponent(EditApplicationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
