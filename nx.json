@@ -76,6 +76,9 @@
     },
     "financial-assistance-data-access": {
       "tags": ["scope:faa", "type:data-access"]
+    },
+    "util-transforms": {
+      "tags": ["scope:util", "type:pure-functions"]
     }
   }
 }

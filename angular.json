@@ -828,6 +828,47 @@
           }
         }
       }
+    },
+    "util-transforms": {
+      "projectType": "library",
+      "root": "libs/util/transforms",
+      "sourceRoot": "libs/util/transforms/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/util/transforms"],
+          "options": {
+            "project": "libs/util/transforms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/util/transforms/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/util/transforms/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/util/transforms"],
+          "options": {
+            "jestConfig": "libs/util/transforms/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/util/transforms/src/**/*.ts",
+              "libs/util/transforms/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }
