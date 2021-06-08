@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { VlpDocumentKind } from '@enroll/financial-assistance/entities';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class NewHouseholdMemberService {
   firstName!: string;
   lastName!: string;
