@@ -869,6 +869,47 @@
           }
         }
       }
+    },
+    "shared-state-root-store": {
+      "projectType": "library",
+      "root": "libs/shared/state/root-store",
+      "sourceRoot": "libs/shared/state/root-store/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/state/root-store"],
+          "options": {
+            "project": "libs/shared/state/root-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/state/root-store/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/state/root-store/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/state/root-store"],
+          "options": {
+            "jestConfig": "libs/shared/state/root-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/state/root-store/src/**/*.ts",
+              "libs/shared/state/root-store/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

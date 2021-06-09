@@ -79,6 +79,9 @@
     },
     "util-transforms": {
       "tags": ["scope:util", "type:pure-functions"]
+    },
+    "shared-state-root-store": {
+      "tags": ["type:state", "scope:shared"]
     }
   }
 }

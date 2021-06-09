@@ -37,7 +37,10 @@
       "@enroll/financial-assistance/data-access": [
         "libs/financial-assistance/data-access/src/index.ts"
       ],
-      "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]
+      "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"],
+      "@enroll/shared/state/root-store": [
+        "libs/shared/state/root-store/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

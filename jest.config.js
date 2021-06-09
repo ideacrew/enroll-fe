@@ -14,5 +14,6 @@ module.exports = {
     '<rootDir>/libs/financial-assistance/applicant',
     '<rootDir>/libs/financial-assistance/data-access',
     '<rootDir>/libs/util/transforms',
+    '<rootDir>/libs/shared/state/root-store',
   ],
 };
