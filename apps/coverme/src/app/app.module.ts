@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { UiBaseShellModule } from '@enroll/ui/base/shell';
+import { RootStoreModule } from '@enroll/shared/state/root-store';
 
 import { AppComponent } from './app.component';
 import { TranslocoRootModule } from './transloco-root.module';
@@ -29,6 +30,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
         pathMatch: 'full',
       },
     ]),
+    RootStoreModule,
     TranslocoRootModule,
     UiBaseShellModule,
   ],
