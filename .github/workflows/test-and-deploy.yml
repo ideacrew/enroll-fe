@@ -94,7 +94,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/Cypress
-          key: cypress-cache-v7-${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          key: cypress-cache-v7-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             cypress-cache-v7-${{ runner.os }}
       - name: Install dependencies
