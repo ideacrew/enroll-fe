@@ -46,7 +46,7 @@
     "@ngrx/router-store": "^12.0.0",
     "@ngrx/store": "^12.0.0",
     "@nrwl/angular": "12.3.6",
-    "date-fns": "^1.30.1",
+    "date-fns": "^2.22.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
