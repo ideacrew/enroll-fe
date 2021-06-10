@@ -11,11 +11,9 @@ export class RootEffects {
     this.actions$.pipe(
       ofType(RootActions.init),
       fetch({
-        run: (action) => {
+        run: (action) =>
           // Your custom service 'load' logic goes here. For now just return a success action...
-          return RootActions.loadRootSuccess({ root: [] });
-        },
-
+          RootActions.loadRootSuccess({ root: [] }),
         onError: (action, error) => {
           console.error('Error', error);
           return RootActions.loadRootFailure({ error });
