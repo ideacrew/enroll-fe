@@ -14,19 +14,19 @@
             "depConstraints": [
               { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] },
               {
-                "sourceTag": "client:dchbx",
-                "onlyDependOnLibsWithTags": ["client:dchbx", "scope:shared"]
+                "sourceTag": "scope:dchbx",
+                "onlyDependOnLibsWithTags": ["scope:dchbx", "scope:shared"]
               },
               {
-                "sourceTag": "client:health-connector",
+                "sourceTag": "scope:health-connector",
                 "onlyDependOnLibsWithTags": [
-                  "client:health-connector",
+                  "scope:health-connector",
                   "scope:shared"
                 ]
               },
               {
-                "sourceTag": "client:coverme",
-                "onlyDependOnLibsWithTags": ["client:coverme", "scope:shared"]
+                "sourceTag": "scope:coverme",
+                "onlyDependOnLibsWithTags": ["scope:coverme", "scope:shared"]
               },
               {
                 "sourceTag": "type:app",

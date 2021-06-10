@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 export const loader = ['en', 'es'].reduce(
@@ -23,4 +22,4 @@ export const loader = ['en', 'es'].reduce(
     },
   ],
 })
-export class I18nCovermeModule {}
+export class I18nDchbxModule {}

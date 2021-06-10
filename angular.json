@@ -59,7 +59,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/i18n/coverme/src/lib/assets/i18n",
+                "input": "libs/i18n/shared/src/lib/assets/i18n",
                 "output": "/assets/i18n"
               }
             ],
@@ -193,7 +193,15 @@
             "polyfills": "apps/dchbx/src/polyfills.ts",
             "tsConfig": "apps/dchbx/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/dchbx/src/favicon.ico", "apps/dchbx/src/assets"],
+            "assets": [
+              "apps/dchbx/src/favicon.ico",
+              "apps/dchbx/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/i18n/shared/src/lib/assets/i18n",
+                "output": "/assets/i18n"
+              }
+            ],
             "styles": [
               "libs/ui/base/theme/src/lib/styles/global.scss",
               "apps/dchbx/src/styles.scss"
@@ -326,7 +334,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/health-connector/src/favicon.ico",
-              "apps/health-connector/src/assets"
+              "apps/health-connector/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/i18n/shared/src/lib/assets/i18n",
+                "output": "/assets/i18n"
+              }
             ],
             "styles": [
               "libs/ui/base/theme/src/lib/styles/global.scss",
@@ -906,6 +919,88 @@
             "lintFilePatterns": [
               "libs/shared/state/root-store/src/**/*.ts",
               "libs/shared/state/root-store/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "i18n-dchbx": {
+      "projectType": "library",
+      "root": "libs/i18n/dchbx",
+      "sourceRoot": "libs/i18n/dchbx/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/i18n/dchbx"],
+          "options": {
+            "project": "libs/i18n/dchbx/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/i18n/dchbx/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/i18n/dchbx/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/i18n/dchbx"],
+          "options": {
+            "jestConfig": "libs/i18n/dchbx/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/i18n/dchbx/src/**/*.ts",
+              "libs/i18n/dchbx/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "i18n-shared": {
+      "projectType": "library",
+      "root": "libs/i18n/shared",
+      "sourceRoot": "libs/i18n/shared/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/i18n/shared"],
+          "options": {
+            "project": "libs/i18n/shared/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/i18n/shared/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/i18n/shared/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/i18n/shared"],
+          "options": {
+            "jestConfig": "libs/i18n/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/i18n/shared/src/**/*.ts",
+              "libs/i18n/shared/src/**/*.html"
             ]
           }
         }

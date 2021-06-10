@@ -4,14 +4,17 @@ import { RouterModule } from '@angular/router';
 
 import { UiBaseShellModule } from '@enroll/ui/base/shell';
 import { RootStoreModule } from '@enroll/shared/state/root-store';
+import { I18nSharedModule } from '@enroll/i18n/shared';
+import { I18nCovermeModule } from '@enroll/i18n/coverme';
 
 import { AppComponent } from './app.component';
-import { TranslocoRootModule } from './transloco-root.module';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   imports: [
     BrowserModule,
+    I18nSharedModule,
+    I18nCovermeModule,
     RouterModule.forRoot([
       {
         path: 'welcome',
@@ -31,7 +34,6 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
       },
     ]),
     RootStoreModule,
-    TranslocoRootModule,
     UiBaseShellModule,
   ],
   declarations: [AppComponent, WelcomePageComponent],

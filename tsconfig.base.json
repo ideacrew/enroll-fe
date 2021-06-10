@@ -40,7 +40,9 @@
       "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"],
       "@enroll/shared/state/root-store": [
         "libs/shared/state/root-store/src/index.ts"
-      ]
+      ],
+      "@enroll/i18n/dchbx": ["libs/i18n/dchbx/src/index.ts"],
+      "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

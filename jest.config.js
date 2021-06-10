@@ -15,5 +15,7 @@ module.exports = {
     '<rootDir>/libs/financial-assistance/data-access',
     '<rootDir>/libs/util/transforms',
     '<rootDir>/libs/shared/state/root-store',
+    '<rootDir>/libs/i18n/dchbx',
+    '<rootDir>/libs/i18n/shared',
   ],
 };

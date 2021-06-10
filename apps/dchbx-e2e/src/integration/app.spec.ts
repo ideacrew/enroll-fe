@@ -1,5 +1,3 @@
-import { getGreeting } from '../support/app.po';
-
 describe('dchbx', () => {
   beforeEach(() => cy.visit('/'));
 
@@ -8,6 +6,6 @@ describe('dchbx', () => {
     // cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to DC Health Link');
+    cy.get('h1').contains('Welcome to this State-based Marketplace');
   });
 });

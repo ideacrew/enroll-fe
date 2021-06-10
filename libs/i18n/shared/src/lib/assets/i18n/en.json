@@ -1,0 +1,9 @@
+{
+  "welcome": "Welcome to this State-based Marketplace",
+  "shell": {
+    "help": "Get Help"
+  },
+  "customerService": "Customer Service",
+  "financialAssistance": "Financial Assistance",
+  "myInsuredPortal": "My Insured Portal"
+}
