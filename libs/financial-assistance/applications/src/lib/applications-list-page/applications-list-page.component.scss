@@ -1,1 +1,43 @@
+:host {
+  display: grid;
+  grid-template-columns: [left-nav-start] 1fr 1fr [left-nav-end] repeat(10, 1fr);
+  gap: var(--s0);
+}
 
+.main-content {
+  grid-column: left-nav-end / -1;
+}
+
+ul {
+  background-color: var(--theme-secondary-100);
+
+  list-style: none;
+  margin: 0;
+  padding: var(--s0);
+}
+
+aside {
+  grid-column: left-nav;
+
+  nav a {
+    display: inline-block;
+    color: var(--grey-000);
+    text-decoration: none;
+    padding: var(--s-2) 0;
+  }
+}
+
+.my-account {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s0);
+  margin-top: var(--s0);
+  text-align: center;
+  background-color: var(--grey-000);
+  border: 1px solid var(--grey-040);
+
+  .title {
+    font-weight: 600;
+  }
+}

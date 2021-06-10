@@ -17,10 +17,6 @@ ul {
   list-style: none;
 }
 
-.active {
-  font-weight: 600;
-}
-
 .active + ul {
   display: block;
 }
