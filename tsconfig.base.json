@@ -42,7 +42,10 @@
         "libs/shared/state/root-store/src/index.ts"
       ],
       "@enroll/i18n/dchbx": ["libs/i18n/dchbx/src/index.ts"],
-      "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"]
+      "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"],
+      "@enroll/testing/stubs/financial-assistance": [
+        "libs/testing/stubs/financial-assistance/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

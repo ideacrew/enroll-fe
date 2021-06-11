@@ -1005,6 +1005,47 @@
           }
         }
       }
+    },
+    "testing-stubs-financial-assistance": {
+      "projectType": "library",
+      "root": "libs/testing/stubs/financial-assistance",
+      "sourceRoot": "libs/testing/stubs/financial-assistance/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/testing/stubs/financial-assistance"],
+          "options": {
+            "project": "libs/testing/stubs/financial-assistance/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/testing/stubs/financial-assistance"],
+          "options": {
+            "jestConfig": "libs/testing/stubs/financial-assistance/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/testing/stubs/financial-assistance/src/**/*.ts",
+              "libs/testing/stubs/financial-assistance/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

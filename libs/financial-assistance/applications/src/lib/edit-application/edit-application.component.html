@@ -19,7 +19,7 @@
     <tbody>
       <tr *ngFor="let applicant of applicants$ | async; index as i">
         <td>{{ applicant.fullName }}</td>
-        <td>51</td>
+        <td>{{ applicant.birthDate | age }}</td>
         <td>{{ applicant.gender | titlecase }}</td>
         <td>{{ applicant.relationship | titlecase }}</td>
         <td>{{ applicant.status | titlecase }}</td>
@@ -34,7 +34,12 @@
       </tr>
     </tbody>
   </table>
-  <a routerLink="../add-new-person" class="enroll-button">Add new person</a>
+  <a
+    routerLink="../add-new-person"
+    data-cy="add-new-household-member"
+    class="enroll-button"
+    >Add new person</a
+  >
   <details>
     <summary>
       <span>Who else should I include in my household?</span>

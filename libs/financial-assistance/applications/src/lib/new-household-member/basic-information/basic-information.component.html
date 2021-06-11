@@ -15,6 +15,7 @@
     <div class="enroll-input-group">
       <label class="enroll-label" for="first-name"> First Name * </label>
       <input
+        data-cy="first-name-input"
         class="enroll-input"
         id="first-name"
         name="first-name"
@@ -25,6 +26,7 @@
     <div class="enroll-input-group">
       <label class="enroll-label" for="middle-name">Middle Name</label>
       <input
+        data-cy="middle-name-input"
         class="enroll-input"
         id="middle-name"
         name="middle-name"
@@ -34,6 +36,7 @@
     <div class="enroll-input-group">
       <label class="enroll-label" for="last-name">Last Name *</label>
       <input
+        data-cy="last-name-input"
         class="enroll-input"
         id="last-name"
         name="last-name"
@@ -46,6 +49,7 @@
     <div class="enroll-input-group">
       <label for="date-of-birth" class="enroll-label">Date of Birth *</label>
       <input
+        data-cy="date-of-birth-input"
         class="enroll-input"
         type="date"
         name="date-of-birth"
@@ -54,7 +58,13 @@
     </div>
     <div class="enroll-input-group">
       <label for="ssn" class="enroll-label">Social Security Number *</label>
-      <input class="enroll-input" type="text" name="ssn" id="ssn" />
+      <input
+        data-cy="ssn-input"
+        class="enroll-input"
+        type="text"
+        name="ssn"
+        id="ssn"
+      />
     </div>
     <div class="enroll-checkbox-group">
       <input type="checkbox" class="enroll-checkbox-input" />
@@ -78,7 +88,11 @@
           />
 
           <!-- Radio label -->
-          <label class="enroll-label enroll-radios__label" for="gender-male">
+          <label
+            data-cy="gender-male-label"
+            class="enroll-label enroll-radios__label"
+            for="gender-male"
+          >
             Male
           </label>
         </div>
@@ -94,7 +108,11 @@
             value="no"
           />
           <!-- Radio label -->
-          <label class="enroll-label enroll-radios__label" for="gender-female">
+          <label
+            data-cy="gender-female-label"
+            class="enroll-label enroll-radios__label"
+            for="gender-female"
+          >
             Female
           </label>
         </div>
@@ -113,6 +131,7 @@
         to Ted Crisp?</label
       >
       <select
+        data-cy="relationship-select"
         class="enroll-input enroll-select"
         id="relationship"
         name="relationship"
@@ -163,6 +182,7 @@
 
       <!-- Radio label -->
       <label
+        data-cy="lives-with-primary-yes"
         class="enroll-label enroll-radios__label"
         for="lives-with-primary-yes"
       >
@@ -183,6 +203,7 @@
       />
       <!-- Radio label -->
       <label
+        data-cy="lives-with-primary-no"
         class="enroll-label enroll-radios__label"
         for="lives-with-primary-no"
       >
@@ -337,7 +358,11 @@
       />
 
       <!-- Radio label -->
-      <label class="enroll-label enroll-radios__label" for="needs-coverage-yes">
+      <label
+        data-cy="needs-coverage-yes"
+        class="enroll-label enroll-radios__label"
+        for="needs-coverage-yes"
+      >
         Yes
       </label>
 
@@ -372,7 +397,11 @@
         [(ngModel)]="newHouseholdMember.needsCoverage"
       />
       <!-- Radio label -->
-      <label class="enroll-label enroll-radios__label" for="needs-coverage-no">
+      <label
+        data-cy="needs-coverage-no"
+        class="enroll-label enroll-radios__label"
+        for="needs-coverage-no"
+      >
         No
       </label>
       <!-- Help text -->
@@ -403,8 +432,9 @@
 >
 <a
   *ngIf="newHouseholdMember.needsCoverage === 'no'"
-  routerLink="../citizenship"
+  routerLink="../../edit"
   class="enroll-button"
+  data-cy="add-member-to-household"
   >Add
   {{
     newHouseholdMember.firstNameHasValue

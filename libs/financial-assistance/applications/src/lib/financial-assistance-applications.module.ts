@@ -9,6 +9,7 @@ import { EditApplicationComponent } from './edit-application/edit-application.co
 import { ReviewApplicationComponent } from './review-application/review-application.component';
 import { ApplicationChecklistComponent } from './application-checklist/application-checklist.component';
 import { NewHouseholdMemberModule } from './new-household-member/new-household-member.module';
+import { AgePipe } from './age.pipe';
 
 export const loader = ['en', 'es'].reduce(
   (acc: { [language: string]: unknown }, lang: string) => {
@@ -58,6 +59,7 @@ export const loader = ['en', 'es'].reduce(
     EditApplicationComponent,
     ReviewApplicationComponent,
     ApplicationChecklistComponent,
+    AgePipe,
   ],
   providers: [
     {

@@ -1,22 +1,7 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-const applications = [
-  {
-    id: '269000183',
-    status: 'draft',
-    startedOn: '2021-05-27T00:00:00.000Z',
-  },
-];
-
-const applicants = [
-  {
-    applicantId: 'abc1234',
-    fullName: 'Ted Crisp',
-    birthDate: 'Jan 1, 1970',
-    gender: 'male',
-    relationship: 'self',
-    status: 'info needed',
-  },
-];
+import {
+  applicants,
+  applications,
+} from '@enroll/testing/stubs/financial-assistance';
 
 describe('Financial Assistance Application', () => {
   beforeEach(() => {

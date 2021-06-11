@@ -88,6 +88,9 @@
     },
     "i18n-shared": {
       "tags": ["scope:shared", "type:i18n"]
+    },
+    "testing-stubs-financial-assistance": {
+      "tags": ["scope:testing", "type:stubs"]
     }
   }
 }
