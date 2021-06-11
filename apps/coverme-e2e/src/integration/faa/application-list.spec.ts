@@ -9,6 +9,7 @@ const applications = [
 
 const applicants = [
   {
+    applicantId: 'abc1234',
     fullName: 'Ted Crisp',
     birthDate: 'Jan 1, 1970',
     gender: 'male',
@@ -20,6 +21,10 @@ const applicants = [
 describe('Financial Assistance Application', () => {
   beforeEach(() => {
     cy.intercept({ method: 'GET', url: '/applications' }, applications);
+    cy.intercept(
+      { method: 'GET', url: '/applications/**/applicants' },
+      applicants
+    );
     cy.visit('/financial-assistance');
   });
 
@@ -29,11 +34,6 @@ describe('Financial Assistance Application', () => {
   });
 
   it('should start editing an existing application', () => {
-    cy.intercept(
-      { method: 'GET', url: '/applications/**/applicants' },
-      applicants
-    );
-
     cy.get('h1').contains('Cost Savings Applications');
     cy.get('[data-cy="edit-application"]').click();
     cy.get('h1').contains('Family Information');

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Applicant {
+  applicantId: string;
   fullName: string;
   birthDate: string;
   gender: string;
@@ -13,6 +14,7 @@ export interface Applicant {
 }
 
 export interface ApplicantVM {
+  applicantId: string;
   fullName: string;
   birthDate: Date;
   gender: string;
@@ -60,6 +62,11 @@ export interface BaseApplicant {
 export class ApplicantsService {
   constructor(private http: HttpClient) {}
 
+  /**
+   * Gets all applicants associated with an application ID
+   * @param {string} applicationId the application ID
+   * @returns {Observable<ApplicantVM[]>} applicants
+   */
   getApplicants(
     applicationId: string | null = 'no-application-id'
   ): Observable<ApplicantVM[]> {
@@ -76,6 +83,12 @@ export class ApplicantsService {
       );
   }
 
+  /**
+   * Creates a new applicant for an application
+   * @param baseApplicant the base information required to create and applicant
+   * @param applicationId the application id associated with the new applicant
+   * @returns {Observable<string>} the new applicant's ID
+   */
   createNewApplicant(
     baseApplicant: BaseApplicant,
     applicationId: string
