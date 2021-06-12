@@ -91,6 +91,9 @@
     },
     "testing-stubs-financial-assistance": {
       "tags": ["scope:testing", "type:stubs"]
+    },
+    "testing-e2e": {
+      "tags": ["scope:shared", "type:testing"]
     }
   }
 }
