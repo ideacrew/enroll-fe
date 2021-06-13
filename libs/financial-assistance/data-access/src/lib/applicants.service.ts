@@ -23,6 +23,7 @@ export interface ApplicantVM {
 }
 
 export interface BaseApplicant {
+  applicantId?: string;
   first_name: string;
   middle_name?: string;
   last_name: string;

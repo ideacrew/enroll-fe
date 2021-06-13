@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let applicant of applicants$ | async; index as i">
+      <tr *ngFor="let applicant of applicants$ | async">
         <td>{{ applicant.fullName }}</td>
         <td>{{ applicant.birthDate | age }}</td>
         <td>{{ applicant.gender | titlecase }}</td>
@@ -25,7 +25,7 @@
         <td>{{ applicant.status | titlecase }}</td>
         <td>
           <a
-            [attr.data-cy]="'edit-applicant-' + i"
+            [attr.data-cy]="'edit-applicant-' + applicant.applicantId"
             class="enroll-button"
             routerLink="../applicants/{{ applicant.applicantId }}/tax-info"
             >Edit Income & Coverage Info</a
