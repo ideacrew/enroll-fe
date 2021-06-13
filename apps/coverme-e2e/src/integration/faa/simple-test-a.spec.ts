@@ -2,7 +2,7 @@
 import {
   applications,
   initialApplicantsSimpleA,
-  updatedApplicantsSimpleA,
+  addedHouseholdApplicantsSimpleA,
 } from '@enroll/testing/stubs/financial-assistance';
 
 import {
@@ -50,7 +50,7 @@ describe('CMS Test Case A', () => {
     // Override initial applicants with new payload
     cy.intercept(
       { method: 'GET', url: '/applications/**/applicants' },
-      updatedApplicantsSimpleA
+      addedHouseholdApplicantsSimpleA
     );
 
     // No coverage needed, so link should add member and

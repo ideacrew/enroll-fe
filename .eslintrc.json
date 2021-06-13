@@ -31,6 +31,22 @@
               {
                 "sourceTag": "type:app",
                 "onlyDependOnLibsWithTags": ["type:feature", "type:util"]
+              },
+              {
+                "sourceTag": "type:store",
+                "onlyDependOnLibsWithTags": [
+                  "type:data-access",
+                  "type:util",
+                  "type:models"
+                ]
+              },
+              {
+                "sourceTag": "type:testing",
+                "onlyDependOnLibsWithTags": ["type:util", "type:data-access"]
+              },
+              {
+                "sourceTag": "type:i18n",
+                "onlyDependOnLibsWithTags": ["type:util"]
               }
             ]
           }

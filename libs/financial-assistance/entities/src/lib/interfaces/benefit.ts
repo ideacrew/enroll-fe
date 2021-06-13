@@ -9,14 +9,14 @@ export interface Benefit {
   name?: string;
   is_employer_sponsored?: boolean;
   employer?: Employer;
-  esi_covered: EsiCoveredKind;
-  is_esi_waiting_period: boolean;
-  is_esi_mec_met: boolean;
-  employee_cost: number;
-  employee_cost_frequency: EmployeeCostFrequency;
+  esi_covered?: EsiCoveredKind;
+  is_esi_waiting_period?: boolean;
+  is_esi_mec_met?: boolean;
+  employee_cost?: number;
+  employee_cost_frequency?: EmployeeCostFrequency;
   start_on: string; // date
-  end_on: string; // date
-  submitted_at: string; // datetime
+  end_on?: string; // date
+  submitted_at?: string; // datetime
 }
 
 export const benefitStatus = ['is_eligible', 'is_enrolled'] as const;

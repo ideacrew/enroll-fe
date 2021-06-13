@@ -69,7 +69,7 @@
       "tags": ["scope:shared", "scope:faa"]
     },
     "financial-assistance-entities": {
-      "tags": ["scope:faa"]
+      "tags": ["scope:faa", "type:models"]
     },
     "financial-assistance-applicant": {
       "tags": ["scope:faa", "type:feature"]
@@ -94,6 +94,9 @@
     },
     "testing-e2e": {
       "tags": ["scope:shared", "type:testing"]
+    },
+    "financial-assistance-store-applicants": {
+      "tags": ["scope:faa", "type:store"]
     }
   }
 }

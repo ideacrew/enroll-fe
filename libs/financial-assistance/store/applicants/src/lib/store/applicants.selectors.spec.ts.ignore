@@ -1,0 +1,66 @@
+import { ApplicantsEntity } from './applicants.models';
+import {
+  applicantsAdapter,
+  ApplicantsPartialState,
+  initialState,
+} from './applicants.reducer';
+import * as ApplicantsSelectors from './applicants.selectors';
+
+describe('Applicants Selectors', () => {
+  const ERROR_MSG = 'No Error Available';
+  const getApplicantsId = (it: ApplicantsEntity) => it.id;
+  const createApplicantsEntity = (id: string, name = '') =>
+    ({
+      id,
+      name: name || `name-${id}`,
+    } as ApplicantsEntity);
+
+  let state: ApplicantsPartialState;
+
+  beforeEach(() => {
+    state = {
+      applicants: applicantsAdapter.setAll(
+        [
+          createApplicantsEntity('PRODUCT-AAA'),
+          createApplicantsEntity('PRODUCT-BBB'),
+          createApplicantsEntity('PRODUCT-CCC'),
+        ],
+        {
+          ...initialState,
+          selectedId: 'PRODUCT-BBB',
+          error: ERROR_MSG,
+          loaded: true,
+        }
+      ),
+    };
+  });
+
+  describe('Applicants Selectors', () => {
+    it('getAllApplicants() should return the list of Applicants', () => {
+      const results = ApplicantsSelectors.getAllApplicants(state);
+      const selId = getApplicantsId(results[1]);
+
+      expect(results.length).toBe(3);
+      expect(selId).toBe('PRODUCT-BBB');
+    });
+
+    it('getSelected() should return the selected Entity', () => {
+      const result = ApplicantsSelectors.getSelected(state) as ApplicantsEntity;
+      const selId = getApplicantsId(result);
+
+      expect(selId).toBe('PRODUCT-BBB');
+    });
+
+    it("getApplicantsLoaded() should return the current 'loaded' status", () => {
+      const result = ApplicantsSelectors.getApplicantsLoaded(state);
+
+      expect(result).toBe(true);
+    });
+
+    it("getApplicantsError() should return the current 'error' state", () => {
+      const result = ApplicantsSelectors.getApplicantsError(state);
+
+      expect(result).toBe(ERROR_MSG);
+    });
+  });
+});

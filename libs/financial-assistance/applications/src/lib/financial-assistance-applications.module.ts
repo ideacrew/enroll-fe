@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
+import { ApplicantsStoreModule } from '@enroll/financial-assistance/store/applicants';
+
 import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 import { EditApplicationComponent } from './edit-application/edit-application.component';
 import { ReviewApplicationComponent } from './review-application/review-application.component';
@@ -53,6 +55,7 @@ export const loader = ['en', 'es'].reduce(
           ),
       },
     ]),
+    ApplicantsStoreModule,
   ],
   declarations: [
     ApplicationsListPageComponent,

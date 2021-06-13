@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { ApplicantsFacade } from '@enroll/financial-assistance/store/applicants';
 
 import { ActivatedRouteStub } from '../activated-route-stub';
 import { EditApplicationComponent } from './edit-application.component';
@@ -14,14 +13,10 @@ describe('EditApplicationComponent', () => {
     await TestBed.configureTestingModule({
       providers: [
         {
-          provide: HttpClient,
+          provide: ApplicantsFacade,
           useValue: {
-            get: jest.fn(),
+            init: jest.fn(),
           },
-        },
-        {
-          provide: ActivatedRoute,
-          useValue: activatedRoute,
         },
       ],
       declarations: [EditApplicationComponent],

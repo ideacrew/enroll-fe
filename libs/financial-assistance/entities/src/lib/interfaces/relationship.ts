@@ -9,6 +9,7 @@ export interface Relationship {
 }
 
 export const relationship = [
+  'self',
   'spouse',
   'domestic_partner',
   'child',

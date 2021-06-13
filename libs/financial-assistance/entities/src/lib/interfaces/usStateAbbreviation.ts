@@ -58,6 +58,6 @@ export const usStateAbbreviation = [
   'WV',
   'WI',
   'WY',
-];
+] as const;
 
 export type UsStateAbbreviationKind = typeof usStateAbbreviation[number];

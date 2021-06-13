@@ -1,0 +1,43 @@
+import { TestBed } from '@angular/core/testing';
+
+import { Observable } from 'rxjs';
+
+import { provideMockActions } from '@ngrx/effects/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+
+import { NxModule, DataPersistence } from '@nrwl/angular';
+import { hot } from '@nrwl/angular/testing';
+
+import { ApplicantsEffects } from './applicants.effects';
+import * as ApplicantsActions from './applicants.actions';
+
+describe('ApplicantsEffects', () => {
+  let actions: Observable<any>;
+  let effects: ApplicantsEffects;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [NxModule.forRoot()],
+      providers: [
+        ApplicantsEffects,
+        DataPersistence,
+        provideMockActions(() => actions),
+        provideMockStore(),
+      ],
+    });
+
+    effects = TestBed.inject(ApplicantsEffects);
+  });
+
+  describe('init$', () => {
+    it('should work', () => {
+      actions = hot('-a-|', { a: ApplicantsActions.init() });
+
+      const expected = hot('-a-|', {
+        a: ApplicantsActions.loadApplicantsSuccess({ applicants: [] }),
+      });
+
+      expect(effects.init$).toBeObservable(expected);
+    });
+  });
+});
