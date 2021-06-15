@@ -46,10 +46,10 @@
       "@enroll/testing/stubs/financial-assistance": [
         "libs/testing/stubs/financial-assistance/src/index.ts"
       ],
-      "@enroll/testing/e2e": ["libs/testing/e2e/src/index.ts"],
       "@enroll/financial-assistance/store/applicants": [
         "libs/financial-assistance/store/applicants/src/index.ts"
-      ]
+      ],
+      "@enroll/testing/e2e": ["libs/testing/e2e/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

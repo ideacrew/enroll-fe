@@ -18,7 +18,7 @@ module.exports = {
     '<rootDir>/libs/i18n/dchbx',
     '<rootDir>/libs/i18n/shared',
     '<rootDir>/libs/testing/stubs/financial-assistance',
-    '<rootDir>/libs/testing/e2e',
     '<rootDir>/libs/financial-assistance/store/applicants',
+    '<rootDir>/libs/testing/e2e',
   ],
 };

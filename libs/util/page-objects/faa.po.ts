@@ -92,8 +92,10 @@ export const provideEthnicityInformation = () =>
 export const addApplicant = (applicant: NeedsCoverageApplicant) => {
   enterBasicInformation(applicant);
   enterAdditionalInformation(applicant);
+  addMemberToHouseholdButton().click();
 };
 
 export const addNonApplicant = (applicant: NoCoverageApplicant) => {
   enterBasicInformation(applicant);
+  addMemberToHouseholdButton().click();
 };

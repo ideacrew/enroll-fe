@@ -1,1 +1,1 @@
-export * from './lib/page-objects';
+export * from './lib/testing-e2e.module';
