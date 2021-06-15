@@ -10,10 +10,6 @@ import {
 
 import {
   addMemberToHouseholdButton,
-  enterBasicInformation,
-  livesWithPrimaryYesLabel,
-  needsCoverageLabel,
-  enterAdditionalInformation,
   addApplicant,
   addNonApplicant,
 } from '@enroll/testing/e2e';
@@ -55,7 +51,6 @@ describe('CMS Test Case E', () => {
 
     // No coverage needed, so link should add member and
     // return to list of applicants
-    addMemberToHouseholdButton().click();
     cy.get(`[data-cy="applicant-${williamSimonInitial.id}-name"]`).contains(
       'William Simon'
     );
@@ -82,7 +77,6 @@ describe('CMS Test Case E', () => {
 
     // No coverage needed, so link should add member and
     // return to list of applicants
-    addMemberToHouseholdButton().click();
     cy.get(`[data-cy="applicant-${finleySimonInitial.id}-name"]`).contains(
       `${finleySimonInitial.first_name} ${finleySimonInitial.last_name}`
     );
@@ -113,7 +107,6 @@ describe('CMS Test Case E', () => {
 
     // No coverage needed, so link should add member and
     // return to list of applicants
-    addMemberToHouseholdButton().click();
     cy.get(`[data-cy="applicant-${princetonSimonInitial.id}-name"]`).contains(
       `${princetonSimonInitial.first_name} ${princetonSimonInitial.last_name}`
     );
@@ -140,7 +133,6 @@ describe('CMS Test Case E', () => {
 
     addApplicant(alexzanderSimonInitial);
 
-    addMemberToHouseholdButton().click();
     cy.get(`[data-cy="applicant-${alexzanderSimonInitial.id}-name"]`).contains(
       `${alexzanderSimonInitial.first_name} ${alexzanderSimonInitial.last_name}`
     );
