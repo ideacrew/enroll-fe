@@ -42,7 +42,11 @@
               },
               {
                 "sourceTag": "type:testing",
-                "onlyDependOnLibsWithTags": ["type:util", "type:data-access"]
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:data-access",
+                  "type:models"
+                ]
               },
               {
                 "sourceTag": "type:i18n",

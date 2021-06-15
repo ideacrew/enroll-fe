@@ -1,20 +1,15 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
   applications,
-  initialApplicantsSimpleA,
-  addedHouseholdApplicantsSimpleA,
+  bettyCurtisInitial,
+  dwayneCurtisInitial,
 } from '@enroll/testing/stubs/financial-assistance';
 
 import {
-  addMemberToHousehold,
-  dob,
-  firstName,
-  genderFemale,
-  lastName,
-  livesWithPrimaryYes,
-  needsCoverageNo,
-  relationship,
-  ssn,
+  addMemberToHouseholdButton,
+  enterBasicInformation,
+  livesWithPrimaryYesLabel,
+  needsCoverageLabel,
 } from '@enroll/testing/e2e';
 
 describe('CMS Test Case A', () => {
@@ -22,39 +17,33 @@ describe('CMS Test Case A', () => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);
     cy.intercept({ method: 'GET', url: '/applications' }, applications);
-    cy.intercept(
-      { method: 'GET', url: '/applications/**/applicants' },
-      initialApplicantsSimpleA
-    );
-    cy.visit('/financial-assistance');
   });
 
   it('add Betty Curtis to application', () => {
+    cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
+      dwayneCurtisInitial,
+    ]);
+    cy.visit('/financial-assistance');
     cy.get('[data-cy="edit-application"]').click();
     cy.get('[data-cy="add-new-household-member"]').click();
 
     // Name, DOB, SSN, Gender, Relationship
-    firstName().type('Betty');
-    lastName().type('Curtis');
-    dob().type('1961-01-01');
-    ssn().type('123-45-6789');
-    genderFemale().click();
-    relationship().select('Spouse');
+    enterBasicInformation(bettyCurtisInitial);
 
     // Residence
-    livesWithPrimaryYes().click();
+    livesWithPrimaryYesLabel().click();
 
     // Coverage
-    needsCoverageNo().click();
+    needsCoverageLabel(bettyCurtisInitial.is_applying_coverage).click();
 
     // Override initial applicants with new payload
-    cy.intercept(
-      { method: 'GET', url: '/applications/**/applicants' },
-      addedHouseholdApplicantsSimpleA
-    );
+    cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
+      dwayneCurtisInitial,
+      bettyCurtisInitial,
+    ]);
 
     // No coverage needed, so link should add member and
     // return to list of applicants
-    addMemberToHousehold().click();
+    addMemberToHouseholdButton().click();
   });
 });

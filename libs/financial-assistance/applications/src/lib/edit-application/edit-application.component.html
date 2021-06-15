@@ -18,11 +18,21 @@
     </thead>
     <tbody>
       <tr *ngFor="let applicant of applicants$ | async">
-        <td>{{ applicant.first_name }} {{ applicant.last_name }}</td>
-        <td>{{ applicant.dob | age }}</td>
-        <td>{{ applicant.gender | titlecase }}</td>
-        <td>{{ applicant.relationship | titlecase }}</td>
-        <td>{{ applicant.aasm_state | titlecase }}</td>
+        <td [attr.data-cy]="'applicant-' + applicant.id + '-name'">
+          {{ applicant.first_name }} {{ applicant.last_name }}
+        </td>
+        <td [attr.data-cy]="'applicant-' + applicant.id + '-age'">
+          {{ applicant.dob | age }}
+        </td>
+        <td [attr.data-cy]="'applicant-' + applicant.id + '-gender'">
+          {{ applicant.gender | titlecase }}
+        </td>
+        <td [attr.data-cy]="'applicant-' + applicant.id + '-relationship'">
+          {{ applicant.relationship | titlecase }}
+        </td>
+        <td [attr.data-cy]="'applicant-' + applicant.id + '-status'">
+          {{ applicant.aasm_state | titlecase }}
+        </td>
         <td>
           <a
             [attr.data-cy]="'edit-applicant-' + applicant.id"

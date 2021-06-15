@@ -37,7 +37,11 @@
         />
 
         <!-- Radio label -->
-        <label class="enroll-label enroll-radios__label" for="tribal-yes">
+        <label
+          data-cy="tribal-label-yes"
+          class="enroll-label enroll-radios__label"
+          for="tribal-yes"
+        >
           Yes
         </label>
       </div>
@@ -54,7 +58,11 @@
           [(ngModel)]="newHouseholdMember.tribalMembership"
         />
         <!-- Radio label -->
-        <label class="enroll-label enroll-radios__label" for="tribal-no">
+        <label
+          data-cy="tribal-label-no"
+          class="enroll-label enroll-radios__label"
+          for="tribal-no"
+        >
           No
         </label>
       </div>
@@ -141,7 +149,10 @@
   </fieldset>
 </div>
 
-<a routerLink="../incarceration-status" class="enroll-button"
+<a
+  data-cy="provide-incarceration-status"
+  routerLink="../incarceration-status"
+  class="enroll-button"
   >Continue providing information about
   {{
     newHouseholdMember.firstNameHasValue

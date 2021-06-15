@@ -41,7 +41,7 @@
         [(ngModel)]="newHouseholdMember.citizenOrNational"
       />
       <!-- Radio label -->
-      <label class="enroll-label enroll-radios__label" for="citizen-yes">
+      <label data-cy="citizenship-label-yes" class="enroll-label enroll-radios__label" for="citizen-yes">
         Yes
       </label>
     </div>
@@ -58,7 +58,7 @@
         [(ngModel)]="newHouseholdMember.citizenOrNational"
       />
       <!-- Radio label -->
-      <label class="enroll-label enroll-radios__label" for="citizen-no">
+      <label data-cy="citizenship-label-no" class="enroll-label enroll-radios__label" for="citizen-no">
         No
       </label>
     </div>
@@ -82,7 +82,7 @@
   </fieldset>
 </ng-container>
 
-<a routerLink="../tribal-membership" class="enroll-button"
+<a data-cy="provide-tribal-information" routerLink="../tribal-membership" class="enroll-button"
   >Continue providing information about
   {{
     newHouseholdMember.firstNameHasValue
