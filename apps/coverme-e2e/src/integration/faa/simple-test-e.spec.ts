@@ -8,11 +8,7 @@ import {
   williamSimonInitial,
 } from '@enroll/testing/stubs/financial-assistance';
 
-import {
-  addMemberToHouseholdButton,
-  addApplicant,
-  addNonApplicant,
-} from '@enroll/testing/e2e';
+import { addApplicant, addNonApplicant } from '@enroll/testing/e2e';
 
 describe('CMS Test Case E', () => {
   beforeEach(() => {
