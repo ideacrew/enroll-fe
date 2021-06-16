@@ -1,21 +1,19 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { datatype } from 'faker';
 
-import {
-  NeedsCoverageApplicant,
-  NoCoverageApplicant,
-} from '@enroll/financial-assistance/data-access';
+import { NeedsCoverageApplicant } from '@enroll/financial-assistance/data-access';
 
 import { primaryAddress } from '../address.stub';
 import { generateEmail } from '../email.stub';
 import { defaultPhones } from '../phone.stub';
 
-export const lailaSimonInitial: NeedsCoverageApplicant = {
+export const sorenSharpInitial: NeedsCoverageApplicant = {
   id: datatype.uuid(),
   is_primary_applicant: true,
-  first_name: 'Laila',
-  last_name: 'Simon',
-  dob: '1981-01-01',
+  first_name: 'Soren',
+  middle_name: 'M',
+  last_name: 'Sharp',
+  dob: '1988-01-01',
   gender: 'male',
   relationship: 'self',
   addresses: primaryAddress,
@@ -28,28 +26,31 @@ export const lailaSimonInitial: NeedsCoverageApplicant = {
   is_incarcerated: false,
 };
 
-export const williamSimonInitial: NoCoverageApplicant = {
+export const miaSharpInitial: NeedsCoverageApplicant = {
   id: datatype.uuid(),
   is_primary_applicant: false,
-  first_name: 'William',
-  last_name: 'Simon',
-  dob: '1981-01-01',
-  gender: 'male',
+  first_name: 'Mia',
+  last_name: 'Sharp',
+  dob: '1988-01-01',
+  gender: 'female',
   relationship: 'spouse',
   addresses: primaryAddress,
   phones: defaultPhones,
   emails: generateEmail(),
   aasm_state: 'info needed',
-  is_applying_coverage: false,
+  is_applying_coverage: true,
   indian_tribe_member: false,
+  citizen_status: 'us_citizen',
+  is_incarcerated: false,
 };
 
-export const finleySimonInitial: NeedsCoverageApplicant = {
+export const christianSharpInitial: NeedsCoverageApplicant = {
   id: datatype.uuid(),
   is_primary_applicant: false,
-  first_name: 'Finley',
-  last_name: 'Simon',
-  dob: '2003-01-01',
+  first_name: 'Christian',
+  middle_name: 'Matthew',
+  last_name: 'Sharp',
+  dob: '2010-01-01',
   gender: 'male',
   relationship: 'child',
   addresses: primaryAddress,
@@ -62,33 +63,14 @@ export const finleySimonInitial: NeedsCoverageApplicant = {
   is_incarcerated: false,
 };
 
-export const princetonSimonInitial: NeedsCoverageApplicant = {
+export const monikaSharpInitial: NeedsCoverageApplicant = {
   id: datatype.uuid(),
   is_primary_applicant: false,
-  first_name: 'Princeton',
-  last_name: 'Simon',
-  dob: '2006-01-01',
-  gender: 'male',
-  relationship: 'child',
-  addresses: primaryAddress,
-  phones: defaultPhones,
-  emails: generateEmail(),
-  aasm_state: 'info needed',
-  indian_tribe_member: false,
-  is_applying_coverage: true,
-  citizen_status: 'us_citizen',
-  is_incarcerated: false,
-};
-
-export const alexzanderSimonInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
-  is_primary_applicant: false,
-  first_name: 'Alexzander',
-  middle_name: 'Carl',
-  last_name: 'Simon',
-  name_sfx: 'IV',
-  dob: '2008-01-01',
-  gender: 'male',
+  first_name: 'Monika',
+  middle_name: 'Leila',
+  last_name: 'Sharp',
+  dob: '2013-01-01',
+  gender: 'female',
   relationship: 'child',
   addresses: primaryAddress,
   phones: defaultPhones,

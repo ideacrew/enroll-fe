@@ -15,7 +15,7 @@ export const aishaModellInitial: Applicant = {
   relationship: 'self',
   addresses: primaryAddress,
   phones: defaultPhones,
-  emails: generateEmail('aishamodell'),
+  emails: generateEmail(),
   aasm_state: 'info needed',
   is_applying_coverage: true,
   citizen_status: 'us_citizen',

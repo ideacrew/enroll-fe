@@ -19,6 +19,11 @@ export const livesWithPrimaryNoLabel = () =>
 export const addMemberToHouseholdButton = () =>
   cy.get('[data-cy="add-member-to-household"]');
 
+export const editApplicationButton = () =>
+  cy.get('[data-cy="edit-application"]');
+const addNewHouseholdMemberButton = () =>
+  cy.get('[data-cy="add-new-household-member"]');
+
 export const genderLabel = (gender: GenderKind) =>
   cy.get(`[data-cy="gender-${gender}-label"]`);
 
@@ -42,6 +47,7 @@ export const enterAdditionalInformation = (
 ) => {
   // for simple tests, this is true
   provideAdditionalInformation().click();
+  
   citizenshipStatusLabel(applicant.citizen_status).click();
   naturalizedStatusLabel(applicant.citizen_status).click();
   provideTribalInformation().click();
@@ -90,12 +96,21 @@ export const provideEthnicityInformation = () =>
   cy.get('[data-cy="provide-ethnicity-information"]');
 
 export const addApplicant = (applicant: NeedsCoverageApplicant) => {
+  editApplicationButton().click();
+  addNewHouseholdMemberButton().click();
   enterBasicInformation(applicant);
   enterAdditionalInformation(applicant);
   addMemberToHouseholdButton().click();
 };
 
 export const addNonApplicant = (applicant: NoCoverageApplicant) => {
+  editApplicationButton().click();
+  addNewHouseholdMemberButton().click();
   enterBasicInformation(applicant);
   addMemberToHouseholdButton().click();
 };
+
+export const checkNameInApplicantList = (applicant: Applicant) =>
+  cy
+    .get(`[data-cy="applicant-${applicant.id}-name"]`)
+    .contains(`${applicant.first_name} ${applicant.last_name}`);

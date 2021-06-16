@@ -12,6 +12,7 @@ import {
   Address,
   Email,
   PhoneNumber,
+  VlpDocument,
 } from '@enroll/financial-assistance/entities';
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -45,6 +46,7 @@ export interface NeedsCoverageApplicant extends BaseApplicant {
   is_applying_coverage: true;
 
   citizen_status: CitizenKind;
+  vlp_document?: VlpDocument;
 
   // Incarceration Questions
   is_incarcerated: boolean;

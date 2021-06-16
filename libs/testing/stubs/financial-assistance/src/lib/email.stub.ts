@@ -1,3 +1,5 @@
+import { internet } from 'faker';
+
 import { Email } from '@enroll/financial-assistance/entities';
 
 export const defaultEmail: Email[] = [
@@ -7,9 +9,9 @@ export const defaultEmail: Email[] = [
   },
 ];
 
-export const generateEmail = (fullName: string): Email[] => [
+export const generateEmail = (): Email[] => [
   {
     kind: 'home',
-    address: `${fullName}@example.com`,
+    address: internet.email(),
   },
 ];
