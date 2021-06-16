@@ -106,7 +106,8 @@ jobs:
       - name: Cypress Run
         uses: cypress-io/github-action@v2
         with:
-          config-file: apps/coverme-e2e/cypress.json
+          install: false
+          config-file: ./apps/coverme-e2e/cypress.json
           record: true
           build: npx nx build coverme
           start: npx angular-http-server --path ./dist/apps/coverme -p 4203
