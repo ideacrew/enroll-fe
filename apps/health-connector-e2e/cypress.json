@@ -8,5 +8,6 @@
   "video": false,
   "videosFolder": "../../dist/cypress/apps/health-connector-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/health-connector-e2e/screenshots",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "projectId": "m1nvm7"
 }

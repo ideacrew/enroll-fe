@@ -10,5 +10,6 @@
   "screenshotsFolder": "../../dist/cypress/apps/coverme-e2e/screenshots",
   "chromeWebSecurity": false,
   "viewportHeight": 900,
-  "viewportWidth": 1400
+  "viewportWidth": 1400,
+  "projectId": "m1nvm7"
 }
