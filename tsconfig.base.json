@@ -17,39 +17,39 @@
     "sourceMap": true,
     "target": "es2015",
     "paths": {
-      "@enroll/ui/base/theme": ["libs/ui/base/theme/src/index.ts"],
-      "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
-      "@enroll/testing/i18n": ["libs/testing/i18n/src/index.ts"],
-      "@enroll/i18n/coverme": ["libs/i18n/coverme/src/index.ts"],
-      "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"],
-      "@enroll/financial-assistance/shell": [
-        "libs/financial-assistance/shell/src/index.ts"
+      "@enroll/financial-assistance/applicant": [
+        "libs/financial-assistance/applicant/src/index.ts"
       ],
       "@enroll/financial-assistance/applications": [
         "libs/financial-assistance/applications/src/index.ts"
       ],
-      "@enroll/financial-assistance/entities": [
-        "libs/financial-assistance/entities/src/index.ts"
-      ],
-      "@enroll/financial-assistance/applicant": [
-        "libs/financial-assistance/applicant/src/index.ts"
-      ],
       "@enroll/financial-assistance/data-access": [
         "libs/financial-assistance/data-access/src/index.ts"
       ],
-      "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"],
-      "@enroll/shared/state/root-store": [
-        "libs/shared/state/root-store/src/index.ts"
+      "@enroll/financial-assistance/entities": [
+        "libs/financial-assistance/entities/src/index.ts"
       ],
-      "@enroll/i18n/dchbx": ["libs/i18n/dchbx/src/index.ts"],
-      "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"],
-      "@enroll/testing/stubs/financial-assistance": [
-        "libs/testing/stubs/financial-assistance/src/index.ts"
+      "@enroll/financial-assistance/shell": [
+        "libs/financial-assistance/shell/src/index.ts"
       ],
       "@enroll/financial-assistance/store/applicants": [
         "libs/financial-assistance/store/applicants/src/index.ts"
       ],
-      "@enroll/testing/e2e": ["libs/testing/e2e/src/index.ts"]
+      "@enroll/i18n/coverme": ["libs/i18n/coverme/src/index.ts"],
+      "@enroll/i18n/dchbx": ["libs/i18n/dchbx/src/index.ts"],
+      "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"],
+      "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"],
+      "@enroll/shared/state/root-store": [
+        "libs/shared/state/root-store/src/index.ts"
+      ],
+      "@enroll/testing/e2e": ["libs/testing/e2e/src/index.ts"],
+      "@enroll/testing/i18n": ["libs/testing/i18n/src/index.ts"],
+      "@enroll/testing/stubs/financial-assistance": [
+        "libs/testing/stubs/financial-assistance/src/index.ts"
+      ],
+      "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
+      "@enroll/ui/base/theme": ["libs/ui/base/theme/src/index.ts"],
+      "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

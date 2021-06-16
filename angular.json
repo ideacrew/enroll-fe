@@ -305,6 +305,248 @@
         }
       }
     },
+    "financial-assistance-applicant": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/applicant",
+      "sourceRoot": "libs/financial-assistance/applicant/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/financial-assistance/applicant/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/applicant/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/applicant/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/applicant"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/applicant/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/applicant/src/**/*.ts",
+              "libs/financial-assistance/applicant/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "financial-assistance-applications": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/applications",
+      "sourceRoot": "libs/financial-assistance/applications/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/financial-assistance/applications/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/applications/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/applications/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/applications"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/applications/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/applications/src/**/*.ts",
+              "libs/financial-assistance/applications/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "financial-assistance-data-access": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/data-access",
+      "sourceRoot": "libs/financial-assistance/data-access/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/financial-assistance/data-access"],
+          "options": {
+            "project": "libs/financial-assistance/data-access/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/data-access/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/data-access/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/data-access"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/data-access/src/**/*.ts",
+              "libs/financial-assistance/data-access/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "financial-assistance-entities": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/entities",
+      "sourceRoot": "libs/financial-assistance/entities/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/financial-assistance/entities/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/entities/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/entities/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/entities"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/entities/src/**/*.ts",
+              "libs/financial-assistance/entities/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "financial-assistance-shell": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/shell",
+      "sourceRoot": "libs/financial-assistance/shell/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/financial-assistance/shell/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/shell/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/shell/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/shell"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/shell/src/**/*.ts",
+              "libs/financial-assistance/shell/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "financial-assistance-store-applicants": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/store/applicants",
+      "sourceRoot": "libs/financial-assistance/store/applicants/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/financial-assistance/store/applicants"],
+          "options": {
+            "project": "libs/financial-assistance/store/applicants/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/financial-assistance/store/applicants/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/financial-assistance/store/applicants/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/store/applicants"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/store/applicants/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/store/applicants/src/**/*.ts",
+              "libs/financial-assistance/store/applicants/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "health-connector": {
       "projectType": "application",
       "root": "apps/health-connector",
@@ -438,111 +680,6 @@
         }
       }
     },
-    "ui-base-theme": {
-      "projectType": "library",
-      "root": "libs/ui/base/theme",
-      "sourceRoot": "libs/ui/base/theme/src",
-      "prefix": "enroll",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/base/theme"],
-          "options": {
-            "jestConfig": "libs/ui/base/theme/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/base/theme/src/**/*.ts",
-              "libs/ui/base/theme/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "ui-base-shell": {
-      "projectType": "library",
-      "root": "libs/ui/base/shell",
-      "sourceRoot": "libs/ui/base/shell/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/ui/base/shell/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/ui/base/shell/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/ui/base/shell/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/base/shell"],
-          "options": {
-            "jestConfig": "libs/ui/base/shell/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/base/shell/src/**/*.ts",
-              "libs/ui/base/shell/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "testing-i18n": {
-      "projectType": "library",
-      "root": "libs/testing/i18n",
-      "sourceRoot": "libs/testing/i18n/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/testing/i18n/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/testing/i18n/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/testing/i18n/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/testing/i18n"],
-          "options": {
-            "jestConfig": "libs/testing/i18n/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/testing/i18n/src/**/*.ts",
-              "libs/testing/i18n/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "i18n-coverme": {
       "projectType": "library",
       "root": "libs/i18n/coverme",
@@ -578,329 +715,6 @@
             "lintFilePatterns": [
               "libs/i18n/coverme/src/**/*.ts",
               "libs/i18n/coverme/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "i18n-util": {
-      "projectType": "library",
-      "root": "libs/i18n/util",
-      "sourceRoot": "libs/i18n/util/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/i18n/util/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/i18n/util/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/i18n/util/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/i18n/util"],
-          "options": {
-            "jestConfig": "libs/i18n/util/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/i18n/util/src/**/*.ts",
-              "libs/i18n/util/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "financial-assistance-shell": {
-      "projectType": "library",
-      "root": "libs/financial-assistance/shell",
-      "sourceRoot": "libs/financial-assistance/shell/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/financial-assistance/shell/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/financial-assistance/shell/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/financial-assistance/shell/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/financial-assistance/shell"],
-          "options": {
-            "jestConfig": "libs/financial-assistance/shell/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/financial-assistance/shell/src/**/*.ts",
-              "libs/financial-assistance/shell/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "financial-assistance-applications": {
-      "projectType": "library",
-      "root": "libs/financial-assistance/applications",
-      "sourceRoot": "libs/financial-assistance/applications/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/financial-assistance/applications/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/financial-assistance/applications/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/financial-assistance/applications/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/financial-assistance/applications"],
-          "options": {
-            "jestConfig": "libs/financial-assistance/applications/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/financial-assistance/applications/src/**/*.ts",
-              "libs/financial-assistance/applications/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "financial-assistance-entities": {
-      "projectType": "library",
-      "root": "libs/financial-assistance/entities",
-      "sourceRoot": "libs/financial-assistance/entities/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/financial-assistance/entities/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/financial-assistance/entities/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/financial-assistance/entities/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/financial-assistance/entities"],
-          "options": {
-            "jestConfig": "libs/financial-assistance/entities/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/financial-assistance/entities/src/**/*.ts",
-              "libs/financial-assistance/entities/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "financial-assistance-applicant": {
-      "projectType": "library",
-      "root": "libs/financial-assistance/applicant",
-      "sourceRoot": "libs/financial-assistance/applicant/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/financial-assistance/applicant/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/financial-assistance/applicant/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/financial-assistance/applicant/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/financial-assistance/applicant"],
-          "options": {
-            "jestConfig": "libs/financial-assistance/applicant/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/financial-assistance/applicant/src/**/*.ts",
-              "libs/financial-assistance/applicant/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "financial-assistance-data-access": {
-      "projectType": "library",
-      "root": "libs/financial-assistance/data-access",
-      "sourceRoot": "libs/financial-assistance/data-access/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/financial-assistance/data-access"],
-          "options": {
-            "project": "libs/financial-assistance/data-access/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/financial-assistance/data-access/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/financial-assistance/data-access/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/financial-assistance/data-access"],
-          "options": {
-            "jestConfig": "libs/financial-assistance/data-access/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/financial-assistance/data-access/src/**/*.ts",
-              "libs/financial-assistance/data-access/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "util-transforms": {
-      "projectType": "library",
-      "root": "libs/util/transforms",
-      "sourceRoot": "libs/util/transforms/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/util/transforms"],
-          "options": {
-            "project": "libs/util/transforms/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/util/transforms/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/util/transforms/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/util/transforms"],
-          "options": {
-            "jestConfig": "libs/util/transforms/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/util/transforms/src/**/*.ts",
-              "libs/util/transforms/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "shared-state-root-store": {
-      "projectType": "library",
-      "root": "libs/shared/state/root-store",
-      "sourceRoot": "libs/shared/state/root-store/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/shared/state/root-store"],
-          "options": {
-            "project": "libs/shared/state/root-store/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/shared/state/root-store/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/shared/state/root-store/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/state/root-store"],
-          "options": {
-            "jestConfig": "libs/shared/state/root-store/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/state/root-store/src/**/*.ts",
-              "libs/shared/state/root-store/src/**/*.html"
             ]
           }
         }
@@ -988,33 +802,32 @@
         }
       }
     },
-    "testing-stubs-financial-assistance": {
+    "i18n-util": {
       "projectType": "library",
-      "root": "libs/testing/stubs/financial-assistance",
-      "sourceRoot": "libs/testing/stubs/financial-assistance/src",
+      "root": "libs/i18n/util",
+      "sourceRoot": "libs/i18n/util/src",
       "prefix": "enroll",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/testing/stubs/financial-assistance"],
           "options": {
-            "project": "libs/testing/stubs/financial-assistance/ng-package.json"
+            "project": "libs/i18n/util/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.prod.json"
+              "tsConfig": "libs/i18n/util/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.json"
+              "tsConfig": "libs/i18n/util/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/testing/stubs/financial-assistance"],
+          "outputs": ["coverage/libs/i18n/util"],
           "options": {
-            "jestConfig": "libs/testing/stubs/financial-assistance/jest.config.js",
+            "jestConfig": "libs/i18n/util/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -1022,40 +835,40 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/testing/stubs/financial-assistance/src/**/*.ts",
-              "libs/testing/stubs/financial-assistance/src/**/*.html"
+              "libs/i18n/util/src/**/*.ts",
+              "libs/i18n/util/src/**/*.html"
             ]
           }
         }
       }
     },
-    "financial-assistance-store-applicants": {
+    "shared-state-root-store": {
       "projectType": "library",
-      "root": "libs/financial-assistance/store/applicants",
-      "sourceRoot": "libs/financial-assistance/store/applicants/src",
+      "root": "libs/shared/state/root-store",
+      "sourceRoot": "libs/shared/state/root-store/src",
       "prefix": "enroll",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/financial-assistance/store/applicants"],
+          "outputs": ["dist/libs/shared/state/root-store"],
           "options": {
-            "project": "libs/financial-assistance/store/applicants/ng-package.json"
+            "project": "libs/shared/state/root-store/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/financial-assistance/store/applicants/tsconfig.lib.prod.json"
+              "tsConfig": "libs/shared/state/root-store/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/financial-assistance/store/applicants/tsconfig.lib.json"
+              "tsConfig": "libs/shared/state/root-store/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/financial-assistance/store/applicants"],
+          "outputs": ["coverage/libs/shared/state/root-store"],
           "options": {
-            "jestConfig": "libs/financial-assistance/store/applicants/jest.config.js",
+            "jestConfig": "libs/shared/state/root-store/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -1063,8 +876,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/financial-assistance/store/applicants/src/**/*.ts",
-              "libs/financial-assistance/store/applicants/src/**/*.html"
+              "libs/shared/state/root-store/src/**/*.ts",
+              "libs/shared/state/root-store/src/**/*.html"
             ]
           }
         }
@@ -1106,6 +919,193 @@
             "lintFilePatterns": [
               "libs/testing/e2e/src/**/*.ts",
               "libs/testing/e2e/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "testing-i18n": {
+      "projectType": "library",
+      "root": "libs/testing/i18n",
+      "sourceRoot": "libs/testing/i18n/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/testing/i18n/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/testing/i18n/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/testing/i18n/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/testing/i18n"],
+          "options": {
+            "jestConfig": "libs/testing/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/testing/i18n/src/**/*.ts",
+              "libs/testing/i18n/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "testing-stubs-financial-assistance": {
+      "projectType": "library",
+      "root": "libs/testing/stubs/financial-assistance",
+      "sourceRoot": "libs/testing/stubs/financial-assistance/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/testing/stubs/financial-assistance"],
+          "options": {
+            "project": "libs/testing/stubs/financial-assistance/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/testing/stubs/financial-assistance"],
+          "options": {
+            "jestConfig": "libs/testing/stubs/financial-assistance/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/testing/stubs/financial-assistance/src/**/*.ts",
+              "libs/testing/stubs/financial-assistance/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-base-shell": {
+      "projectType": "library",
+      "root": "libs/ui/base/shell",
+      "sourceRoot": "libs/ui/base/shell/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/ui/base/shell/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/base/shell/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ui/base/shell/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/base/shell"],
+          "options": {
+            "jestConfig": "libs/ui/base/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/base/shell/src/**/*.ts",
+              "libs/ui/base/shell/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-base-theme": {
+      "projectType": "library",
+      "root": "libs/ui/base/theme",
+      "sourceRoot": "libs/ui/base/theme/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/base/theme"],
+          "options": {
+            "jestConfig": "libs/ui/base/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/base/theme/src/**/*.ts",
+              "libs/ui/base/theme/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "util-transforms": {
+      "projectType": "library",
+      "root": "libs/util/transforms",
+      "sourceRoot": "libs/util/transforms/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/util/transforms"],
+          "options": {
+            "project": "libs/util/transforms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/util/transforms/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/util/transforms/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/util/transforms"],
+          "options": {
+            "jestConfig": "libs/util/transforms/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/util/transforms/src/**/*.ts",
+              "libs/util/transforms/src/**/*.html"
             ]
           }
         }

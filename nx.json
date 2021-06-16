@@ -39,6 +39,24 @@
       "tags": [],
       "implicitDependencies": ["dchbx"]
     },
+    "financial-assistance-applicant": {
+      "tags": ["scope:faa", "type:feature"]
+    },
+    "financial-assistance-applications": {
+      "tags": ["scope:shared", "scope:faa"]
+    },
+    "financial-assistance-data-access": {
+      "tags": ["scope:faa", "type:data-access"]
+    },
+    "financial-assistance-entities": {
+      "tags": ["scope:faa", "type:models"]
+    },
+    "financial-assistance-shell": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "financial-assistance-store-applicants": {
+      "tags": ["scope:faa", "type:store"]
+    },
     "health-connector": {
       "tags": ["client:health-connector", "type:app"],
       "implicitDependencies": ["ui-base-theme"]
@@ -47,41 +65,8 @@
       "tags": [],
       "implicitDependencies": ["health-connector"]
     },
-    "ui-base-theme": {
-      "tags": ["scope:shared"]
-    },
-    "ui-base-shell": {
-      "tags": ["scope:shared"]
-    },
-    "testing-i18n": {
-      "tags": ["scope:shared", "type:testing"]
-    },
     "i18n-coverme": {
       "tags": ["scope:coverme", "type:i18n"]
-    },
-    "i18n-util": {
-      "tags": ["scope:shared", "type:i18n", "type:util"]
-    },
-    "financial-assistance-shell": {
-      "tags": ["scope:shared", "type:feature"]
-    },
-    "financial-assistance-applications": {
-      "tags": ["scope:shared", "scope:faa"]
-    },
-    "financial-assistance-entities": {
-      "tags": ["scope:faa", "type:models"]
-    },
-    "financial-assistance-applicant": {
-      "tags": ["scope:faa", "type:feature"]
-    },
-    "financial-assistance-data-access": {
-      "tags": ["scope:faa", "type:data-access"]
-    },
-    "util-transforms": {
-      "tags": ["scope:util", "type:pure-functions"]
-    },
-    "shared-state-root-store": {
-      "tags": ["type:state", "scope:shared"]
     },
     "i18n-dchbx": {
       "tags": ["scope:dchbx", "type:i18n"]
@@ -89,14 +74,29 @@
     "i18n-shared": {
       "tags": ["scope:shared", "type:i18n"]
     },
-    "testing-stubs-financial-assistance": {
-      "tags": ["scope:testing", "type:stubs"]
+    "i18n-util": {
+      "tags": ["scope:shared", "type:i18n", "type:util"]
     },
-    "financial-assistance-store-applicants": {
-      "tags": ["scope:faa", "type:store"]
+    "shared-state-root-store": {
+      "tags": ["type:state", "scope:shared"]
     },
     "testing-e2e": {
       "tags": ["type:testing", "scope:e2e"]
+    },
+    "testing-i18n": {
+      "tags": ["scope:shared", "type:testing"]
+    },
+    "testing-stubs-financial-assistance": {
+      "tags": ["scope:testing", "type:stubs"]
+    },
+    "ui-base-shell": {
+      "tags": ["scope:shared"]
+    },
+    "ui-base-theme": {
+      "tags": ["scope:shared"]
+    },
+    "util-transforms": {
+      "tags": ["scope:util", "type:pure-functions"]
     }
   }
 }
