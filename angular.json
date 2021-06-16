@@ -109,13 +109,11 @@
               "browserTarget": "coverme:build:production"
             },
             "development": {
-              "browserTarget": "coverme:build:development"
+              "browserTarget": "coverme:build:development",
+              "port": 4203
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "port": 4203
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -248,13 +246,11 @@
               "browserTarget": "dchbx:build:production"
             },
             "development": {
-              "browserTarget": "dchbx:build:development"
+              "browserTarget": "dchbx:build:development",
+              "port": 4201
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "port": 4201
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -387,13 +383,11 @@
               "browserTarget": "health-connector:build:production"
             },
             "development": {
-              "browserTarget": "health-connector:build:development"
+              "browserTarget": "health-connector:build:development",
+              "port": 4202
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "port": 4202
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

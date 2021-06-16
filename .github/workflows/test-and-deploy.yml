@@ -6,75 +6,75 @@ on:
     #   - trunk
 
 jobs:
-  format:
-    name: format
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
-        id: npm-cache
-        with:
-          path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            v3-${{ runner.os }}-node14-
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Check formatting
-        run: npm run format:check
-  lint:
-    name: lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
-        id: npm-cache
-        with:
-          path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            v3-${{ runner.os }}-node14-
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Lint Application(s)
-        run: npx nx affected:lint --base=origin/trunk~1 --head=origin/trunk --parallel
-  test:
-    name: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
-        id: npm-cache
-        with:
-          path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            v3-${{ runner.os }}-node14-
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Test Application(s)
-        run: npx nx affected:test --base=origin/trunk~1 --head=origin/trunk --parallel
+  # format:
+  #   name: format
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14.x'
+  #     - uses: actions/cache@v2
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node14-
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm ci
+  #     - name: Check formatting
+  #       run: npm run format:check
+  # lint:
+  #   name: lint
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14.x'
+  #     - uses: actions/cache@v2
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node14-
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm ci
+  #     - name: Lint Application(s)
+  #       run: npx nx affected:lint --base=origin/trunk~1 --head=origin/trunk --parallel
+  # test:
+  #   name: test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14.x'
+  #     - uses: actions/cache@v2
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node14-
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm ci
+  #     - name: Test Application(s)
+  #       run: npx nx affected:test --base=origin/trunk~1 --head=origin/trunk --parallel
   e2e:
     name: e2e
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -100,53 +100,64 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Run e2e Tests
-        # run: npx nx affected:e2e --parallel --base=origin/trunk~1 --head=origin/trunk --record --key ${{ secrets.CYPRESS_KEY }} --browser=chrome --headless=true
-        run: npx nx run-many --target=e2e --all --headless --parallel --prod --record --key ${{ secrets.CYPRESS_KEY }}
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+      # - name: Run e2e Tests
+      # run: npx nx affected:e2e --parallel --base=origin/trunk~1 --head=origin/trunk --record --key ${{ secrets.CYPRESS_KEY }} --browser=chrome --headless=true
+      # run: npx nx run-many --target=e2e --all --headless --parallel --prod --record --key ${{ secrets.CYPRESS_KEY }}
+      - name: Cypress Run
+        uses: cypress-io/github-action@v2
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
-        id: npm-cache
-        with:
-          path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            v3-${{ runner.os }}-node14-
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Build Application(s)
-        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --parallel --with-deps
-  deploy:
-    name: deploy
-    needs: [format, lint, test, e2e, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
-        id: npm-cache
-        with:
-          path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            v3-${{ runner.os }}-node14-
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Deploy Application(s)
+          config-file: apps/coverme-e2e/cypress.json
+          record: true
+          build: npx nx build coverme
+          start: npx angular-http-server --path ./dist/apps/coverme -p 4203
+          wait-on: 'http://localhost:4203'
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # build:
+  #   name: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14.x'
+  #     - uses: actions/cache@v2
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node14-
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm ci
+  #     - name: Build Application(s)
+  #       run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --parallel --with-deps
+  # deploy:
+  #   name: deploy
+  #   needs: [format, lint, test, e2e, build]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14.x'
+  #     - uses: actions/cache@v2
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node14-
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm ci
+  #     - name: Deploy Application(s)
+  #       env:
+  #         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  #       run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk
