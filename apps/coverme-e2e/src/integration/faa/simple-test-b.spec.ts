@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
+  checkNameInApplicantList,
+  editApplicationButton,
+} from '@enroll/testing/e2e';
+import {
   applications,
   michaelEwingInitial,
 } from '@enroll/testing/stubs/financial-assistance';
@@ -16,9 +20,7 @@ describe('CMS Test Case B', () => {
       michaelEwingInitial,
     ]);
     cy.visit('/financial-assistance');
-    cy.get('[data-cy="edit-application"]').click();
-    cy.get(`[data-cy="applicant-${michaelEwingInitial.id}-name"]`).contains(
-      `${michaelEwingInitial.first_name} ${michaelEwingInitial.last_name}`
-    );
+    editApplicationButton().click();
+    checkNameInApplicantList(michaelEwingInitial);
   });
 });

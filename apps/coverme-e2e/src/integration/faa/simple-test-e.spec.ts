@@ -8,7 +8,12 @@ import {
   williamSimonInitial,
 } from '@enroll/testing/stubs/financial-assistance';
 
-import { addApplicant, addNonApplicant } from '@enroll/testing/e2e';
+import {
+  addApplicant,
+  addNonApplicant,
+  checkNameInApplicantList,
+  editApplicationButton,
+} from '@enroll/testing/e2e';
 
 describe('CMS Test Case E', () => {
   beforeEach(() => {
@@ -22,10 +27,8 @@ describe('CMS Test Case E', () => {
       lailaSimonInitial,
     ]);
     cy.visit('/financial-assistance');
-    cy.get('[data-cy="edit-application"]').click();
-    cy.get(`[data-cy="applicant-${lailaSimonInitial.id}-name"]`).contains(
-      `${lailaSimonInitial.first_name} ${lailaSimonInitial.last_name}`
-    );
+    editApplicationButton().click();
+    checkNameInApplicantList(lailaSimonInitial);
   });
 
   it('add William Simon to application', () => {
@@ -38,18 +41,8 @@ describe('CMS Test Case E', () => {
       williamSimonInitial,
     ]);
 
-    cy.get('[data-cy="edit-application"]').click();
-    cy.get('[data-cy="add-new-household-member"]').click();
-
     addNonApplicant(williamSimonInitial);
-
-    // Override initial applicants with new payload
-
-    // No coverage needed, so link should add member and
-    // return to list of applicants
-    cy.get(`[data-cy="applicant-${williamSimonInitial.id}-name"]`).contains(
-      'William Simon'
-    );
+    checkNameInApplicantList(williamSimonInitial);
   });
 
   it('add Finley Simon to application', () => {
@@ -59,23 +52,14 @@ describe('CMS Test Case E', () => {
     ]);
     cy.visit('/financial-assistance');
 
-    // Override GET with added applicant
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
       lailaSimonInitial,
       williamSimonInitial,
       finleySimonInitial,
     ]);
 
-    cy.get('[data-cy="edit-application"]').click();
-    cy.get('[data-cy="add-new-household-member"]').click();
-
     addApplicant(finleySimonInitial);
-
-    // No coverage needed, so link should add member and
-    // return to list of applicants
-    cy.get(`[data-cy="applicant-${finleySimonInitial.id}-name"]`).contains(
-      `${finleySimonInitial.first_name} ${finleySimonInitial.last_name}`
-    );
+    checkNameInApplicantList(finleySimonInitial);
   });
 
   it('add Princeton Simon to application', () => {
@@ -93,19 +77,8 @@ describe('CMS Test Case E', () => {
       princetonSimonInitial,
     ]);
 
-    cy.get('[data-cy="edit-application"]').click();
-    cy.get('[data-cy="add-new-household-member"]').click();
-
-    // Name, DOB, SSN, Gender, Relationship
     addApplicant(princetonSimonInitial);
-
-    // Override initial applicants with new payload
-
-    // No coverage needed, so link should add member and
-    // return to list of applicants
-    cy.get(`[data-cy="applicant-${princetonSimonInitial.id}-name"]`).contains(
-      `${princetonSimonInitial.first_name} ${princetonSimonInitial.last_name}`
-    );
+    checkNameInApplicantList(princetonSimonInitial);
   });
 
   it('add Alexzander Simon to application', () => {
@@ -124,13 +97,7 @@ describe('CMS Test Case E', () => {
       alexzanderSimonInitial,
     ]);
 
-    cy.get('[data-cy="edit-application"]').click();
-    cy.get('[data-cy="add-new-household-member"]').click();
-
     addApplicant(alexzanderSimonInitial);
-
-    cy.get(`[data-cy="applicant-${alexzanderSimonInitial.id}-name"]`).contains(
-      `${alexzanderSimonInitial.first_name} ${alexzanderSimonInitial.last_name}`
-    );
+    checkNameInApplicantList(alexzanderSimonInitial);
   });
 });
