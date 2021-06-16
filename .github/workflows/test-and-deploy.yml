@@ -124,7 +124,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Application(s)
-        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --parallel --with-deps
+        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --with-deps
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
