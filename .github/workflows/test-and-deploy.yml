@@ -101,7 +101,8 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Run e2e Tests
-        run: npx nx affected:e2e -- --parallel --base=origin/trunk~1 --head=origin/trunk --record --key ${{ secrets.CYPRESS_KEY }} --browser=chrome --headless=true
+        # run: npx nx affected:e2e --parallel --base=origin/trunk~1 --head=origin/trunk --record --key ${{ secrets.CYPRESS_KEY }} --browser=chrome --headless=true
+        run: npx nx run-many --target=e2e --all --headless --parallel --prod --record --key ${{ secrets.CYPRESS_KEY }}
   build:
     name: build
     runs-on: ubuntu-latest
