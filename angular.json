@@ -141,11 +141,7 @@
         "deploy": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "npm run build -- --project=coverme",
-              "npx firebase deploy --only hosting:coverme --token $FIREBASE_TOKEN"
-            ],
-            "parallel": false
+            "command": "npx firebase deploy --only hosting:coverme --token $FIREBASE_TOKEN"
           }
         }
       }
@@ -278,11 +274,7 @@
         "deploy": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "npm run build -- --project=dchbx",
-              "npx firebase deploy --only hosting:dchbx --token $FIREBASE_TOKEN"
-            ],
-            "parallel": false
+            "command": "npx firebase deploy --only hosting:dchbx --token $FIREBASE_TOKEN"
           }
         }
       }
@@ -415,11 +407,7 @@
         "deploy": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "npm run build -- --project=health-connector",
-              "npx firebase deploy --only hosting:health-connector --token $FIREBASE_TOKEN"
-            ],
-            "parallel": false
+            "command": "npx firebase deploy --only hosting:health-connector --token $FIREBASE_TOKEN"
           }
         }
       }
