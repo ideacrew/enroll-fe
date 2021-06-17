@@ -842,6 +842,47 @@
         }
       }
     },
+    "shared-analytics": {
+      "projectType": "library",
+      "root": "libs/shared/analytics",
+      "sourceRoot": "libs/shared/analytics/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/analytics"],
+          "options": {
+            "project": "libs/shared/analytics/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/analytics/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/analytics/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/analytics"],
+          "options": {
+            "jestConfig": "libs/shared/analytics/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/analytics/src/**/*.ts",
+              "libs/shared/analytics/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-state-root-store": {
       "projectType": "library",
       "root": "libs/shared/state/root-store",

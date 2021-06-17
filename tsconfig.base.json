@@ -39,6 +39,7 @@
       "@enroll/i18n/dchbx": ["libs/i18n/dchbx/src/index.ts"],
       "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"],
       "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"],
+      "@enroll/shared/analytics": ["libs/shared/analytics/src/index.ts"],
       "@enroll/shared/state/root-store": [
         "libs/shared/state/root-store/src/index.ts"
       ],

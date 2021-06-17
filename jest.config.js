@@ -20,5 +20,6 @@ module.exports = {
     '<rootDir>/libs/testing/stubs/financial-assistance',
     '<rootDir>/libs/financial-assistance/store/applicants',
     '<rootDir>/libs/testing/e2e',
+    '<rootDir>/libs/shared/analytics',
   ],
 };
