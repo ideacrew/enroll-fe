@@ -1,1 +1,2 @@
-export * from './lib/shared-analytics.module';
+export * from './lib/analytics.service';
+export * from './lib/trackingId';
