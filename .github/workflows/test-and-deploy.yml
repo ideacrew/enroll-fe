@@ -152,11 +152,14 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Download artifact
+        id: download-artifact
         uses: actions/download-artifact@v2
+        continue-on-error: true
         with:
           name: affected-apps
           path: dist/apps
       - name: Deploy Application(s)
+        if: success()
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk
