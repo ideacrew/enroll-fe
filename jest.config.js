@@ -21,7 +21,7 @@ module.exports = {
     '<rootDir>/libs/financial-assistance/store/applicants',
     '<rootDir>/libs/testing/e2e',
     '<rootDir>/libs/shared/analytics',
-    '<rootDir>/libs/shared/title',
     '<rootDir>/libs/util/helpers',
+    '<rootDir>/libs/shared/page-title',
   ],
 };

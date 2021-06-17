@@ -883,6 +883,31 @@
         }
       }
     },
+    "shared-page-title": {
+      "projectType": "library",
+      "root": "libs/shared/page-title",
+      "sourceRoot": "libs/shared/page-title/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/page-title"],
+          "options": {
+            "jestConfig": "libs/shared/page-title/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/page-title/src/**/*.ts",
+              "libs/shared/page-title/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-state-root-store": {
       "projectType": "library",
       "root": "libs/shared/state/root-store",
@@ -919,47 +944,6 @@
             "lintFilePatterns": [
               "libs/shared/state/root-store/src/**/*.ts",
               "libs/shared/state/root-store/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "shared-title": {
-      "projectType": "library",
-      "root": "libs/shared/title",
-      "sourceRoot": "libs/shared/title/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/shared/title"],
-          "options": {
-            "project": "libs/shared/title/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/shared/title/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/shared/title/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/title"],
-          "options": {
-            "jestConfig": "libs/shared/title/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/title/src/**/*.ts",
-              "libs/shared/title/src/**/*.html"
             ]
           }
         }

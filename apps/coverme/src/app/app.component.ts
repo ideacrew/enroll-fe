@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TitleService } from '@enroll/shared/title';
+import { TitleService } from '@enroll/shared/page-title';
 
 @Component({
   selector: 'coverme-root',

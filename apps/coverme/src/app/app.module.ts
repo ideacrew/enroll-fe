@@ -6,7 +6,7 @@ import { UiBaseShellModule } from '@enroll/ui/base/shell';
 import { RootStoreModule } from '@enroll/shared/state/root-store';
 import { I18nSharedModule } from '@enroll/i18n/shared';
 import { I18nCovermeModule } from '@enroll/i18n/coverme';
-import { TITLE_EXTENSION } from '@enroll/shared/title';
+import { TITLE_EXTENSION } from '@enroll/shared/page-title';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';

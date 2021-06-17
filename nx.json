@@ -80,11 +80,11 @@
     "shared-analytics": {
       "tags": ["scope:shared", "type:analytics"]
     },
+    "shared-page-title": {
+      "tags": ["scope:shared"]
+    },
     "shared-state-root-store": {
       "tags": ["type:state", "scope:shared"]
-    },
-    "shared-title": {
-      "tags": ["scope:shared"]
     },
     "testing-e2e": {
       "tags": ["type:testing", "scope:e2e"]
