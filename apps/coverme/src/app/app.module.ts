@@ -6,6 +6,7 @@ import { UiBaseShellModule } from '@enroll/ui/base/shell';
 import { RootStoreModule } from '@enroll/shared/state/root-store';
 import { I18nSharedModule } from '@enroll/i18n/shared';
 import { I18nCovermeModule } from '@enroll/i18n/coverme';
+import { TITLE_EXTENSION } from '@enroll/shared/title';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -19,6 +20,9 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
       {
         path: 'welcome',
         component: WelcomePageComponent,
+        data: {
+          title: 'Welcome',
+        },
       },
       {
         path: 'financial-assistance',
@@ -37,7 +41,12 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     UiBaseShellModule,
   ],
   declarations: [AppComponent, WelcomePageComponent],
-  providers: [],
+  providers: [
+    {
+      provide: TITLE_EXTENSION,
+      useValue: 'Maine Cover ME',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

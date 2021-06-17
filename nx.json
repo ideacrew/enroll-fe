@@ -83,6 +83,9 @@
     "shared-state-root-store": {
       "tags": ["type:state", "scope:shared"]
     },
+    "shared-title": {
+      "tags": ["scope:shared"]
+    },
     "testing-e2e": {
       "tags": ["type:testing", "scope:e2e"]
     },
@@ -97,6 +100,9 @@
     },
     "ui-base-theme": {
       "tags": ["scope:shared"]
+    },
+    "util-helpers": {
+      "tags": ["scope:shared", "type:util"]
     },
     "util-transforms": {
       "tags": ["scope:util", "type:pure-functions"]

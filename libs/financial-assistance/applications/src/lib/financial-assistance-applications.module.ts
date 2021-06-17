@@ -30,6 +30,9 @@ export const loader = ['en', 'es'].reduce(
       {
         path: '', // matches /applications
         component: ApplicationsListPageComponent,
+        data: {
+          title: 'Cost Savings Applications',
+        },
       },
       {
         path: ':applicationId/application-checklist',

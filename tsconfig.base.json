@@ -43,6 +43,7 @@
       "@enroll/shared/state/root-store": [
         "libs/shared/state/root-store/src/index.ts"
       ],
+      "@enroll/shared/title": ["libs/shared/title/src/index.ts"],
       "@enroll/testing/e2e": ["libs/testing/e2e/src/index.ts"],
       "@enroll/testing/i18n": ["libs/testing/i18n/src/index.ts"],
       "@enroll/testing/stubs/financial-assistance": [
@@ -50,6 +51,7 @@
       ],
       "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
       "@enroll/ui/base/theme": ["libs/ui/base/theme/src/index.ts"],
+      "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
       "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]
     }
   },

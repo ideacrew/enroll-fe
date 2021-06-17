@@ -924,6 +924,47 @@
         }
       }
     },
+    "shared-title": {
+      "projectType": "library",
+      "root": "libs/shared/title",
+      "sourceRoot": "libs/shared/title/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/title"],
+          "options": {
+            "project": "libs/shared/title/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/title/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/title/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/title"],
+          "options": {
+            "jestConfig": "libs/shared/title/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/title/src/**/*.ts",
+              "libs/shared/title/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "testing-e2e": {
       "projectType": "library",
       "root": "libs/testing/e2e",
@@ -1106,6 +1147,47 @@
             "lintFilePatterns": [
               "libs/ui/base/theme/src/**/*.ts",
               "libs/ui/base/theme/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "util-helpers": {
+      "projectType": "library",
+      "root": "libs/util/helpers",
+      "sourceRoot": "libs/util/helpers/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/util/helpers"],
+          "options": {
+            "project": "libs/util/helpers/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/util/helpers/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/util/helpers/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/util/helpers"],
+          "options": {
+            "jestConfig": "libs/util/helpers/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/util/helpers/src/**/*.ts",
+              "libs/util/helpers/src/**/*.html"
             ]
           }
         }
