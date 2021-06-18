@@ -4,23 +4,23 @@ import {
   editApplicationButton,
 } from '@enroll/testing/e2e';
 import {
-  aishaModellInitial,
   applications,
+  geraldRiversInitial,
 } from '@enroll/testing/stubs/financial-assistance';
 
-describe('CMS Test Case C', () => {
+describe('CMS Simple Test Case D', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);
     cy.intercept({ method: 'GET', url: '/applications' }, applications);
   });
 
-  it('displays Aisha Modell in the existing application', () => {
+  it('displays Gerald Rivers in the existing application', () => {
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
-      aishaModellInitial,
+      geraldRiversInitial,
     ]);
     cy.visit('/financial-assistance');
     editApplicationButton().click();
-    checkNameInApplicantList(aishaModellInitial);
+    checkNameInApplicantList(geraldRiversInitial);
   });
 });

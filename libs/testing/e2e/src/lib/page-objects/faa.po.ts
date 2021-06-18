@@ -30,12 +30,20 @@ export const genderLabel = (gender: GenderKind) =>
 export const needsCoverageLabel = (needsCoverage: boolean) =>
   cy.get(`[data-cy="needs-coverage-${needsCoverage ? 'yes' : 'no'}"]`);
 
+const enterSSN = (applicant: Applicant): void => {
+  if (applicant.encrypted_ssn) {
+    ssnInput().type('123-45-6789');
+  } else {
+    cy.get('[data-cy="has-no-ssn-label"]').click();
+  }
+};
+
 export const enterBasicInformation = (applicant: Applicant): void => {
   const { first_name, last_name, dob, gender, relationship } = applicant;
   firstNameInput().type(first_name);
   lastNameInput().type(last_name);
   dobInput().type(dob);
-  ssnInput().type('123-45-6789');
+  enterSSN(applicant);
   genderLabel(gender).click();
   relationshipSelect().select(relationship);
   livesWithPrimaryYesLabel().click(); // true for all simple test cases
@@ -47,7 +55,7 @@ export const enterAdditionalInformation = (
 ) => {
   // for simple tests, this is true
   provideAdditionalInformation().click();
-  
+
   citizenshipStatusLabel(applicant.citizen_status).click();
   naturalizedStatusLabel(applicant.citizen_status).click();
   provideTribalInformation().click();

@@ -11,7 +11,7 @@ import {
   editApplicationButton,
 } from '@enroll/testing/e2e';
 
-describe('CMS Test Case A', () => {
+describe('CMS Simple Test Case A', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);

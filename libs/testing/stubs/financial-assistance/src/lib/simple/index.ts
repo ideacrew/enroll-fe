@@ -7,3 +7,4 @@ export * from './applicant-f.stub';
 export * from './applicant-g.stub';
 export * from './applicant-h.stub';
 export * from './applicant-k.stub';
+export * from './applicant-l.stub';
