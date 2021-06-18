@@ -102,7 +102,7 @@
       "tags": ["scope:shared", "type:util"]
     },
     "util-transforms": {
-      "tags": ["scope:util", "type:pure-functions"]
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

@@ -19,7 +19,11 @@
               },
               {
                 "sourceTag": "scope:faa",
-                "onlyDependOnLibsWithTags": ["scope:faa", "scope:shared"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:faa",
+                  "scope:shared",
+                  "type:util"
+                ]
               },
               {
                 "sourceTag": "scope:health-connector",
