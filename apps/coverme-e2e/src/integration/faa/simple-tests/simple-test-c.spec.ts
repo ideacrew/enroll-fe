@@ -1,18 +1,17 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+
 import {
   checkNameInApplicantList,
   editApplicationButton,
-} from '@enroll/testing/e2e';
-import {
   aishaModellInitial,
-  applications,
-} from '@enroll/testing/stubs/financial-assistance';
+  applicationsStub,
+} from '@enroll/financial-assistance/testing';
 
 describe('CMS Simple Test Case C', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);
-    cy.intercept({ method: 'GET', url: '/applications' }, applications);
+    cy.intercept({ method: 'GET', url: '/applications' }, applicationsStub);
   });
 
   it('displays Aisha Modell in the existing application', () => {

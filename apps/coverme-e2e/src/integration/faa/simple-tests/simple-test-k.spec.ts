@@ -1,19 +1,16 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
-  applications,
-  sarahNoelflInitial,
-} from '@enroll/testing/stubs/financial-assistance';
-
-import {
   checkNameInApplicantList,
   editApplicationButton,
-} from '@enroll/testing/e2e';
+  applicationsStub,
+  sarahNoelflInitial,
+} from '@enroll/financial-assistance/testing';
 
 describe('CMS Simple Test Case K', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);
-    cy.intercept({ method: 'GET', url: '/applications' }, applications);
+    cy.intercept({ method: 'GET', url: '/applications' }, applicationsStub);
   });
 
   it('should display Betty Hurtis as the existing applicant', () => {

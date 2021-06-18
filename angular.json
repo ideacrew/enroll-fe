@@ -547,6 +547,31 @@
         }
       }
     },
+    "financial-assistance-testing": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/testing",
+      "sourceRoot": "libs/financial-assistance/testing/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/testing"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/testing/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/testing/src/**/*.ts",
+              "libs/financial-assistance/testing/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "health-connector": {
       "projectType": "application",
       "root": "apps/health-connector",
@@ -949,47 +974,6 @@
         }
       }
     },
-    "testing-e2e": {
-      "projectType": "library",
-      "root": "libs/testing/e2e",
-      "sourceRoot": "libs/testing/e2e/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/testing/e2e"],
-          "options": {
-            "project": "libs/testing/e2e/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/testing/e2e/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/testing/e2e/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/testing/e2e"],
-          "options": {
-            "jestConfig": "libs/testing/e2e/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/testing/e2e/src/**/*.ts",
-              "libs/testing/e2e/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "testing-i18n": {
       "projectType": "library",
       "root": "libs/testing/i18n",
@@ -1025,47 +1009,6 @@
             "lintFilePatterns": [
               "libs/testing/i18n/src/**/*.ts",
               "libs/testing/i18n/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "testing-stubs-financial-assistance": {
-      "projectType": "library",
-      "root": "libs/testing/stubs/financial-assistance",
-      "sourceRoot": "libs/testing/stubs/financial-assistance/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/testing/stubs/financial-assistance"],
-          "options": {
-            "project": "libs/testing/stubs/financial-assistance/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/testing/stubs/financial-assistance/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/testing/stubs/financial-assistance"],
-          "options": {
-            "jestConfig": "libs/testing/stubs/financial-assistance/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/testing/stubs/financial-assistance/src/**/*.ts",
-              "libs/testing/stubs/financial-assistance/src/**/*.html"
             ]
           }
         }

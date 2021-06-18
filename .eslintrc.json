@@ -18,6 +18,10 @@
                 "onlyDependOnLibsWithTags": ["scope:dchbx", "scope:shared"]
               },
               {
+                "sourceTag": "scope:faa",
+                "onlyDependOnLibsWithTags": ["scope:faa", "scope:shared"]
+              },
+              {
                 "sourceTag": "scope:health-connector",
                 "onlyDependOnLibsWithTags": [
                   "scope:health-connector",

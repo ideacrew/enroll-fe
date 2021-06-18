@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
-  applications,
+  addApplicant,
+  checkNameInApplicantList,
+  editApplicationButton,
+  applicationsStub,
   claytonMorganInitial,
   albaMorganInitial,
   ayvaMorganInitial,
@@ -10,19 +13,13 @@ import {
   theodoreMorganInitial,
   michaelMorganInitial,
   hughMorganInitial,
-} from '@enroll/testing/stubs/financial-assistance';
-
-import {
-  addApplicant,
-  checkNameInApplicantList,
-  editApplicationButton,
-} from '@enroll/testing/e2e';
+} from '@enroll/financial-assistance/testing';
 
 describe('CMS Simple Test Case H', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);
-    cy.intercept({ method: 'GET', url: '/applications' }, applications);
+    cy.intercept({ method: 'GET', url: '/applications' }, applicationsStub);
   });
 
   it('should display Betty Hurtis as the existing applicant', () => {

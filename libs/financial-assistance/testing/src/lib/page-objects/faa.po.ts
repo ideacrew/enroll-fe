@@ -38,6 +38,10 @@ const enterSSN = (applicant: Applicant): void => {
   }
 };
 
+export const editApplicantButton = (applicant: Applicant) => {
+  cy.get(`[data-cy="edit-applicant-${applicant.id}"]`).click();
+};
+
 export const enterBasicInformation = (applicant: Applicant): void => {
   const { first_name, last_name, dob, gender, relationship } = applicant;
   firstNameInput().type(first_name);

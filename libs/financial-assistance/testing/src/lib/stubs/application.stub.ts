@@ -1,4 +1,4 @@
-export const applications = [
+export const applicationsStub = [
   {
     id: '269000183',
     status: 'draft',

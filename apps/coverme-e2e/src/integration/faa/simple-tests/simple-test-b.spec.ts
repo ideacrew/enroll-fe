@@ -2,17 +2,16 @@
 import {
   checkNameInApplicantList,
   editApplicationButton,
-} from '@enroll/testing/e2e';
-import {
-  applications,
+  applicationsStub,
   michaelEwingInitial,
-} from '@enroll/testing/stubs/financial-assistance';
+} from '@enroll/financial-assistance/testing';
 
-describe('CMS Simple Test Case B', () => {
+// This test case does not use the FAA flow
+xdescribe('CMS Simple Test Case B', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);
-    cy.intercept({ method: 'GET', url: '/applications' }, applications);
+    cy.intercept({ method: 'GET', url: '/applications' }, applicationsStub);
   });
 
   it('should display Michael Ewing as existing applicant', () => {

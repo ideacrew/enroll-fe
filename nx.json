@@ -57,6 +57,9 @@
     "financial-assistance-store-applicants": {
       "tags": ["scope:faa", "type:store"]
     },
+    "financial-assistance-testing": {
+      "tags": ["scope:faa", "type:testing"]
+    },
     "health-connector": {
       "tags": ["client:health-connector", "type:app"],
       "implicitDependencies": ["ui-base-theme"]
@@ -86,14 +89,8 @@
     "shared-state-root-store": {
       "tags": ["type:state", "scope:shared"]
     },
-    "testing-e2e": {
-      "tags": ["type:testing", "scope:e2e"]
-    },
     "testing-i18n": {
       "tags": ["scope:shared", "type:testing"]
-    },
-    "testing-stubs-financial-assistance": {
-      "tags": ["scope:testing", "type:stubs"]
     },
     "ui-base-shell": {
       "tags": ["scope:shared"]

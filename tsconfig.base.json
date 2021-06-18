@@ -35,6 +35,9 @@
       "@enroll/financial-assistance/store/applicants": [
         "libs/financial-assistance/store/applicants/src/index.ts"
       ],
+      "@enroll/financial-assistance/testing": [
+        "libs/financial-assistance/testing/src/index.ts"
+      ],
       "@enroll/i18n/coverme": ["libs/i18n/coverme/src/index.ts"],
       "@enroll/i18n/dchbx": ["libs/i18n/dchbx/src/index.ts"],
       "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"],
@@ -44,11 +47,7 @@
       "@enroll/shared/state/root-store": [
         "libs/shared/state/root-store/src/index.ts"
       ],
-      "@enroll/testing/e2e": ["libs/testing/e2e/src/index.ts"],
       "@enroll/testing/i18n": ["libs/testing/i18n/src/index.ts"],
-      "@enroll/testing/stubs/financial-assistance": [
-        "libs/testing/stubs/financial-assistance/src/index.ts"
-      ],
       "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
       "@enroll/ui/base/theme": ["libs/ui/base/theme/src/index.ts"],
       "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],

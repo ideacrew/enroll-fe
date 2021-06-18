@@ -19,8 +19,6 @@ export const michaelEwingInitial: Applicant = {
   phones: defaultPhones,
   emails: generateEmail(),
   aasm_state: 'info needed',
-  is_applying_coverage: true,
-  citizen_status: 'us_citizen',
+  is_applying_coverage: false,
   indian_tribe_member: false,
-  is_incarcerated: false,
 };
