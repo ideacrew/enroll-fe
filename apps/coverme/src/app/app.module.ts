@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { UiBaseShellModule } from '@enroll/ui/base/shell';
 import { RootStoreModule } from '@enroll/shared/state/root-store';
-import { I18nSharedModule } from '@enroll/i18n/shared';
 import { CovermeI18nModule } from '@enroll/coverme/i18n';
 import { TITLE_EXTENSION } from '@enroll/shared/page-title';
+import { SharedI18nModule } from '@enroll/shared/i18n';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -14,7 +14,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 @NgModule({
   imports: [
     BrowserModule,
-    I18nSharedModule,
+    SharedI18nModule,
     CovermeI18nModule,
     RouterModule.forRoot([
       {

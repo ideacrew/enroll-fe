@@ -31,4 +31,4 @@ import { CustomHandler } from './custom-handler';
   ],
   exports: [TranslocoModule],
 })
-export class I18nSharedModule {}
+export class SharedI18nModule {}

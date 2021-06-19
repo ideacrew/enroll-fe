@@ -38,7 +38,6 @@
       "@enroll/financial-assistance/testing": [
         "libs/financial-assistance/testing/src/index.ts"
       ],
-      "@enroll/i18n/shared": ["libs/i18n/shared/src/index.ts"],
       "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"],
       "@enroll/shared/analytics": ["libs/shared/analytics/src/index.ts"],
       "@enroll/shared/page-title": ["libs/shared/page-title/src/index.ts"],
@@ -51,7 +50,8 @@
       "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
       "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"],
       "@enroll/coverme/i18n": ["libs/coverme/i18n/src/index.ts"],
-      "@enroll/dchbx/i18n": ["libs/dchbx/i18n/src/index.ts"]
+      "@enroll/dchbx/i18n": ["libs/dchbx/i18n/src/index.ts"],
+      "@enroll/shared/i18n": ["libs/shared/i18n/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

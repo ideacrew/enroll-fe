@@ -15,7 +15,6 @@ module.exports = {
     '<rootDir>/libs/financial-assistance/data-access',
     '<rootDir>/libs/util/transforms',
     '<rootDir>/libs/shared/state/root-store',
-    '<rootDir>/libs/i18n/shared',
     '<rootDir>/libs/financial-assistance/store/applicants',
     '<rootDir>/libs/shared/analytics',
     '<rootDir>/libs/util/helpers',
@@ -23,5 +22,6 @@ module.exports = {
     '<rootDir>/libs/financial-assistance/testing',
     '<rootDir>/libs/coverme/i18n',
     '<rootDir>/libs/dchbx/i18n',
+    '<rootDir>/libs/shared/i18n',
   ],
 };
