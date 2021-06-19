@@ -22,5 +22,6 @@ module.exports = {
     '<rootDir>/libs/util/helpers',
     '<rootDir>/libs/shared/page-title',
     '<rootDir>/libs/financial-assistance/testing',
+    '<rootDir>/libs/coverme/i18n',
   ],
 };

@@ -31,9 +31,6 @@
       "tags": [],
       "implicitDependencies": ["coverme", "ui-base-theme"]
     },
-    "coverme-i18n": {
-      "tags": ["scope:coverme", "type:i18n"]
-    },
     "dchbx": {
       "tags": ["client:dchbx"],
       "implicitDependencies": ["ui-base-theme"]
@@ -103,6 +100,9 @@
     },
     "util-transforms": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "coverme-i18n": {
+      "tags": ["scope:coverme", "type:i18n"]
     }
   }
 }
