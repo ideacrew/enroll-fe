@@ -23,4 +23,4 @@ export const loader = ['en', 'es'].reduce(
     },
   ],
 })
-export class I18nCovermeModule {}
+export class CovermeI18nModule {}

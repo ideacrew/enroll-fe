@@ -1,5 +1,5 @@
 {
-  "name": "@enroll/i18n/coverme",
+  "name": "@enroll/coverme/i18n",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.0.0",

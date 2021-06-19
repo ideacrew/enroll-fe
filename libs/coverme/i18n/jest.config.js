@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'i18n-coverme',
+  displayName: 'coverme-i18n',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/i18n/coverme',
+  coverageDirectory: '../../../coverage/libs/coverme/i18n',
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

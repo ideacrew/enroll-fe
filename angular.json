@@ -705,46 +705,6 @@
         }
       }
     },
-    "i18n-coverme": {
-      "projectType": "library",
-      "root": "libs/i18n/coverme",
-      "sourceRoot": "libs/i18n/coverme/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/i18n/coverme/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/i18n/coverme/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/i18n/coverme/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/i18n/coverme"],
-          "options": {
-            "jestConfig": "libs/i18n/coverme/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/i18n/coverme/src/**/*.ts",
-              "libs/i18n/coverme/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "i18n-dchbx": {
       "projectType": "library",
       "root": "libs/i18n/dchbx",
@@ -1156,6 +1116,46 @@
             "lintFilePatterns": [
               "libs/util/transforms/src/**/*.ts",
               "libs/util/transforms/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "coverme-i18n": {
+      "projectType": "library",
+      "root": "libs/coverme/i18n",
+      "sourceRoot": "libs/coverme/i18n/src",
+      "prefix": "enroll",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/coverme/i18n/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/coverme/i18n/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/coverme/i18n/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/coverme/i18n"],
+          "options": {
+            "jestConfig": "libs/coverme/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/coverme/i18n/src/**/*.ts",
+              "libs/coverme/i18n/src/**/*.html"
             ]
           }
         }

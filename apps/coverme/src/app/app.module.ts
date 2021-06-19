@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { UiBaseShellModule } from '@enroll/ui/base/shell';
 import { RootStoreModule } from '@enroll/shared/state/root-store';
 import { I18nSharedModule } from '@enroll/i18n/shared';
-import { I18nCovermeModule } from '@enroll/i18n/coverme';
+import { CovermeI18nModule } from '@enroll/coverme/i18n';
 import { TITLE_EXTENSION } from '@enroll/shared/page-title';
 
 import { AppComponent } from './app.component';
@@ -15,7 +15,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
   imports: [
     BrowserModule,
     I18nSharedModule,
-    I18nCovermeModule,
+    CovermeI18nModule,
     RouterModule.forRoot([
       {
         path: 'welcome',

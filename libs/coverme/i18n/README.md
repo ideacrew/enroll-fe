@@ -1,7 +1,7 @@
-# i18n-coverme
+# coverme-i18n
 
 This library was generated with [Nx](https://nx.dev).
 
 ## Running unit tests
 
-Run `nx test i18n-coverme` to execute the unit tests.
+Run `nx test coverme-i18n` to execute the unit tests.

@@ -31,6 +31,9 @@
       "tags": [],
       "implicitDependencies": ["coverme", "ui-base-theme"]
     },
+    "coverme-i18n": {
+      "tags": ["scope:coverme", "type:i18n"]
+    },
     "dchbx": {
       "tags": ["client:dchbx"],
       "implicitDependencies": ["ui-base-theme"]
@@ -67,9 +70,6 @@
     "health-connector-e2e": {
       "tags": [],
       "implicitDependencies": ["health-connector"]
-    },
-    "i18n-coverme": {
-      "tags": ["scope:coverme", "type:i18n"]
     },
     "i18n-dchbx": {
       "tags": ["scope:dchbx", "type:i18n"]
