@@ -38,7 +38,6 @@
       "@enroll/financial-assistance/testing": [
         "libs/financial-assistance/testing/src/index.ts"
       ],
-      "@enroll/i18n/util": ["libs/i18n/util/src/index.ts"],
       "@enroll/shared/analytics": ["libs/shared/analytics/src/index.ts"],
       "@enroll/shared/page-title": ["libs/shared/page-title/src/index.ts"],
       "@enroll/shared/state/root-store": [

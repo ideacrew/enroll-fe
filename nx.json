@@ -68,9 +68,6 @@
       "tags": [],
       "implicitDependencies": ["health-connector"]
     },
-    "i18n-util": {
-      "tags": ["scope:shared", "type:i18n", "type:util"]
-    },
     "shared-analytics": {
       "tags": ["scope:shared", "type:analytics"]
     },
