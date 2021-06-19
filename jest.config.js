@@ -3,7 +3,6 @@ module.exports = {
     '<rootDir>/apps/coverme',
     '<rootDir>/apps/dchbx',
     '<rootDir>/apps/health-connector',
-    '<rootDir>/libs/ui/base/theme',
     '<rootDir>/libs/ui/base/shell',
     '<rootDir>/libs/testing/i18n',
     '<rootDir>/libs/i18n/coverme',
@@ -22,5 +21,6 @@ module.exports = {
     '<rootDir>/libs/coverme/i18n',
     '<rootDir>/libs/dchbx/i18n',
     '<rootDir>/libs/shared/i18n',
+    '<rootDir>/libs/shared/theme',
   ],
 };

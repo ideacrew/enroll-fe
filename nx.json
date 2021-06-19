@@ -25,15 +25,15 @@
   "projects": {
     "coverme": {
       "tags": ["client:coverme"],
-      "implicitDependencies": ["ui-base-theme"]
+      "implicitDependencies": ["shared-theme"]
     },
     "coverme-e2e": {
       "tags": [],
-      "implicitDependencies": ["coverme", "ui-base-theme"]
+      "implicitDependencies": ["coverme", "shared-theme"]
     },
     "dchbx": {
       "tags": ["client:dchbx"],
-      "implicitDependencies": ["ui-base-theme"]
+      "implicitDependencies": ["shared-theme"]
     },
     "dchbx-e2e": {
       "tags": [],
@@ -62,7 +62,7 @@
     },
     "health-connector": {
       "tags": ["client:health-connector", "type:app"],
-      "implicitDependencies": ["ui-base-theme"]
+      "implicitDependencies": ["shared-theme"]
     },
     "health-connector-e2e": {
       "tags": [],
@@ -83,9 +83,6 @@
     "ui-base-shell": {
       "tags": ["scope:shared"]
     },
-    "ui-base-theme": {
-      "tags": ["scope:shared"]
-    },
     "util-helpers": {
       "tags": ["scope:shared", "type:util"]
     },
@@ -100,6 +97,9 @@
     },
     "shared-i18n": {
       "tags": ["scope:shared", "type:i18n"]
+    },
+    "shared-theme": {
+      "tags": ["scope:shared", "type:theme"]
     }
   }
 }
