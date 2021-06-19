@@ -59,7 +59,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/i18n/shared/src/lib/assets/i18n",
+                "input": "libs/shared/i18n/src/lib/assets/i18n",
                 "output": "/assets/i18n"
               }
             ],
@@ -192,7 +192,7 @@
               "apps/dchbx/src/assets",
               {
                 "glob": "**/*",
-                "input": "libs/i18n/shared/src/lib/assets/i18n",
+                "input": "libs/shared/i18n/src/lib/assets/i18n",
                 "output": "/assets/i18n"
               }
             ],
@@ -592,7 +592,7 @@
               "apps/health-connector/src/assets",
               {
                 "glob": "**/*",
-                "input": "libs/i18n/shared/src/lib/assets/i18n",
+                "input": "libs/shared/i18n/src/lib/assets/i18n",
                 "output": "/assets/i18n"
               }
             ],
