@@ -6,5 +6,11 @@
   },
   "customerService": "Customer Service",
   "financialAssistance": "Financial Assistance",
-  "myInsuredPortal": "My Insured Portal"
+  "myInsuredPortal": "My Insured Portal",
+  "familyInformation": "Generic Family Information",
+  "name": "name",
+  "age": "age",
+  "gender": "gender",
+  "relationship": "relationship",
+  "status": "status"
 }

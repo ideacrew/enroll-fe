@@ -1,106 +1,117 @@
-<div class="main-content">
-  <h1>Family Information</h1>
-  <p>
-    If you need to add other members to your health insurance, select Add New
-    Person. When you're finished, select Continue.
-  </p>
-  <!-- Extract into component with applications as input -->
-  <table class="enroll-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Gender</th>
-        <th>Relationship</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let applicant of applicants$ | async">
-        <td [attr.data-cy]="'applicant-' + applicant.id + '-name'">
-          {{ applicant.first_name }} {{ applicant.last_name }}
-        </td>
-        <td [attr.data-cy]="'applicant-' + applicant.id + '-age'">
-          {{ applicant.dob | age }}
-        </td>
-        <td [attr.data-cy]="'applicant-' + applicant.id + '-gender'">
-          {{ applicant.gender | titlecase }}
-        </td>
-        <td [attr.data-cy]="'applicant-' + applicant.id + '-relationship'">
-          {{ applicant.relationship | titlecase }}
-        </td>
-        <td [attr.data-cy]="'applicant-' + applicant.id + '-status'">
-          {{ applicant.aasm_state | titlecase }}
-        </td>
-        <td>
-          <a
-            [attr.data-cy]="'edit-applicant-' + applicant.id"
-            class="enroll-button"
-            routerLink="../applicants/{{ applicant.id }}/tax-info"
-            >Edit Income & Coverage Info</a
-          >
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <a
-    routerLink="../add-new-person"
-    data-cy="add-new-household-member"
-    class="enroll-button"
-    >Add new person</a
-  >
-  <details>
-    <summary>
-      <span>Who else should I include in my household?</span>
-    </summary>
+<ng-container *transloco="let t">
+  <div class="main-content">
+    <!-- Coming from Shared JSON File -->
+    <!-- <h1>{{ t('familyInformation') }}</h1> -->
+
+    <!-- Coming from Lazy Loaded Module JSON File where scope is set -->
+    <h1>{{ t('faaApplications.familyInformation') }}</h1>
+
+    <!-- Coming from Client JSON File where scope is set -->
+    <!-- <h1>{{ t('client.familyInformation') }}</h1> -->
     <p>
-      If you file a federal tax return, include the following people. Include
-      everyone on this list even if some people don’t need health coverage:
+      If you need to add other members to your health insurance, select Add New
+      Person. When you're finished, select Continue.
     </p>
-    <ul>
-      <li>Yourself</li>
-      <li>
-        Your spouse if you’re legally married (even if you don’t live together)
-      </li>
-      <li>Everyone claimed as a dependent on the tax return</li>
-      <li>
-        Any child under 21 who lives with you, even if you don’t claim them as a
-        dependent
-      </li>
-      <li>
-        Optionally, list any of your children up to age 26, even if they don’t
-        live with you, if you’d like to include them in your health coverage
-        application
-      </li>
-    </ul>
-    <p>
-      If you file a federal tax return, include the following people. Include
-      everyone on this list even if some people don’t need health coverage:
-    </p>
-    <ul>
-      <li>Yourself</li>
-      <li>
-        Your spouse if you’re legally married (even if you don’t live together)
-      </li>
-      <li>Anyone under the age of 21 who lives with you</li>
-      <li>
-        Optionally, list any of your children up to age 26, even if they don’t
-        live with you, if you’d like to include them in your health coverage
-        application
-      </li>
-    </ul>
-    <p>You don't need to list:</p>
-    <ul>
-      <li>Roommates</li>
-      <li>
-        Your unmarried domestic partner (unless you claim this person as your
-        tax dependent)
-      </li>
-      <li>
-        Your spouse if you’re legally separated, divorced, or are a victim of
-        domestic abuse, domestic violence, or spousal abandonment
-      </li>
-    </ul>
-  </details>
-</div>
+    <!-- Extract into component with applications as input -->
+    <table class="enroll-table">
+      <thead>
+        <tr>
+          <th>{{ t('name') | titlecase }}</th>
+          <th>{{ t('age') | titlecase }}</th>
+          <th>{{ t('gender') | titlecase }}</th>
+          <th>{{ t('relationship') | titlecase }}</th>
+          <th>{{ t('status') | titlecase }}</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let applicant of applicants$ | async">
+          <td [attr.data-cy]="'applicant-' + applicant.id + '-name'">
+            {{ applicant.first_name }} {{ applicant.last_name }}
+          </td>
+          <td [attr.data-cy]="'applicant-' + applicant.id + '-age'">
+            {{ applicant.dob | age }}
+          </td>
+          <td [attr.data-cy]="'applicant-' + applicant.id + '-gender'">
+            {{ applicant.gender | titlecase }}
+          </td>
+          <td [attr.data-cy]="'applicant-' + applicant.id + '-relationship'">
+            {{ applicant.relationship | titlecase }}
+          </td>
+          <td [attr.data-cy]="'applicant-' + applicant.id + '-status'">
+            {{ applicant.aasm_state | titlecase }}
+          </td>
+          <td>
+            <a
+              [attr.data-cy]="'edit-applicant-' + applicant.id"
+              class="enroll-button"
+              routerLink="../applicants/{{ applicant.id }}/tax-info"
+              >Edit Income & Coverage Info</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a
+      routerLink="../add-new-person"
+      data-cy="add-new-household-member"
+      class="enroll-button"
+      >Add new person</a
+    >
+    <details>
+      <summary>
+        <span>Who else should I include in my household?</span>
+      </summary>
+      <p>
+        If you file a federal tax return, include the following people. Include
+        everyone on this list even if some people don’t need health coverage:
+      </p>
+      <ul>
+        <li>Yourself</li>
+        <li>
+          Your spouse if you’re legally married (even if you don’t live
+          together)
+        </li>
+        <li>Everyone claimed as a dependent on the tax return</li>
+        <li>
+          Any child under 21 who lives with you, even if you don’t claim them as
+          a dependent
+        </li>
+        <li>
+          Optionally, list any of your children up to age 26, even if they don’t
+          live with you, if you’d like to include them in your health coverage
+          application
+        </li>
+      </ul>
+      <p>
+        If you file a federal tax return, include the following people. Include
+        everyone on this list even if some people don’t need health coverage:
+      </p>
+      <ul>
+        <li>Yourself</li>
+        <li>
+          Your spouse if you’re legally married (even if you don’t live
+          together)
+        </li>
+        <li>Anyone under the age of 21 who lives with you</li>
+        <li>
+          Optionally, list any of your children up to age 26, even if they don’t
+          live with you, if you’d like to include them in your health coverage
+          application
+        </li>
+      </ul>
+      <p>You don't need to list:</p>
+      <ul>
+        <li>Roommates</li>
+        <li>
+          Your unmarried domestic partner (unless you claim this person as your
+          tax dependent)
+        </li>
+        <li>
+          Your spouse if you’re legally separated, divorced, or are a victim of
+          domestic abuse, domestic violence, or spousal abandonment
+        </li>
+      </ul>
+    </details>
+  </div>
+</ng-container>
