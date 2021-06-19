@@ -705,47 +705,6 @@
         }
       }
     },
-    "i18n-dchbx": {
-      "projectType": "library",
-      "root": "libs/i18n/dchbx",
-      "sourceRoot": "libs/i18n/dchbx/src",
-      "prefix": "enroll",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/i18n/dchbx"],
-          "options": {
-            "project": "libs/i18n/dchbx/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/i18n/dchbx/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/i18n/dchbx/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/i18n/dchbx"],
-          "options": {
-            "jestConfig": "libs/i18n/dchbx/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/i18n/dchbx/src/**/*.ts",
-              "libs/i18n/dchbx/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "i18n-shared": {
       "projectType": "library",
       "root": "libs/i18n/shared",
@@ -1141,6 +1100,31 @@
             "lintFilePatterns": [
               "libs/coverme/i18n/src/**/*.ts",
               "libs/coverme/i18n/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "dchbx-i18n": {
+      "projectType": "library",
+      "root": "libs/dchbx/i18n",
+      "sourceRoot": "libs/dchbx/i18n/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dchbx/i18n"],
+          "options": {
+            "jestConfig": "libs/dchbx/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/dchbx/i18n/src/**/*.ts",
+              "libs/dchbx/i18n/src/**/*.html"
             ]
           }
         }

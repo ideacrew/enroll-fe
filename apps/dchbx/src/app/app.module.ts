@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { UiBaseShellModule } from '@enroll/ui/base/shell';
 import { RootStoreModule } from '@enroll/shared/state/root-store';
-import { I18nDchbxModule } from '@enroll/i18n/dchbx';
+import { DchbxI18nModule } from '@enroll/dchbx/i18n';
 import { I18nSharedModule } from '@enroll/i18n/shared';
 
 import { AppComponent } from './app.component';
@@ -15,7 +15,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
   imports: [
     BrowserModule,
     I18nSharedModule,
-    I18nDchbxModule,
+    DchbxI18nModule,
     RouterModule.forRoot([
       {
         path: 'welcome',

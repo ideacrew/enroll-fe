@@ -68,9 +68,6 @@
       "tags": [],
       "implicitDependencies": ["health-connector"]
     },
-    "i18n-dchbx": {
-      "tags": ["scope:dchbx", "type:i18n"]
-    },
     "i18n-shared": {
       "tags": ["scope:shared", "type:i18n"]
     },
@@ -103,6 +100,9 @@
     },
     "coverme-i18n": {
       "tags": ["scope:coverme", "type:i18n"]
+    },
+    "dchbx-i18n": {
+      "tags": ["scope:dchbx", "type:i18n"]
     }
   }
 }

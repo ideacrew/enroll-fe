@@ -22,4 +22,4 @@ export const loader = ['en', 'es'].reduce(
     },
   ],
 })
-export class I18nDchbxModule {}
+export class DchbxI18nModule {}
