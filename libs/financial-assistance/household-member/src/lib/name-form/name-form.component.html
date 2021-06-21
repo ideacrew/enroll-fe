@@ -1,0 +1,49 @@
+<ng-container [formGroup]="parent">
+  <div class="enroll-input-group">
+    <label class="enroll-label" for="first-name"> First Name * </label>
+    <input
+      data-cy="first-name-input"
+      class="enroll-input"
+      id="first-name"
+      name="first-name"
+      type="text"
+      formControlName="first_name"
+    />
+  </div>
+
+  <div class="enroll-input-group">
+    <label class="enroll-label" for="middle-name">Middle Name</label>
+    <input
+      data-cy="middle-name-input"
+      class="enroll-input"
+      id="middle-name"
+      name="middle-name"
+      type="text"
+      formControlName="middle_name"
+    />
+  </div>
+
+  <div class="enroll-input-group">
+    <label class="enroll-label" for="last-name">Last Name *</label>
+    <input
+      data-cy="last-name-input"
+      class="enroll-input"
+      id="last-name"
+      name="last-name"
+      type="text"
+      formControlName="last_name"
+    />
+  </div>
+
+  <div class="enroll-input-group ch-10">
+    <label class="enroll-label" for="name-suffix">Suffix</label>
+    <input
+      data-cy="name-suffix-input"
+      class="enroll-input"
+      id="name-suffix"
+      name="name-suffix"
+      type="text"
+      formControlName="name_sfx"
+    />
+  </div>
+</ng-container>

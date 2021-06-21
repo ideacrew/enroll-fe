@@ -8,7 +8,7 @@ export interface Relationship {
   lives_with_household_member?: boolean;
 }
 
-export const relationship = [
+export const relationships = [
   'self',
   'spouse',
   'domestic_partner',
@@ -22,4 +22,4 @@ export const relationship = [
   'grandparent',
 ] as const;
 
-export type RelationshipKind = typeof relationship[number];
+export type RelationshipKind = typeof relationships[number];

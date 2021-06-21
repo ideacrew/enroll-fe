@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 import { HouseholdMemberRoutingModule } from './household-member-routing.module';
@@ -29,12 +29,17 @@ import { ImmigrationDocumentComponent } from './immigration-document/immigration
 import { CitizenshipComponent } from './citizenship/citizenship.component';
 
 import { loader } from './loader';
-import { NameComponent } from './name/name.component';
+import { NameFormComponent } from './name-form/name-form.component';
+import { DobInputComponent } from './dob-input/dob-input.component';
+import { SsnInputComponent } from './ssn-input/ssn-input.component';
+import { GenderInputComponent } from './gender-input/gender-input.component';
+import { RelationshipSelectComponent } from './relationship-select/relationship-select.component';
 
 @NgModule({
   imports: [
     CommonModule,
     HouseholdMemberRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     TranslocoModule,
   ],
@@ -61,7 +66,11 @@ import { NameComponent } from './name/name.component';
     TribalMembershipComponent,
     UniqueIdPipe,
     VisaNumberComponent,
-    NameComponent,
+    NameFormComponent,
+    DobInputComponent,
+    SsnInputComponent,
+    GenderInputComponent,
+    RelationshipSelectComponent,
   ],
   providers: [
     NewHouseholdMemberService,

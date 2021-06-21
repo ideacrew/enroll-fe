@@ -1,0 +1,29 @@
+<ng-container [formGroup]="parent">
+  <ng-container formGroupName="ssnInformation">
+    <div class="enroll-input-group">
+      <label for="ssn" class="enroll-label">Social Security Number *</label>
+      <input
+        data-cy="ssn-input"
+        class="enroll-input"
+        type="text"
+        name="ssn"
+        id="ssn"
+        formControlName="ssn"
+      />
+    </div>
+    <div class="enroll-checkbox-group">
+      <input
+        type="checkbox"
+        id="no-ssn"
+        class="enroll-checkbox-input"
+        formControlName="no_ssn"
+      />
+      <label
+        data-cy="has-no-ssn-label"
+        class="enroll-label enroll-checkbox-label"
+        for="no-ssn"
+        >I don't have an SSN</label
+      >
+    </div>
+  </ng-container>
+</ng-container>

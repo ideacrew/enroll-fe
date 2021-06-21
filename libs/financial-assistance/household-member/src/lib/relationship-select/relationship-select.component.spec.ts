@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NameComponent } from './name.component';
+import { RelationshipSelectComponent } from './relationship-select.component';
 
-describe('NameComponent', () => {
-  let component: NameComponent;
-  let fixture: ComponentFixture<NameComponent>;
+describe('RelationshipSelectComponent', () => {
+  let component: RelationshipSelectComponent;
+  let fixture: ComponentFixture<RelationshipSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NameComponent ]
+      declarations: [ RelationshipSelectComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NameComponent);
+    fixture = TestBed.createComponent(RelationshipSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

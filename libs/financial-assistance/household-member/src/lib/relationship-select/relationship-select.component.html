@@ -1,0 +1,18 @@
+<div class="enroll-form-group" [formGroup]="parent" *transloco="let t">
+  <label class="enroll-label" for="relationship"
+    >{{ t('household.whatRelationship') }} Ted Crisp?</label
+  >
+  <select
+    data-cy="relationship-select"
+    class="enroll-input enroll-select"
+    id="relationship"
+    name="relationship"
+    formControlName="relationship"
+  >
+    <option selected>Select a relationship</option>
+
+    <option *ngFor="let relationship of relationships" [value]="relationship">
+      {{ t('household.' + relationship) }}
+    </option>
+  </select>
+</div>
