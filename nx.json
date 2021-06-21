@@ -61,7 +61,7 @@
       "tags": ["scope:faa", "type:feature"]
     },
     "financial-assistance-shell": {
-      "tags": ["scope:shared", "type:feature"]
+      "tags": ["scope:faa", "type:shell"]
     },
     "financial-assistance-store-applicants": {
       "tags": ["scope:faa", "type:store"]
