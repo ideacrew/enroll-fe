@@ -948,30 +948,6 @@
       "sourceRoot": "libs/util/helpers/src",
       "prefix": "enroll",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/util/helpers"],
-          "options": {
-            "project": "libs/util/helpers/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/util/helpers/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/util/helpers/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/util/helpers"],
-          "options": {
-            "jestConfig": "libs/util/helpers/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
@@ -989,22 +965,6 @@
       "sourceRoot": "libs/util/transforms/src",
       "prefix": "enroll",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/util/transforms"],
-          "options": {
-            "project": "libs/util/transforms/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/util/transforms/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/util/transforms/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/util/transforms"],

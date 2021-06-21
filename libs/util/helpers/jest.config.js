@@ -9,9 +9,7 @@ module.exports = {
     },
   },
   coverageDirectory: '../../../coverage/libs/util/helpers',
-  transform: {
-    '^.+\\.(ts|js|html)$': 'jest-preset-angular',
-  },
+  transform: { '^.+\\.(ts|js|html)$': 'jest-preset-angular' },
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
