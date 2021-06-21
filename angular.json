@@ -923,21 +923,6 @@
       "sourceRoot": "libs/ui/base/shell/src",
       "prefix": "enroll",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/ui/base/shell/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/ui/base/shell/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/ui/base/shell/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/ui/base/shell"],
