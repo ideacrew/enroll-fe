@@ -694,22 +694,6 @@
       "sourceRoot": "libs/shared/analytics/src",
       "prefix": "enroll",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/shared/analytics"],
-          "options": {
-            "project": "libs/shared/analytics/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/shared/analytics/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/shared/analytics/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/shared/analytics"],
