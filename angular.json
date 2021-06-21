@@ -527,22 +527,6 @@
       "sourceRoot": "libs/financial-assistance/store/applicants/src",
       "prefix": "enroll",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/financial-assistance/store/applicants"],
-          "options": {
-            "project": "libs/financial-assistance/store/applicants/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/financial-assistance/store/applicants/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/financial-assistance/store/applicants/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/financial-assistance/store/applicants"],
