@@ -2,7 +2,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { Applicant } from './models';
+import { NewHouseholdMember } from './models/householdMember';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,7 @@ export class ApplicantsService {
   /**
    * Gets all applicants associated with an application ID
    * @param {string} applicationId the application ID
-   * @returns {Observable<ApplicantVM[]>} applicants
+   * @returns {Observable<Applicant[]>} applicants
    */
   getApplicants(
     applicationId: string | null = 'no-application-id'
@@ -25,17 +27,17 @@ export class ApplicantsService {
 
   /**
    * Creates a new applicant for an application
-   * @param baseApplicant the base information required to create and applicant
+   * @param householdMember the base information required to create and applicant
    * @param applicationId the application id associated with the new applicant
-   * @returns {Observable<string>} the new applicant's ID
+   * @returns {Observable<Applicant>} the new applicant's ID
    */
   createNewApplicant(
-    baseApplicant: Applicant,
-    applicationId: string
-  ): Observable<unknown> {
+    applicationId: string,
+    householdMember: NewHouseholdMember
+  ): Observable<Applicant> {
     return this.http.post<Applicant>(
       `/applications/${applicationId}/applicants`,
-      baseApplicant
+      householdMember
     );
   }
 }

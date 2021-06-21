@@ -31,6 +31,9 @@
       "tags": [],
       "implicitDependencies": ["coverme", "shared-theme"]
     },
+    "coverme-i18n": {
+      "tags": ["scope:coverme", "type:i18n"]
+    },
     "dchbx": {
       "tags": ["client:dchbx"],
       "implicitDependencies": ["shared-theme"]
@@ -38,6 +41,9 @@
     "dchbx-e2e": {
       "tags": [],
       "implicitDependencies": ["dchbx"]
+    },
+    "dchbx-i18n": {
+      "tags": ["scope:dchbx", "type:i18n"]
     },
     "financial-assistance-applicant": {
       "tags": ["scope:faa", "type:feature"]
@@ -50,6 +56,9 @@
     },
     "financial-assistance-entities": {
       "tags": ["scope:faa", "type:models"]
+    },
+    "financial-assistance-household-member": {
+      "tags": ["scope:faa", "type:feature"]
     },
     "financial-assistance-shell": {
       "tags": ["scope:shared", "type:feature"]
@@ -71,11 +80,17 @@
     "shared-analytics": {
       "tags": ["scope:shared", "type:analytics"]
     },
+    "shared-i18n": {
+      "tags": ["scope:shared", "type:i18n"]
+    },
     "shared-page-title": {
       "tags": ["scope:shared"]
     },
     "shared-state-root-store": {
       "tags": ["type:state", "scope:shared"]
+    },
+    "shared-theme": {
+      "tags": ["scope:shared", "type:theme"]
     },
     "testing-i18n": {
       "tags": ["scope:shared", "type:testing"]
@@ -88,18 +103,6 @@
     },
     "util-transforms": {
       "tags": ["scope:shared", "type:util"]
-    },
-    "coverme-i18n": {
-      "tags": ["scope:coverme", "type:i18n"]
-    },
-    "dchbx-i18n": {
-      "tags": ["scope:dchbx", "type:i18n"]
-    },
-    "shared-i18n": {
-      "tags": ["scope:shared", "type:i18n"]
-    },
-    "shared-theme": {
-      "tags": ["scope:shared", "type:theme"]
     }
   }
 }

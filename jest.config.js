@@ -22,5 +22,6 @@ module.exports = {
     '<rootDir>/libs/dchbx/i18n',
     '<rootDir>/libs/shared/i18n',
     '<rootDir>/libs/shared/theme',
+    '<rootDir>/libs/financial-assistance/household-member',
   ],
 };

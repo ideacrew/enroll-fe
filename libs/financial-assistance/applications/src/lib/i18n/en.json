@@ -1,5 +1,11 @@
 {
   "applicationListTitle": "Cost Savings Applications",
   "applicationChecklist": "Application Checklist",
-  "familyInformation": "Family Information"
+  "familyInformation": "My Household",
+  "myApplications": "My Applications",
+  "application": "Application",
+  "incomplete": "Incomplete",
+  "incomeAndCoverage": "Income & Coverage Info",
+  "familyRelationships": "Family Relationships",
+  "reviewAndSubmit": "Review and Submit"
 }

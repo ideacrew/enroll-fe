@@ -1,0 +1,70 @@
+:host {
+  display: grid;
+  grid-template-columns:
+    [left-nav-start] repeat(3, 1fr) [left-nav-end main-content-start] repeat(
+      9,
+      1fr
+    )
+    [main-content-end];
+  gap: var(--s0);
+}
+
+.main-content {
+  grid-column: main-content;
+}
+
+aside {
+  grid-column: left-nav;
+
+  nav a {
+    display: inline-block;
+    color: var(--grey-000);
+    text-decoration: none;
+    padding: var(--s-2) 0;
+  }
+}
+
+.application-progress {
+  align-self: start;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  border-radius: 5px;
+  background-color: var(--grey-000);
+  border: 1px solid var(--grey-050);
+  padding: var(--s-1);
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+}
+
+.up-level-nav-link {
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.progress-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.progress-parts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.part-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

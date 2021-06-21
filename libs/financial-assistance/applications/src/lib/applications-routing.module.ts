@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 import { ApplicationChecklistComponent } from './application-checklist/application-checklist.component';
 import { EditApplicationComponent } from './edit-application/edit-application.component';
-import { NewHouseholdMemberModule } from './new-household-member/new-household-member.module';
+
 import { ReviewApplicationComponent } from './review-application/review-application.component';
 
 const routes: Routes = [
@@ -29,7 +29,10 @@ const routes: Routes = [
   },
   {
     path: ':applicationId/add-new-person',
-    loadChildren: () => NewHouseholdMemberModule,
+    loadChildren: () =>
+      import('@enroll/financial-assistance/household-member').then(
+        (module) => module.NewHouseholdMemberModule
+      ),
   },
   {
     path: ':applicationId/applicants/:applicantId',

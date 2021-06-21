@@ -172,6 +172,31 @@
         }
       }
     },
+    "coverme-i18n": {
+      "projectType": "library",
+      "root": "libs/coverme/i18n",
+      "sourceRoot": "libs/coverme/i18n/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/coverme/i18n"],
+          "options": {
+            "jestConfig": "libs/coverme/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/coverme/i18n/src/**/*.ts",
+              "libs/coverme/i18n/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "dchbx": {
       "projectType": "application",
       "root": "apps/dchbx",
@@ -301,6 +326,31 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/dchbx-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "dchbx-i18n": {
+      "projectType": "library",
+      "root": "libs/dchbx/i18n",
+      "sourceRoot": "libs/dchbx/i18n/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dchbx/i18n"],
+          "options": {
+            "jestConfig": "libs/dchbx/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/dchbx/i18n/src/**/*.ts",
+              "libs/dchbx/i18n/src/**/*.html"
+            ]
           }
         }
       }
@@ -461,6 +511,31 @@
             "lintFilePatterns": [
               "libs/financial-assistance/entities/src/**/*.ts",
               "libs/financial-assistance/entities/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "financial-assistance-household-member": {
+      "projectType": "library",
+      "root": "libs/financial-assistance/household-member",
+      "sourceRoot": "libs/financial-assistance/household-member/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/financial-assistance/household-member"],
+          "options": {
+            "jestConfig": "libs/financial-assistance/household-member/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/financial-assistance/household-member/src/**/*.ts",
+              "libs/financial-assistance/household-member/src/**/*.html"
             ]
           }
         }
@@ -746,6 +821,31 @@
         }
       }
     },
+    "shared-i18n": {
+      "projectType": "library",
+      "root": "libs/shared/i18n",
+      "sourceRoot": "libs/shared/i18n/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/i18n"],
+          "options": {
+            "jestConfig": "libs/shared/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/i18n/src/**/*.ts",
+              "libs/shared/i18n/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-page-title": {
       "projectType": "library",
       "root": "libs/shared/page-title",
@@ -807,6 +907,31 @@
             "lintFilePatterns": [
               "libs/shared/state/root-store/src/**/*.ts",
               "libs/shared/state/root-store/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-theme": {
+      "projectType": "library",
+      "root": "libs/shared/theme",
+      "sourceRoot": "libs/shared/theme/src",
+      "prefix": "enroll",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/theme"],
+          "options": {
+            "jestConfig": "libs/shared/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/theme/src/**/*.ts",
+              "libs/shared/theme/src/**/*.html"
             ]
           }
         }
@@ -969,106 +1094,6 @@
             "lintFilePatterns": [
               "libs/util/transforms/src/**/*.ts",
               "libs/util/transforms/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "coverme-i18n": {
-      "projectType": "library",
-      "root": "libs/coverme/i18n",
-      "sourceRoot": "libs/coverme/i18n/src",
-      "prefix": "enroll",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/coverme/i18n"],
-          "options": {
-            "jestConfig": "libs/coverme/i18n/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/coverme/i18n/src/**/*.ts",
-              "libs/coverme/i18n/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "dchbx-i18n": {
-      "projectType": "library",
-      "root": "libs/dchbx/i18n",
-      "sourceRoot": "libs/dchbx/i18n/src",
-      "prefix": "enroll",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/dchbx/i18n"],
-          "options": {
-            "jestConfig": "libs/dchbx/i18n/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/dchbx/i18n/src/**/*.ts",
-              "libs/dchbx/i18n/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "shared-i18n": {
-      "projectType": "library",
-      "root": "libs/shared/i18n",
-      "sourceRoot": "libs/shared/i18n/src",
-      "prefix": "enroll",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/i18n"],
-          "options": {
-            "jestConfig": "libs/shared/i18n/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/i18n/src/**/*.ts",
-              "libs/shared/i18n/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "shared-theme": {
-      "projectType": "library",
-      "root": "libs/shared/theme",
-      "sourceRoot": "libs/shared/theme/src",
-      "prefix": "enroll",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/theme"],
-          "options": {
-            "jestConfig": "libs/shared/theme/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/theme/src/**/*.ts",
-              "libs/shared/theme/src/**/*.html"
             ]
           }
         }

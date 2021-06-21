@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
-import { NewHouseholdMemberRoutingModule } from './new-household-member-routing.module';
+import { HouseholdMemberRoutingModule } from './household-member-routing.module';
 import { AddNewPersonComponent } from './add-new-person/add-new-person.component';
 import { BasicInformationComponent } from './basic-information/basic-information.component';
 import { IncarcerationStatusComponent } from './incarceration-status/incarceration-status.component';
@@ -27,8 +28,15 @@ import { UniqueIdPipe } from './unique-id.pipe';
 import { ImmigrationDocumentComponent } from './immigration-document/immigration-document.component';
 import { CitizenshipComponent } from './citizenship/citizenship.component';
 
+import { loader } from './loader';
+
 @NgModule({
-  imports: [CommonModule, NewHouseholdMemberRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    HouseholdMemberRoutingModule,
+    FormsModule,
+    TranslocoModule,
+  ],
   declarations: [
     AddNewPersonComponent,
     AlienNumberComponent,
@@ -53,6 +61,15 @@ import { CitizenshipComponent } from './citizenship/citizenship.component';
     UniqueIdPipe,
     VisaNumberComponent,
   ],
-  providers: [NewHouseholdMemberService],
+  providers: [
+    NewHouseholdMemberService,
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {
+        scope: 'household',
+        loader,
+      },
+    },
+  ],
 })
 export class NewHouseholdMemberModule {}

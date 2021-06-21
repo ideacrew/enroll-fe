@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
+  Address,
   CitizenKind,
   RelationshipKind,
 } from '@enroll/financial-assistance/entities';
@@ -16,4 +17,7 @@ export interface ApplicantsEntity {
   relationship?: RelationshipKind;
   aasm_state: string;
   citizen_status?: CitizenKind;
+  addresses: Address[];
+  indian_tribe_member: boolean;
+  tribal_id?: string;
 }
