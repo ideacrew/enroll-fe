@@ -898,21 +898,6 @@
       "sourceRoot": "libs/testing/i18n/src",
       "prefix": "enroll",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "project": "libs/testing/i18n/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/testing/i18n/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/testing/i18n/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/testing/i18n"],
