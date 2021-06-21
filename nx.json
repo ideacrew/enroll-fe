@@ -49,7 +49,7 @@
       "tags": ["scope:faa", "type:feature"]
     },
     "financial-assistance-applications": {
-      "tags": ["scope:shared", "scope:faa"]
+      "tags": ["scope:faa"]
     },
     "financial-assistance-data-access": {
       "tags": ["scope:faa", "type:data-access"]

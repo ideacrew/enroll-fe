@@ -9,10 +9,12 @@ module.exports = {
     },
   },
   coverageDirectory: '../../../coverage/libs/financial-assistance/applications',
+  transform: {
+    '^.+\\.(ts|js|html)$': 'jest-preset-angular',
+  },
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
-  transform: { '^.+\\.(ts|js|html)$': 'jest-preset-angular' },
 };
