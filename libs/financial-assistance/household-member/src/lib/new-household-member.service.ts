@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 
 import { VlpDocumentKind } from '@enroll/financial-assistance/entities';
@@ -6,7 +7,7 @@ import { VlpDocumentKind } from '@enroll/financial-assistance/entities';
 export class NewHouseholdMemberService {
   firstName!: string;
   lastName!: string;
-  needsCoverage!: 'yes' | 'no';
+  is_applying_coverage!: 'yes' | 'no';
   livesWithPrimary!: 'yes' | 'no';
   citizenOrNational!: 'yes' | 'no';
   naturalized!: 'yes' | 'no' | undefined;

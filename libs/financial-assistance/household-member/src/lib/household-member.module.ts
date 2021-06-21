@@ -29,6 +29,7 @@ import { ImmigrationDocumentComponent } from './immigration-document/immigration
 import { CitizenshipComponent } from './citizenship/citizenship.component';
 
 import { loader } from './loader';
+import { NameComponent } from './name/name.component';
 
 @NgModule({
   imports: [
@@ -60,6 +61,7 @@ import { loader } from './loader';
     TribalMembershipComponent,
     UniqueIdPipe,
     VisaNumberComponent,
+    NameComponent,
   ],
   providers: [
     NewHouseholdMemberService,
