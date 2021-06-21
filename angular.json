@@ -411,22 +411,6 @@
       "sourceRoot": "libs/financial-assistance/data-access/src",
       "prefix": "enroll",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/financial-assistance/data-access"],
-          "options": {
-            "project": "libs/financial-assistance/data-access/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/financial-assistance/data-access/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/financial-assistance/data-access/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/financial-assistance/data-access"],
