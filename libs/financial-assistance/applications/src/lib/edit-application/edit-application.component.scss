@@ -68,3 +68,10 @@ aside {
   align-items: center;
   justify-content: space-between;
 }
+
+.applicant-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin: var(--s-1) 0;
+}

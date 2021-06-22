@@ -12,6 +12,7 @@ import { ReviewApplicationComponent } from './review-application/review-applicat
 import { ApplicationChecklistComponent } from './application-checklist/application-checklist.component';
 import { AgePipe } from './age.pipe';
 import { ApplicationsRoutingModule } from './applications-routing.module';
+import { ApplicantCardComponent } from './applicant-card/applicant-card.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { ApplicationsRoutingModule } from './applications-routing.module';
     ReviewApplicationComponent,
     ApplicationChecklistComponent,
     AgePipe,
+    ApplicantCardComponent,
   ],
   providers: [
     {

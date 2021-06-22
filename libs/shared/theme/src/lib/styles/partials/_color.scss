@@ -28,6 +28,8 @@
   --type-secondary: var(--grey-130, chartreuse);
   --type-placeholder: var(--grey-090, chartreuse);
   --type-disabled: hsl(20, 1%, 52%); // new color?
+
+  --heading-color: var(--type-primary);
 }
 
 body {

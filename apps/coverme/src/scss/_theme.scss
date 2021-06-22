@@ -60,12 +60,9 @@
   --theme-tertiary-190: hsl(204, 29%, 3%);
 
   // Button Colors
-  --button-primary-color: var(--theme-secondary-110);
-  --button-primary-hover: var(--theme-secondary-120);
-  --button-primary-active: var(--theme-secondary-140);
-
-  // Heading Colors
-  --heading-color: var(--theme-secondary-100);
+  --button-primary-color: var(--theme-primary-100);
+  --button-primary-hover: var(--theme-primary-120);
+  --button-primary-active: var(--theme-primary-140);
 
   // Focus colors
   --input-field-focus-color: var(--theme-secondary-100);

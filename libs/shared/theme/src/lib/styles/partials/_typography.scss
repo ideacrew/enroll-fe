@@ -11,76 +11,8 @@ body {
   color: var(--type-primary);
 }
 
-.heading-light {
-  --heading-font-weight: 600;
-}
-
-.hbx-heading-xl,
-.hbx-heading-l,
-.hbx-heading-m,
-.hbx-heading-s {
-  line-height: var(--heading-line-height);
-  margin-bottom: var(--s0);
-  font-weight: var(--heading-font-weight);
-}
-
-.hbx-heading-xl {
-  font-size: 3rem;
-}
-
-.hbx-heading-l {
-  font-size: 2.25rem;
-}
-
-.hbx-heading-m {
-  font-size: 1.5rem;
-}
-
-.hbx-heading-s {
-  font-size: 1.1875rem;
-}
-
-.hbx-body {
-  font-size: 1rem;
-  color: var(--text-color);
-}
-
-.hbx-body-l {
-  font-size: 1.25rem;
-}
-
-.hbx-body-s {
-  font-size: 0.75rem;
-}
-
-.hbx-link {
-  color: var(--link-color);
-  text-decoration: none;
-
-  &:hover:not(:focus) {
-    text-decoration: underline;
-  }
-
-  &:visited {
-    color: var(--link-visited-color);
-  }
-
-  &:focus {
-    color: var(--text-color);
-    background-color: var(--link-focus-background-color);
-    outline: 3px solid transparent;
-    text-decoration: none;
-    box-shadow: 0 -2px var(--link-focus-background-color),
-      0 4px var(--text-color);
-  }
-
-  &:focus:hover {
-    text-decoration: none;
-  }
-}
-
-.hbx-input-label {
-  font-size: 0.75rem;
+h1 {
   font-weight: 700;
-  color: var(--neutral-070);
+  font-size: 3rem;
+  line-height: 1.5;
 }

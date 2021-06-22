@@ -106,45 +106,13 @@
       Person. When you're finished, select Continue.
     </p>
     <!-- Extract into component with applications as input -->
-    <table class="enroll-table">
-      <thead>
-        <tr>
-          <th>{{ t('name') | titlecase }}</th>
-          <th>{{ t('age') | titlecase }}</th>
-          <th>{{ t('gender') | titlecase }}</th>
-          <th>{{ t('relationship') | titlecase }}</th>
-          <th>{{ t('status') | titlecase }}</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let applicant of applicants$ | async">
-          <td [attr.data-cy]="'applicant-' + applicant.id + '-name'">
-            {{ applicant.first_name }} {{ applicant.last_name }}
-          </td>
-          <td [attr.data-cy]="'applicant-' + applicant.id + '-age'">
-            {{ applicant.dob | age }}
-          </td>
-          <td [attr.data-cy]="'applicant-' + applicant.id + '-gender'">
-            {{ applicant.gender | titlecase }}
-          </td>
-          <td [attr.data-cy]="'applicant-' + applicant.id + '-relationship'">
-            {{ applicant.relationship | titlecase }}
-          </td>
-          <td [attr.data-cy]="'applicant-' + applicant.id + '-status'">
-            {{ applicant.aasm_state | titlecase }}
-          </td>
-          <td>
-            <a
-              [attr.data-cy]="'edit-applicant-' + applicant.id"
-              class="enroll-button"
-              routerLink="../applicants/{{ applicant.id }}/tax-info"
-              >Edit Income & Coverage Info</a
-            >
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="applicant-list">
+      <enroll-applicant-card
+        *ngFor="let applicant of applicants$ | async"
+        [applicant]="applicant"
+      ></enroll-applicant-card>
+    </div>
+
     <a
       routerLink="../add-new-person"
       data-cy="add-new-household-member"

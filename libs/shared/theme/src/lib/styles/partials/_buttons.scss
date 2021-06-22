@@ -27,7 +27,7 @@ button.enroll-button {
   // Static properties
   position: relative;
   font-size: 1rem;
-  padding: 0.375rem 0.625rem;
+  padding: var(--s-1) 0.625rem;
   text-decoration: none;
   border-radius: 0.125rem;
   line-height: 1;
@@ -93,4 +93,10 @@ button.enroll-button.outline {
   &:focus-visible::after {
     --button-focus-ring-color: var(--grey-160);
   }
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
 }
