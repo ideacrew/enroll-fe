@@ -5,7 +5,7 @@ import {
   vlpDocumentKind,
 } from '@enroll/financial-assistance/entities';
 
-import { NewHouseholdMemberService } from '../new-household-member.service';
+import { HouseholdMemberService } from '../household-member.service';
 
 @Component({
   selector: 'enroll-immigration-document',
@@ -15,7 +15,7 @@ import { NewHouseholdMemberService } from '../new-household-member.service';
 })
 export class ImmigrationDocumentComponent {
   vlpDocumentKind = vlpDocumentKind;
-  constructor(public newHouseholdMember: NewHouseholdMemberService) {}
+  constructor(public newHouseholdMember: HouseholdMemberService) {}
 
   needsAlienNumber: VlpDocumentKind[] = [
     'I-327 (Reentry Permit)',
@@ -73,7 +73,6 @@ export class ImmigrationDocumentComponent {
   needsVisaNumber: VlpDocumentKind[] = [
     'Machine Readable Immigrant Visa (with Temporary I-551 Language)',
     'I-94 (Arrival/Departure Record) in Unexpired Foreign Passport',
-    
   ];
 
   needsCardNumber: VlpDocumentKind[] = [

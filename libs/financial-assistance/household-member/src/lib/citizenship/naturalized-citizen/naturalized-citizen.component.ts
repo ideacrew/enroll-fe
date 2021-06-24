@@ -1,6 +1,6 @@
 import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 
-import { NewHouseholdMemberService } from '../../new-household-member.service';
+import { HouseholdMemberService } from '../../household-member.service';
 
 @Component({
   selector: 'enroll-naturalized-citizen',
@@ -9,7 +9,7 @@ import { NewHouseholdMemberService } from '../../new-household-member.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NaturalizedCitizenComponent implements OnDestroy {
-  constructor(public newHouseholdMember: NewHouseholdMemberService) {}
+  constructor(public newHouseholdMember: HouseholdMemberService) {}
 
   ngOnDestroy() {
     this.newHouseholdMember.naturalized = undefined;

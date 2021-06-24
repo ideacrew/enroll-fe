@@ -28,10 +28,17 @@ const routes: Routes = [
     component: ReviewApplicationComponent,
   },
   {
-    path: ':applicationId/add-new-person',
+    path: ':applicationId/add-new-household-member',
     loadChildren: () =>
       import('@enroll/financial-assistance/household-member').then(
-        (module) => module.NewHouseholdMemberModule
+        (module) => module.HouseholdMemberModule
+      ),
+  },
+  {
+    path: ':applicationId/edit-household-member/:applicantId',
+    loadChildren: () =>
+      import('@enroll/financial-assistance/household-member').then(
+        (module) => module.HouseholdMemberModule
       ),
   },
   {

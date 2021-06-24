@@ -12,8 +12,8 @@ export const dobInput = () => cy.get('[data-cy="date-of-birth-input"]');
 export const ssnInput = () => cy.get('[data-cy="ssn-input"]');
 export const relationshipSelect = () =>
   cy.get('[data-cy="relationship-select"]');
-export const livesWithPrimaryYesLabel = () =>
-  cy.get('[data-cy="lives-with-primary-yes"]');
+export const livesWithPrimaryLabel = () =>
+  cy.get('[data-cy="lives-with-primary-label"]');
 export const livesWithPrimaryNoLabel = () =>
   cy.get('[data-cy="lives-with-primary-no"]');
 export const addMemberToHouseholdButton = () =>
@@ -42,6 +42,11 @@ export const editApplicantButton = (applicant: Applicant) => {
   cy.get(`[data-cy="edit-applicant-${applicant.id}"]`).click();
 };
 
+const enterCoverageInformation = (applicant: Applicant) => {
+  needsCoverageLabel(applicant.is_applying_coverage).click();
+  provideAdditionalInformation().click();
+};
+
 export const enterBasicInformation = (applicant: Applicant): void => {
   const { first_name, last_name, dob, gender, relationship } = applicant;
   firstNameInput().type(first_name);
@@ -50,8 +55,8 @@ export const enterBasicInformation = (applicant: Applicant): void => {
   enterSSN(applicant);
   genderLabel(gender).click();
   relationshipSelect().select(relationship);
-  livesWithPrimaryYesLabel().click(); // true for all simple test cases
-  needsCoverageLabel(applicant.is_applying_coverage).click();
+  provideAdditionalInformation().click();
+  livesWithPrimaryLabel().click(); // true for all simple test cases
 };
 
 export const enterAdditionalInformation = (
@@ -110,6 +115,7 @@ export const provideEthnicityInformation = () =>
 export const addApplicant = (applicant: NeedsCoverageApplicant) => {
   editApplicationButton().click();
   addNewHouseholdMemberButton().click();
+  enterCoverageInformation(applicant);
   enterBasicInformation(applicant);
   enterAdditionalInformation(applicant);
   addMemberToHouseholdButton().click();
@@ -118,6 +124,7 @@ export const addApplicant = (applicant: NeedsCoverageApplicant) => {
 export const addNonApplicant = (applicant: NoCoverageApplicant) => {
   editApplicationButton().click();
   addNewHouseholdMemberButton().click();
+  enterCoverageInformation(applicant);
   enterBasicInformation(applicant);
   addMemberToHouseholdButton().click();
 };

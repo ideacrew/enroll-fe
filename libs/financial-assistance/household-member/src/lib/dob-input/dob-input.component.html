@@ -1,11 +1,15 @@
-<div class="enroll-input-group" [formGroup]="parent">
-  <label for="date-of-birth" class="enroll-label">Date of Birth *</label>
-  <input
-    data-cy="date-of-birth-input"
-    class="enroll-input"
-    type="date"
-    name="date-of-birth"
-    id="date-of-birth"
-    formControlName="dob"
-  />
-</div>
+<ng-container [formGroup]="parent">
+  <ng-container formGroupName="personalInformation">
+    <div class="enroll-input-group">
+      <label for="date-of-birth" class="enroll-label">Date of Birth *</label>
+      <input
+        data-cy="date-of-birth-input"
+        class="enroll-input"
+        type="date"
+        name="dob"
+        id="date-of-birth"
+        formControlName="dob"
+      />
+    </div>
+  </ng-container>
+</ng-container>

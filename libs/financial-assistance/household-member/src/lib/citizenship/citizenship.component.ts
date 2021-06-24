@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { NewHouseholdMemberService } from '../new-household-member.service';
+
+import { HouseholdMemberService } from '../household-member.service';
 
 @Component({
   templateUrl: './citizenship.component.html',
@@ -7,5 +8,5 @@ import { NewHouseholdMemberService } from '../new-household-member.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CitizenshipComponent {
-  constructor(public newHouseholdMember: NewHouseholdMemberService) {}
+  constructor(public newHouseholdMember: HouseholdMemberService) {}
 }

@@ -1,6 +1,6 @@
-import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
-import { NewHouseholdMemberService } from '../../new-household-member.service';
+import { HouseholdMemberService } from '../../household-member.service';
 
 @Component({
   selector: 'enroll-immigration-status',
@@ -8,10 +8,6 @@ import { NewHouseholdMemberService } from '../../new-household-member.service';
   styleUrls: ['./immigration-status.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImmigrationStatusComponent implements OnDestroy {
-  constructor(public newHouseholdMember: NewHouseholdMemberService) {}
-
-  ngOnDestroy() {
-    this.newHouseholdMember.eligibleImmigration = undefined;
-  }
+export class ImmigrationStatusComponent {
+  constructor(public newHouseholdMember: HouseholdMemberService) {}
 }

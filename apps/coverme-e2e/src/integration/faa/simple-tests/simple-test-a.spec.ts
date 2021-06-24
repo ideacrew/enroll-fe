@@ -5,7 +5,6 @@ import {
   dwayneCurtisInitial,
   addNonApplicant,
   checkNameInApplicantList,
-  editApplicantButton,
   editApplicationButton,
 } from '@enroll/financial-assistance/testing';
 
@@ -16,7 +15,7 @@ describe('CMS Simple Test Case A', () => {
     cy.intercept({ method: 'GET', url: '/applications' }, applicationsStub);
   });
 
-  it('should display Dwayne Curtis as the existing applicant', () => {
+  xit('should display Dwayne Curtis as the existing applicant', () => {
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
       dwayneCurtisInitial,
     ]);
@@ -41,14 +40,10 @@ describe('CMS Simple Test Case A', () => {
     checkNameInApplicantList(bettyCurtisInitial);
   });
 
-  xit('should add income and coverage info for Dwayne Curtis', () => {
+  xit('should edit household information for Dwayne Curtis', () => {
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
       dwayneCurtisInitial,
-      bettyCurtisInitial,
     ]);
-
     cy.visit('/financial-assistance');
-    editApplicationButton().click();
-    editApplicantButton(dwayneCurtisInitial);
   });
 });

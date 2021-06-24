@@ -37,8 +37,6 @@ export const bettyCurtisInitial: NoCoverageApplicant = {
   gender: 'female',
   relationship: 'spouse',
   addresses: primaryAddress,
-  phones: defaultPhones,
-  emails: generateEmail(),
   aasm_state: 'info needed',
   is_applying_coverage: false,
   indian_tribe_member: false,

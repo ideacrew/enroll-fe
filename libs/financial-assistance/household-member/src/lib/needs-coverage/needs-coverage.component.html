@@ -1,0 +1,78 @@
+<form [formGroup]="form">
+  <fieldset class="enroll-fieldset">
+    <!-- Question and Help Text -->
+    <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+      <h1 class="enroll-fieldset__heading">Does this person need coverage?</h1>
+    </legend>
+
+    <!-- Radio Group -->
+    <div class="enroll-radios">
+      <!-- Radio option with input, label, and help text -->
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="needs-coverage-yes"
+          name="is_applying_coverage"
+          type="radio"
+          [value]="true"
+          aria-describedby="needs-coverage-yes-hint"
+          formControlName="is_applying_coverage"
+        />
+
+        <!-- Radio label -->
+        <label
+          data-cy="needs-coverage-yes"
+          class="enroll-label enroll-radios__label"
+          for="needs-coverage-yes"
+        >
+          Yes
+        </label>
+
+        <!-- Help Text -->
+        <div
+          id="needs-coverage-yes-hint"
+          class="enroll-hint enroll-radios__hint"
+        >
+          Answer yes if this person needs coverage.
+        </div>
+      </div>
+
+      <!-- Radio option with input, label, and help text -->
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="needs-coverage-no"
+          name="is_applying_coverage"
+          type="radio"
+          [value]="false"
+          aria-describedby="needs-coverage-no-hint"
+          formControlName="is_applying_coverage"
+        />
+        <!-- Radio label -->
+        <label
+          data-cy="needs-coverage-no"
+          class="enroll-label enroll-radios__label"
+          for="needs-coverage-no"
+        >
+          No
+        </label>
+        <!-- Help text -->
+        <div
+          id="needs-coverage-no-hint"
+          class="enroll-hint enroll-radios__hint"
+        >
+          Answer no if this person does not need coverage. This could be because
+          they don't qualify or because they simply don't need coverage.
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<a
+  routerLink="../personal-information"
+  class="enroll-button"
+  data-cy="provide-additional-information"
+  >Provide additional information about {{ fullName }}</a
+>

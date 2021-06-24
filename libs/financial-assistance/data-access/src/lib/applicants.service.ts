@@ -31,7 +31,7 @@ export class ApplicantsService {
    * @param applicationId the application id associated with the new applicant
    * @returns {Observable<Applicant>} the new applicant's ID
    */
-  createNewApplicant(
+  createNewHouseholdMember(
     applicationId: string,
     householdMember: NewHouseholdMember
   ): Observable<Applicant> {

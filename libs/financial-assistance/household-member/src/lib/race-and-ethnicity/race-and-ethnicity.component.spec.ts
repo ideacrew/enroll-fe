@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NewHouseholdMemberService } from '../new-household-member.service';
+import { NewHouseholdMemberService } from '../household-member.service';
 import { UniqueIdPipe } from '../unique-id.pipe';
 
 import { RaceAndEthnicityComponent } from './race-and-ethnicity.component';

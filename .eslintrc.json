@@ -22,7 +22,9 @@
                 "onlyDependOnLibsWithTags": [
                   "scope:faa",
                   "scope:shared",
-                  "type:util"
+                  "type:util",
+                  "type:util-store",
+                  "type:store"
                 ]
               },
               {
@@ -42,11 +44,7 @@
               },
               {
                 "sourceTag": "type:store",
-                "onlyDependOnLibsWithTags": [
-                  "type:data-access",
-                  "type:util",
-                  "type:models"
-                ]
+                "onlyDependOnLibsWithTags": ["*"]
               },
               {
                 "sourceTag": "type:testing",

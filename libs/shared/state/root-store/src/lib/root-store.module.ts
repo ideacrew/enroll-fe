@@ -4,14 +4,16 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NxModule } from '@nrwl/angular';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   imports: [
     CommonModule,
     NxModule.forRoot(),
     StoreModule.forRoot(
-      {},
+      {
+        router: routerReducer,
+      },
       {
         metaReducers: [],
         runtimeChecks: {

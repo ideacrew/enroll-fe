@@ -24,18 +24,24 @@ interface BaseApplicant {
   middle_name?: string;
   last_name: string;
   name_sfx?: string;
-  encrypted_ssn?: string;
   gender: 'male' | 'female';
   dob: string; // Date
+  encrypted_ssn?: string;
+  no_ssn?: boolean;
   relationship: RelationshipKind;
   is_primary_applicant: boolean;
+  lives_with_primary?: boolean;
   aasm_state: string;
   ethnicity?: EthnicityKind[];
   indian_tribe_member: boolean;
   tribal_id?: string;
+
+  // All applicants must provide a home address
   addresses: Address[];
-  phones: PhoneNumber[];
-  emails: Email[];
+
+  // Non-primary applicants don't supply this information
+  phones?: PhoneNumber[];
+  emails?: Email[];
 }
 
 export interface NoCoverageApplicant extends BaseApplicant {

@@ -1,4 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+
+import { selectRouteNestedParams } from '@enroll/shared/state/root-store';
+
 import {
   APPLICANTS_FEATURE_KEY,
   State,
@@ -39,6 +42,7 @@ export const getSelectedId = createSelector(
 
 export const getSelected = createSelector(
   getApplicantsEntities,
-  getSelectedId,
-  (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
+  selectRouteNestedParams,
+  (entities, { applicantId }) =>
+    applicantId ? entities[applicantId] : undefined
 );

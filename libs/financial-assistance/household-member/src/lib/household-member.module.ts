@@ -9,7 +9,7 @@ import { BasicInformationComponent } from './basic-information/basic-information
 import { IncarcerationStatusComponent } from './incarceration-status/incarceration-status.component';
 import { RaceAndEthnicityComponent } from './race-and-ethnicity/race-and-ethnicity.component';
 import { TribalMembershipComponent } from './tribal-membership/tribal-membership.component';
-import { NewHouseholdMemberService } from './new-household-member.service';
+import { HouseholdMemberService } from './household-member.service';
 import { NaturalizedCitizenComponent } from './citizenship/naturalized-citizen/naturalized-citizen.component';
 import { ImmigrationStatusComponent } from './citizenship/immigration-status/immigration-status.component';
 import { AlienNumberComponent } from './immigration-document/alien-number/alien-number.component';
@@ -34,6 +34,8 @@ import { DobInputComponent } from './dob-input/dob-input.component';
 import { SsnInputComponent } from './ssn-input/ssn-input.component';
 import { GenderInputComponent } from './gender-input/gender-input.component';
 import { RelationshipSelectComponent } from './relationship-select/relationship-select.component';
+import { NeedsCoverageComponent } from './needs-coverage/needs-coverage.component';
+import { LivingSituationComponent } from './living-situation/living-situation.component';
 
 @NgModule({
   imports: [
@@ -71,9 +73,11 @@ import { RelationshipSelectComponent } from './relationship-select/relationship-
     SsnInputComponent,
     GenderInputComponent,
     RelationshipSelectComponent,
+    NeedsCoverageComponent,
+    LivingSituationComponent,
   ],
   providers: [
-    NewHouseholdMemberService,
+    HouseholdMemberService,
     {
       provide: TRANSLOCO_SCOPE,
       useValue: {
@@ -83,4 +87,4 @@ import { RelationshipSelectComponent } from './relationship-select/relationship-
     },
   ],
 })
-export class NewHouseholdMemberModule {}
+export class HouseholdMemberModule {}

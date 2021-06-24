@@ -37,8 +37,10 @@
       class="enroll-button"
       >{{ t('faaApplications.addIncomeAndCoverage') }}</a
     >
-    <a routerLink="edit" class="enroll-button outline">{{
-      t('faaApplications.editPersonalInfo')
-    }}</a>
+    <a
+      routerLink="../edit-household-member/{{ applicant.id }}"
+      class="enroll-button outline"
+      >{{ t('faaApplications.editPersonalInfo') }}</a
+    >
   </div>
 </ng-container>

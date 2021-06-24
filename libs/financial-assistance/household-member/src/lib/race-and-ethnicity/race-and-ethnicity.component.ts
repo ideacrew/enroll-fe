@@ -5,7 +5,7 @@ import {
   latinEthnicities,
 } from '@enroll/financial-assistance/entities';
 
-import { NewHouseholdMemberService } from '../new-household-member.service';
+import { HouseholdMemberService } from '../household-member.service';
 
 @Component({
   templateUrl: './race-and-ethnicity.component.html',
@@ -15,5 +15,5 @@ import { NewHouseholdMemberService } from '../new-household-member.service';
 export class RaceAndEthnicityComponent {
   ethnicities = ethnicities;
   latinEthnicities = latinEthnicities;
-  constructor(public newHouseholdMember: NewHouseholdMemberService) {}
+  constructor(public newHouseholdMember: HouseholdMemberService) {}
 }

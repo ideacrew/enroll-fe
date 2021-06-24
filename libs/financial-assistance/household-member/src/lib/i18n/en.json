@@ -1,11 +1,12 @@
 {
   "myHousehold": "My Household",
   "addToHousehold": "Add to Household",
+  "coverageInfo": "Coverage Information",
   "personalInfo": "Personal Information",
   "contactInfo": "Contact Information",
   "additionalInfo": "Additional Information",
   "firstName": "First Name",
-  "whatRelationship": "What is the relationship of this person to",
+  "whatRelationship": "What is the relationship of this person to {{ applicant }}?",
   "self": "Self",
   "spouse": "Spouse",
   "domestic_partner": "Domestic Partner",

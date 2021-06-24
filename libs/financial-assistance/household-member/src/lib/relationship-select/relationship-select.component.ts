@@ -11,4 +11,5 @@ import { relationships } from '@enroll/financial-assistance/entities';
 export class RelationshipSelectComponent {
   relationships = relationships;
   @Input() parent!: FormGroup;
+  @Input() primaryApplicant = 'the primary applicant';
 }

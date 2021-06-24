@@ -87,7 +87,7 @@
       "tags": ["scope:shared"]
     },
     "shared-state-root-store": {
-      "tags": ["type:state", "scope:shared"]
+      "tags": ["type:util-store"]
     },
     "shared-theme": {
       "tags": ["scope:shared", "type:theme"]

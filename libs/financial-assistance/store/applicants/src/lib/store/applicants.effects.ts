@@ -17,18 +17,11 @@ export class ApplicantsEffects {
         run: () =>
           // Your custom service 'load' logic goes here. For now just return a success action...
           this.applicantsService.getApplicants().pipe(
-            map((applicants) => {
-              const transformedApplicants: ApplicantsEntity[] = applicants.map(
-                (applicant) => ({
-                  ...applicant,
-                  dob: new Date(applicant.dob),
-                })
-              );
-
-              return ApplicantsActions.loadApplicantsSuccess({
-                applicants: transformedApplicants,
-              });
-            })
+            map((applicants) =>
+              ApplicantsActions.loadApplicantsSuccess({
+                applicants,
+              })
+            )
           ),
         onError: (action: ReturnType<typeof ApplicantsActions.init>, error) => {
           console.error('Error', error);
@@ -42,12 +35,18 @@ export class ApplicantsEffects {
     this.actions$.pipe(
       ofType(ApplicantsActions.addNeedsCoverageHouseholdMember),
       pessimisticUpdate({
-        run: (action: ReturnType<typeof ApplicantsActions.addNeedsCoverageHouseholdMember>) =>
+        run: (
+          action: ReturnType<
+            typeof ApplicantsActions.addNeedsCoverageHouseholdMember
+          >
+        ) =>
           this.applicantsService
-            .createNewApplicant('12343', action.applicant)
+            .createNewHouseholdMember('12343', action.applicant)
             .pipe(
               map((applicant) =>
-                ApplicantsActions.addNeedsCoverageHouseholdMemberSuccess({ applicant })
+                ApplicantsActions.addNeedsCoverageHouseholdMemberSuccess({
+                  applicant,
+                })
               )
             ),
         onError: () => null,
