@@ -34,8 +34,6 @@ export const dwayneHurtisInitial: NeedsCoverageApplicant = {
   gender: 'male',
   relationship: 'spouse',
   addresses: primaryAddress,
-  phones: defaultPhones,
-  emails: generateEmail(),
   aasm_state: 'info needed',
   is_applying_coverage: true,
   indian_tribe_member: false,
