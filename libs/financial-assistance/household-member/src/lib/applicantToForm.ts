@@ -13,6 +13,7 @@ export const applicantToForm = (applicant: ApplicantsEntity) => {
     gender,
     relationship,
     is_applying_coverage,
+    lives_with_primary,
   } = applicant;
 
   const personalInformation = {
@@ -29,5 +30,7 @@ export const applicantToForm = (applicant: ApplicantsEntity) => {
     relationship,
   };
 
-  return { is_applying_coverage, personalInformation };
+  const livingSituation = lives_with_primary ?? 'livesWithPrimary';
+
+  return { is_applying_coverage, personalInformation, livingSituation };
 };

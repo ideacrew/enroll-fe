@@ -15,7 +15,7 @@ describe('CMS Simple Test Case A', () => {
     cy.intercept({ method: 'GET', url: '/applications' }, applicationsStub);
   });
 
-  xit('should display Dwayne Curtis as the existing applicant', () => {
+  it('should display Dwayne Curtis as the existing applicant', () => {
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
       dwayneCurtisInitial,
     ]);
@@ -38,12 +38,5 @@ describe('CMS Simple Test Case A', () => {
     ]);
     addNonApplicant(bettyCurtisInitial);
     checkNameInApplicantList(bettyCurtisInitial);
-  });
-
-  xit('should edit household information for Dwayne Curtis', () => {
-    cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
-      dwayneCurtisInitial,
-    ]);
-    cy.visit('/financial-assistance');
   });
 });
