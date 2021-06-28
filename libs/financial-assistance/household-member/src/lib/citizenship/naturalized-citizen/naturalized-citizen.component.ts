@@ -1,4 +1,5 @@
-import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 import { HouseholdMemberService } from '../../household-member.service';
 
@@ -8,11 +9,9 @@ import { HouseholdMemberService } from '../../household-member.service';
   styleUrls: ['./naturalized-citizen.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NaturalizedCitizenComponent implements OnDestroy {
-  constructor(public newHouseholdMember: HouseholdMemberService) {}
-
-  ngOnDestroy() {
-    this.newHouseholdMember.naturalized = undefined;
-    this.newHouseholdMember.naturalizedDocument = undefined;
+export class NaturalizedCitizenComponent {
+  form: FormGroup;
+  constructor(public householdMemberService: HouseholdMemberService) {
+    this.form = this.householdMemberService.householdMemberForm;
   }
 }

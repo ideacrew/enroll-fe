@@ -30,3 +30,9 @@ export interface ApplicantsEntity {
   tribal_id?: string;
   lives_with_primary?: boolean;
 }
+
+// export function isStaffWithDetail(
+//   staff: AgencyStaff | AgencyStaffWithDetail
+// ): staff is AgencyStaffWithDetail {
+//   return (staff as AgencyStaffWithDetail).agent_emails !== undefined;
+// }

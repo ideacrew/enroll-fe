@@ -28,7 +28,7 @@ describe('CMS Simple Test Case E', () => {
     checkNameInApplicantList(lailaSimonInitial);
   });
 
-  it('add William Simon to application', () => {
+  xit('add William Simon to application', () => {
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
       lailaSimonInitial,
     ]);
@@ -59,7 +59,7 @@ describe('CMS Simple Test Case E', () => {
     checkNameInApplicantList(finleySimonInitial);
   });
 
-  it('add Princeton Simon to application', () => {
+  xit('add Princeton Simon to application', () => {
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
       lailaSimonInitial,
       williamSimonInitial,
@@ -78,7 +78,7 @@ describe('CMS Simple Test Case E', () => {
     checkNameInApplicantList(princetonSimonInitial);
   });
 
-  it('add Alexzander Simon to application', () => {
+  xit('add Alexzander Simon to application', () => {
     cy.intercept({ method: 'GET', url: '/applications/**/applicants' }, [
       lailaSimonInitial,
       williamSimonInitial,

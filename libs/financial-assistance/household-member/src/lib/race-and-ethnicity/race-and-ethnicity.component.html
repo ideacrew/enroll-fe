@@ -1,81 +1,81 @@
-<h1>Questions about Race and Ethnicity are optional</h1>
-<fieldset class="enroll-fieldset" aria-describedby="file-taxes-hint">
-  <!-- Question and Help Text -->
-  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
-    <h2 class="enroll-fieldset__heading">
-      What is the ethnicity of
-      {{
-        newHouseholdMember.firstNameHasValue
-          ? newHouseholdMember.fullName
-          : 'this person'
-      }}?
-    </h2>
-  </legend>
-  <div id="waste-hint" class="enroll-hint">Select all that apply.</div>
-  <div class="enroll-checkboxes">
-    <div
-      class="enroll-checkboxes__item"
-      *ngFor="let ethnicity of ethnicities; index as i"
-    >
-      <input
-        class="enroll-checkboxes__input"
-        id="{{ ethnicity | uniqueId }}"
-        name="race-ethnicity"
-        type="checkbox"
-        [value]="ethnicity"
-      />
-
-      <label
-        class="enroll-label enroll-checkboxes__label"
-        for="{{ ethnicity | uniqueId }}"
+<form [formGroup]="form">
+  <h1>Questions about Race and Ethnicity are optional</h1>
+  <fieldset
+    formGroupName="optionalInformation"
+    class="enroll-fieldset"
+    aria-describedby="ethnicity-hint"
+  >
+    <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+      <h2 class="enroll-fieldset__heading">
+        What is the ethnicity of this person?
+      </h2>
+    </legend>
+    <div id="ethnicity-hint" class="enroll-hint">Select all that apply.</div>
+    <div class="enroll-checkboxes">
+      <div
+        class="enroll-checkboxes__item"
+        *ngFor="let ethnicity of ethnicities; index as i"
+        formArrayName="ethnicities"
       >
-        {{ ethnicity }}
-      </label>
+        <input
+          class="enroll-checkboxes__input"
+          id="{{ ethnicity | uniqueId }}"
+          type="checkbox"
+          [value]="ethnicity"
+          [formControlName]="i"
+        />
+
+        <label
+          class="enroll-label enroll-checkboxes__label"
+          for="{{ ethnicity | uniqueId }}"
+        >
+          {{ ethnicity }}
+        </label>
+      </div>
+
+      <div class="enroll-checkboxes__item"></div>
     </div>
-
-    <div class="enroll-checkboxes__item"></div>
-  </div>
-</fieldset>
-<fieldset class="enroll-fieldset" aria-describedby="file-taxes-hint">
-  <!-- Question and Help Text -->
-  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
-    <h2 class="enroll-fieldset__heading">If Hispanic or Latina/o</h2>
-  </legend>
-  <div id="waste-hint" class="enroll-hint">Select all that apply.</div>
-  <div class="enroll-checkboxes">
-    <div
-      class="enroll-checkboxes__item"
-      *ngFor="let ethnicity of latinEthnicities; index as i"
-    >
-      <input
-        class="enroll-checkboxes__input"
-        id="{{ ethnicity | uniqueId }}"
-        name="race-ethnicity"
-        type="checkbox"
-        [value]="ethnicity"
-      />
-
-      <label
-        class="enroll-label enroll-checkboxes__label"
-        for="{{ ethnicity | uniqueId }}"
+  </fieldset>
+  <fieldset
+    formGroupName="optionalInformation"
+    class="enroll-fieldset"
+    aria-describedby="latin-ethnicity-hint"
+  >
+    <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+      <h2 class="enroll-fieldset__heading">If Hispanic or Latina/o</h2>
+    </legend>
+    <div id="latin-ethnicity-hint" class="enroll-hint">
+      Select all that apply.
+    </div>
+    <div class="enroll-checkboxes">
+      <div
+        class="enroll-checkboxes__item"
+        *ngFor="let ethnicity of latinEthnicities; index as i"
+        formArrayName="latinEthnicities"
       >
-        {{ ethnicity }}
-      </label>
+        <input
+          class="enroll-checkboxes__input"
+          id="l-{{ ethnicity | uniqueId }}"
+          type="checkbox"
+          [value]="ethnicity"
+          [formControlName]="i"
+        />
+
+        <label
+          class="enroll-label enroll-checkboxes__label"
+          for="l-{{ ethnicity | uniqueId }}"
+        >
+          {{ ethnicity }}
+        </label>
+      </div>
+
+      <div class="enroll-checkboxes__item"></div>
     </div>
-
-    <div class="enroll-checkboxes__item"></div>
-  </div>
-</fieldset>
-
+  </fieldset>
+</form>
 <a
   data-cy="add-member-to-household"
   routerLink="../../edit"
   class="enroll-button"
-  >Add
-  {{
-    newHouseholdMember.firstNameHasValue
-      ? newHouseholdMember.firstName
-      : 'this person'
-  }}
-  to household
+  >Add this person to household
 </a>

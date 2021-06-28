@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 import {
   VlpDocumentKind,
@@ -15,7 +16,10 @@ import { HouseholdMemberService } from '../household-member.service';
 })
 export class ImmigrationDocumentComponent {
   vlpDocumentKind = vlpDocumentKind;
-  constructor(public newHouseholdMember: HouseholdMemberService) {}
+  form: FormGroup;
+  constructor(public householdMemberService: HouseholdMemberService) {
+    this.form = this.householdMemberService.householdMemberForm;
+  }
 
   needsAlienNumber: VlpDocumentKind[] = [
     'I-327 (Reentry Permit)',

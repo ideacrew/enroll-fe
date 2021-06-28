@@ -30,6 +30,8 @@ export const applicantToForm = (applicant: ApplicantsEntity) => {
     relationship,
   };
 
+  // Ethnicities
+
   const livingSituation = lives_with_primary ?? 'livesWithPrimary';
 
   return { is_applying_coverage, personalInformation, livingSituation };

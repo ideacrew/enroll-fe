@@ -57,6 +57,11 @@
 .enroll-input-label {
   line-height: 1;
   font-size: 0.875rem;
+  user-select: none;
+}
+
+.enroll-label {
+  user-select: none;
 }
 
 .enroll-checkbox-group {

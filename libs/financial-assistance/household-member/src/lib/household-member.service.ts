@@ -9,16 +9,16 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { VlpDocumentKind } from '@enroll/financial-assistance/entities';
+import {
+  ethnicities,
+  latinEthnicities,
+  VlpDocumentKind,
+} from '@enroll/financial-assistance/entities';
 import { ApplicantsEntity } from '@enroll/financial-assistance/store/applicants';
 import { applicantToForm } from './applicantToForm';
 
 @Injectable()
 export class HouseholdMemberService {
-  firstName!: string;
-  lastName!: string;
-  is_applying_coverage!: 'yes' | 'no';
-  livesWithPrimary!: 'yes' | 'no';
   citizenOrNational!: 'yes' | 'no';
   naturalized!: 'yes' | 'no' | undefined;
   naturalizedDocument!: string | undefined;
@@ -27,6 +27,9 @@ export class HouseholdMemberService {
   tribalMembership!: 'yes' | 'no';
   tribalId!: string;
   tribalHealth!: 'yes' | 'no' | undefined;
+
+  ethnicities = ethnicities;
+  latinEthnicities = latinEthnicities;
 
   householdMemberForm: FormGroup;
 
@@ -54,16 +57,23 @@ export class HouseholdMemberService {
         relationship: ['', Validators.required],
       }),
       livingSituation: ['', Validators.required],
-      additionalInformation: this.fb.group({}),
+      additionalInformation: this.fb.group({
+        citizenOrNational: [null, Validators.required],
+        naturalizedCitizen: [null, Validators.required],
+        lawfulPresence: [null, Validators.required],
+        is_incarcerated: [null, Validators.required],
+        indian_tribe_member: [null, Validators.required],
+        tribal_id: '',
+      }),
+      optionalInformation: this.fb.group({
+        ethnicities: this.fb.array(this.ethnicities.map(() => null)),
+        latinEthnicities: this.fb.array(this.latinEthnicities.map(() => null)),
+      }),
     });
 
     // this.needsCoverage$ = this.householdMemberForm
     //   .get('is_applying_coverage')
     //   ?.valueChanges.pipe(tap(console.log));
-  }
-
-  get firstNameHasValue(): boolean {
-    return this.firstName?.length > 0;
   }
 
   get fullName(): string {
@@ -73,8 +83,6 @@ export class HouseholdMemberService {
     const lastName: string = this.householdMemberForm.get(
       'personalInformation.last_name'
     )?.value;
-
-    console.log({ firstName, lastName });
 
     return firstName && lastName ? `${firstName} ${lastName}` : 'this person';
   }

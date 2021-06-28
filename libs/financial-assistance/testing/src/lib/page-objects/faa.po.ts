@@ -64,14 +64,34 @@ export const enterAdditionalInformation = (
 ) => {
   // for simple tests, this is true
   provideAdditionalInformation().click();
+  processCitizenshipInfo(applicant);
+  processTribalInfo(applicant);
+  processIncarcerationInfo(applicant);
+};
 
+const processCitizenshipInfo = (applicant: NeedsCoverageApplicant) => {
   citizenshipStatusLabel(applicant.citizen_status).click();
-  naturalizedStatusLabel(applicant.citizen_status).click();
-  provideTribalInformation().click();
+  provideAdditionalInformation().click();
+
+  if (applicant.citizen_status !== 'us_citizen') {
+    naturalizedStatusLabel(applicant.citizen_status).click();
+    provideAdditionalInformation().click();
+  }
+};
+
+const processTribalInfo = (applicant: Applicant) => {
   tribalStatusLabel(applicant.indian_tribe_member).click();
-  provideIncarcerationStatus().click();
+  provideAdditionalInformation().click();
+
+  // if (applicant.indian_tribe_member) {
+  //   // add tribal info
+  //   provideAdditionalInformation().click();
+  // }
+};
+
+const processIncarcerationInfo = (applicant: NeedsCoverageApplicant) => {
   incarceratedLabel(applicant.is_incarcerated).click();
-  provideEthnicityInformation().click();
+  provideAdditionalInformation().click();
 };
 
 export const provideAdditionalInformation = () =>
@@ -100,8 +120,6 @@ export const tribalStatusLabel = (tribalStatus: boolean) => {
 
 export const provideTribalInformation = () =>
   cy.get('[data-cy="provide-tribal-information"]');
-export const provideIncarcerationStatus = () =>
-  cy.get('[data-cy="provide-incarceration-status"]');
 
 export const incarceratedLabel = (incarcerationStatus: boolean) => {
   const isIncarcerated = incarcerationStatus ? 'yes' : 'no';

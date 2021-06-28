@@ -1,19 +1,13 @@
 <div class="enroll-fieldset-group">
   <div class="enroll-form-group">
     <label class="enroll-label" for="immigration-document"
-      >What document does
-      {{
-        newHouseholdMember.firstNameHasValue
-          ? newHouseholdMember.firstName
-          : 'this person'
-      }}
-      have to show immigration status?</label
+      >What document does this person have to show immigration status?</label
     >
     <select
       class="enroll-input enroll-select"
       id="immigration-document"
-      name="immigration-document"
-      [(ngModel)]="newHouseholdMember.immigrationDocument"
+      name="vlp_document_name"
+      formControlName="vlp_document_name"
     >
       <option value="" disabled>Select a document</option>
       <option *ngFor="let doc of vlpDocumentKind" [ngValue]="doc">
@@ -22,7 +16,7 @@
     </select>
   </div>
 </div>
-<div class="enroll-fieldset-grid">
+<!-- <div class="enroll-fieldset-grid">
   <enroll-certificate-number
     *ngIf="
       newHouseholdMember.immigrationDocument === 'Certificate of Citizenship'
@@ -66,4 +60,4 @@
       needsDocumentDescription.includes(newHouseholdMember.immigrationDocument)
     "
   ></enroll-document-description>
-</div>
+</div> -->

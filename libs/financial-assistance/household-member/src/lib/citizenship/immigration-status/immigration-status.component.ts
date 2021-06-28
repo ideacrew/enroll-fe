@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 import { HouseholdMemberService } from '../../household-member.service';
 
@@ -9,5 +10,8 @@ import { HouseholdMemberService } from '../../household-member.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImmigrationStatusComponent {
-  constructor(public newHouseholdMember: HouseholdMemberService) {}
+  form: FormGroup;
+  constructor(public householdMemberService: HouseholdMemberService) {
+    this.form = this.householdMemberService.householdMemberForm;
+  }
 }

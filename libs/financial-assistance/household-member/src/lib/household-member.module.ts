@@ -36,6 +36,9 @@ import { GenderInputComponent } from './gender-input/gender-input.component';
 import { RelationshipSelectComponent } from './relationship-select/relationship-select.component';
 import { NeedsCoverageComponent } from './needs-coverage/needs-coverage.component';
 import { LivingSituationComponent } from './living-situation/living-situation.component';
+import { TribalInformationComponent } from './tribal-information/tribal-information.component';
+import { LawfulPresenceEvidenceComponent } from './lawful-presence-evidence/lawful-presence-evidence.component';
+import { LawfulPresenceComponent } from './lawful-presence/lawful-presence.component';
 
 @NgModule({
   imports: [
@@ -75,6 +78,9 @@ import { LivingSituationComponent } from './living-situation/living-situation.co
     RelationshipSelectComponent,
     NeedsCoverageComponent,
     LivingSituationComponent,
+    TribalInformationComponent,
+    LawfulPresenceEvidenceComponent,
+    LawfulPresenceComponent,
   ],
   providers: [
     HouseholdMemberService,

@@ -1,162 +1,81 @@
-<fieldset>
-  <legend>
-    <h1>
-      Is
-      {{
-        newHouseholdMember.firstNameHasValue
-          ? newHouseholdMember.firstName
-          : 'this person'
-      }}
-      a member of an American Indian or Alaska Native Tribe?
-    </h1>
-  </legend>
-
-  <p class="enroll-hint">
-    American Indians, members of federally recognized Tribes, Alaska Native
-    Claims Settlement Act (ANCSA) corporation shareholders, and those eligible
-    for services from the Indian Health Service, Tribal Program, or Urban Indian
-    Health Program are eligible for enhanced savings, benefits and protections
-    through DC Health Link. Apply for financial assistance prior to enrolling in
-    a health plan to determine eligibility for the savings, benefits and
-    protections available.
-  </p>
-
-  <div class="enroll-fieldset-group">
-    <!-- Radio Group -->
-    <div class="enroll-radios">
-      <!-- Radio option with input, label, and help text -->
-      <div class="enroll-radios__item">
-        <!-- Radio input -->
-        <input
-          class="enroll-radios__input"
-          id="tribal-yes"
-          name="tribal-membership"
-          type="radio"
-          value="yes"
-          [(ngModel)]="newHouseholdMember.tribalMembership"
-        />
-
-        <!-- Radio label -->
-        <label
-          data-cy="tribal-label-yes"
-          class="enroll-label enroll-radios__label"
-          for="tribal-yes"
-        >
-          Yes
-        </label>
-      </div>
-
-      <!-- Radio option with input, label, and help text -->
-      <div class="enroll-radios__item">
-        <!-- Radio input -->
-        <input
-          class="enroll-radios__input"
-          id="tribal-no"
-          name="tribal-membership"
-          type="radio"
-          value="no"
-          [(ngModel)]="newHouseholdMember.tribalMembership"
-        />
-        <!-- Radio label -->
-        <label
-          data-cy="tribal-label-no"
-          class="enroll-label enroll-radios__label"
-          for="tribal-no"
-        >
-          No
-        </label>
-      </div>
-    </div>
-  </div>
-</fieldset>
-<div
-  role="group"
-  aria-labelledby="tribal-additional-info"
-  *ngIf="newHouseholdMember.tribalMembership === 'yes'"
->
-  <h2 id="tribal-additional-info">Additional information required</h2>
-  <div class="enroll-input-group">
-    <label class="enroll-label" for="address-1"> Tribal ID * </label>
-    <input
-      class="enroll-input"
-      id="address-1"
-      name="address-1"
-      type="text"
-      [(ngModel)]="newHouseholdMember.tribalId"
-    />
-  </div>
-
-  <fieldset>
-    <legend>
-      <span>
-        Has
-        {{
-          newHouseholdMember.firstNameHasValue
-            ? newHouseholdMember.firstName
-            : 'this person'
-        }}
-        ever gotten a health service from the Indian Health Service, a tribal
-        health program, or urban Indian health program or through a referral
-        from one of these programs?
-      </span>
-    </legend>
-
-    <div class="enroll-fieldset-group">
-      <!-- Radio Group -->
-      <div class="enroll-radios">
-        <!-- Radio option with input, label, and help text -->
-        <div class="enroll-radios__item">
-          <!-- Radio input -->
-          <input
-            class="enroll-radios__input"
-            id="tribal-health-yes"
-            name="tribal-health"
-            type="radio"
-            value="yes"
-            [(ngModel)]="newHouseholdMember.tribalHealth"
-          />
-
-          <!-- Radio label -->
-          <label
-            class="enroll-label enroll-radios__label"
-            for="tribal-health-yes"
-          >
-            Yes
-          </label>
-        </div>
-
-        <!-- Radio option with input, label, and help text -->
-        <div class="enroll-radios__item">
-          <!-- Radio input -->
-          <input
-            class="enroll-radios__input"
-            id="tribal-health-no"
-            name="tribal-health"
-            type="radio"
-            value="no"
-            [(ngModel)]="newHouseholdMember.tribalHealth"
-          />
-          <!-- Radio label -->
-          <label
-            class="enroll-label enroll-radios__label"
-            for="tribal-health-no"
-          >
-            No
-          </label>
+<form [formGroup]="form">
+  <ng-container formGroupName="additionalInformation">
+    <fieldset>
+      <legend>
+        <h1>
+          Is this person a member of an American Indian or Alaska Native Tribe?
+        </h1>
+      </legend>
+      <p class="enroll-hint">
+        American Indians, members of federally recognized Tribes, Alaska Native
+        Claims Settlement Act (ANCSA) corporation shareholders, and those
+        eligible for services from the Indian Health Service, Tribal Program, or
+        Urban Indian Health Program are eligible for enhanced savings, benefits
+        and protections through DC Health Link. Apply for financial assistance
+        prior to enrolling in a health plan to determine eligibility for the
+        savings, benefits and protections available.
+      </p>
+      <div class="enroll-fieldset-group">
+        <!-- Radio Group -->
+        <div class="enroll-radios">
+          <!-- Radio option with input, label, and help text -->
+          <div class="enroll-radios__item">
+            <!-- Radio input -->
+            <input
+              class="enroll-radios__input"
+              id="tribal-yes"
+              name="indian_tribe_member"
+              type="radio"
+              [value]="true"
+              formControlName="indian_tribe_member"
+            />
+            <!-- Radio label -->
+            <label
+              data-cy="tribal-label-yes"
+              class="enroll-label enroll-radios__label"
+              for="tribal-yes"
+            >
+              Yes
+            </label>
+          </div>
+          <!-- Radio option with input, label, and help text -->
+          <div class="enroll-radios__item">
+            <!-- Radio input -->
+            <input
+              class="enroll-radios__input"
+              id="tribal-no"
+              name="indian_tribe_member"
+              type="radio"
+              [value]="false"
+              formControlName="indian_tribe_member"
+            />
+            <!-- Radio label -->
+            <label
+              data-cy="tribal-label-no"
+              class="enroll-label enroll-radios__label"
+              for="tribal-no"
+            >
+              No
+            </label>
+          </div>
         </div>
       </div>
-    </div>
-  </fieldset>
-</div>
+    </fieldset>
+  </ng-container>
+</form>
 
 <a
-  data-cy="provide-incarceration-status"
+  *ngIf="form.get('additionalInformation.indian_tribe_member')?.value === true"
+  data-cy="provide-additional-information"
+  routerLink="../tribal-information"
+  class="enroll-button"
+  >Continue providing information about this person
+</a>
+
+<a
+  *ngIf="form.get('additionalInformation.indian_tribe_member')?.value === false"
+  data-cy="provide-additional-information"
   routerLink="../incarceration-status"
   class="enroll-button"
-  >Continue providing information about
-  {{
-    newHouseholdMember.firstNameHasValue
-      ? newHouseholdMember.firstName
-      : 'this person'
-  }}
+  >Continue providing information about this person
 </a>
