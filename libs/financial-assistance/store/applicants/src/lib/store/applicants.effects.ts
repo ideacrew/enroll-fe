@@ -6,7 +6,6 @@ import { map } from 'rxjs/operators';
 import { ApplicantsService } from '@enroll/financial-assistance/data-access';
 
 import * as ApplicantsActions from './applicants.actions';
-import { ApplicantsEntity } from './applicants.models';
 
 @Injectable()
 export class ApplicantsEffects {
