@@ -75,7 +75,11 @@
 </form>
 <a
   data-cy="add-member-to-household"
-  routerLink="../../edit"
+  routerLink="../../../edit"
   class="enroll-button"
-  >Add this person to household
+  >{{
+    editingExistingMember
+      ? 'Save changes to this person'
+      : 'Add this person to household'
+  }}
 </a>

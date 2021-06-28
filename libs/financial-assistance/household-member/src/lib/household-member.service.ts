@@ -12,24 +12,16 @@ import {
 import {
   ethnicities,
   latinEthnicities,
-  VlpDocumentKind,
 } from '@enroll/financial-assistance/entities';
 import { ApplicantsEntity } from '@enroll/financial-assistance/store/applicants';
+
 import { applicantToForm } from './applicantToForm';
 
 @Injectable()
 export class HouseholdMemberService {
-  citizenOrNational!: 'yes' | 'no';
-  naturalized!: 'yes' | 'no' | undefined;
-  naturalizedDocument!: string | undefined;
-  eligibleImmigration!: 'yes' | 'no' | undefined;
-  immigrationDocument!: VlpDocumentKind;
-  tribalMembership!: 'yes' | 'no';
-  tribalId!: string;
-  tribalHealth!: 'yes' | 'no' | undefined;
-
   ethnicities = ethnicities;
   latinEthnicities = latinEthnicities;
+  editingExistingMember = false;
 
   householdMemberForm: FormGroup;
 
@@ -59,11 +51,28 @@ export class HouseholdMemberService {
       livingSituation: ['', Validators.required],
       additionalInformation: this.fb.group({
         citizenOrNational: [null, Validators.required],
-        naturalizedCitizen: [null, Validators.required],
-        lawfulPresence: [null, Validators.required],
+        naturalizedCitizen: null,
+        lawfulPresence: null,
+        vlp_document: this.fb.group({
+          subject: null,
+          alien_number: null,
+          i94_number: null,
+          visa_number: null,
+          passport_number: null,
+          sevis_id: null,
+          naturalization_number: null,
+          receipt_number: null,
+          citizenship_number: null,
+          card_number: null,
+          country_of_citizenship: null,
+          expiration_date: null, // Date
+          issuing_country: null,
+          description: null,
+        }),
+
         is_incarcerated: [null, Validators.required],
         indian_tribe_member: [null, Validators.required],
-        tribal_id: '',
+        tribal_id: null,
       }),
       optionalInformation: this.fb.group({
         ethnicities: this.fb.array(this.ethnicities.map(() => null)),
@@ -89,6 +98,7 @@ export class HouseholdMemberService {
 
   insertApplicant(applicant: ApplicantsEntity): void {
     const applicantForm = applicantToForm(applicant);
+    this.editingExistingMember = true;
 
     this.householdMemberForm.patchValue(applicantForm);
   }

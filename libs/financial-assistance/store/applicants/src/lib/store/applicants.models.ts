@@ -29,6 +29,7 @@ export interface ApplicantsEntity {
   indian_tribe_member: boolean;
   tribal_id?: string;
   lives_with_primary?: boolean;
+  is_incarcerated?: boolean;
 }
 
 // export function isStaffWithDetail(

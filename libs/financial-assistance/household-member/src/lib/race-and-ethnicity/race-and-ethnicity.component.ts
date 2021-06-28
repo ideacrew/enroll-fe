@@ -27,11 +27,16 @@ export class RaceAndEthnicityComponent implements OnInit, OnDestroy {
   ethnicitiesSubscription!: Subscription;
   latinEthnicitiesSubscription!: Subscription;
   form: FormGroup;
+  editingExistingMember: boolean;
+
   constructor(public householdMemberService: HouseholdMemberService) {
     this.form = this.householdMemberService.householdMemberForm;
+    this.editingExistingMember =
+      this.householdMemberService.editingExistingMember;
   }
 
   ngOnInit() {
+    // cf. https://stackoverflow.com/a/58261847/664747
     const optionalGroup = this.form.get('optionalInformation') as FormGroup;
     const ethnicitiesArray = optionalGroup.controls.ethnicities as FormArray;
     const latinEthnicitiesArray = optionalGroup.controls

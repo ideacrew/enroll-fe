@@ -28,7 +28,7 @@ const routes: Routes = [
     component: ReviewApplicationComponent,
   },
   {
-    path: ':applicationId/add-new-household-member',
+    path: ':applicationId/edit-household-member/new',
     loadChildren: () =>
       import('@enroll/financial-assistance/household-member').then(
         (module) => module.HouseholdMemberModule
