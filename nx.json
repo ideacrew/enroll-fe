@@ -104,5 +104,13 @@
     "util-transforms": {
       "tags": ["scope:shared", "type:util"]
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
