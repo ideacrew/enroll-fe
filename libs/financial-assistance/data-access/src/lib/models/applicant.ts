@@ -2,7 +2,6 @@ import {
   Benefit,
   CitizenKind,
   EthnicityKind,
-  Income,
   Deduction,
   RelationshipKind,
   StudentKind,
@@ -14,6 +13,8 @@ import {
   PhoneNumber,
   VlpDocument,
 } from '@enroll/financial-assistance/entities';
+
+import { EmployerIncome } from './income';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 
@@ -42,6 +43,13 @@ interface BaseApplicant {
   // Non-primary applicants don't supply this information
   phones?: PhoneNumber[];
   emails?: Email[];
+
+  is_required_to_file_taxes?: boolean;
+  tax_filer_kind?: TaxFilerKind;
+  has_job_income?: boolean;
+  has_self_employment_income?: boolean;
+  has_unemployment_income?: boolean;
+  has_other_income?: boolean;
 }
 
 export interface NoCoverageApplicant extends BaseApplicant {
@@ -54,8 +62,10 @@ export interface NeedsCoverageApplicant extends BaseApplicant {
   citizen_status: CitizenKind;
   vlp_document?: VlpDocument;
 
-  // Incarceration Questions
-  is_incarcerated: boolean;
+  // Tax Filing
+  is_joint_tax_filing?: boolean;
+  is_claimed_as_tax_dependent?: boolean;
+  claimed_as_tax_dependent_by?: string; // Id of other person
 
   // Non-MAGI Questions
   is_self_attested_blind?: boolean;
@@ -67,6 +77,9 @@ export interface NeedsCoverageApplicant extends BaseApplicant {
   student_kind?: StudentKind;
   student_school_kind?: StudentSchoolKind;
   student_status_end_on?: string; // Date;
+
+  // Incarceration Questions
+  is_incarcerated: boolean;
 
   // Pregnancy Questions
   is_pregnant?: boolean;
@@ -85,19 +98,9 @@ export interface NeedsCoverageApplicant extends BaseApplicant {
   is_veteran_or_active_military?: boolean;
   is_spouse_or_dep_child_of_veteran_or_active_military?: boolean;
 
-  // Tax Filing
-  is_required_to_file_taxes?: boolean;
-  tax_filer_kind?: TaxFilerKind;
-  is_joint_tax_filing?: boolean;
-  is_claimed_as_tax_dependent?: boolean;
-  claimed_as_tax_dependent_by?: string; // Id of other person
-
   // Income
-  has_job_income?: boolean;
-  has_self_employment_income?: boolean;
-  has_other_income?: boolean;
-  has_unemployment_income?: boolean;
-  income?: Income[];
+
+  income?: EmployerIncome[];
 
   // Deductions
   has_deductions?: boolean;

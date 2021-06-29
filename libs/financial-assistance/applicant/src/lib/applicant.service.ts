@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApplicantService {
+  taxInfoForm: FormGroup;
 
-
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    this.taxInfoForm = this.fb.group({
+      filingTaxes: [null, Validators.required],
+      filingJointly: null,
+      claimedAsDependent: null,
+      claimedBy: null,
+    });
+  }
 }

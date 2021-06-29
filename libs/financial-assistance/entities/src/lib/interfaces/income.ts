@@ -21,31 +21,41 @@ export interface Income {
 
 export type IncomeFrequency = Frequency;
 
-export const income = [
-  'alimony_and_maintenance',
-  'american_indian_and_alaskan_native',
-  'capital_gains',
-  'dividend',
-  'employer_funded_disability',
-  'estate_trust',
-  'farming_and_fishing',
-  'foreign',
-  'interest',
+export type EmployerIncomeKind = 'wages_and_salaries';
+export type SelfEmploymentIncomeKind = 'net_self_employment';
+export type UnemploymentIncomeKind = 'unemployment_income';
+
+export const otherIncome = [
+  'alimony_and_maintenance', // Alimony received
+  'capital_gains', // Capital gains
+  'dividend', // Dividends
+  'interest', // Interest
+  'pension_retirement_benefits', // Pension or retirement
+  'rental_and_royalty', // Rent and royalties
+  'social_security_benefit', // Social Security
+  'american_indian_and_alaskan_native', // American Indian/Alaska Native Income
+  'employer_funded_disability', // Employer-funded disability payments
+  'estate_trust', // Estate and trust
+  'farming_and_fishing', // Farming or fishing
+  'foreign', // Foreign income
+  'other', // Other taxable income
+  'prizes_and_awards', // Gambling, prizes or awards
+  'scholarship_payments', // Taxable scholarship payments
+
+  // These did not appear in the other income list
   'lump_sum_amount',
   'military',
-  'net_self_employment',
-  'other',
-  'pension_retirement_benefits',
   'permanent_workers_compensation',
-  'prizes_and_awards',
-  'rental_and_royalty',
-  'scholarship_payments',
-  'social_security_benefit',
   'supplemental_security_income',
   'tax_exempt_interest',
   'unemployment_insurance',
-  'wages_and_salaries',
   'income_from_irs',
 ] as const;
 
-export type IncomeKind = typeof income[number];
+export type OtherIncomeKind = typeof otherIncome[number];
+
+export type IncomeKind =
+  | EmployerIncomeKind
+  | SelfEmploymentIncomeKind
+  | UnemploymentIncomeKind
+  | OtherIncomeKind;

@@ -1,0 +1,21 @@
+{
+  "myHousehold": "My Household",
+  "addToHousehold": "Add to Household",
+  "coverageInfo": "Coverage Information",
+  "personalInfo": "Personal Information",
+  "contactInfo": "Contact Information",
+  "additionalInfo": "Additional Information",
+  "firstName": "First Name",
+  "whatRelationship": "What is the relationship of this person to {{ applicant }}?",
+  "self": "Self",
+  "spouse": "Spouse",
+  "domestic_partner": "Domestic Partner",
+  "child": "Child",
+  "parent": "Parent",
+  "sibling": "Sibling",
+  "unrelated": "Unrelated",
+  "aunt_or_uncle": "Aunt or Uncle",
+  "nephew_or_niece": "Nephew or Niece",
+  "grandchild": "Grandchild",
+  "grandparent": "Grandparent"
+}

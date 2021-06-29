@@ -5,6 +5,7 @@ import { Frequency } from './frequency';
 export interface Benefit {
   kind: BenefitKind;
   status: BenefitStatusKind;
+  start_on: string; // date
 
   name?: string;
   is_employer_sponsored?: boolean;
@@ -14,7 +15,6 @@ export interface Benefit {
   is_esi_mec_met?: boolean;
   employee_cost?: number;
   employee_cost_frequency?: EmployeeCostFrequency;
-  start_on: string; // date
   end_on?: string; // date
   submitted_at?: string; // datetime
 }
