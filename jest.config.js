@@ -1,5 +1,8 @@
+const { getJestProjects } = require('@nrwl/jest');
+
 module.exports = {
   projects: [
+    ...getJestProjects(),
     '<rootDir>/apps/coverme',
     '<rootDir>/apps/dchbx',
     '<rootDir>/apps/health-connector',

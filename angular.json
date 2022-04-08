@@ -1,38 +1,5 @@
 {
   "version": 1,
-  "cli": {
-    "analytics": "ba8912f1-3f23-4200-ba0e-b5b99eeccfdc",
-    "defaultCollection": "@nrwl/angular"
-  },
-  "defaultProject": "coverme",
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress",
-      "strict": true
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
   "projects": {
     "coverme": {
       "projectType": "application",
@@ -128,7 +95,8 @@
               "apps/coverme/src/**/*.ts",
               "apps/coverme/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -144,7 +112,9 @@
             "command": "npx firebase deploy --only hosting:coverme --token $FIREBASE_TOKEN"
           }
         }
-      }
+      },
+      "tags": ["client:coverme"],
+      "implicitDependencies": ["shared-theme"]
     },
     "coverme-e2e": {
       "root": "apps/coverme-e2e",
@@ -168,9 +138,12 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/coverme-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["coverme", "shared-theme"]
     },
     "coverme-i18n": {
       "projectType": "library",
@@ -193,9 +166,11 @@
               "libs/coverme/i18n/src/**/*.ts",
               "libs/coverme/i18n/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:coverme", "type:i18n"]
     },
     "dchbx": {
       "projectType": "application",
@@ -286,7 +261,8 @@
               "apps/dchbx/src/**/*.ts",
               "apps/dchbx/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -302,7 +278,9 @@
             "command": "npx firebase deploy --only hosting:dchbx --token $FIREBASE_TOKEN"
           }
         }
-      }
+      },
+      "tags": ["client:dchbx"],
+      "implicitDependencies": ["shared-theme"]
     },
     "dchbx-e2e": {
       "root": "apps/dchbx-e2e",
@@ -326,9 +304,12 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/dchbx-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["dchbx"]
     },
     "dchbx-i18n": {
       "projectType": "library",
@@ -351,9 +332,11 @@
               "libs/dchbx/i18n/src/**/*.ts",
               "libs/dchbx/i18n/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:dchbx", "type:i18n"]
     },
     "financial-assistance-applicant": {
       "projectType": "library",
@@ -376,9 +359,11 @@
               "libs/financial-assistance/applicant/src/**/*.ts",
               "libs/financial-assistance/applicant/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa", "type:feature"]
     },
     "financial-assistance-applications": {
       "projectType": "library",
@@ -401,9 +386,11 @@
               "libs/financial-assistance/applications/src/**/*.ts",
               "libs/financial-assistance/applications/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa"]
     },
     "financial-assistance-data-access": {
       "projectType": "library",
@@ -426,9 +413,11 @@
               "libs/financial-assistance/data-access/src/**/*.ts",
               "libs/financial-assistance/data-access/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa", "type:data-access"]
     },
     "financial-assistance-entities": {
       "projectType": "library",
@@ -451,9 +440,11 @@
               "libs/financial-assistance/entities/src/**/*.ts",
               "libs/financial-assistance/entities/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa", "type:models"]
     },
     "financial-assistance-household-member": {
       "projectType": "library",
@@ -476,9 +467,11 @@
               "libs/financial-assistance/household-member/src/**/*.ts",
               "libs/financial-assistance/household-member/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa", "type:feature"]
     },
     "financial-assistance-shell": {
       "projectType": "library",
@@ -501,9 +494,11 @@
               "libs/financial-assistance/shell/src/**/*.ts",
               "libs/financial-assistance/shell/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa", "type:shell"]
     },
     "financial-assistance-store-applicants": {
       "projectType": "library",
@@ -526,9 +521,11 @@
               "libs/financial-assistance/store/applicants/src/**/*.ts",
               "libs/financial-assistance/store/applicants/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa", "type:store"]
     },
     "financial-assistance-testing": {
       "projectType": "library",
@@ -551,9 +548,11 @@
               "libs/financial-assistance/testing/src/**/*.ts",
               "libs/financial-assistance/testing/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:faa", "type:testing"]
     },
     "health-connector": {
       "projectType": "application",
@@ -644,7 +643,8 @@
               "apps/health-connector/src/**/*.ts",
               "apps/health-connector/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -660,7 +660,9 @@
             "command": "npx firebase deploy --only hosting:health-connector --token $FIREBASE_TOKEN"
           }
         }
-      }
+      },
+      "tags": ["client:health-connector", "type:app"],
+      "implicitDependencies": ["shared-theme"]
     },
     "health-connector-e2e": {
       "root": "apps/health-connector-e2e",
@@ -684,9 +686,12 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/health-connector-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["health-connector"]
     },
     "shared-analytics": {
       "projectType": "library",
@@ -709,9 +714,11 @@
               "libs/shared/analytics/src/**/*.ts",
               "libs/shared/analytics/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared", "type:analytics"]
     },
     "shared-i18n": {
       "projectType": "library",
@@ -734,9 +741,11 @@
               "libs/shared/i18n/src/**/*.ts",
               "libs/shared/i18n/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared", "type:i18n"]
     },
     "shared-page-title": {
       "projectType": "library",
@@ -759,9 +768,11 @@
               "libs/shared/page-title/src/**/*.ts",
               "libs/shared/page-title/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared"]
     },
     "shared-state-root-store": {
       "projectType": "library",
@@ -784,9 +795,11 @@
               "libs/shared/state/root-store/src/**/*.ts",
               "libs/shared/state/root-store/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["type:util-store"]
     },
     "shared-theme": {
       "projectType": "library",
@@ -809,9 +822,11 @@
               "libs/shared/theme/src/**/*.ts",
               "libs/shared/theme/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared", "type:theme"]
     },
     "testing-i18n": {
       "projectType": "library",
@@ -834,9 +849,11 @@
               "libs/testing/i18n/src/**/*.ts",
               "libs/testing/i18n/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared", "type:testing"]
     },
     "ui-base-shell": {
       "projectType": "library",
@@ -859,9 +876,11 @@
               "libs/ui/base/shell/src/**/*.ts",
               "libs/ui/base/shell/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared"]
     },
     "util-helpers": {
       "projectType": "library",
@@ -876,9 +895,11 @@
               "libs/util/helpers/src/**/*.ts",
               "libs/util/helpers/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared", "type:util"]
     },
     "util-transforms": {
       "projectType": "library",
@@ -901,9 +922,11 @@
               "libs/util/transforms/src/**/*.ts",
               "libs/util/transforms/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

@@ -18,91 +18,9 @@
         "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MTQ2ZWJhZjgtM2MxZi00ZjgyLWI0ZTctYzhjMzYyNjM5OGZifHJlYWQtd3JpdGU=",
         "canTrackAnalytics": true,
-        "showUsageWarnings": true
+        "showUsageWarnings": true,
+        "parallel": 1
       }
-    }
-  },
-  "projects": {
-    "coverme": {
-      "tags": ["client:coverme"],
-      "implicitDependencies": ["shared-theme"]
-    },
-    "coverme-e2e": {
-      "tags": [],
-      "implicitDependencies": ["coverme", "shared-theme"]
-    },
-    "coverme-i18n": {
-      "tags": ["scope:coverme", "type:i18n"]
-    },
-    "dchbx": {
-      "tags": ["client:dchbx"],
-      "implicitDependencies": ["shared-theme"]
-    },
-    "dchbx-e2e": {
-      "tags": [],
-      "implicitDependencies": ["dchbx"]
-    },
-    "dchbx-i18n": {
-      "tags": ["scope:dchbx", "type:i18n"]
-    },
-    "financial-assistance-applicant": {
-      "tags": ["scope:faa", "type:feature"]
-    },
-    "financial-assistance-applications": {
-      "tags": ["scope:faa"]
-    },
-    "financial-assistance-data-access": {
-      "tags": ["scope:faa", "type:data-access"]
-    },
-    "financial-assistance-entities": {
-      "tags": ["scope:faa", "type:models"]
-    },
-    "financial-assistance-household-member": {
-      "tags": ["scope:faa", "type:feature"]
-    },
-    "financial-assistance-shell": {
-      "tags": ["scope:faa", "type:shell"]
-    },
-    "financial-assistance-store-applicants": {
-      "tags": ["scope:faa", "type:store"]
-    },
-    "financial-assistance-testing": {
-      "tags": ["scope:faa", "type:testing"]
-    },
-    "health-connector": {
-      "tags": ["client:health-connector", "type:app"],
-      "implicitDependencies": ["shared-theme"]
-    },
-    "health-connector-e2e": {
-      "tags": [],
-      "implicitDependencies": ["health-connector"]
-    },
-    "shared-analytics": {
-      "tags": ["scope:shared", "type:analytics"]
-    },
-    "shared-i18n": {
-      "tags": ["scope:shared", "type:i18n"]
-    },
-    "shared-page-title": {
-      "tags": ["scope:shared"]
-    },
-    "shared-state-root-store": {
-      "tags": ["type:util-store"]
-    },
-    "shared-theme": {
-      "tags": ["scope:shared", "type:theme"]
-    },
-    "testing-i18n": {
-      "tags": ["scope:shared", "type:testing"]
-    },
-    "ui-base-shell": {
-      "tags": ["scope:shared"]
-    },
-    "util-helpers": {
-      "tags": ["scope:shared", "type:util"]
-    },
-    "util-transforms": {
-      "tags": ["scope:shared", "type:util"]
     }
   },
   "targetDependencies": {
@@ -112,5 +30,36 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "coverme",
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress",
+      "strict": true
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
   }
 }
