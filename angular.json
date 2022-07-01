@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "coverme": "apps/coverme",
-    "coverme-e2e": "apps/coverme-e2e"
+    "coverme-e2e": "apps/coverme-e2e",
+    "util-helpers": "libs/util/helpers"
   }
 }
