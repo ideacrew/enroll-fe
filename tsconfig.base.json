@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"]
+      "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
+      "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
