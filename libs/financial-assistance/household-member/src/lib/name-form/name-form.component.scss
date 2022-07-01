@@ -1,9 +1,0 @@
-:host {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) max-content;
-  gap: var(--s-1);
-}
-
-.ch-10 {
-  max-width: 10ch;
-}

@@ -1,60 +1,20 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
+    "rootDir": ".",
+    "sourceMap": true,
     "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "lib": ["es2017", "dom"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "rootDir": ".",
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
     "target": "es2015",
-    "paths": {
-      "@enroll/coverme/i18n": ["libs/coverme/i18n/src/index.ts"],
-      "@enroll/dchbx/i18n": ["libs/dchbx/i18n/src/index.ts"],
-      "@enroll/financial-assistance/applicant": [
-        "libs/financial-assistance/applicant/src/index.ts"
-      ],
-      "@enroll/financial-assistance/applications": [
-        "libs/financial-assistance/applications/src/index.ts"
-      ],
-      "@enroll/financial-assistance/data-access": [
-        "libs/financial-assistance/data-access/src/index.ts"
-      ],
-      "@enroll/financial-assistance/entities": [
-        "libs/financial-assistance/entities/src/index.ts"
-      ],
-      "@enroll/financial-assistance/household-member": [
-        "libs/financial-assistance/household-member/src/index.ts"
-      ],
-      "@enroll/financial-assistance/shell": [
-        "libs/financial-assistance/shell/src/index.ts"
-      ],
-      "@enroll/financial-assistance/store/applicants": [
-        "libs/financial-assistance/store/applicants/src/index.ts"
-      ],
-      "@enroll/financial-assistance/testing": [
-        "libs/financial-assistance/testing/src/index.ts"
-      ],
-      "@enroll/shared/analytics": ["libs/shared/analytics/src/index.ts"],
-      "@enroll/shared/i18n": ["libs/shared/i18n/src/index.ts"],
-      "@enroll/shared/page-title": ["libs/shared/page-title/src/index.ts"],
-      "@enroll/shared/state/root-store": [
-        "libs/shared/state/root-store/src/index.ts"
-      ],
-      "@enroll/shared/theme": ["libs/shared/theme/src/index.ts"],
-      "@enroll/testing/i18n": ["libs/testing/i18n/src/index.ts"],
-      "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
-      "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
-      "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]
-    }
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {}
   },
   "exclude": ["node_modules", "tmp"]
 }
