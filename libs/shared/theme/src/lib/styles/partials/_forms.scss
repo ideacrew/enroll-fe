@@ -1,0 +1,107 @@
+:root {
+  // Base variables for input fields and labels
+  --input-label-color: var(--grey-160);
+  --input-field-text-color: var(--type-primary);
+  --input-field-border-color: hsl(
+    30,
+    2%,
+    56%
+  ); // custom color to get 3:1 contrast ratio
+  --input-field-background-color: var(--grey-000);
+}
+
+.enroll-input {
+  // Static properties
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  border-radius: 0.1875rem;
+  font-size: 0.875rem;
+  font-size: max(0.875rem, 1em);
+  border-width: 2px;
+  padding: 0 0.5em;
+  border-style: solid;
+  line-height: 1;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  transition-property: border-color, background-color, color;
+
+  // Dynamic properties
+  background-color: var(--input-field-background-color);
+  border-color: var(--input-field-border-color);
+  color: var(--input-field-text-color);
+
+  &:focus {
+    --input-field-border-color: var(--input-field-focus-color);
+    outline: 0;
+  }
+
+  &.ng-invalid {
+    --border-color: var(--error-color);
+  }
+}
+
+.enroll-fieldset-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--s0);
+  justify-content: stretch;
+  width: 100%;
+
+  .enroll-input-group,
+  .enroll-checkbox-group {
+    flex: 1 1 100%;
+  }
+}
+
+.enroll-input-label {
+  line-height: 1;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.enroll-label {
+  user-select: none;
+}
+
+.enroll-checkbox-group {
+  display: flex;
+  align-items: center;
+
+  .enroll-checkbox-label {
+    display: inline-block;
+  }
+}
+
+.enroll-input-group {
+  label {
+    display: block;
+    margin-bottom: var(--s-2);
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.enroll-fieldset {
+  flex: 1 1 100%;
+}
+
+.hbx-error-message {
+  display: none;
+  margin-top: var(--s-3);
+  color: var(--red-060);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.form-group.ng-invalid,
+.input-group.ng-invalid {
+  border-left: 4px solid var(--red-060);
+  padding-left: var(--s-2);
+
+  .hbx-error-message {
+    display: block;
+  }
+}

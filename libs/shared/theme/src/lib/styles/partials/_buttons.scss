@@ -1,0 +1,102 @@
+:root {
+  --button-text-color: var(--grey-000, chartreuse);
+  --button-fill-color: var(--button-primary-color, chartreuse);
+  --button-focus-ring-color: var(--grey-000, chartreuse);
+  --button-border-color: var(--button-primary-color, chartreuse);
+}
+
+// Primary button at rest
+a.enroll-button,
+button.enroll-button {
+  // Reset
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentcolor;
+  }
+
+  // Display styles
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  // Static properties
+  position: relative;
+  font-size: 1rem;
+  padding: var(--s-1) 0.625rem;
+  text-decoration: none;
+  border-radius: 0.125rem;
+  line-height: 1;
+  min-width: 10ch;
+  text-align: center;
+  border-width: 0.125rem;
+  border-style: solid;
+
+  // Dynamic properties
+  background-color: var(--button-fill-color, chartreuse);
+  color: var(--button-text-color, chartreuse);
+  border-color: var(--button-border-color, chartreuse);
+
+  // Animation properties
+  transition-timing-function: ease-in-out;
+  transition-duration: 220ms;
+  transition-property: background-color, color, border-color;
+
+  // State styles
+  &:hover {
+    --button-fill-color: var(--button-primary-hover);
+    --button-border-color: var(--button-primary-hover);
+  }
+
+  &:focus {
+    outline-style: solid;
+    outline-color: transparent;
+  }
+
+  &:focus::after,
+  &:focus-visible::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: none;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: var(--button-focus-ring-color);
+    z-index: 1;
+  }
+
+  &:active {
+    --button-fill-color: var(--button-primary-active);
+    --button-border-color: var(--button-primary-active);
+  }
+}
+
+a.enroll-button.outline,
+button.enroll-button.outline {
+  --button-text-color: var(--button-primary-color, chartreuse);
+  --button-fill-color: var(--grey-000, chartreuse);
+  --button-focus-ring-color: var(--grey-000, chartreuse);
+
+  &:hover {
+    --button-text-color: var(--button-primary-hover);
+  }
+
+  &:active {
+    --button-text-color: var(--button-primary-active);
+  }
+
+  &:focus::after,
+  &:focus-visible::after {
+    --button-focus-ring-color: var(--grey-160);
+  }
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+}
