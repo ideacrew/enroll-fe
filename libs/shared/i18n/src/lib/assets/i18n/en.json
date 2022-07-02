@@ -1,0 +1,16 @@
+{
+  "welcome": "Welcome to this State-based Marketplace",
+  "logoAlt": "marketplace logo",
+  "shell": {
+    "help": "Get Help"
+  },
+  "customerService": "Customer Service",
+  "financialAssistance": "Financial Assistance",
+  "myInsuredPortal": "My Insured Portal",
+  "familyInformation": "Generic Family Information",
+  "name": "name",
+  "age": "age",
+  "gender": "gender",
+  "relationship": "relationship",
+  "status": "status"
+}
