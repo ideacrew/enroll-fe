@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'util-helpers',
   preset: '../../../jest.preset.js',

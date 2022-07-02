@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'coverme',
   preset: '../../jest.preset.js',

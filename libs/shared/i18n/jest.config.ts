@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'shared-i18n',
   preset: '../../../jest.preset.js',

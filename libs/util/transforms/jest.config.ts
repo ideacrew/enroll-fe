@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'util-transforms',
   preset: '../../../jest.preset.js',
