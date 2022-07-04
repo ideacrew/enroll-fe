@@ -1,0 +1,87 @@
+<ng-container *transloco="let t">
+  <aside class="left-nav">
+    <nav>
+      <ul>
+        <li>
+          <a href="https://qa-enroll.cme.openhbx.org/families/home?tab=home"
+            >My Maine Cover ME</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://qa-enroll.cme.openhbx.org/insured/families/verification?tab=verification"
+            >Documents</a
+          >
+        </li>
+        <li><a routerLinkActive="active" routerLink=".">Cost Savings</a></li>
+        <li>
+          <a
+            href="https://qa-enroll.cme.openhbx.org/insured/families/inbox?tab=messages"
+            >Messages</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="my-account">
+      <span class="title">My Account</span>
+      <span>Theodore Crisp</span>
+      <a
+        href="https://qa-enroll.cme.openhbx.org/insured/families/manage_family?tab=family"
+        class="enroll-button outline"
+        >Manage Family</a
+      >
+    </div>
+  </aside>
+  <div class="main-content">
+    <h1>
+      {{
+        t('faaApplications.applicationListTitle') ||
+          t('faaDefault.applicationListTitle')
+      }}
+    </h1>
+    <p>
+      If you started or completed an application for premium reductions, it will
+      be listed below. If the status says it’s a draft, that means you haven’t
+      completed the application. Select ‘Actions’ to view or update an
+      application.
+    </p>
+    <!-- <a routerLink="application-checklist" class="enroll-button" type="button"
+      >Start New Application</a
+    > -->
+    <!-- Extract into component with applications as input -->
+    <table class="enroll-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Started On</th>
+          <th>Submitted On</th>
+          <th>Determination</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let application of applications$ | async"
+          class="application-row"
+        >
+          <td class="application-id">{{ application.id }}</td>
+          <td class="application-status">{{ application.status }}</td>
+          <td class="application-started-on">
+            {{ application.startedOn | date: 'medium' }}
+          </td>
+          <td class="application-submitted-on"></td>
+          <td class="application-determination"></td>
+          <td class="application-actions">
+            <a
+              class="enroll-button"
+              data-cy="edit-application"
+              routerLink="269000183/edit"
+              >Edit</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>
