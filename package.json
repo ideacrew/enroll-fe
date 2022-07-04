@@ -39,6 +39,7 @@
     "@angular/cli": "~14.0.0",
     "@angular/compiler-cli": "~14.0.0",
     "@angular/language-service": "~14.0.0",
+    "@faker-js/faker": "^7.3.0",
     "@ngrx/schematics": "~14.0.0",
     "@ngrx/store-devtools": "~14.0.0",
     "@nrwl/cli": "14.4.0",
