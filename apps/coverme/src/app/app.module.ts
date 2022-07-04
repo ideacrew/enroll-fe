@@ -7,9 +7,10 @@ import { RootStoreModule } from '@enroll/state/root-store';
 import { UiBaseShellModule } from '@enroll/ui/base/shell';
 
 import { AppComponent } from './app.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, WelcomePageComponent],
   imports: [
     BrowserModule,
     SharedI18nModule,
