@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/financial-assistance/shell/src",
+  "prefix": "enroll",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/financial-assistance/shell"],
+      "options": {
+        "jestConfig": "libs/financial-assistance/shell/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/financial-assistance/shell/**/*.ts",
+          "libs/financial-assistance/shell/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

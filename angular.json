@@ -5,6 +5,7 @@
     "coverme": "apps/coverme",
     "coverme-e2e": "apps/coverme-e2e",
     "coverme-i18n": "libs/coverme/i18n",
+    "financial-assistance-shell": "libs/financial-assistance/shell",
     "financial-assistance-store-applicants": "libs/financial-assistance/store/applicants",
     "financial-assistance-testing": "libs/financial-assistance/testing",
     "shared-i18n": "libs/shared/i18n",

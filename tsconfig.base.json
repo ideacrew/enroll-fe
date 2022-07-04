@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@enroll/coverme/i18n": ["libs/coverme/i18n/src/index.ts"],
+      "@enroll/financial-assistance/shell": [
+        "libs/financial-assistance/shell/src/index.ts"
+      ],
       "@enroll/financial-assistance/store/applicants": [
         "libs/financial-assistance/store/applicants/src/index.ts"
       ],
