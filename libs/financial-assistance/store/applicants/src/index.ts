@@ -1,1 +1,1 @@
-export * from './lib/applicants.module';
+export * from './lib/applicants-store.modulemodule';
