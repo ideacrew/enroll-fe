@@ -12,9 +12,51 @@
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
+              { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] },
               {
-                "sourceTag": "*",
+                "sourceTag": "client:dchbx",
+                "onlyDependOnLibsWithTags": ["client:dchbx", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:faa",
+                "onlyDependOnLibsWithTags": [
+                  "scope:faa",
+                  "scope:shared",
+                  "type:util",
+                  "type:util-store",
+                  "type:store"
+                ]
+              },
+              {
+                "sourceTag": "scope:health-connector",
+                "onlyDependOnLibsWithTags": [
+                  "scope:health-connector",
+                  "scope:shared"
+                ]
+              },
+              {
+                "sourceTag": "client:coverme",
+                "onlyDependOnLibsWithTags": ["client:coverme", "scope:shared"]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:util"]
+              },
+              {
+                "sourceTag": "type:store",
                 "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "type:testing",
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:data-access",
+                  "type:models"
+                ]
+              },
+              {
+                "sourceTag": "type:i18n",
+                "onlyDependOnLibsWithTags": ["type:util"]
               }
             ]
           }

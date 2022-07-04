@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/page-title"],
+      "outputs": [
+        "coverage/libs/shared/page-title"
+      ],
       "options": {
         "jestConfig": "libs/shared/page-title/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,7 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "scope:shared"
+  ]
 }

@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/financial-assistance/household-member"],
+      "outputs": [
+        "coverage/libs/financial-assistance/household-member"
+      ],
       "options": {
         "jestConfig": "libs/financial-assistance/household-member/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,8 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "scope:faa",
+    "type:feature"
+  ]
 }

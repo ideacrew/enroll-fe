@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/i18n"],
+      "outputs": [
+        "coverage/libs/shared/i18n"
+      ],
       "options": {
         "jestConfig": "libs/shared/i18n/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,8 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "scope:shared",
+    "type:i18n"
+  ]
 }

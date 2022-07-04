@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/financial-assistance/applications"],
+      "outputs": [
+        "coverage/libs/financial-assistance/applications"
+      ],
       "options": {
         "jestConfig": "libs/financial-assistance/applications/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,7 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "scope:faa"
+  ]
 }

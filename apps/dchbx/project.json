@@ -5,15 +5,22 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/dchbx",
         "index": "apps/dchbx/src/index.html",
         "main": "apps/dchbx/src/main.ts",
         "polyfills": "apps/dchbx/src/polyfills.ts",
         "tsConfig": "apps/dchbx/tsconfig.app.json",
-        "assets": ["apps/dchbx/src/favicon.ico", "apps/dchbx/src/assets"],
-        "styles": ["apps/dchbx/src/styles.css"],
+        "assets": [
+          "apps/dchbx/src/favicon.ico",
+          "apps/dchbx/src/assets"
+        ],
+        "styles": [
+          "apps/dchbx/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -73,17 +80,27 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/dchbx/**/*.ts", "apps/dchbx/**/*.html"]
+        "lintFilePatterns": [
+          "apps/dchbx/**/*.ts",
+          "apps/dchbx/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/dchbx"],
+      "outputs": [
+        "coverage/apps/dchbx"
+      ],
       "options": {
         "jestConfig": "apps/dchbx/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": []
+  "tags": [
+    "client:dchbx"
+  ],
+  "implicitDependencies": [
+    "shared-theme"
+  ]
 }

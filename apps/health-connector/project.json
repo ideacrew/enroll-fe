@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/health-connector",
         "index": "apps/health-connector/src/index.html",
@@ -16,7 +18,9 @@
           "apps/health-connector/src/favicon.ico",
           "apps/health-connector/src/assets"
         ],
-        "styles": ["apps/health-connector/src/styles.css"],
+        "styles": [
+          "apps/health-connector/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -84,12 +88,20 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/health-connector"],
+      "outputs": [
+        "coverage/apps/health-connector"
+      ],
       "options": {
         "jestConfig": "apps/health-connector/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": []
+  "tags": [
+    "client:health-connector",
+    "type:app"
+  ],
+  "implicitDependencies": [
+    "shared-theme"
+  ]
 }

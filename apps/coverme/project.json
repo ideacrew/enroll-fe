@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/coverme",
         "index": "apps/coverme/src/index.html",
@@ -13,8 +15,13 @@
         "polyfills": "apps/coverme/src/polyfills.ts",
         "tsConfig": "apps/coverme/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/coverme/src/favicon.ico", "apps/coverme/src/assets"],
-        "styles": ["apps/coverme/src/styles.scss"],
+        "assets": [
+          "apps/coverme/src/favicon.ico",
+          "apps/coverme/src/assets"
+        ],
+        "styles": [
+          "apps/coverme/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -71,17 +78,27 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/coverme/**/*.ts", "apps/coverme/**/*.html"]
+        "lintFilePatterns": [
+          "apps/coverme/**/*.ts",
+          "apps/coverme/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/coverme"],
+      "outputs": [
+        "coverage/apps/coverme"
+      ],
       "options": {
         "jestConfig": "apps/coverme/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": []
+  "tags": [
+    "client:coverme"
+  ],
+  "implicitDependencies": [
+    "shared-theme"
+  ]
 }

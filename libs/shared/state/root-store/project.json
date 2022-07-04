@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/state/root-store"],
+      "outputs": [
+        "coverage/libs/shared/state/root-store"
+      ],
       "options": {
         "jestConfig": "libs/shared/state/root-store/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,7 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "type:util-store"
+  ]
 }
