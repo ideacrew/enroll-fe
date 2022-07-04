@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/shared/analytics/src",
+  "prefix": "enroll",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/analytics"],
+      "options": {
+        "jestConfig": "libs/shared/analytics/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/analytics/**/*.ts",
+          "libs/shared/analytics/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
