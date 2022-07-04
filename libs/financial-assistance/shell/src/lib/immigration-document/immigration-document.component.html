@@ -1,0 +1,63 @@
+<div class="enroll-fieldset-group">
+  <div class="enroll-form-group">
+    <label class="enroll-label" for="immigration-document"
+      >What document does this person have to show immigration status?</label
+    >
+    <select
+      class="enroll-input enroll-select"
+      id="immigration-document"
+      name="vlp_document_name"
+      formControlName="vlp_document_name"
+    >
+      <option value="" disabled>Select a document</option>
+      <option *ngFor="let doc of vlpDocumentKind" [ngValue]="doc">
+        {{ doc }}
+      </option>
+    </select>
+  </div>
+</div>
+<!-- <div class="enroll-fieldset-grid">
+  <enroll-certificate-number
+    *ngIf="
+      newHouseholdMember.immigrationDocument === 'Certificate of Citizenship'
+    "
+  ></enroll-certificate-number>
+  <enroll-naturalization-number
+    *ngIf="
+      newHouseholdMember.immigrationDocument === 'Naturalization Certificate'
+    "
+  ></enroll-naturalization-number>
+  <enroll-i94-number
+    *ngIf="needsI94Number.includes(newHouseholdMember.immigrationDocument)"
+  ></enroll-i94-number>
+  <enroll-sevis-id
+    *ngIf="needsSevisId.includes(newHouseholdMember.immigrationDocument)"
+  ></enroll-sevis-id>
+  <enroll-alien-number
+    *ngIf="needsAlienNumber.includes(newHouseholdMember.immigrationDocument)"
+  ></enroll-alien-number>
+  <enroll-visa-number
+    *ngIf="needsVisaNumber.includes(newHouseholdMember.immigrationDocument)"
+  ></enroll-visa-number>
+  <enroll-card-number
+    *ngIf="needsCardNumber.includes(newHouseholdMember.immigrationDocument)"
+  ></enroll-card-number>
+  <enroll-passport-number
+    *ngIf="needsPassportNumber.includes(newHouseholdMember.immigrationDocument)"
+  ></enroll-passport-number>
+  <enroll-expiration-date
+    *ngIf="needsExpirationDate.includes(newHouseholdMember.immigrationDocument)"
+    [label]="expirationDateLabel(newHouseholdMember.immigrationDocument)"
+  ></enroll-expiration-date>
+
+  <enroll-citizenship-country
+    *ngIf="
+      needsCountryOfCitizenship.includes(newHouseholdMember.immigrationDocument)
+    "
+  ></enroll-citizenship-country>
+  <enroll-document-description
+    *ngIf="
+      needsDocumentDescription.includes(newHouseholdMember.immigrationDocument)
+    "
+  ></enroll-document-description>
+</div> -->

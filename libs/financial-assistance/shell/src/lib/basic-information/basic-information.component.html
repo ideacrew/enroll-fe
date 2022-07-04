@@ -1,0 +1,14 @@
+<h1>Add New Person to household</h1>
+<form [formGroup]="form" class="page-form">
+  <enroll-name-form [parent]="form"></enroll-name-form>
+  <enroll-dob-input [parent]="form"></enroll-dob-input>
+  <enroll-ssn-input [parent]="form"></enroll-ssn-input>
+  <enroll-gender-input [parent]="form"></enroll-gender-input>
+  <enroll-relationship-select [parent]="form"></enroll-relationship-select>
+</form>
+<a
+  data-cy="provide-additional-information"
+  class="enroll-button"
+  routerLink="../living-situation"
+  >Provide information about living situation</a
+>

@@ -1,0 +1,182 @@
+<form [formGroup]="form">
+  <fieldset class="enroll-fieldset">
+    <!-- Question and Help Text -->
+    <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+      <h1 class="enroll-fieldset__heading">
+        What is this person's living situation?
+      </h1>
+    </legend>
+
+    <!-- Radio Group -->
+    <div class="enroll-radios">
+      <!-- Radio option with input, label, and help text -->
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="lives-with-primary"
+          name="livingSituation"
+          type="radio"
+          value="livesWithPrimary"
+          formControlName="livingSituation"
+        />
+
+        <!-- Radio label -->
+        <label
+          data-cy="lives-with-primary-label"
+          class="enroll-label enroll-radios__label"
+          for="lives-with-primary"
+        >
+          This person lives at the same address as the primary applicant
+        </label>
+      </div>
+
+      <!-- Radio option with input, label, and help text -->
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="lives-separately"
+          name="livingSituation"
+          type="radio"
+          value="livesSeparately"
+          formControlName="livingSituation"
+        />
+        <!-- Radio label -->
+        <label
+          data-cy="lives-separately-label"
+          class="enroll-label enroll-radios__label"
+          for="lives-separately"
+        >
+          This person lives at a different address than the primary applicant
+        </label>
+        <!-- Help text -->
+      </div>
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="homeless-resident"
+          name="livingSituation"
+          type="radio"
+          value="homelessResident"
+          formControlName="livingSituation"
+        />
+        <!-- Radio label -->
+        <label
+          data-cy="homeless-resident-label"
+          class="enroll-label enroll-radios__label"
+          for="homeless-resident"
+        >
+          This person is a homeless Maine resident
+        </label>
+        <!-- Help text -->
+      </div>
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="no-address"
+          name="livingSituation"
+          type="radio"
+          value="noAddress"
+          formControlName="livingSituation"
+        />
+        <!-- Radio label -->
+        <label
+          data-cy="no-address-label"
+          class="enroll-label enroll-radios__label"
+          for="no-address"
+        >
+          This person is living outside Maine and plans to return, or is moving
+          to Maine but doesn't have a Maine address yet
+        </label>
+        <!-- Help text -->
+      </div>
+    </div>
+  </fieldset>
+
+  <a
+    *ngIf="
+      form.get('livingSituation')?.value === 'livesSeparately';
+      else nextStep
+    "
+    routerLink=""
+    class="enroll-button"
+    >Provide an address for this person</a
+  >
+
+  <ng-template #nextStep>
+    <a
+      *ngIf="form.get('is_applying_coverage')?.value === true; else addMember"
+      data-cy="provide-additional-information"
+      class="enroll-button"
+      routerLink="../citizenship"
+      >Provide additional information about this person</a
+    >
+  </ng-template>
+
+  <ng-template #addMember>
+    <a
+      data-cy="add-member-to-household"
+      routerLink="../../../edit"
+      class="enroll-button"
+      >Add this person to household</a
+    >
+  </ng-template>
+
+  <!-- <fieldset>
+    <legend>
+      <h2>Where does live?</h2>
+    </legend>
+    <div class="enroll-fieldset-group">
+      <div class="enroll-input-group">
+        <label class="enroll-label" for="address-1"> Address Line 1 * </label>
+        <input
+          class="enroll-input"
+          id="address-1"
+          name="address-1"
+          type="text"
+        />
+      </div>
+      <div class="enroll-input-group">
+        <label class="enroll-label" for="address-2">Address Line 2 </label>
+        <input
+          class="enroll-input"
+          id="address-2"
+          name="address-2"
+          type="text"
+        />
+      </div>
+    </div>
+    <div class="enroll-fieldset-group">
+      <div class="enroll-input-group">
+        <label class="enroll-label" for="address-city">City * </label>
+        <input
+          class="enroll-input"
+          id="address-city"
+          name="address-city"
+          type="text"
+        />
+      </div>
+      <div class="enroll-input-group">
+        <label class="enroll-label" for="address-state">State * </label>
+        <input
+          class="enroll-input"
+          id="address-state"
+          name="address-state"
+          type="text"
+        />
+      </div>
+      <div class="enroll-input-group">
+        <label class="enroll-label" for="address-zip"> Zip Code </label>
+        <input
+          class="enroll-input"
+          id="address-zip"
+          name="address-zip"
+          type="text"
+        />
+      </div>
+    </div>
+  </fieldset> -->
+</form>

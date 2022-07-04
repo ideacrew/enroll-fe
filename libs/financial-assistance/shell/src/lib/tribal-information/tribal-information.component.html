@@ -1,0 +1,65 @@
+<form [formGroup]="form">
+  <ng-container formGroupName="additionalInformation">
+    <h2 id="tribal-additional-info">Additional information required</h2>
+    <div class="enroll-input-group">
+      <label class="enroll-label" for="address-1"> Tribal ID * </label>
+      <input
+        class="enroll-input"
+        id="address-1"
+        name="address-1"
+        type="text"
+        formControlName="tribal_id"
+      />
+    </div>
+    <fieldset>
+      <legend>
+        <span>
+          Has this person ever gotten a health service from the Indian Health
+          Service, a tribal health program, or urban Indian health program or
+          through a referral from one of these programs?
+        </span>
+      </legend>
+      <div class="enroll-fieldset-group">
+        <!-- Radio Group -->
+        <div class="enroll-radios">
+          <!-- Radio option with input, label, and help text -->
+          <div class="enroll-radios__item">
+            <!-- Radio input -->
+            <input
+              class="enroll-radios__input"
+              id="tribal-health-yes"
+              name="tribal-health"
+              type="radio"
+              value="yes"
+            />
+            <!-- Radio label -->
+            <label
+              class="enroll-label enroll-radios__label"
+              for="tribal-health-yes"
+            >
+              Yes
+            </label>
+          </div>
+          <!-- Radio option with input, label, and help text -->
+          <div class="enroll-radios__item">
+            <!-- Radio input -->
+            <input
+              class="enroll-radios__input"
+              id="tribal-health-no"
+              name="tribal-health"
+              type="radio"
+              value="no"
+            />
+            <!-- Radio label -->
+            <label
+              class="enroll-label enroll-radios__label"
+              for="tribal-health-no"
+            >
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </ng-container>
+</form>

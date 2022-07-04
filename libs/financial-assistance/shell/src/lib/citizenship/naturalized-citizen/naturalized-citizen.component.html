@@ -1,0 +1,130 @@
+<form [formGroup]="form">
+  <fieldset
+    formGroupName="additionalInformation"
+    class="enroll-fieldset"
+    aria-describedby="naturalized-citizen-hint"
+  >
+    <legend>
+      <h1>Is this person a naturalized citizen? *</h1>
+    </legend>
+    <div id="naturalized-citizen-hint" class="enroll-hint">
+      A naturalized citizen is someone who wasn’t born a US citizen. A person
+      can apply to be a naturalized citizen after being a permanent resident
+      (green card holder) for a certain period of time, and if they meet certain
+      other legal requirements.
+    </div>
+    <div class="enroll-radios">
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="naturalized-yes"
+          name="naturalizedCitizen"
+          type="radio"
+          [value]="true"
+          formControlName="naturalizedCitizen"
+        />
+        <!-- Radio label -->
+        <label
+          data-cy="naturalized-label-yes"
+          class="enroll-label enroll-radios__label"
+          for="naturalized-yes"
+        >
+          Yes
+        </label>
+      </div>
+
+      <!-- Radio option with input, label, and help text -->
+      <div class="enroll-radios__item">
+        <!-- Radio input -->
+        <input
+          class="enroll-radios__input"
+          id="naturalized-no"
+          name="naturalizedCitizen"
+          type="radio"
+          [value]="false"
+          formControlName="naturalizedCitizen"
+        />
+        <!-- Radio label -->
+        <label
+          data-cy="naturalized-label-no"
+          class="enroll-label enroll-radios__label"
+          for="naturalized-no"
+        >
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<a
+  *ngIf="form.get('additionalInformation.naturalizedCitizen')?.value === true"
+  data-cy="provide-additional-information"
+  routerLink="../lawful-presence-evidence"
+  class="enroll-button"
+  >Continue providing information about this person
+</a>
+
+<a
+  *ngIf="form.get('additionalInformation.naturalizedCitizen')?.value === false"
+  data-cy="provide-additional-information"
+  routerLink="../lawful-presence"
+  class="enroll-button"
+  >Continue providing information about this person
+</a>
+
+<!-- <fieldset>
+  <legend>
+    <h2>Which document type does this person have?</h2>
+  </legend>
+  <div class="enroll-radios__item">
+    <input
+      class="enroll-radios__input"
+      id="naturalized-doc-citizenship"
+      name="naturalized-document"
+      type="radio"
+      value="certOfCitizenship"
+      [(ngModel)]="newHouseholdMember.naturalizedDocument"
+    />
+    <label
+      class="enroll-label enroll-radios__label"
+      for="naturalized-doc-citizenship"
+    >
+      Certificate of Citizenship
+    </label>
+  </div>
+  <div class="enroll-radios__item">
+    <input
+      class="enroll-radios__input"
+      id="naturalized-doc-naturalization-cert"
+      name="naturalized-document"
+      type="radio"
+      value="naturalizationCertificate"
+      [(ngModel)]="newHouseholdMember.naturalizedDocument"
+    />
+    <label
+      class="enroll-label enroll-radios__label"
+      for="naturalized-doc-naturalization-cert"
+    >
+      Naturalization Certificate
+    </label>
+  </div>
+</fieldset>
+
+<fieldset *ngIf="newHouseholdMember.naturalizedDocument">
+  <legend>
+    <h2>this person's document numbers</h2>
+  </legend>
+  <div class="enroll-fieldset-group">
+    <enroll-certificate-number
+      *ngIf="newHouseholdMember.naturalizedDocument === 'certOfCitizenship'"
+    ></enroll-certificate-number>
+    <enroll-naturalization-number
+      *ngIf="
+        newHouseholdMember.naturalizedDocument === 'naturalizationCertificate'
+      "
+    ></enroll-naturalization-number>
+    <enroll-alien-number></enroll-alien-number>
+  </div>
+</fieldset> -->
