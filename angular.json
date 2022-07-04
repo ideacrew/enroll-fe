@@ -5,6 +5,7 @@
     "coverme": "apps/coverme",
     "coverme-e2e": "apps/coverme-e2e",
     "coverme-i18n": "libs/coverme/i18n",
+    "financial-assistance-entities": "libs/financial-assistance/entities",
     "financial-assistance-household-member": "libs/financial-assistance/household-member",
     "financial-assistance-shell": "libs/financial-assistance/shell",
     "financial-assistance-store-applicants": "libs/financial-assistance/store/applicants",
