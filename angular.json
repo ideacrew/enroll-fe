@@ -16,6 +16,8 @@
     "financial-assistance-shell": "libs/financial-assistance/shell",
     "financial-assistance-store-applicants": "libs/financial-assistance/store/applicants",
     "financial-assistance-testing": "libs/financial-assistance/testing",
+    "health-connector": "apps/health-connector",
+    "health-connector-e2e": "apps/health-connector-e2e",
     "shared-i18n": "libs/shared/i18n",
     "shared-theme": "libs/shared/theme",
     "state-root-store": "libs/state/root-store",
