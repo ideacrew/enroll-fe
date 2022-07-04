@@ -1,0 +1,58 @@
+<fieldset class="enroll-fieldset">
+  <!-- Question and Help Text -->
+  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+    <h1 class="enroll-fieldset__heading">
+      Was this person in foster care at age 18 or older? *
+    </h1>
+  </legend>
+
+  <!-- <div id="foster-care-hint" class="enroll-hint">
+    We ask this question because people who are pregnant, and meet certain
+    income limits, may qualify for free, comprehensive Medicaid coverage.
+  </div> -->
+
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="foster-care-yes"
+        name="foster-care"
+        type="radio"
+        [value]="true"
+        [(ngModel)]="fosterCare.is_former_foster_care"
+      />
+
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="foster-care-yes">
+        Yes
+      </label>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="foster-care-no"
+        name="foster-care"
+        type="radio"
+        [value]="false"
+        [(ngModel)]="fosterCare.is_former_foster_care"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="foster-care-no">
+        No
+      </label>
+    </div>
+  </div>
+</fieldset>
+
+<a
+  *ngIf="fosterCare.is_former_foster_care === false"
+  class="enroll-button"
+  routerLink="../student"
+  >Continue to Student</a
+>

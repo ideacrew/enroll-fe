@@ -1,0 +1,84 @@
+<fieldset
+  class="enroll-fieldset"
+  aria-describedby="self-employment-income-hint"
+>
+  <!-- Question and Help Text -->
+  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+    <h1 class="enroll-fieldset__heading">
+      Does this person expect to receive self-employment income in 2021? *
+    </h1>
+  </legend>
+  <div id="self-employment-income-hint" class="enroll-hint">
+    We need to know about any income this person receives as an independent
+    contractor or from a business they own.
+  </div>
+
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="self-employment-income-yes"
+        name="self-employment-income"
+        type="radio"
+        value="yes"
+        aria-describedby="self-employment-income-yes-hint"
+        [(ngModel)]="hasSelfEmploymentIncome"
+      />
+
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="self-employment-income-yes"
+      >
+        Yes
+      </label>
+
+      <!-- Help Text -->
+      <div
+        id="self-employment-income-yes-hint"
+        class="enroll-hint enroll-radios__hint"
+      >
+        Select 'yes' if this person owns a business or receives a federal form
+        1099 from any employer.
+      </div>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="self-employment-income-no"
+        name="self-employment-income"
+        type="radio"
+        value="no"
+        aria-describedby="self-employment-income-no-hint"
+        [(ngModel)]="hasSelfEmploymentIncome"
+      />
+      <!-- Radio label -->
+      <label
+        class="enroll-label enroll-radios__label"
+        for="self-employment-income-no"
+      >
+        No
+      </label>
+      <!-- Help text -->
+      <div
+        id="self-employment-income-no-hint"
+        class="enroll-hint enroll-radios__hint"
+      >
+        Answer no if you had no self-employment income.
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<a
+  *ngIf="hasSelfEmploymentIncome !== undefined"
+  class="enroll-button"
+  routerLink="../../other-income"
+  >Continue to Other Income</a
+>

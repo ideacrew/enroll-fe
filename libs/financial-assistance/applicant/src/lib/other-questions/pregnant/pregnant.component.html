@@ -1,0 +1,56 @@
+<fieldset class="enroll-fieldset" aria-describedby="pregnant-hint">
+  <!-- Question and Help Text -->
+  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+    <h1 class="enroll-fieldset__heading">Is this person pregnant? *</h1>
+  </legend>
+
+  <div id="pregnant-hint" class="enroll-hint">
+    We ask this question because people who are pregnant, and meet certain
+    income limits, may qualify for free, comprehensive Medicaid coverage.
+  </div>
+
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="pregnant-yes"
+        name="pregnant"
+        type="radio"
+        [value]="true"
+        [(ngModel)]="pregnant.is_pregnant"
+      />
+
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="pregnant-yes">
+        Yes
+      </label>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="pregnant-no"
+        name="pregnant"
+        type="radio"
+        [value]="false"
+        [(ngModel)]="pregnant.is_pregnant"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="pregnant-no">
+        No
+      </label>
+    </div>
+  </div>
+</fieldset>
+
+<a
+  *ngIf="pregnant.is_pregnant === false"
+  class="enroll-button"
+  routerLink="../foster-care"
+  >Continue to Foster Care</a
+>

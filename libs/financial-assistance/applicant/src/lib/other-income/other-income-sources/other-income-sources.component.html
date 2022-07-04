@@ -1,0 +1,82 @@
+<fieldset class="enroll-fieldset">
+  <!-- Question and Help Text -->
+  <legend class="enroll-fieldset__legend enroll-fieldset__legend--l">
+    <h1 class="enroll-fieldset__heading">
+      Does this person expect to have income from other sources in 2021? *
+    </h1>
+  </legend>
+
+  <!-- Radio Group -->
+  <div class="enroll-radios">
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="other-income-yes"
+        name="other-income"
+        type="radio"
+        value="yes"
+        aria-describedby="other-income-yes-hint"
+        [(ngModel)]="hasOtherIncome"
+      />
+
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="other-income-yes">
+        Yes
+      </label>
+
+      <!-- Help Text -->
+      <div id="other-income-yes-hint" class="enroll-hint enroll-radios__hint">
+        Select ‘yes’ if this person receives one or more types of taxable income
+        listed below, even if that income is infrequent, or they only receive it
+        for part of the year.
+        <ul>
+          <li>Alimony received</li>
+          <li>Capital gains</li>
+          <li>Dividends</li>
+          <li>Interest</li>
+          <li>Rent and royalties</li>
+          <li>Pension or retirement, including IRA distributions</li>
+          <li>Social Security</li>
+          <li>Unemployment</li>
+          <li>Foreign income</li>
+          <li>Other taxable income</li>
+          <li>Prizes and awards</li>
+          <li>Scholarships</li>
+          <li>Strike or lockout benefits</li>
+          <li>Any other taxable income included on your federal tax return</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Radio option with input, label, and help text -->
+    <div class="enroll-radios__item">
+      <!-- Radio input -->
+      <input
+        class="enroll-radios__input"
+        id="other-income-no"
+        name="other-income"
+        type="radio"
+        value="no"
+        aria-describedby="other-income-no-hint"
+        [(ngModel)]="hasOtherIncome"
+      />
+      <!-- Radio label -->
+      <label class="enroll-label enroll-radios__label" for="other-income-no">
+        No
+      </label>
+      <!-- Help text -->
+      <div id="other-income-no-hint" class="enroll-hint enroll-radios__hint">
+        Answer no if you had no other income.
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<a
+  *ngIf="hasOtherIncome !== undefined"
+  class="enroll-button"
+  routerLink="../../income-adjustments"
+  >Continue to Income Adjustments</a
+>

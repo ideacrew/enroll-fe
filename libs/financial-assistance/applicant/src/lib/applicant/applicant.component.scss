@@ -1,0 +1,31 @@
+:host {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--s2);
+}
+
+.sticky > ul {
+  padding-left: 0;
+}
+
+li > ul {
+  display: none;
+  padding-left: var(--s0);
+}
+
+ul {
+  list-style: none;
+}
+
+.active + ul {
+  display: block;
+}
+
+.sticky {
+  position: sticky;
+  top: 6.5rem;
+}
+
+a {
+  color: var(--type-primary);
+}

@@ -1,0 +1,136 @@
+<nav class="applicant-nav">
+  <div class="sticky">
+    <span>Income and Coverage Info</span>
+    <ul>
+      <li>
+        <a routerLink="tax-info" routerLinkActive="active">Tax Info</a>
+        <ul>
+          <li>
+            <a routerLinkActive="active" routerLink="tax-info/filing-taxes"
+              >Filing Taxes</a
+            >
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="tax-info/tax-dependent"
+              >Tax Dependent</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="job-income" routerLinkActive="active">Job Income</a>
+        <ul>
+          <li>
+            <a routerLinkActive="active" routerLink="job-income/employer-income"
+              >Employer Income</a
+            >
+          </li>
+          <li>
+            <a
+              routerLinkActive="active"
+              routerLink="job-income/self-employment-income"
+              >Self-employment Income</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="other-income" routerLinkActive="active">Other Income</a>
+        <ul>
+          <li>
+            <a
+              routerLinkActive="active"
+              routerLink="other-income/unemployment-income"
+              >Unemployment Income</a
+            >
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="other-income/other-sources"
+              >Other Sources</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="income-adjustments" routerLinkActive="active"
+          >Income Adjustments</a
+        >
+      </li>
+      <li>
+        <a routerLink="health-coverage" routerLinkActive="active"
+          >Health Coverage</a
+        >
+        <ul>
+          <li>
+            <a
+              routerLinkActive="active"
+              routerLink="health-coverage/currently-enrolled"
+              >Currently Enrolled</a
+            >
+          </li>
+          <li>
+            <a
+              routerLinkActive="active"
+              routerLink="health-coverage/potential-coverage"
+              >Potential Coverage</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="other-questions" routerLinkActive="active"
+          >Other Questions</a
+        >
+        <ul>
+          <li>
+            <a routerLink="other-questions/pregnant" routerLinkActive="active"
+              >Pregnant</a
+            >
+          </li>
+
+          <!-- This only shows in applicant is between 18 and 26 years old -->
+          <li>
+            <a
+              routerLink="other-questions/foster-care"
+              routerLinkActive="active"
+              >Foster Care</a
+            >
+          </li>
+          <li>
+            <a routerLink="other-questions/student" routerLinkActive="active"
+              >Student</a
+            >
+          </li>
+          <li>
+            <a routerLink="other-questions/blind" routerLinkActive="active"
+              >Blind</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="other-questions/daily-assistance"
+              routerLinkActive="active"
+              >Daily Assistance</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="other-questions/medical-bills"
+              routerLinkActive="active"
+              >Medical Bills</a
+            >
+          </li>
+          <li>
+            <a routerLink="other-questions/disability" routerLinkActive="active"
+              >Disability</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-with-nav">
+  <router-outlet></router-outlet>
+</div>
