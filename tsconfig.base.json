@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@enroll/coverme/i18n": ["libs/coverme/i18n/src/index.ts"],
       "@enroll/shared/i18n": ["libs/shared/i18n/src/index.ts"],
       "@enroll/shared/theme": ["libs/shared/theme/src/index.ts"],
       "@enroll/state/root-store": ["libs/state/root-store/src/index.ts"],
