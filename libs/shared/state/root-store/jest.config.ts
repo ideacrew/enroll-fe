@@ -1,6 +1,7 @@
+/* eslint-disable */
 export default {
-  displayName: 'state-root-store',
-  preset: '../../../jest.preset.js',
+  displayName: 'shared-state-root-store',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/state/root-store',
+  coverageDirectory: '../../../../coverage/libs/shared/state/root-store',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

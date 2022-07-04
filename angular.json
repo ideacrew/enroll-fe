@@ -19,8 +19,8 @@
     "health-connector": "apps/health-connector",
     "health-connector-e2e": "apps/health-connector-e2e",
     "shared-i18n": "libs/shared/i18n",
+    "shared-state-root-store": "libs/shared/state/root-store",
     "shared-theme": "libs/shared/theme",
-    "state-root-store": "libs/state/root-store",
     "ui-base-shell": "libs/ui/base/shell",
     "util-helpers": "libs/util/helpers",
     "util-transforms": "libs/util/transforms"

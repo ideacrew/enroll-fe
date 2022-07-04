@@ -1,13 +1,13 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/state/root-store/src",
+  "sourceRoot": "libs/shared/state/root-store/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/state/root-store"],
+      "outputs": ["coverage/libs/shared/state/root-store"],
       "options": {
-        "jestConfig": "libs/state/root-store/jest.config.ts",
+        "jestConfig": "libs/shared/state/root-store/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -15,8 +15,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/state/root-store/**/*.ts",
-          "libs/state/root-store/**/*.html"
+          "libs/shared/state/root-store/**/*.ts",
+          "libs/shared/state/root-store/**/*.html"
         ]
       }
     }
