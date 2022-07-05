@@ -5,6 +5,7 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
+    ".github/workflows/test-and-deploy.yml": "*",
     ".eslintrc.json": "*"
   },
   "affected": {
