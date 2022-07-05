@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export interface ApplicantReference {
   first_name: string;
   last_name: string;
