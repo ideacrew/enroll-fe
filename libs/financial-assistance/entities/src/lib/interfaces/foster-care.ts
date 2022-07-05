@@ -1,4 +1,4 @@
-import { UsStateAbbreviationKind } from './usStateAbbreviation';
+import { UsStateAbbreviationKind } from './us-state-abbreviation';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 interface NoFosterCare {

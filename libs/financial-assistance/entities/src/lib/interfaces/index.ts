@@ -19,6 +19,6 @@ export * from './phone-number';
 export * from './pregnancy-information';
 export * from './relationship';
 export * from './student';
-export * from './taxFilerKind';
-export * from './usStateAbbreviation';
+export * from './tax-filer-kind';
+export * from './us-state-abbreviation';
 export * from './vlp-document';

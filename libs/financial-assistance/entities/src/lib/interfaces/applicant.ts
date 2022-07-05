@@ -13,7 +13,7 @@ import { NativeAmericanInformation } from './native-american-information';
 import { PersonName } from './person-name';
 import { PregnancyInformation } from './pregnancy-information';
 import { StudentInformation } from './student';
-import { TaxFilerKind } from './taxFilerKind';
+import { TaxFilerKind } from './tax-filer-kind';
 import { VlpDocumentKind } from './vlp-document';
 
 export interface Applicant {

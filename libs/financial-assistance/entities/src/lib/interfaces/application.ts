@@ -3,8 +3,8 @@
 import { Applicant } from './applicant';
 import { FamilyReference } from './family';
 import { Relationship } from './relationship';
-import { TaxHousehold } from './taxHousehold';
-import { UsStateAbbreviationKind } from './usStateAbbreviation';
+import { TaxHousehold } from './tax-household';
+import { UsStateAbbreviationKind } from './us-state-abbreviation';
 
 export interface FinancialAssistanceApplication {
   family_reference: FamilyReference;

@@ -5,8 +5,8 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    ".github/workflows/test-and-deploy.yml": "*",
-    ".eslintrc.json": "*"
+    ".eslintrc.json": "*",
+    ".github/workflows/test-and-deploy.yml": "*"
   },
   "affected": {
     "defaultBase": "trunk"
