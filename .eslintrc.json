@@ -81,8 +81,12 @@
     },
     {
       "files": ["*.ts"],
-      "plugins": ["eslint-plugin-import", "@angular-eslint/eslint-plugin", "unicorn"],
       "extends": ["plugin:@nrwl/nx/typescript", "plugin:unicorn/recommended"],
+      "plugins": [
+        "eslint-plugin-import",
+        "@angular-eslint/eslint-plugin",
+        "unicorn"
+      ],
       "rules": {
         "@angular-eslint/no-conflicting-lifecycle": "error",
         "@angular-eslint/no-host-metadata-property": "error",
