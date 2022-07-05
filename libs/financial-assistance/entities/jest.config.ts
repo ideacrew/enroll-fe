@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'financial-assistance-entities',
   preset: '../../../jest.preset.js',

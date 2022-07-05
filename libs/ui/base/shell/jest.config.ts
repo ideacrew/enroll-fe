@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'ui-base-shell',
   preset: '../../../../jest.preset.js',

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'shared-state-root-store',
   preset: '../../../../jest.preset.js',

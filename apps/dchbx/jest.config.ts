@@ -1,4 +1,4 @@
-
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'dchbx',
   preset: '../../jest.preset.js',

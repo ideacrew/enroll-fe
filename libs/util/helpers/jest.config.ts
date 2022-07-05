@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'util-helpers',
   preset: '../../../jest.preset.js',

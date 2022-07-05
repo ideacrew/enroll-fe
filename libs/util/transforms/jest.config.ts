@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'util-transforms',
   preset: '../../../jest.preset.js',

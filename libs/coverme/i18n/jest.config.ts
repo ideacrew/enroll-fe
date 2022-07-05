@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'coverme-i18n',
   preset: '../../../jest.preset.js',
