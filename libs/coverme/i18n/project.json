@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/coverme/i18n/src",
+  "prefix": "enroll",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/coverme/i18n"],
+      "options": {
+        "jestConfig": "libs/coverme/i18n/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/coverme/i18n/**/*.ts",
+          "libs/coverme/i18n/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["client:coverme", "type:i18n"]
+}

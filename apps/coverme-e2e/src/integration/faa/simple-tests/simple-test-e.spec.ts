@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+// eslint-disable-next-line unicorn/prevent-abbreviations
 import {
   addApplicant,
   addNonApplicant,

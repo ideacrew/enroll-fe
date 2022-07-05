@@ -1,7 +1,8 @@
+/* eslint-disable unicorn/consistent-function-scoping */
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { fetch, pessimisticUpdate } from '@nrwl/angular';
-import { map } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { ApplicantsService } from '@enroll/financial-assistance/data-access';
 
@@ -12,44 +13,37 @@ export class ApplicantsEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ApplicantsActions.init),
-      fetch({
-        run: () =>
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          this.applicantsService.getApplicants().pipe(
-            map((applicants) =>
-              ApplicantsActions.loadApplicantsSuccess({
-                applicants,
-              })
-            )
+      switchMap(() =>
+        this.applicantsService.getApplicants().pipe(
+          map((applicants) =>
+            ApplicantsActions.loadApplicantsSuccess({
+              applicants,
+            })
           ),
-        onError: (action: ReturnType<typeof ApplicantsActions.init>, error) => {
-          console.error('Error', error);
-          return ApplicantsActions.loadApplicantsFailure({ error });
-        },
-      })
+          catchError((error) =>
+            of(ApplicantsActions.loadApplicantsFailure({ error }))
+          )
+        )
+      )
     )
   );
 
-  addApplicant$ = createEffect(() =>
+  addApplicant2$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ApplicantsActions.addNeedsCoverageHouseholdMember),
-      pessimisticUpdate({
-        run: (
-          action: ReturnType<
-            typeof ApplicantsActions.addNeedsCoverageHouseholdMember
-          >
-        ) =>
-          this.applicantsService
-            .createNewHouseholdMember('12343', action.applicant)
-            .pipe(
-              map((applicant) =>
-                ApplicantsActions.addNeedsCoverageHouseholdMemberSuccess({
-                  applicant,
-                })
-              )
+
+      switchMap((action) =>
+        this.applicantsService
+          .createNewHouseholdMember('12343', action.applicant)
+          .pipe(
+            map((applicant) =>
+              ApplicantsActions.addNeedsCoverageHouseholdMemberSuccess({
+                applicant,
+              })
             ),
-        onError: () => null,
-      })
+            catchError((error) => of(error))
+          )
+      )
     )
   );
 

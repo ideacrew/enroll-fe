@@ -1,4 +1,4 @@
-import { UsStateAbbreviationKind } from './usStateAbbreviation';
+import { UsStateAbbreviationKind } from './us-state-abbreviation';
 
 export interface Address {
   street1: string;

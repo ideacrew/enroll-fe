@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/financial-assistance/household-member/src",
+  "prefix": "enroll",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/financial-assistance/household-member"],
+      "options": {
+        "jestConfig": "libs/financial-assistance/household-member/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/financial-assistance/household-member/**/*.ts",
+          "libs/financial-assistance/household-member/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:faa", "type:feature"]
+}

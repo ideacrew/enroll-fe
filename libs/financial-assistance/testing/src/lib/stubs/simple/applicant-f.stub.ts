@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { datatype } from 'faker';
+import { faker } from '@faker-js/faker';
 
 import { NeedsCoverageApplicant } from '@enroll/financial-assistance/data-access';
 
@@ -8,7 +8,7 @@ import { generateEmail } from '../email.stub';
 import { defaultPhones } from '../phone.stub';
 
 export const claytonMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Clayton',
   last_name: 'Morgan',
@@ -26,7 +26,7 @@ export const claytonMorganInitial: NeedsCoverageApplicant = {
 };
 
 export const albaMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Alba',
   last_name: 'Morgan',
@@ -44,7 +44,7 @@ export const albaMorganInitial: NeedsCoverageApplicant = {
 };
 
 export const ayvaMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Ayva',
   last_name: 'Morgan',
@@ -62,7 +62,7 @@ export const ayvaMorganInitial: NeedsCoverageApplicant = {
 };
 
 export const safiyahMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Safiyah',
   middle_name: 'Nina',
@@ -81,7 +81,7 @@ export const safiyahMorganInitial: NeedsCoverageApplicant = {
 };
 
 export const daphneMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Daphne',
   last_name: 'Morgan',
@@ -99,7 +99,7 @@ export const daphneMorganInitial: NeedsCoverageApplicant = {
 };
 
 export const hareemMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Hareem',
   middle_name: 'Christina',
@@ -117,7 +117,7 @@ export const hareemMorganInitial: NeedsCoverageApplicant = {
   is_incarcerated: false,
 };
 export const theodoreMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Theodore',
   middle_name: 'Clarence',
@@ -135,7 +135,7 @@ export const theodoreMorganInitial: NeedsCoverageApplicant = {
   is_incarcerated: false,
 };
 export const michaelMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Michael',
   last_name: 'Morgan',
@@ -152,7 +152,7 @@ export const michaelMorganInitial: NeedsCoverageApplicant = {
   is_incarcerated: false,
 };
 export const hughMorganInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Hugh',
   last_name: 'Morgan',

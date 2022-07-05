@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-null */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import {
@@ -15,7 +16,7 @@ import {
 } from '@enroll/financial-assistance/entities';
 import { ApplicantsEntity } from '@enroll/financial-assistance/store/applicants';
 
-import { applicantToForm } from './applicantToForm';
+import { applicantToForm } from './applicant-to-form';
 
 @Injectable()
 export class HouseholdMemberService {

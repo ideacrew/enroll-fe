@@ -14,8 +14,15 @@
             "depConstraints": [
               { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] },
               {
-                "sourceTag": "scope:dchbx",
-                "onlyDependOnLibsWithTags": ["scope:dchbx", "scope:shared"]
+                "sourceTag": "client:dchbx",
+                "onlyDependOnLibsWithTags": [
+                  "client:dchbx",
+                  "scope:shared",
+                  "type:util",
+                  "type:util-store",
+                  "type:store",
+                  "type:shell"
+                ]
               },
               {
                 "sourceTag": "scope:faa",
@@ -24,7 +31,8 @@
                   "scope:shared",
                   "type:util",
                   "type:util-store",
-                  "type:store"
+                  "type:store",
+                  "type:shell"
                 ]
               },
               {
@@ -35,8 +43,16 @@
                 ]
               },
               {
-                "sourceTag": "scope:coverme",
-                "onlyDependOnLibsWithTags": ["scope:coverme", "scope:shared"]
+                "sourceTag": "client:coverme",
+                "onlyDependOnLibsWithTags": [
+                  "client:coverme",
+                  "scope:shared",
+                  "scope:shared",
+                  "type:util",
+                  "type:util-store",
+                  "type:store",
+                  "type:shell"
+                ]
               },
               {
                 "sourceTag": "type:app",
@@ -64,18 +80,13 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
-    },
-    {
       "files": ["*.ts"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
+      "extends": ["plugin:@nrwl/nx/typescript", "plugin:unicorn/recommended"],
+      "plugins": [
+        "eslint-plugin-import",
+        "@angular-eslint/eslint-plugin",
+        "unicorn"
+      ],
       "rules": {
         "@angular-eslint/no-conflicting-lifecycle": "error",
         "@angular-eslint/no-host-metadata-property": "error",
@@ -166,16 +177,12 @@
         "no-var": "error",
         "prefer-const": "error",
         "radix": "error"
-      },
-      "plugins": ["eslint-plugin-import", "@angular-eslint/eslint-plugin"]
+      }
     },
     {
-      "files": ["*.html"],
-      "rules": {
-        "@angular-eslint/template/banana-in-box": "error",
-        "@angular-eslint/template/no-negated-async": "error"
-      },
-      "plugins": ["@angular-eslint/eslint-plugin-template"]
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
     }
   ]
 }

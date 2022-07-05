@@ -1,4 +1,4 @@
 export * from './applicant';
-export * from './householdMember';
+export * from './household-member';
 export * from './income';
-export * from './employerInfo';
+export * from './employer-info';

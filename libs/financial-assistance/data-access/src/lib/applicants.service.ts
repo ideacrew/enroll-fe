@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Applicant } from './models';
-import { NewHouseholdMember } from './models/householdMember';
+import { NewHouseholdMember } from './models/household-member';
 
 @Injectable({
   providedIn: 'root',

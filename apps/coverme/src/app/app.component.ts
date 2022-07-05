@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { TitleService } from '@enroll/shared/page-title';
 
 @Component({
-  selector: 'coverme-root',
+  selector: 'enroll-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private titleService: TitleService) {}
+  title = 'coverme';
 }

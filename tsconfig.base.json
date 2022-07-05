@@ -4,13 +4,11 @@
     "baseUrl": ".",
     "declaration": false,
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "lib": ["es2017", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "rootDir": ".",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
@@ -50,7 +48,6 @@
         "libs/shared/state/root-store/src/index.ts"
       ],
       "@enroll/shared/theme": ["libs/shared/theme/src/index.ts"],
-      "@enroll/testing/i18n": ["libs/testing/i18n/src/index.ts"],
       "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
       "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
       "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]

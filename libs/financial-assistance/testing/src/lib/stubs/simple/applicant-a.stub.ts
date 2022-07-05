@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { datatype } from 'faker';
+import { faker } from '@faker-js/faker';
 
 import {
   NeedsCoverageApplicant,
@@ -12,7 +12,7 @@ import { generateEmail } from '../email.stub';
 import { employer } from '../employer.stub';
 
 export const dwayneCurtisInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Dwayne',
   last_name: 'Curtis',
@@ -30,7 +30,7 @@ export const dwayneCurtisInitial: NeedsCoverageApplicant = {
 };
 
 export const bettyCurtisInitial: NoCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Betty',
   last_name: 'Curtis',
@@ -55,7 +55,7 @@ export const dwayneCurtisFinal: NeedsCoverageApplicant = {
       // Critical information, used in determination
       kind: 'wages_and_salaries',
       start_on: '2021-01-01',
-      amount: 31176,
+      amount: 31_176,
       frequency_kind: 'annually',
 
       // Generic information, not used in determination

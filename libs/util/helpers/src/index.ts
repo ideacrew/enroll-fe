@@ -1,1 +1,1 @@
-export * from './lib/filterNullish.operator';
+export * from './lib/filter-nullish.operator';

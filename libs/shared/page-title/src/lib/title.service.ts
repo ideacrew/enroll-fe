@@ -43,8 +43,8 @@ export class TitleService {
         }),
         mergeMap((route) => route.data),
         filterNullish<Data>(),
-        filter((data) => data.title),
-        tap((data) => this.setTitle(data.title))
+        filter<Data>((data) => data['title']),
+        tap((data) => this.setTitle(data['title']))
       )
       .subscribe();
   }

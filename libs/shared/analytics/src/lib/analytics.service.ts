@@ -4,9 +4,10 @@ import { Injectable, Inject } from '@angular/core';
 import { Router, NavigationEnd, RouterEvent, Event } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 
-import { removeAuthToken } from './removeAuthToken';
-import { TRACKING_ID } from './trackingId';
+import { removeAuthToken } from './remove-auth-token';
+import { TRACKING_ID } from './tracking-id.token';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare var gtag: any;
 
 @Injectable()

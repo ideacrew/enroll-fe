@@ -1,0 +1,112 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/dchbx/src",
+  "prefix": "enroll",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/dchbx",
+        "index": "apps/dchbx/src/index.html",
+        "main": "apps/dchbx/src/main.ts",
+        "polyfills": "apps/dchbx/src/polyfills.ts",
+        "tsConfig": "apps/dchbx/tsconfig.app.json",
+        "assets": [
+          "apps/dchbx/src/favicon.ico",
+          "apps/dchbx/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/icons",
+            "output": "/assets/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/i18n/src/lib/assets/i18n",
+            "output": "/assets/i18n"
+          }
+        ],
+        "styles": [
+          "libs/shared/theme/src/lib/styles/global.scss",
+          "apps/dchbx/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/dchbx/src/environments/environment.ts",
+              "with": "apps/dchbx/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "dchbx:build:production"
+        },
+        "development": {
+          "browserTarget": "dchbx:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "dchbx:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/dchbx/**/*.ts", "apps/dchbx/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/dchbx"],
+      "options": {
+        "jestConfig": "apps/dchbx/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "deploy": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx firebase deploy --only hosting:dchbx --token $FIREBASE_TOKEN"
+      }
+    }
+  },
+  "tags": ["client:dchbx"],
+  "implicitDependencies": ["shared-theme"]
+}

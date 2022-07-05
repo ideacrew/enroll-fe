@@ -2,96 +2,117 @@ name: test and deploy front end
 
 on:
   push:
-    # branches:
-    #   - trunk
+    branches:
+      - trunk
+
+concurrency:
+  group: qb-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   format:
     name: format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          main-branch-name: 'trunk'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Check formatting
-        run: npm run format:check
+        run: npx nx format:check
   lint:
     name: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          main-branch-name: 'trunk'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Lint Application(s)
-        run: npx nx affected:lint --base=origin/trunk~1 --head=origin/trunk --parallel
+        run: npx nx workspace-lint
+      - run: npx nx affected --target=lint --parallel=3
   test:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          main-branch-name: 'trunk'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Test Application(s)
-        run: npx nx affected:test --base=origin/trunk~1 --head=origin/trunk --parallel --maxParallel=2
+        run: npx nx affected --target=test --parallel=3 --ci
   e2e:
     name: e2e
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
         with:
-          node-version: '14.x'
+          main-branch-name: 'trunk'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
       - name: Cache node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Cache cypress
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.cache/Cypress
           key: cypress-cache-v7-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -99,58 +120,66 @@ jobs:
             cypress-cache-v7-${{ runner.os }}
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Run e2e Tests
-        # run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk --browser chrome --headless
-        run: npx nx e2e coverme-e2e --browser chrome --headless
+        run: npx nx affected --target=e2e --parallel=3
   build:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          main-branch-name: 'trunk'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Build Application(s)
-        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk --with-deps
+        run: npx nx affected --target=build --parallel=3
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
           name: affected-apps
           path: dist/apps
   deploy:
+    if: ${{ github.event_name != 'pull_request' }}
     name: deploy
     needs: [format, lint, test, e2e, build]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          main-branch-name: 'trunk'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Download artifact
         id: download-artifact
         uses: actions/download-artifact@v2
@@ -162,4 +191,4 @@ jobs:
         if: success()
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk
+        run: npx nx affected --target=deploy

@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/shared/theme/src",
+  "prefix": "enroll",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/theme"],
+      "options": {
+        "jestConfig": "libs/shared/theme/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/theme/**/*.ts",
+          "libs/shared/theme/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:theme"]
+}

@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/financial-assistance/store/applicants/src",
+  "prefix": "enroll",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/financial-assistance/store/applicants"],
+      "options": {
+        "jestConfig": "libs/financial-assistance/store/applicants/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/financial-assistance/store/applicants/**/*.ts",
+          "libs/financial-assistance/store/applicants/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:faa", "type:store"]
+}

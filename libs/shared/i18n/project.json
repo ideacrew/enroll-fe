@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/shared/i18n/src",
+  "prefix": "enroll",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/i18n"],
+      "options": {
+        "jestConfig": "libs/shared/i18n/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/i18n/**/*.ts",
+          "libs/shared/i18n/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:i18n"]
+}

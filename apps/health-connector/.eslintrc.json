@@ -8,15 +8,12 @@
         "plugin:@nrwl/nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
-      "parserOptions": {
-        "project": ["apps/health-connector/tsconfig.*?.json"]
-      },
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "mhc",
+            "prefix": "enroll",
             "style": "camelCase"
           }
         ],
@@ -24,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "mhc",
+            "prefix": "enroll",
             "style": "kebab-case"
           }
         ]

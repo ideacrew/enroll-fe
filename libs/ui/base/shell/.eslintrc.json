@@ -11,11 +11,19 @@
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "enroll", "style": "camelCase" }
+          {
+            "type": "attribute",
+            "prefix": "enroll",
+            "style": "camelCase"
+          }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "enroll", "style": "kebab-case" }
+          {
+            "type": "element",
+            "prefix": "enroll",
+            "style": "kebab-case"
+          }
         ]
       }
     },

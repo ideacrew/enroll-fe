@@ -1,1 +1,1 @@
-export * from './lib/getAge';
+export * from './lib/get-age';
