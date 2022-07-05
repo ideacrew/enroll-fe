@@ -20,7 +20,8 @@
                   "scope:shared",
                   "type:util",
                   "type:util-store",
-                  "type:store"
+                  "type:store",
+                  "type:shell"
                 ]
               },
               {
@@ -30,7 +31,8 @@
                   "scope:shared",
                   "type:util",
                   "type:util-store",
-                  "type:store"
+                  "type:store",
+                  "type:shell"
                 ]
               },
               {
@@ -48,7 +50,8 @@
                   "scope:shared",
                   "type:util",
                   "type:util-store",
-                  "type:store"
+                  "type:store",
+                  "type:shell"
                 ]
               },
               {
