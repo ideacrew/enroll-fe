@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { datatype } from 'faker';
+import { datatype } from '@faker-js/faker';
 
 import {
   NeedsCoverageApplicant,
