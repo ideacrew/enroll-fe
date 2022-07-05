@@ -35,7 +35,7 @@ const routes: Routes = [
         path: 'incarceration-status',
         component: IncarcerationStatusComponent,
       },
-      { path: '', redirectTo: 'needs-coverage' },
+      { path: '', redirectTo: 'needs-coverage', pathMatch: 'full' },
     ],
   },
 ];
