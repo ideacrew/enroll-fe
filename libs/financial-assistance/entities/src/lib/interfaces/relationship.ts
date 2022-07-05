@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { ApplicantReference } from './applicantReference';
+import { ApplicantReference } from './applicant-reference';
 
 export interface Relationship {
   kind: RelationshipKind;

@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'financial-assistance-data-access',
   preset: '../../../jest.preset.js',

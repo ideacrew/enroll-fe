@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 export default {
   displayName: 'dchbx',
   preset: '../../jest.preset.js',

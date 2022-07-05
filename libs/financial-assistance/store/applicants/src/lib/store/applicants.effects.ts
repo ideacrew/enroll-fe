@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/consistent-function-scoping */
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch, pessimisticUpdate } from '@nrwl/angular';
@@ -48,6 +49,7 @@ export class ApplicantsEffects {
                 })
               )
             ),
+        // eslint-disable-next-line unicorn/no-null
         onError: () => null,
       })
     )

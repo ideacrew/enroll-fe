@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'shared-analytics',
   preset: '../../../jest.preset.js',

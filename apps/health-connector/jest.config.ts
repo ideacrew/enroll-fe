@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'health-connector',
   preset: '../../jest.preset.js',

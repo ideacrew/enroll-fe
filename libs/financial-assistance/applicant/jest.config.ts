@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'financial-assistance-applicant',
   preset: '../../../jest.preset.js',

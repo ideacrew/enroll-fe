@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { ApplicantReference } from './applicantReference';
+import { ApplicantReference } from './applicant-reference';
 import { Attestation } from './attestation';
 import { Benefit } from './benefit';
-import { CitizenImmigrationStatusInformation } from './citizenImmigrationStatusInformation';
+import { CitizenImmigrationStatusInformation } from './citizen-immigration-status-information';
 import { Deduction } from './deduction';
 import { Demographic } from './demographic';
 import { FamilyMemberReference } from './family';
-import { FosterCareInformation } from './fosterCare';
-import { IdentifyingInformation } from './identifyingInformation';
+import { FosterCareInformation } from './foster-care';
+import { IdentifyingInformation } from './identifying-information';
 import { Income } from './income';
-import { NativeAmericanInformation } from './nativeAmericanInformation';
-import { PersonName } from './personName';
-import { PregnancyInformation } from './pregnancyInformation';
+import { NativeAmericanInformation } from './native-american-information';
+import { PersonName } from './person-name';
+import { PregnancyInformation } from './pregnancy-information';
 import { StudentInformation } from './student';
 import { TaxFilerKind } from './taxFilerKind';
 import { VlpDocumentKind } from './vlp-document';

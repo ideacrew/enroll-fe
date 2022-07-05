@@ -1,7 +1,8 @@
+// eslint-disable-next-line unicorn/no-array-reduce
 export const loader = ['en', 'es'].reduce(
-  (acc: { [language: string]: unknown }, lang: string) => {
-    acc[lang] = () => import(`./i18n/${lang}.json`);
-    return acc;
+  (accumulator: { [language: string]: unknown }, lang: string) => {
+    accumulator[lang] = () => import(`./i18n/${lang}.json`);
+    return accumulator;
   },
   {}
 );

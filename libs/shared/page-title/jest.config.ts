@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'shared-page-title',
   preset: '../../../jest.preset.js',

@@ -1,6 +1,6 @@
-import { ApplicantReference } from './applicantReference';
-import { IaEligibilityKind } from './iaEligibility';
-import { ProductEligibilityDetermination } from './productEligibilityDetermination';
+import { ApplicantReference } from './applicant-reference';
+import { IaEligibilityKind } from './ia-eligibility';
+import { ProductEligibilityDetermination } from './product-eligibility-determination';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 export interface TaxHousehold {

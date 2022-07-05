@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-null */
 import {
   Component,
   ChangeDetectionStrategy,
@@ -38,9 +39,10 @@ export class RaceAndEthnicityComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // cf. https://stackoverflow.com/a/58261847/664747
     const optionalGroup = this.form.get('optionalInformation') as FormGroup;
-    const ethnicitiesArray = optionalGroup.controls.ethnicities as FormArray;
-    const latinEthnicitiesArray = optionalGroup.controls
-      .latinEthnicities as FormArray;
+    const ethnicitiesArray = optionalGroup.controls['ethnicities'] as FormArray;
+    const latinEthnicitiesArray = optionalGroup.controls[
+      'latinEthnicities'
+    ] as FormArray;
 
     this.ethnicitiesSubscription = ethnicitiesArray.valueChanges
       .pipe(

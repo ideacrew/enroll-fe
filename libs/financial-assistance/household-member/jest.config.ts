@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'financial-assistance-household-member',
   preset: '../../../jest.preset.js',
