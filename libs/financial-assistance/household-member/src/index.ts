@@ -1,1 +1,1 @@
-export * from './lib/financial-assistance-household-member.module';
+export * from './lib/household-member.module';

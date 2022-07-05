@@ -1,12 +1,12 @@
 {
+  "chromeWebSecurity": false,
   "fileServerFolder": ".",
   "fixturesFolder": "./src/fixtures",
   "integrationFolder": "./src/integration",
   "modifyObstructiveCode": false,
-  "supportFile": "./src/support/index.ts",
   "pluginsFile": false,
-  "video": true,
-  "videosFolder": "../../dist/cypress/apps/coverme-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/coverme-e2e/screenshots",
-  "chromeWebSecurity": false
+  "supportFile": "./src/support/index.ts",
+  "video": true,
+  "videosFolder": "../../dist/cypress/apps/coverme-e2e/videos"
 }
