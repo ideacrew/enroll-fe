@@ -1,12 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "enroll",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "cli": {
-    "packageManager": "npm"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -14,6 +7,10 @@
     },
     ".eslintrc.json": "*"
   },
+  "affected": {
+    "defaultBase": "trunk"
+  },
+  "npmScope": "enroll",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
@@ -35,6 +32,10 @@
       ]
     }
   },
+  "cli": {
+    "packageManager": "npm"
+  },
+  "defaultProject": "coverme",
   "generators": {
     "@nrwl/angular:application": {
       "style": "scss",
@@ -49,6 +50,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "coverme"
+  }
 }
