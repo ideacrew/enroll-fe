@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { datatype } from 'faker';
+import { faker } from '@faker-js/faker';
 
 import { Applicant } from '@enroll/financial-assistance/data-access';
 
@@ -8,7 +8,7 @@ import { generateEmail } from '../email.stub';
 import { defaultPhones } from '../phone.stub';
 
 export const michaelEwingInitial: Applicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Michael',
   last_name: 'Ewing',

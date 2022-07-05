@@ -1,4 +1,4 @@
-import { internet } from 'faker';
+import { faker } from '@faker-js/faker';
 
 import { Email } from '@enroll/financial-assistance/entities';
 
@@ -12,6 +12,6 @@ export const defaultEmail: Email[] = [
 export const generateEmail = (): Email[] => [
   {
     kind: 'home',
-    address: internet.email(),
+    address: faker.internet.email(),
   },
 ];

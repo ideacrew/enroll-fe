@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Applicant } from '@enroll/financial-assistance/data-access';
-import { datatype } from 'faker';
+import { faker } from '@faker-js/faker';
 import { primaryAddress } from '../address.stub';
 import { generateEmail } from '../email.stub';
 import { defaultPhones } from '../phone.stub';
 
 export const aishaModellInitial: Applicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Aisha',
   last_name: 'Modell',

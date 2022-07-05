@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { datatype } from 'faker';
+import { faker } from '@faker-js/faker';
 
 import {
   NeedsCoverageApplicant,
@@ -12,7 +12,7 @@ import { generateEmail } from '../email.stub';
 import { employer } from '../employer.stub';
 
 export const dwayneCurtisInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Dwayne',
   last_name: 'Curtis',
@@ -30,7 +30,7 @@ export const dwayneCurtisInitial: NeedsCoverageApplicant = {
 };
 
 export const bettyCurtisInitial: NoCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Betty',
   last_name: 'Curtis',

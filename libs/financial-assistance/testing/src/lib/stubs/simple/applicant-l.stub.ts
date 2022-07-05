@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { datatype } from 'faker';
+import { faker } from '@faker-js/faker';
 
 import { NeedsCoverageApplicant } from '@enroll/financial-assistance/data-access';
 
@@ -8,7 +8,7 @@ import { defaultPhones } from '../phone.stub';
 import { generateEmail } from '../email.stub';
 
 export const martinHartmanInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Martin',
   last_name: 'Hartman',
@@ -26,7 +26,7 @@ export const martinHartmanInitial: NeedsCoverageApplicant = {
 };
 
 export const helenHartman: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Helen',
   last_name: 'Hartman',
@@ -44,7 +44,7 @@ export const helenHartman: NeedsCoverageApplicant = {
 };
 
 export const robertHartman: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Robert',
   last_name: 'Hartman',
