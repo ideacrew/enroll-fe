@@ -57,7 +57,8 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
       - name: Lint Application(s)
-        run: npx nx affected:lint --base=origin/trunk~1 --head=origin/trunk --parallel
+        run: npx nx workspace-lint
+      - run: npx nx affected --target=lint --parallel=3
   test:
     name: test
     runs-on: ubuntu-latest
@@ -83,7 +84,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
       - name: Test Application(s)
-        run: npx nx affected:test --base=origin/trunk~1 --head=origin/trunk --parallel --maxParallel=2
+        run: npx nx affected --target=test --parallel=3 --ci
   e2e:
     name: e2e
     runs-on: ubuntu-latest
@@ -118,8 +119,9 @@ jobs:
         run: npm i
       - name: Run e2e Tests
         # run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk --browser chrome --headless
-        run: npx nx e2e coverme-e2e --browser chrome --headless
+        run: npx nx affected --target=e2e --parallel=3
   build:
+    if: ${{ github.event_name != 'pull_request' }}
     name: build
     runs-on: ubuntu-latest
     steps:
@@ -144,7 +146,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
       - name: Build Application(s)
-        run: npx nx affected:build --base=origin/trunk~1 --head=origin/trunk
+        run: npx nx affected --target=build --parallel=3
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
