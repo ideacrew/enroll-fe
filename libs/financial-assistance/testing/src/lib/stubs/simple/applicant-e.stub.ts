@@ -1,4 +1,5 @@
-import { datatype } from '@faker-js/faker';
+// eslint-disable-next-line unicorn/prevent-abbreviations
+import { faker } from '@faker-js/faker';
 
 import {
   NeedsCoverageApplicant,
@@ -10,7 +11,7 @@ import { generateEmail } from '../email.stub';
 import { defaultPhones } from '../phone.stub';
 
 export const lailaSimonInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: true,
   first_name: 'Laila',
   last_name: 'Simon',
@@ -28,7 +29,7 @@ export const lailaSimonInitial: NeedsCoverageApplicant = {
 };
 
 export const williamSimonInitial: NoCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'William',
   last_name: 'Simon',
@@ -44,7 +45,7 @@ export const williamSimonInitial: NoCoverageApplicant = {
 };
 
 export const finleySimonInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Finley',
   last_name: 'Simon',
@@ -62,7 +63,7 @@ export const finleySimonInitial: NeedsCoverageApplicant = {
 };
 
 export const princetonSimonInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Princeton',
   last_name: 'Simon',
@@ -80,7 +81,7 @@ export const princetonSimonInitial: NeedsCoverageApplicant = {
 };
 
 export const alexzanderSimonInitial: NeedsCoverageApplicant = {
-  id: datatype.uuid(),
+  id: faker.datatype.uuid(),
   is_primary_applicant: false,
   first_name: 'Alexzander',
   middle_name: 'Carl',

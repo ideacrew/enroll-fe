@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
+// eslint-disable-next-line unicorn/no-array-reduce
 export const loader = ['en', 'es'].reduce(
-  (acc: { [language: string]: unknown }, lang: string) => {
-    acc[lang] = () => import(`./i18n/${lang}.json`);
-    return acc;
+  (accumulator: { [language: string]: unknown }, lang: string) => {
+    accumulator[lang] = () => import(`./i18n/${lang}.json`);
+    return accumulator;
   },
   {}
 );

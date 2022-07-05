@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'dchbx-root',
+  selector: 'enroll-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

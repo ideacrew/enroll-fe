@@ -16,7 +16,7 @@ import {
 } from '@enroll/financial-assistance/entities';
 import { ApplicantsEntity } from '@enroll/financial-assistance/store/applicants';
 
-import { applicantToForm } from './applicantToForm';
+import { applicantToForm } from './applicant-to-form';
 
 @Injectable()
 export class HouseholdMemberService {
