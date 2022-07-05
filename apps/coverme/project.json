@@ -101,7 +101,7 @@
     "deploy": {
       "builder": "@nrwl/workspace:run-commands",
       "options": {
-        "command": "npx firebase deploy --only hosting:coverme --token $FIREBASE_TOKEN"
+        "command": "npx firebase deploy --only hosting:coverme --debug"
       }
     }
   },

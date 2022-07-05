@@ -191,4 +191,6 @@ jobs:
         if: success()
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
-        run: npx nx affected --target=deploy
+        run: |
+          echo "Deploying to Firebase..."
+          npx nx affected --target=deploy
