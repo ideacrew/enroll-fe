@@ -10,41 +10,41 @@ jobs:
     name: format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Check formatting
-        run: npm run format:check
+        run: npx nx format:check
   lint:
     name: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -54,19 +54,19 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -76,22 +76,22 @@ jobs:
     name: e2e
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: '16.x'
       - name: Cache node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Cache cypress
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.cache/Cypress
           key: cypress-cache-v7-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -107,19 +107,19 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -135,19 +135,19 @@ jobs:
     needs: [format, lint, test, e2e, build]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
-      - uses: actions/cache@v2
+          node-version: '16.x'
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: node_modules
-          key: v3-${{ runner.os }}-node14-${{ hashFiles('**/package-lock.json') }}
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            v3-${{ runner.os }}-node14-
+            v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
