@@ -16,9 +16,20 @@
         "tsConfig": "apps/dchbx/tsconfig.app.json",
         "assets": [
           "apps/dchbx/src/favicon.ico",
-          "apps/dchbx/src/assets"
+          "apps/dchbx/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/icons",
+            "output": "/assets/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/i18n/src/lib/assets/i18n",
+            "output": "/assets/i18n"
+          }
         ],
         "styles": [
+          "libs/shared/theme/src/lib/styles/global.scss",
           "apps/dchbx/src/styles.css"
         ],
         "scripts": []

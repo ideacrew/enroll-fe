@@ -16,9 +16,20 @@
         "tsConfig": "apps/health-connector/tsconfig.app.json",
         "assets": [
           "apps/health-connector/src/favicon.ico",
-          "apps/health-connector/src/assets"
+          "apps/health-connector/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/icons",
+            "output": "/assets/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/i18n/src/lib/assets/i18n",
+            "output": "/assets/i18n"
+          }
         ],
         "styles": [
+          "libs/shared/theme/src/lib/styles/global.scss",
           "apps/health-connector/src/styles.css"
         ],
         "scripts": []
