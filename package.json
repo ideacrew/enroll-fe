@@ -60,6 +60,7 @@
     "eslint": "8.19.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-unicorn": "^43.0.0",
     "jasmine-marbles": "~0.9.1",
     "jest": "27.5.1",
