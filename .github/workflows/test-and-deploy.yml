@@ -118,10 +118,8 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
       - name: Run e2e Tests
-        # run: npx nx affected:e2e --base=origin/trunk~1 --head=origin/trunk --browser chrome --headless
         run: npx nx affected --target=e2e --parallel=3
   build:
-    if: ${{ github.event_name != 'pull_request' }}
     name: build
     runs-on: ubuntu-latest
     steps:
@@ -153,6 +151,7 @@ jobs:
           name: affected-apps
           path: dist/apps
   deploy:
+    if: ${{ github.event_name != 'pull_request' }}
     name: deploy
     needs: [format, lint, test, e2e, build]
     runs-on: ubuntu-latest
@@ -184,4 +183,4 @@ jobs:
         if: success()
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: npx nx affected --target=deploy --base=origin/trunk~1 --head=origin/trunk
+        run: npx nx affected --target=deploy

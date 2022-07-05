@@ -99,6 +99,12 @@
         "jestConfig": "apps/dchbx/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx firebase deploy --only hosting:dchbx --token $FIREBASE_TOKEN"
+      }
     }
   },
   "tags": ["client:dchbx"],
