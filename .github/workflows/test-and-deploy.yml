@@ -2,8 +2,8 @@ name: test and deploy front end
 
 on:
   push:
-    # branches:
-    #   - trunk
+    branches:
+      - trunk
 
 concurrency:
   group: qb-${{ github.ref }}
@@ -163,6 +163,10 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: 'trunk'
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
