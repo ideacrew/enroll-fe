@@ -5,9 +5,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/util/transforms"
-      ],
+      "outputs": ["coverage/libs/util/transforms"],
       "options": {
         "jestConfig": "libs/util/transforms/jest.config.ts",
         "passWithNoTests": true
@@ -23,8 +21,5 @@
       }
     }
   },
-  "tags": [
-    "scope:shared",
-    "type:util"
-  ]
+  "tags": ["scope:shared", "type:util"]
 }
