@@ -30,7 +30,7 @@
         ],
         "styles": [
           "libs/shared/theme/src/lib/styles/global.scss",
-          "apps/dchbx/src/styles.css"
+          "apps/dchbx/src/styles.scss"
         ],
         "scripts": []
       },

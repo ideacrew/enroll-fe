@@ -30,7 +30,7 @@
         ],
         "styles": [
           "libs/shared/theme/src/lib/styles/global.scss",
-          "apps/health-connector/src/styles.css"
+          "apps/health-connector/src/styles.scss"
         ],
         "scripts": []
       },
