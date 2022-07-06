@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/health-connector",
         "index": "apps/health-connector/src/index.html",
@@ -97,7 +99,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/health-connector"],
+      "outputs": [
+        "coverage/apps/health-connector"
+      ],
       "options": {
         "jestConfig": "apps/health-connector/jest.config.ts",
         "passWithNoTests": true
@@ -106,10 +110,15 @@
     "deploy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "echo 'Hey there!'"
+        "command": "npx firebase deploy --only hosting:health-connector"
       }
     }
   },
-  "tags": ["client:health-connector", "type:app"],
-  "implicitDependencies": ["shared-theme"]
+  "tags": [
+    "client:health-connector",
+    "type:app"
+  ],
+  "implicitDependencies": [
+    "shared-theme"
+  ]
 }

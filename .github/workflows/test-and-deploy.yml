@@ -188,6 +188,8 @@ jobs:
         run: npm i
       - name: run many deployments
         run: npx nx affected --target=deploy --parallel=3
+        with:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
       # - uses: FirebaseExtended/action-hosting-deploy@v0
       #   with:
       #     repoToken: '${{ secrets.GITHUB_TOKEN }}'
