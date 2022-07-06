@@ -5,7 +5,7 @@ name: Deploy to Firebase Hosting on merge
 'on':
   push:
     branches:
-      - trunk
+      - trunk2
 jobs:
   setup-apps:
     runs-on: ubuntu-latest

@@ -3,7 +3,7 @@ name: test and deploy front end
 on:
   push:
     branches:
-      - trunk2
+      - trunk
 
 concurrency:
   group: qb-${{ github.ref }}
@@ -89,40 +89,40 @@ jobs:
         run: npm i
       - name: Test Application(s)
         run: npx nx affected --target=test --parallel=3 --ci
-  e2e:
-    name: e2e
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
-        with:
-          main-branch-name: 'trunk'
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: npm-cache
-        with:
-          path: node_modules
-          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            v3-${{ runner.os }}-node16-
-      - name: Cache cypress
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-cache-v7-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            cypress-cache-v7-${{ runner.os }}
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm i
-      - name: Run e2e Tests
-        run: npx nx affected --target=e2e --parallel=3
+  # e2e:
+  #   name: e2e
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Derive appropriate SHAs for base and head for `nx affected` commands
+  #       uses: nrwl/nx-set-shas@v2
+  #       with:
+  #         main-branch-name: 'trunk'
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '16.x'
+  #     - name: Cache node_modules
+  #       uses: actions/cache@v3
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node16-
+  #     - name: Cache cypress
+  #       uses: actions/cache@v3
+  #       with:
+  #         path: ~/.cache/Cypress
+  #         key: cypress-cache-v7-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           cypress-cache-v7-${{ runner.os }}
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm i
+  #     - name: Run e2e Tests
+  #       run: npx nx affected --target=e2e --parallel=3
   build:
     name: build
     runs-on: ubuntu-latest
@@ -155,31 +155,15 @@ jobs:
           name: affected-apps
           path: dist/apps
   deploy:
-    if: ${{ github.event_name != 'pull_request' }}
-    name: deploy
-    needs: [format, lint, test, e2e, build]
+    name: Deploy ${{ matrix.app }}
+    needs: [format, lint, test, build]
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [coverme, dchbx, health-connector]
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
-        with:
-          main-branch-name: 'trunk'
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-      - uses: actions/cache@v3
-        id: npm-cache
-        with:
-          path: node_modules
-          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            v3-${{ runner.os }}-node16-
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm i
+      - run: echo "Deploying ${{ matrix.app }}"
       - name: Download artifact
         id: download-artifact
         uses: actions/download-artifact@v2
@@ -187,10 +171,10 @@ jobs:
         with:
           name: affected-apps
           path: dist/apps
-      # - name: Deploy Application(s)
-      #   if: success()
-      #   env:
-      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
-      #   run: |
-      #     echo "Deploying to Firebase..."
-      #     npx nx affected --target=deploy
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
+          target: ${{ matrix.app }}
+          channelId: live
+          projectId: enroll-fe
