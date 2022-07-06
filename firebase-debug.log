@@ -1,0 +1,49 @@
+[debug] [2022-07-05T21:57:36.218Z] ----------------------------------------------------------------------
+[debug] [2022-07-05T21:57:36.220Z] Command:       /usr/local/bin/node /workspaces/enroll-fe/node_modules/.bin/firebase init
+[debug] [2022-07-05T21:57:36.220Z] CLI Version:   11.2.0
+[debug] [2022-07-05T21:57:36.220Z] Platform:      linux
+[debug] [2022-07-05T21:57:36.220Z] Node Version:  v16.15.1
+[debug] [2022-07-05T21:57:36.221Z] Time:          Tue Jul 05 2022 21:57:36 GMT+0000 (Coordinated Universal Time)
+[debug] [2022-07-05T21:57:36.221Z] Env Overrides: GITHUB_API_URL
+[debug] [2022-07-05T21:57:36.221Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-05T21:57:36.277Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-05T21:57:36.277Z] > authorizing via signed-in user (markgoho@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /workspaces/enroll-fe
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-07-05T21:57:43.801Z] Using project from CLI flag: enroll-fe
+[debug] [2022-07-05T21:57:43.804Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe [none]
+[debug] [2022-07-05T21:57:44.060Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe 200
+[debug] [2022-07-05T21:57:44.061Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe {"projectId":"enroll-fe","projectNumber":"35952342454","displayName":"enroll-fe","name":"projects/enroll-fe","resources":{"hostingSite":"enroll-fe"},"state":"ACTIVE"}
+[info] i  Using project enroll-fe (enroll-fe) 
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /workspaces/enroll-fe 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=473069758&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...

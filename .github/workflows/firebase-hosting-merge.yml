@@ -5,16 +5,107 @@ name: Deploy to Firebase Hosting on merge
 'on':
   push:
     branches:
-      - trunk2
+      - trunk
 jobs:
-  build_and_deploy:
+  setup-apps:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
-          channelId: live
-          projectId: enroll-fe
+      - id: set-matrix
+        run: |
+          APPS_JSON_ARRAY=$(
+            node -e "console.log(
+              JSON.stringify(
+                Array.from(
+                  new Array('coverme', 'dchbx')
+                )
+              )
+            );"
+          )
+          echo $APPS_JSON_ARRAY
+          echo "::set-output name=matrix::$APPS_JSON_ARRAY"
+
+  deploy-apps:
+    needs: setup-apps
+    runs-on: ubuntu-latest
+    name: App ${{ matrix.app }}
+    strategy:
+      matrix:
+        app:
+          - ${{ fromJson(needs.setup-apps.outputs.matrix) }}
+    steps:
+      - run: echo "Deploying ${{ matrix.app }}"
+  # build:
+  #   name: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Derive appropriate SHAs for base and head for `nx affected` commands
+  #       uses: nrwl/nx-set-shas@v2
+  #       with:
+  #         main-branch-name: 'trunk'
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '16.x'
+  #     - uses: actions/cache@v3
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node16-
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm i
+  #     - name: Build Application(s)
+  #       run: npx nx affected --target=build --parallel=3
+  #     - name: Upload build artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: affected-apps
+  #         path: dist/apps
+  # deploy:
+  #   if: ${{ github.event_name != 'pull_request' }}
+  #   name: deploy
+  #   needs: [format, lint, test, e2e, build]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Derive appropriate SHAs for base and head for `nx affected` commands
+  #       uses: nrwl/nx-set-shas@v2
+  #       with:
+  #         main-branch-name: 'trunk'
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '16.x'
+  #     - uses: actions/cache@v3
+  #       id: npm-cache
+  #       with:
+  #         path: node_modules
+  #         key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           v3-${{ runner.os }}-node16-
+  #     - name: Install dependencies
+  #       if: steps.npm-cache.outputs.cache-hit != 'true'
+  #       run: npm i
+  #     - name: Download artifact
+  #       id: download-artifact
+  #       uses: actions/download-artifact@v2
+  #       continue-on-error: true
+  #       with:
+  #         name: affected-apps
+  #         path: dist/apps
+  # build_and_deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - run: npm ci && npm run build
+  #     - uses: FirebaseExtended/action-hosting-deploy@v0
+  #       with:
+  #         repoToken: '${{ secrets.GITHUB_TOKEN }}'
+  #         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
+  #         channelId: live
+  #         projectId: enroll-fe

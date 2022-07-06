@@ -7,6 +7,6 @@
   "pluginsFile": false,
   "screenshotsFolder": "../../dist/cypress/apps/coverme-e2e/screenshots",
   "supportFile": "./src/support/index.ts",
-  "video": true,
+  "video": false,
   "videosFolder": "../../dist/cypress/apps/coverme-e2e/videos"
 }

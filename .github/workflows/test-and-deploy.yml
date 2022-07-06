@@ -3,7 +3,7 @@ name: test and deploy front end
 on:
   push:
     branches:
-      - trunk
+      - trunk2
 
 concurrency:
   group: qb-${{ github.ref }}
@@ -187,10 +187,10 @@ jobs:
         with:
           name: affected-apps
           path: dist/apps
-      - name: Deploy Application(s)
-        if: success()
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
-        run: |
-          echo "Deploying to Firebase..."
-          npx nx affected --target=deploy
+      # - name: Deploy Application(s)
+      #   if: success()
+      #   env:
+      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
+      #   run: |
+      #     echo "Deploying to Firebase..."
+      #     npx nx affected --target=deploy
