@@ -180,9 +180,11 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
-          channelId: live
-          projectId: enroll-fe
+      - name: run many deployments
+        run: npx nx affected --target=deploy --parallel=3
+      # - uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: '${{ secrets.GITHUB_TOKEN }}'
+      #     firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
+      #     channelId: live
+      #     projectId: enroll-fe

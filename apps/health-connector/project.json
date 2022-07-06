@@ -104,9 +104,9 @@
       }
     },
     "deploy": {
-      "builder": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
-        "command": "npx firebase deploy --only hosting:health-connector"
+        "command": "echo 'Hey there!'"
       }
     }
   },
