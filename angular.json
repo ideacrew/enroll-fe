@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "carrier-portal": "apps/carrier-portal",
+    "carrier-portal-e2e": "apps/carrier-portal-e2e",
     "coverme": "apps/coverme",
     "coverme-e2e": "apps/coverme-e2e",
     "coverme-i18n": "libs/coverme/i18n",
