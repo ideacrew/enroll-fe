@@ -155,15 +155,10 @@ jobs:
           name: affected-apps
           path: dist/apps
   deploy:
-    name: Deploy ${{ matrix.app }}
+    name: Deploy affected applications
     needs: [format, lint, test, build]
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        app: [coverme, dchbx, health-connector]
     steps:
-      - run: echo "Deploying ${{ matrix.app }}"
       - uses: actions/checkout@v3
       - name: Download artifact
         id: download-artifact
@@ -189,6 +184,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
-          target: ${{ matrix.app }}
           channelId: live
           projectId: enroll-fe
