@@ -106,7 +106,7 @@
     "deploy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx firebase deploy --only hosting:health-connector"
+        "command": "npx firebase deploy --only hosting:health-connector --debug"
       }
     }
   },
