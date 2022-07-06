@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "start:mhc": "ng serve --project=health-connector --open",
-    "start:dchbx": "ng serve --project=dchbx --open",
-    "start:coverme": "ng serve --project=coverme --open",
+    "start:health-connector": "ng serve --project=health-connector --publicHost=${CODESPACE_NAME}-4200.githubpreview.dev:443",
+    "start:dchbx": "ng serve --project=dchbx --publicHost=${CODESPACE_NAME}-4200.githubpreview.dev:443",
+    "start:coverme": "ng serve --project=coverme --publicHost=${CODESPACE_NAME}-4200.githubpreview.dev:443",
+    "start:carrier-portal": "ng serve --project=carrier-portal --publicHost=${CODESPACE_NAME}-4203.githubpreview.dev:443",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "start": "nx serve",
     "build": "nx build",

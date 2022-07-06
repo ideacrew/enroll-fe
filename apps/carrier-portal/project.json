@@ -14,9 +14,22 @@
         "tsConfig": "apps/carrier-portal/tsconfig.app.json",
         "assets": [
           "apps/carrier-portal/src/favicon.ico",
-          "apps/carrier-portal/src/assets"
+          "apps/carrier-portal/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/icons",
+            "output": "/assets/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/i18n/src/lib/assets/i18n",
+            "output": "/assets/i18n"
+          }
         ],
-        "styles": ["apps/carrier-portal/src/styles.scss"],
+        "styles": [
+          "libs/shared/theme/src/lib/styles/global.scss",
+          "apps/carrier-portal/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
