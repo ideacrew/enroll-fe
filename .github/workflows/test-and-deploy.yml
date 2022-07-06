@@ -187,7 +187,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
       - name: run many deployments
-        run: npx nx affected --target=deploy --token=${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
+        run: npx nx affected --target=deploy --token=${{ secrets.FIREBASE_TOKEN }}
       - name: print log
         uses: actions/upload-artifact@v3
         if: failure()
