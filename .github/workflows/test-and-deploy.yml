@@ -187,9 +187,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
       - name: run many deployments
-        run: npx nx affected --target=deploy
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
+        run: npx nx affected --target=deploy --token=${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
       # - uses: FirebaseExtended/action-hosting-deploy@v0
       #   with:
       #     repoToken: '${{ secrets.GITHUB_TOKEN }}'

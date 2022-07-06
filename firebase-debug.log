@@ -1,103 +1,48 @@
-[debug] [2022-07-05T21:57:36.218Z] ----------------------------------------------------------------------
-[debug] [2022-07-05T21:57:36.220Z] Command:       /usr/local/bin/node /workspaces/enroll-fe/node_modules/.bin/firebase init
-[debug] [2022-07-05T21:57:36.220Z] CLI Version:   11.2.0
-[debug] [2022-07-05T21:57:36.220Z] Platform:      linux
-[debug] [2022-07-05T21:57:36.220Z] Node Version:  v16.15.1
-[debug] [2022-07-05T21:57:36.221Z] Time:          Tue Jul 05 2022 21:57:36 GMT+0000 (Coordinated Universal Time)
-[debug] [2022-07-05T21:57:36.221Z] Env Overrides: GITHUB_API_URL
-[debug] [2022-07-05T21:57:36.221Z] ----------------------------------------------------------------------
+[debug] [2022-07-06T17:38:11.450Z] ----------------------------------------------------------------------
+[debug] [2022-07-06T17:38:11.452Z] Command:       /usr/local/bin/node /workspaces/enroll-fe/node_modules/.bin/firebase deploy --only hosting:health-connector --debug
+[debug] [2022-07-06T17:38:11.453Z] CLI Version:   11.2.0
+[debug] [2022-07-06T17:38:11.453Z] Platform:      linux
+[debug] [2022-07-06T17:38:11.453Z] Node Version:  v16.15.1
+[debug] [2022-07-06T17:38:11.453Z] Time:          Wed Jul 06 2022 17:38:11 GMT+0000 (Coordinated Universal Time)
+[debug] [2022-07-06T17:38:11.453Z] Env Overrides: GITHUB_API_URL
+[debug] [2022-07-06T17:38:11.454Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-07-05T21:57:36.277Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-07-05T21:57:36.277Z] > authorizing via signed-in user (markgoho@gmail.com)
-[info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
-
-You're about to initialize a Firebase project in this directory:
-
-  /workspaces/enroll-fe
-
-Before we get started, keep in mind:
-
-  * You are currently outside your home directory
-  * You are initializing within an existing Firebase project directory
-
-[info] 
-=== Project Setup
-[info] 
-[info] First, let's associate this project directory with a Firebase project.
-[info] You can create multiple project aliases by running firebase use --add, 
-[info] but for now we'll just set up a default project.
-[info] 
-[debug] [2022-07-05T21:57:43.801Z] Using project from CLI flag: enroll-fe
-[debug] [2022-07-05T21:57:43.804Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe [none]
-[debug] [2022-07-05T21:57:44.060Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe 200
-[debug] [2022-07-05T21:57:44.061Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe {"projectId":"enroll-fe","projectNumber":"35952342454","displayName":"enroll-fe","name":"projects/enroll-fe","resources":{"hostingSite":"enroll-fe"},"state":"ACTIVE"}
-[info] i  Using project enroll-fe (enroll-fe) 
-[info] 
-=== Hosting:github Setup
-[info] 
-[info] i  Detected a .git folder at /workspaces/enroll-fe 
-[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
-[info] 
-[info] Visit this URL on this device to log in:
-[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=473069758&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
-[info] 
-[info] Waiting for authentication...
-[debug] [2022-07-06T17:24:38.679Z] ----------------------------------------------------------------------
-[debug] [2022-07-06T17:24:38.681Z] Command:       /usr/local/bin/node /workspaces/enroll-fe/node_modules/.bin/firebase deploy --only hosting:health-connector --debug
-[debug] [2022-07-06T17:24:38.681Z] CLI Version:   11.2.0
-[debug] [2022-07-06T17:24:38.682Z] Platform:      linux
-[debug] [2022-07-06T17:24:38.682Z] Node Version:  v16.15.1
-[debug] [2022-07-06T17:24:38.682Z] Time:          Wed Jul 06 2022 17:24:38 GMT+0000 (Coordinated Universal Time)
-[debug] [2022-07-06T17:24:38.682Z] Env Overrides: GITHUB_API_URL
-[debug] [2022-07-06T17:24:38.682Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2022-07-06T17:24:38.751Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-07-06T17:24:38.752Z] > authorizing via signed-in user (markgoho@gmail.com)
-[debug] [2022-07-06T17:24:38.752Z] [iam] checking project enroll-fe for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2022-07-06T17:24:38.753Z] > refreshing access token with scopes: []
-[debug] [2022-07-06T17:24:38.755Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2022-07-06T17:24:38.755Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-07-06T17:24:38.820Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2022-07-06T17:24:38.820Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-07-06T17:24:38.848Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions [none]
-[debug] [2022-07-06T17:24:38.848Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2022-07-06T17:24:38.910Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions 200
-[debug] [2022-07-06T17:24:38.911Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2022-07-06T17:24:38.912Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe [none]
-[debug] [2022-07-06T17:24:39.183Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe 200
-[debug] [2022-07-06T17:24:39.183Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe {"projectId":"enroll-fe","projectNumber":"35952342454","displayName":"enroll-fe","name":"projects/enroll-fe","resources":{"hostingSite":"enroll-fe"},"state":"ACTIVE"}
+[debug] [2022-07-06T17:38:11.511Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-06T17:38:11.512Z] > authorizing via signed-in user (markgoho@gmail.com)
+[debug] [2022-07-06T17:38:11.513Z] [iam] checking project enroll-fe for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-07-06T17:38:11.515Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions [none]
+[debug] [2022-07-06T17:38:11.515Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-06T17:38:11.907Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions 200
+[debug] [2022-07-06T17:38:11.908Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/enroll-fe:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-06T17:38:11.909Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe [none]
+[debug] [2022-07-06T17:38:12.085Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe 200
+[debug] [2022-07-06T17:38:12.085Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe {"projectId":"enroll-fe","projectNumber":"35952342454","displayName":"enroll-fe","name":"projects/enroll-fe","resources":{"hostingSite":"enroll-fe"},"state":"ACTIVE"}
 [info] 
 [info] === Deploying to 'enroll-fe'...
 [info] 
 [info] i  deploying hosting 
-[debug] [2022-07-06T17:24:39.185Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe [none]
-[debug] [2022-07-06T17:24:39.371Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe 200
-[debug] [2022-07-06T17:24:39.371Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe {"projectId":"enroll-fe","projectNumber":"35952342454","displayName":"enroll-fe","name":"projects/enroll-fe","resources":{"hostingSite":"enroll-fe"},"state":"ACTIVE"}
-[debug] [2022-07-06T17:24:39.374Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions [none]
-[debug] [2022-07-06T17:24:39.374Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
-[debug] [2022-07-06T17:24:39.954Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions 200
-[debug] [2022-07-06T17:24:39.955Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions {"name":"projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-07-06T17:38:12.088Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe [none]
+[debug] [2022-07-06T17:38:12.406Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe 200
+[debug] [2022-07-06T17:38:12.407Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/enroll-fe {"projectId":"enroll-fe","projectNumber":"35952342454","displayName":"enroll-fe","name":"projects/enroll-fe","resources":{"hostingSite":"enroll-fe"},"state":"ACTIVE"}
+[debug] [2022-07-06T17:38:12.410Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions [none]
+[debug] [2022-07-06T17:38:12.410Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-07-06T17:38:12.973Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions 200
+[debug] [2022-07-06T17:38:12.974Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions {"name":"projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
 [info] i  hosting[enroll-health-connector]: beginning deploy... 
 [info] i  hosting[enroll-health-connector]: found 20 files in dist/apps/health-connector 
-[debug] [2022-07-06T17:24:39.963Z] [hosting] uploading with 200 concurrency
-[debug] [2022-07-06T17:24:39.963Z] [hosting] hash cache [ZGlzdC9hcHBzL2hlYWx0aC1jb25uZWN0b3I] not populated
-[debug] [2022-07-06T17:24:40.010Z] [hosting] hash cache [ZGlzdC9hcHBzL2hlYWx0aC1jb25uZWN0b3I] stored for 20 files
-[debug] [2022-07-06T17:24:40.010Z] [hosting][hash queue][FINAL] {"max":44,"min":33,"avg":35.19999999999999,"active":0,"complete":20,"success":20,"errored":0,"retried":0,"total":20,"elapsed":46}
-[debug] [2022-07-06T17:24:40.011Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9:populateFiles [none]
-[debug] [2022-07-06T17:24:40.011Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9:populateFiles {"files":{"/index.html":"30575a85bfea60cc40dfce082ae6201a6f94a88870268b4c39da43d4e95b7332","/3rdpartylicenses.txt":"a23f0bcb2f8641aa0261fc162e24a30baefc93bd0e7501bc1547016e6e24db59","/favicon.ico":"4761f44e40f9e9d005723ae47aa63da3262c04aab4b6f97f76098507ec782394","/styles.604c37b49cda23ea.css":"9a6242e6581ec96d34d3f9c14166797e4ffdec4442e14eac78751568f8c58d99","/runtime.2605d0d9abdd7ec2.js":"3bb5cf18e523523161ab957ab5d056ea315cd31e00832dec342d02f40ff9c8ed","/polyfills.8fb3c2e144c231a5.js":"322e08cd1fc9b267a8203fa8f75cefb7912799f4aaec6684128368305739496e","/assets/logo.svg":"02a8c0f7ca020d62072b624cb218a5b53310bf970b921e9f47268a8dd9fd7aea","/assets/i18n/es.json":"c828fe342a70e88b7d30864a763827d9ac2726b66d1292700af16e03f8c676ab","/assets/icons/copyright.svg":"f8b35b087a2f04cb6c68aa8f1d87967a2fc0cce4c2052c12c3f37d49966d88be","/assets/i18n/en.json":"ccc80d6387f8b28f589841d7dc2714eb87451f44c34a1ced40abeaa9c7d90e6d","/assets/icons/error.svg":"114a8741c4eded1177fbb58f053d727277f1fc39c9c72ce89c87fee4a0bb0af8","/assets/icons/success.svg":"82c72dc77fc17f5ba6a581d75aae08cd6e2d1315115724670b59ce43f57a19fb","/assets/icons/warning.svg":"5330a18bc4cc22e7cf2846f957554c59f26cfb2ab3c585b3f9b2b61c7c1a2f85","/assets/icons/info.svg":"93fed29e273981f08db14d0772bec1d9aefd3918afe775b6b0cd012f081e12a1","/assets/fonts/RobotoSlab300.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab600.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab400.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab700.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab800.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/main.4eac9f0e9741acac.js":"606f739da0d8f043ff6f850f3cc2fa258405ff35931d64dc34e54a0f3c7e8f05"}}
-[debug] [2022-07-06T17:24:40.489Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9:populateFiles 200
-[debug] [2022-07-06T17:24:40.489Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/enroll-health-connector/versions/c662a0b021eb15a9/files"}
-[debug] [2022-07-06T17:24:40.490Z] [hosting][populate queue][FINAL] {"max":481,"min":481,"avg":481,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":481}
-[debug] [2022-07-06T17:24:40.490Z] [hosting] uploads queued: 0
-[debug] [2022-07-06T17:24:40.490Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1657128280490}
+[debug] [2022-07-06T17:38:12.982Z] [hosting] uploading with 200 concurrency
+[debug] [2022-07-06T17:38:12.986Z] [hosting] hash cache [ZGlzdC9hcHBzL2hlYWx0aC1jb25uZWN0b3I] stored for 20 files
+[debug] [2022-07-06T17:38:12.987Z] [hosting][hash queue][FINAL] {"max":1,"min":0,"avg":0,"active":0,"complete":20,"success":20,"errored":0,"retried":0,"total":20,"elapsed":4}
+[debug] [2022-07-06T17:38:12.987Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b:populateFiles [none]
+[debug] [2022-07-06T17:38:12.987Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b:populateFiles {"files":{"/3rdpartylicenses.txt":"a23f0bcb2f8641aa0261fc162e24a30baefc93bd0e7501bc1547016e6e24db59","/favicon.ico":"4761f44e40f9e9d005723ae47aa63da3262c04aab4b6f97f76098507ec782394","/index.html":"30575a85bfea60cc40dfce082ae6201a6f94a88870268b4c39da43d4e95b7332","/main.4eac9f0e9741acac.js":"606f739da0d8f043ff6f850f3cc2fa258405ff35931d64dc34e54a0f3c7e8f05","/polyfills.8fb3c2e144c231a5.js":"322e08cd1fc9b267a8203fa8f75cefb7912799f4aaec6684128368305739496e","/runtime.2605d0d9abdd7ec2.js":"3bb5cf18e523523161ab957ab5d056ea315cd31e00832dec342d02f40ff9c8ed","/styles.604c37b49cda23ea.css":"9a6242e6581ec96d34d3f9c14166797e4ffdec4442e14eac78751568f8c58d99","/assets/logo.svg":"02a8c0f7ca020d62072b624cb218a5b53310bf970b921e9f47268a8dd9fd7aea","/assets/fonts/RobotoSlab300.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab400.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab600.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab700.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/fonts/RobotoSlab800.woff2":"2c97b89258315268696feabb4b9d916d79a26b083366343a36f395ed620c255a","/assets/i18n/en.json":"ccc80d6387f8b28f589841d7dc2714eb87451f44c34a1ced40abeaa9c7d90e6d","/assets/i18n/es.json":"c828fe342a70e88b7d30864a763827d9ac2726b66d1292700af16e03f8c676ab","/assets/icons/copyright.svg":"f8b35b087a2f04cb6c68aa8f1d87967a2fc0cce4c2052c12c3f37d49966d88be","/assets/icons/error.svg":"114a8741c4eded1177fbb58f053d727277f1fc39c9c72ce89c87fee4a0bb0af8","/assets/icons/info.svg":"93fed29e273981f08db14d0772bec1d9aefd3918afe775b6b0cd012f081e12a1","/assets/icons/success.svg":"82c72dc77fc17f5ba6a581d75aae08cd6e2d1315115724670b59ce43f57a19fb","/assets/icons/warning.svg":"5330a18bc4cc22e7cf2846f957554c59f26cfb2ab3c585b3f9b2b61c7c1a2f85"}}
+[debug] [2022-07-06T17:38:13.382Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b:populateFiles 200
+[debug] [2022-07-06T17:38:13.382Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/enroll-health-connector/versions/005d121c6dcca40b/files"}
+[debug] [2022-07-06T17:38:13.383Z] [hosting][populate queue][FINAL] {"max":398,"min":398,"avg":398,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":398}
+[debug] [2022-07-06T17:38:13.383Z] [hosting] uploads queued: 0
+[debug] [2022-07-06T17:38:13.383Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1657129093383}
 [info] ✔  hosting[enroll-health-connector]: file upload complete 
-[debug] [2022-07-06T17:24:40.491Z] [hosting] deploy completed after 535ms
-[debug] [2022-07-06T17:24:40.493Z] [
+[debug] [2022-07-06T17:38:13.384Z] [hosting] deploy completed after 409ms
+[debug] [2022-07-06T17:38:13.388Z] [
   {
     "config": {
       "target": "health-connector",
@@ -116,22 +61,22 @@ Before we get started, keep in mind:
       "site": "enroll-health-connector"
     },
     "site": "enroll-health-connector",
-    "version": "projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9"
+    "version": "projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b"
   }
 ]
 [info] i  hosting[enroll-health-connector]: finalizing version... 
-[debug] [2022-07-06T17:24:40.494Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9 updateMask=status%2Cconfig
-[debug] [2022-07-06T17:24:40.494Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
-[debug] [2022-07-06T17:24:40.955Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9 200
-[debug] [2022-07-06T17:24:40.955Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9 {"name":"projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-07-06T17:24:39.571115Z","createUser":{"email":"markgoho@gmail.com"},"finalizeTime":"2022-07-06T17:24:40.917851Z","finalizeUser":{"email":"markgoho@gmail.com"}}
-[debug] [2022-07-06T17:24:40.956Z] [hosting] finalized version for enroll-health-connector:[object Object]
+[debug] [2022-07-06T17:38:13.389Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b updateMask=status%2Cconfig
+[debug] [2022-07-06T17:38:13.389Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-07-06T17:38:13.812Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b 200
+[debug] [2022-07-06T17:38:13.812Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b {"name":"projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-07-06T17:38:12.559337Z","createUser":{"email":"markgoho@gmail.com"},"finalizeTime":"2022-07-06T17:38:13.773738Z","finalizeUser":{"email":"markgoho@gmail.com"}}
+[debug] [2022-07-06T17:38:13.812Z] [hosting] finalized version for enroll-health-connector:[object Object]
 [info] ✔  hosting[enroll-health-connector]: version finalized 
 [info] i  hosting[enroll-health-connector]: releasing new version... 
-[debug] [2022-07-06T17:24:40.956Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases versionName=projects%2F35952342454%2Fsites%2Fenroll-health-connector%2Fversions%2Fc662a0b021eb15a9
-[debug] [2022-07-06T17:24:40.956Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases {"message":null}
-[debug] [2022-07-06T17:24:41.412Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases 200
-[debug] [2022-07-06T17:24:41.412Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases {"name":"projects/35952342454/sites/enroll-health-connector/releases/1657128280606939","version":{"name":"projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-07-06T17:24:39.571115Z","createUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"},"finalizeTime":"2022-07-06T17:24:40.917851Z","finalizeUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}},"type":"DEPLOY","releaseTime":"2022-07-06T17:24:40.606939865Z","releaseUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}}
-[debug] [2022-07-06T17:24:41.412Z] [hosting] release: {"name":"projects/35952342454/sites/enroll-health-connector/releases/1657128280606939","version":{"name":"projects/35952342454/sites/enroll-health-connector/versions/c662a0b021eb15a9","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-07-06T17:24:39.571115Z","createUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"},"finalizeTime":"2022-07-06T17:24:40.917851Z","finalizeUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}},"type":"DEPLOY","releaseTime":"2022-07-06T17:24:40.606939865Z","releaseUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}}
+[debug] [2022-07-06T17:38:13.814Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases versionName=projects%2F35952342454%2Fsites%2Fenroll-health-connector%2Fversions%2F005d121c6dcca40b
+[debug] [2022-07-06T17:38:13.814Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases {"message":null}
+[debug] [2022-07-06T17:38:14.226Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases 200
+[debug] [2022-07-06T17:38:14.227Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/35952342454/sites/enroll-health-connector/releases {"name":"projects/35952342454/sites/enroll-health-connector/releases/1657129093470758","version":{"name":"projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-07-06T17:38:12.559337Z","createUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"},"finalizeTime":"2022-07-06T17:38:13.773738Z","finalizeUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}},"type":"DEPLOY","releaseTime":"2022-07-06T17:38:13.470758670Z","releaseUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}}
+[debug] [2022-07-06T17:38:14.227Z] [hosting] release: {"name":"projects/35952342454/sites/enroll-health-connector/releases/1657129093470758","version":{"name":"projects/35952342454/sites/enroll-health-connector/versions/005d121c6dcca40b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-07-06T17:38:12.559337Z","createUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"},"finalizeTime":"2022-07-06T17:38:13.773738Z","finalizeUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}},"type":"DEPLOY","releaseTime":"2022-07-06T17:38:13.470758670Z","releaseUser":{"email":"markgoho@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AFdZucqeIHRKmxBUfCJyy8ONijZA-RpPhaA-YFJJG0yt2mQ"}}
 [info] ✔  hosting[enroll-health-connector]: release complete 
 [info] 
 [info] ✔  Deploy complete! 
