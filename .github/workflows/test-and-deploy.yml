@@ -188,6 +188,12 @@ jobs:
         run: npm i
       - name: run many deployments
         run: npx nx affected --target=deploy --token=${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}
+      - name: print log
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: firebase-log
+          path: /home/runner/.npm/_logs
       # - uses: FirebaseExtended/action-hosting-deploy@v0
       #   with:
       #     repoToken: '${{ secrets.GITHUB_TOKEN }}'
