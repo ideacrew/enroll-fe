@@ -172,6 +172,19 @@ jobs:
         with:
           name: affected-apps
           path: dist/apps
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            v3-${{ runner.os }}-node16-
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm i
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
