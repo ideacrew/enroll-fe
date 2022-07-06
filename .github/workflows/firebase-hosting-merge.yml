@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         app:
-          - ${{ fromJson(needs.setup-apps.outputs.matrix) }}
+          - ${{ fromJson(["coverme", "dchbx"]) }}
     steps:
       - run: echo "Deploying ${{ matrix.app }}"
   # build:
