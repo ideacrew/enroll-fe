@@ -54,7 +54,7 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
-          projectId: ${{ matrix.app }}
+          target: ${{ matrix.app }}
           channelId: live
           projectId: enroll-fe
 
