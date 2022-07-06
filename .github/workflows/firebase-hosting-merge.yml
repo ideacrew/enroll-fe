@@ -14,12 +14,11 @@ jobs:
     steps:
       - id: set-matrix
         run: |
+          AFFECTED_APPS=$()
           APPS_JSON_ARRAY=$(
             node -e "console.log(
               JSON.stringify(
-                Array.from(
-                  new Array('coverme', 'dchbx')
-                )
+                new Array('coverme', 'dchbx', 'health-connector')
               )
             );"
           )
@@ -29,13 +28,22 @@ jobs:
   deploy-apps:
     needs: setup-apps
     runs-on: ubuntu-latest
-    name: App ${{ matrix.app }}
+    name: Deploy ${{ matrix.app }}
     strategy:
       matrix:
         app:
           - ${{ fromJson(needs.setup-apps.outputs.matrix) }}
     steps:
       - run: echo "Deploying ${{ matrix.app }}"
+      - run: npm install && npx nx build --project=${{ matrix.app}}
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
+          project: ${{ matrix.app}}
+          channelId: live
+          projectId: enroll-fe
+
   # build:
   #   name: build
   #   runs-on: ubuntu-latest
