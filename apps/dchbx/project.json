@@ -103,7 +103,7 @@
     "deploy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx firebase deploy --only hosting:coverme --token {args.token}"
+        "command": "npx firebase deploy --only hosting:dchbx --token {args.token}"
       }
     }
   },
