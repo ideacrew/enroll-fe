@@ -35,8 +35,6 @@ jobs:
     steps:
       - run: echo "Deploying ${{ matrix.app }}"
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -50,11 +48,13 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm i
+      - name: Build application
+        run: npx nx build --project=${{ matrix.app }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ENROLL_FE }}'
-          project: ${{ matrix.app}}
+          projectId: ${{ matrix.app }}
           channelId: live
           projectId: enroll-fe
 
