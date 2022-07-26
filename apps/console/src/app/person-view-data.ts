@@ -27,7 +27,6 @@ export interface PersonName {
 
 export interface Member {
   hbx_assigned_id: string;
-  person_name: PersonName;
   dob: Date;
   gender: string;
   ssn?: string;
@@ -55,6 +54,8 @@ export interface Enrollee {
   tobacco_use?: boolean;
   premium_amount: number;
   hbx_member_id: string;
+  person_name: PersonName;
+  dob: Date;
   carrier_member_id?: string;
   carrier_policy_id?: string;
   relationship: string;
