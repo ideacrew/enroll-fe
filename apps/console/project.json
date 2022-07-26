@@ -1,34 +1,32 @@
 {
   "projectType": "application",
-  "sourceRoot": "apps/carrier-portal/src",
+  "sourceRoot": "apps/console/src",
   "prefix": "enroll",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "outputPath": "dist/apps/carrier-portal",
-        "index": "apps/carrier-portal/src/index.html",
-        "main": "apps/carrier-portal/src/main.ts",
-        "polyfills": "apps/carrier-portal/src/polyfills.ts",
-        "tsConfig": "apps/carrier-portal/tsconfig.app.json",
+        "outputPath": "dist/apps/console",
+        "index": "apps/console/src/index.html",
+        "main": "apps/console/src/main.ts",
+        "polyfills": "apps/console/src/polyfills.ts",
+        "tsConfig": "apps/console/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/carrier-portal/src/favicon.ico",
-          "apps/carrier-portal/src/assets",
+          "apps/console/src/favicon.ico",
+          "apps/console/src/assets",
           {
             "glob": "**/*",
             "input": "libs/shared/theme/src/lib/assets/icons",
             "output": "/assets/icons"
-          },
-          {
-            "glob": "**/*",
-            "input": "libs/shared/i18n/src/lib/assets/i18n",
-            "output": "/assets/i18n"
           }
         ],
         "styles": [
           "libs/shared/theme/src/lib/styles/global.scss",
-          "apps/carrier-portal/src/styles.scss"
+          "apps/console/src/styles.scss"
         ],
         "scripts": []
       },
@@ -48,8 +46,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/carrier-portal/src/environments/environment.ts",
-              "with": "apps/carrier-portal/src/environments/environment.prod.ts"
+              "replace": "apps/console/src/environments/environment.ts",
+              "with": "apps/console/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -69,44 +67,46 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "carrier-portal:build:production"
+          "browserTarget": "console:build:production"
         },
         "development": {
-          "browserTarget": "carrier-portal:build:development"
+          "browserTarget": "console:build:development"
         }
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4203
+        "port": 4205
       }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "carrier-portal:build"
+        "browserTarget": "console:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "apps/carrier-portal/**/*.ts",
-          "apps/carrier-portal/**/*.html"
+          "apps/console/**/*.ts",
+          "apps/console/**/*.html"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/carrier-portal"],
+      "outputs": [
+        "coverage/apps/console"
+      ],
       "options": {
-        "jestConfig": "apps/carrier-portal/jest.config.ts",
+        "jestConfig": "apps/console/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "deploy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx firebase deploy --only hosting:carrier-portal --token {args.token}"
+        "command": "echo \"Deployment Not implemented for Console\""
       }
     }
   },

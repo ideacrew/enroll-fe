@@ -1,17 +1,17 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/carrier-portal-e2e/src",
+  "sourceRoot": "apps/console-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/carrier-portal-e2e/cypress.json",
-        "devServerTarget": "carrier-portal:serve:development"
+        "cypressConfig": "apps/console-e2e/cypress.json",
+        "devServerTarget": "console:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "carrier-portal:serve:production"
+          "devServerTarget": "console:serve:production"
         }
       }
     },
@@ -19,10 +19,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/carrier-portal-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/console-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["carrier-portal"]
+  "implicitDependencies": ["console"]
 }

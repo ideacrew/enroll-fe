@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('carrier-portal', () => {
+describe('console', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('carrier-portal', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome carrier-portal');
+    getGreeting().contains('Welcome console');
   });
 });
