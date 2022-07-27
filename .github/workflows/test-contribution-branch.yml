@@ -2,8 +2,8 @@ name: Test Contribution Branches
 
 on:
   push:
-    branches:
-      - !trunk
+    branches-ignore:
+      - trunk
 
 concurrency:
   group: qb-${{ github.ref }}
