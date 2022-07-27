@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 // Returned from GET /realms
 export interface RealmListResponse {
   realms: Array<string>;
