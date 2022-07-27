@@ -20,11 +20,11 @@ export interface ResponsibleParty {
 }
 
 export interface PersonName {
-   first_name: string;
-   last_name: string;
-   middle_name?: string;
-   name_pfx?: string;
-   name_sfx?: string;
+  first_name: string;
+  last_name: string;
+  middle_name?: string;
+  name_pfx?: string;
+  name_sfx?: string;
 }
 
 export interface Member {
