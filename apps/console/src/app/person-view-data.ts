@@ -32,6 +32,7 @@ export interface Member {
   ssn?: string;
 }
 
+// This is the top level object returned for a person resource.
 export interface Person {
   id: string;
   person_name: PersonName;
