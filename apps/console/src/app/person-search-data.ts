@@ -6,21 +6,21 @@ export interface PersonSearchRequest {
 }
 
 export interface PlanSearchResult {
-  _id: string;
+  id: string;
   name: string;
   hios_plan_id: string;
   carrier_id: string;
 }
 
 export interface PolicySearchResult {
-  _id: string;
+  id: string;
   plan_id: string;
   enrollee_count: number;
   plan: PlanSearchResult;
 }
 
 export interface MemberSearchResult {
-  _id: string;
+  id: string;
   hbx_member_id: string;
   ssn?: string;
   dob: Date;
@@ -37,7 +37,7 @@ export interface PersonNamesResult {
 }
 
 export interface PersonSearchResult {
-  _id: string;
+  id: string;
   person: PersonNamesResult;
   members: Array<MemberSearchResult>;
 }
