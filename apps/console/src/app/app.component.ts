@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'console';
+
+  username!: string;
+  password!: string;
+
+  login(): void {
+    console.log(`Login as ${this.username}`);
+  }
 }

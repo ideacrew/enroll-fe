@@ -1,1 +1,9 @@
 <h1>Carrier Portal</h1>
+<form>
+  <h2>Log In</h2>
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username" [(ngModel)]="username" />
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" [(ngModel)]="password" />
+  <button type="button" (click)="login()">Log In</button>
+</form>
