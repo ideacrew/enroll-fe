@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
     RouterModule.forRoot([]),
     RootStoreModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
