@@ -6,7 +6,6 @@ export interface PersonSearchRequest {
 }
 
 export interface PlanSearchResult {
-  id: string;
   name: string;
   hios_plan_id: string;
   carrier_id: string;
@@ -30,10 +29,10 @@ export interface MemberSearchResult {
 export interface PersonNamesResult {
   name_pfx?: string;
   name_sfx?: string;
-  name_middle?: string;
-  name_last: string;
-  name_first: string;
-  name_full?: string;
+  middle_name?: string;
+  last_name: string;
+  first_name: string;
+  full_name?: string;
 }
 
 export interface PersonSearchResult {

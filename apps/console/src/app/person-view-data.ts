@@ -1,22 +1,27 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-export interface Issuer {
+export interface Carrier {
   id: string;
   name: string;
-  fein: string;
 }
 
-export interface Product {
+export interface Plan {
   id: string;
   hios_id: string;
   name: string;
   product_kind: string;
-  issuer: Issuer;
+  carrier: Carrier;
+}
+
+export interface PolicyResponsibleParty {
+  responsible_party_id: string;
+  person_name: PersonName;
 }
 
 export interface ResponsibleParty {
   responsible_party_id: string;
   person_name: PersonName;
+  policies: Array<Policy>;
 }
 
 export interface PersonName {
@@ -25,6 +30,7 @@ export interface PersonName {
   middle_name?: string;
   name_pfx?: string;
   name_sfx?: string;
+  full_name?: string;
 }
 
 export interface Member {
@@ -38,8 +44,8 @@ export interface Member {
 export interface Person {
   id: string;
   person_name: PersonName;
-  authority_member_id: string;
   members: Array<Member>;
+  responsible_parties?: Array<ResponsibleParty>;
 }
 
 export interface PremiumCredit {
@@ -81,11 +87,10 @@ export interface Policy {
   responsible_amount: number;
   credited_amount: number;
   kind: string;
-  market_kind: string;
-  product: Product;
-  subscriber_id: string;
+  plan: Plan;
+  subscriber_hbx_member_id: string;
   enrollees: Array<Enrollee>;
-  responsible_party?: ResponsibleParty;
-  premium_credits: Array<PremiumCredit>;
+  responsible_party?: PolicyResponsibleParty;
+  premium_credits?: Array<PremiumCredit>;
   transaction: Array<Transaction>;
 }
