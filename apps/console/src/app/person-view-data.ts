@@ -41,6 +41,7 @@ export interface Member {
 }
 
 // This is the top level object returned for a person resource.
+// Comes from GET /transaction_management/people/<person_id>
 export interface Person {
   id: string;
   person_name: PersonName;
