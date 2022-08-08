@@ -37,7 +37,7 @@
   "remoteUser": "node",
 
   "features": {
-		"docker-in-docker": "latest",
-		"docker-from-docker": "latest"
-	}
+    "docker-in-docker": "latest",
+    "docker-from-docker": "latest"
+  }
 }
