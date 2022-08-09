@@ -21,7 +21,7 @@ export class AppComponent {
     console.log(`Login as ${this.username}`);
 
     this.http
-      .post<TokenResponse>('http://localhost:3000/sessions', {
+      .post<TokenResponse>('/api/sessions', {
         username: this.username,
         password: this.password,
         realm_name: 'Carrier',

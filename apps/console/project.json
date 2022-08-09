@@ -69,6 +69,10 @@
         },
         "development": {
           "browserTarget": "console:build:development"
+        },
+        "proxy": {
+          "browserTarget": "console:build:development",
+          "proxyConfig": "apps/console/src/proxy.conf.json"
         }
       },
       "defaultConfiguration": "development",
@@ -76,6 +80,7 @@
         "port": 4205
       }
     },
+
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
