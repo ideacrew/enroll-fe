@@ -23,13 +23,13 @@ export interface MemberSearchResult {
   hbx_member_id: string;
   ssn?: string;
   dob: Date;
-  policies: Array<PolicySearchResult>;
+  policies: PolicySearchResult[];
 }
 
 export interface PersonNamesResult {
-  name_pfx?: string;
-  name_sfx?: string;
-  middle_name?: string;
+  name_pfx: string | null;
+  name_sfx: string | null;
+  middle_name: string | null;
   last_name: string;
   first_name: string;
   full_name?: string;
@@ -38,11 +38,11 @@ export interface PersonNamesResult {
 export interface PersonSearchResult {
   id: string;
   person: PersonNamesResult;
-  members: Array<MemberSearchResult>;
+  members: MemberSearchResult[];
 }
 
 // response from POST /transaction_management/people/search
 export interface PersonSearchResponse {
-  people: Array<PersonSearchResult>;
+  people: PersonSearchResult[];
   total: number;
 }
