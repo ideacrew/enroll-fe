@@ -8,6 +8,7 @@
     "start:dchbx": "ng serve --project=dchbx --publicHost=${CODESPACE_NAME}-4200.githubpreview.dev:443",
     "start:coverme": "ng serve --project=coverme --publicHost=${CODESPACE_NAME}-4200.githubpreview.dev:443",
     "start:console": "nx serve --project=console --publicHost=${CODESPACE_NAME}-4200.githubpreview.dev:443",
+    "start:console:local": "nx serve --project=console --configuration=proxy",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "start": "nx serve",
     "build": "nx build",
