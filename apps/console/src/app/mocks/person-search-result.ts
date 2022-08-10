@@ -55,12 +55,12 @@ export const fakeMember = (): MemberSearchResult => ({
 
 export const fakePersonResult = (): PersonSearchResult => {
   const id = faker.random.alphaNumeric(25);
-  const person = fakePerson();
+  const person_name = fakePerson();
   const members = [fakeMember()];
 
   return {
     id,
-    person,
+    person_name,
     members,
   };
 };
