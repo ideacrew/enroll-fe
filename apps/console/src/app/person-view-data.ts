@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
+// Date as a string, specifically "YYYY-MM-DD"
+export type DateString = string;
+
 export interface Carrier {
   id: string;
   name: string;
@@ -27,17 +30,17 @@ export interface ResponsibleParty {
 export interface PersonName {
   first_name: string;
   last_name: string;
-  middle_name?: string;
-  name_pfx?: string;
-  name_sfx?: string;
-  full_name?: string;
+  middle_name?: string | null;
+  name_pfx?: string | null;
+  name_sfx?: string | null;
+  full_name?: string | null;
 }
 
 export interface Member {
   hbx_assigned_id: string;
   dob: Date;
   gender: string;
-  ssn?: string;
+  ssn?: string | null;
 }
 
 // This is the top level object returned for a person resource.
@@ -50,8 +53,8 @@ export interface Person {
 }
 
 export interface PremiumCredit {
-  start_on: Date;
-  end_on?: Date;
+  start_on: DateString;
+  end_on?: DateString | null;
   kind: string;
   credit_amount: number;
   total: number;
@@ -59,15 +62,15 @@ export interface PremiumCredit {
 }
 
 export interface Enrollee {
-  coverage_start: Date;
-  coverage_end?: Date;
-  tobacco_use?: boolean;
+  coverage_start: DateString;
+  coverage_end?: DateString | null;
+  tobacco_use?: boolean | null;
   premium_amount: number;
   hbx_member_id: string;
   person_name: PersonName;
-  dob: Date;
-  carrier_member_id?: string;
-  carrier_policy_id?: string;
+  dob: DateString;
+  carrier_member_id?: string | null;
+  carrier_policy_id?: string | null;
   relationship: string;
 }
 
@@ -81,9 +84,9 @@ export interface Transaction {
 export interface Policy {
   hbx_assigned_id: string;
   hbx_enrollment_ids?: Array<string>;
-  rating_area?: string;
-  coverage_start: Date;
-  coverage_end?: Date;
+  rating_area?: string | null;
+  coverage_start: DateString;
+  coverage_end?: DateString | null;
   total_amount: number;
   responsible_amount: number;
   credited_amount: number;

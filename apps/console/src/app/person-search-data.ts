@@ -8,7 +8,6 @@ export interface PersonSearchRequest {
 export interface PlanSearchResult {
   name: string;
   hios_plan_id: string;
-  // carrier_id: string;
 }
 
 export interface PolicySearchResult {
@@ -20,18 +19,18 @@ export interface PolicySearchResult {
 export interface MemberSearchResult {
   id: string;
   hbx_member_id: string;
-  ssn?: string;
+  ssn?: string | null;
   dob: string;
   policies: PolicySearchResult[];
 }
 
 export interface PersonNamesResult {
-  name_pfx: string | null;
-  name_sfx: string | null;
-  middle_name: string | null;
+  name_pfx?: string | null;
+  name_sfx?: string | null;
+  middle_name?: string | null;
   last_name: string;
   first_name: string;
-  full_name?: string;
+  full_name?: string | null;
 }
 
 export interface PersonSearchResult {
@@ -41,7 +40,4 @@ export interface PersonSearchResult {
 }
 
 // response from POST /transaction_management/people/search
-export interface PersonSearchResponse {
-  people: PersonSearchResult[];
-  total: number;
-}
+export type PersonSearchResponse = PersonSearchResult[];
