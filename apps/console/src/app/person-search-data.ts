@@ -19,23 +19,23 @@ export interface PolicySearchResult {
 export interface MemberSearchResult {
   id: string;
   hbx_member_id: string;
-  ssn?: string | null;
+  ssn?: string;
   dob: string;
   policies: PolicySearchResult[];
 }
 
 export interface PersonNamesResult {
-  name_pfx?: string | null;
-  name_sfx?: string | null;
-  middle_name?: string | null;
+  name_pfx?: string;
+  name_sfx?: string;
+  middle_name?: string;
   last_name: string;
   first_name: string;
-  full_name?: string | null;
+  full_name?: string;
 }
 
 export interface PersonSearchResult {
   id: string;
-  person: PersonNamesResult;
+  person_name: PersonNamesResult;
   members: MemberSearchResult[];
 }
 
