@@ -8,12 +8,11 @@ export interface PersonSearchRequest {
 export interface PlanSearchResult {
   name: string;
   hios_plan_id: string;
-  carrier_id: string;
+  // carrier_id: string;
 }
 
 export interface PolicySearchResult {
   id: string;
-  plan_id: string;
   enrollee_count: number;
   plan: PlanSearchResult;
 }
@@ -22,7 +21,7 @@ export interface MemberSearchResult {
   id: string;
   hbx_member_id: string;
   ssn?: string;
-  dob: Date;
+  dob: string;
   policies: PolicySearchResult[];
 }
 
