@@ -30,17 +30,17 @@ export interface ResponsibleParty {
 export interface PersonName {
   first_name: string;
   last_name: string;
-  middle_name?: string | null;
-  name_pfx?: string | null;
-  name_sfx?: string | null;
-  full_name?: string | null;
+  middle_name?: string;
+  name_pfx?: string;
+  name_sfx?: string;
+  full_name?: string;
 }
 
 export interface Member {
   hbx_assigned_id: string;
   dob: Date;
   gender: string;
-  ssn?: string | null;
+  ssn?: string;
 }
 
 // This is the top level object returned for a person resource.
@@ -49,12 +49,12 @@ export interface Person {
   id: string;
   person_name: PersonName;
   members: Array<Member>;
-  responsible_parties?: Array<ResponsibleParty>;
+  responsible_parties: Array<ResponsibleParty>;
 }
 
 export interface PremiumCredit {
   start_on: DateString;
-  end_on?: DateString | null;
+  end_on?: DateString;
   kind: string;
   credit_amount: number;
   total: number;
@@ -63,14 +63,14 @@ export interface PremiumCredit {
 
 export interface Enrollee {
   coverage_start: DateString;
-  coverage_end?: DateString | null;
-  tobacco_use?: boolean | null;
+  coverage_end?: DateString;
+  tobacco_use?: string;
   premium_amount: number;
   hbx_member_id: string;
   person_name: PersonName;
   dob: DateString;
-  carrier_member_id?: string | null;
-  carrier_policy_id?: string | null;
+  carrier_member_id?: string;
+  carrier_policy_id?: string;
   relationship: string;
 }
 
@@ -83,10 +83,8 @@ export interface Transaction {
 
 export interface Policy {
   hbx_assigned_id: string;
-  hbx_enrollment_ids?: Array<string>;
-  rating_area?: string | null;
-  coverage_start: DateString;
-  coverage_end?: DateString | null;
+  hbx_enrollment_ids: Array<string>;
+  rating_area?: string;
   total_amount: number;
   responsible_amount: number;
   credited_amount: number;
@@ -95,6 +93,6 @@ export interface Policy {
   subscriber_hbx_member_id: string;
   enrollees: Array<Enrollee>;
   responsible_party?: PolicyResponsibleParty;
-  premium_credits?: Array<PremiumCredit>;
+  premium_credits: Array<PremiumCredit>;
   transaction: Array<Transaction>;
 }
