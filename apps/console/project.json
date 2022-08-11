@@ -20,6 +20,11 @@
             "glob": "**/*",
             "input": "libs/shared/theme/src/lib/assets/icons",
             "output": "/assets/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/fonts",
+            "output": "/assets/fonts"
           }
         ],
         "styles": [

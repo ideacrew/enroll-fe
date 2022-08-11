@@ -2,6 +2,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { catchError, of, tap } from 'rxjs';
+
+import { AuthService } from './auth.service';
 import { TokenResponse } from './authorization-data';
 
 @Component({
@@ -15,7 +17,7 @@ export class AppComponent {
   username!: string;
   password!: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   login(): void {
     console.log(`Login as ${this.username}`);
@@ -24,11 +26,16 @@ export class AppComponent {
       .post<TokenResponse>('/api/sessions', {
         username: this.username,
         password: this.password,
-        realm_name: 'Carrier',
+        realm_name: 'Anthem',
       })
       .pipe(
-        tap((response: TokenResponse) => void console.log({ response })),
-        catchError(() => of({ token: '', refresh_token: '' }))
+        tap(({ token, refresh_token }: TokenResponse) => {
+          this.auth.token = token;
+          this.auth.refreshToken = refresh_token;
+        }),
+        catchError(() =>
+          of({ token: 'empty-token', refresh_token: 'empty-refresh-token' })
+        )
       )
       .subscribe();
   }

@@ -1,9 +1,27 @@
-<h1>Carrier Portal</h1>
-<form>
-  <h2>Log In</h2>
-  <label for="username">Username</label>
-  <input type="text" name="username" id="username" [(ngModel)]="username" />
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password" [(ngModel)]="password" />
-  <button type="button" (click)="login()">Log In</button>
+<form class="login-form">
+  <h1>Sign In</h1>
+  <div class="input-group">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" [(ngModel)]="username" />
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      [(ngModel)]="password"
+    />
+  </div>
+  <div class="input-group">
+    <label for="realm">Realm</label>
+    <select name="realm" id="realm">
+      <option value="Anthem">Anthem</option>
+    </select>
+  </div>
+  <div class="button-group">
+    <button class="enroll-button" type="button" (click)="login()">
+      Sign In
+    </button>
+  </div>
 </form>

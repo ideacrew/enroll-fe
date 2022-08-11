@@ -1,8 +1,8 @@
 :root {
-  --button-text-color: var(--grey-000, chartreuse);
-  --button-fill-color: var(--button-primary-color, chartreuse);
-  --button-focus-ring-color: var(--grey-000, chartreuse);
-  --button-border-color: var(--button-primary-color, chartreuse);
+  --button-text-color: var(--grey-000);
+  --button-fill-color: var(--button-primary-color, var(--grey-160));
+  --button-focus-ring-color: var(--grey-000);
+  --button-border-color: var(--button-primary-color, var(--grey-160));
 }
 
 // Primary button at rest
@@ -48,8 +48,8 @@ button.enroll-button {
 
   // State styles
   &:hover {
-    --button-fill-color: var(--button-primary-hover);
-    --button-border-color: var(--button-primary-hover);
+    --button-fill-color: var(--button-primary-hover, var(--grey-190));
+    --button-border-color: var(--button-primary-hover, var(--grey-190));
   }
 
   &:focus {
