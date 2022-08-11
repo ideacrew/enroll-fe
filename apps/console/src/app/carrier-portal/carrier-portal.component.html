@@ -3,6 +3,38 @@
 <label for="search">Search by SSN:</label>
 <input type="text" name="search" id="search" [(ngModel)]="query" />
 <button type="button" (click)="searchPersons()">Search Persons</button>
-<pre>
-  {{ searchResults$ | async | json }}
-</pre>
+<div
+  class="search-results"
+  *ngIf="searchResults$ | async as searchResults; else noResults"
+>
+  <h2>Search Results</h2>
+  <div class="person-result" *ngFor="let result of searchResults">
+    <h3>
+      {{ result.person_name.first_name }} {{ result.person_name.last_name }}
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>HBX ID</th>
+          <th>Policy Count</th>
+          <th>SSN</th>
+          <th>DOB</th>
+          <!-- <th>Gender</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of result.members">
+          <td>{{ member.hbx_member_id }}</td>
+          <td>{{ member.policies.length }}</td>
+          <td>{{ member.ssn }}</td>
+          <td>{{ member.dob }}</td>
+          <!-- <td>{{ member.gender ?? 'No gender' }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <h2>SSN Not found</h2>
+</ng-template>

@@ -38,6 +38,3 @@ export interface PersonSearchResult {
   person_name: PersonNamesResult;
   members: MemberSearchResult[];
 }
-
-// response from POST /transaction_management/people/search
-export type PersonSearchResponse = PersonSearchResult[];

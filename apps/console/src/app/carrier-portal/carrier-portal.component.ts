@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
-import { PersonSearchResponse } from '../person-search-data';
+import { Subject, tap } from 'rxjs';
+import { PersonSearchResult } from '../person-search-data';
 import { PersonService } from '../person.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { PersonService } from '../person.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarrierPortalComponent {
-  searchResults: Subject<PersonSearchResponse[]> = new Subject();
+  searchResults: Subject<PersonSearchResult[]> = new Subject();
   searchResults$ = this.searchResults.asObservable();
   query!: string;
 
