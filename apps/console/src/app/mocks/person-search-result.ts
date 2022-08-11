@@ -50,6 +50,7 @@ export const fakeMember = (): MemberSearchResult => ({
     .toISOString()
     .slice(0, 10),
   id: faker.random.numeric(5),
+  gender: faker.helpers.arrayElement(['male', 'female']),
   policies: [fakePolicy(), fakePolicy(), fakePolicy()],
 });
 

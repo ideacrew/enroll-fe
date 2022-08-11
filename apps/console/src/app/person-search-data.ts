@@ -21,6 +21,7 @@ export interface MemberSearchResult {
   hbx_member_id: string;
   ssn?: string;
   dob: string;
+  gender: string;
   policies: PolicySearchResult[];
 }
 
