@@ -14,14 +14,13 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
     const authToken = this.auth.token;
-
-    // Clone the request and replace the original headers with
-    // cloned headers, updated with the authorization.
-    const authRequest = request.clone({
-      headers: request.headers.set('Authorization', `Bearer ${authToken}`),
-    });
-
-    // send cloned request with header to the next handler.
-    return next.handle(authRequest);
+    if (!request.headers.has('Authorization') && authToken) {
+      const authRequest = request.clone({
+        headers: request.headers.set('Authorization', `Bearer ${authToken}`),
+      });
+      return next.handle(authRequest);
+    } else {
+      return next.handle(request);
+    }
   }
 }

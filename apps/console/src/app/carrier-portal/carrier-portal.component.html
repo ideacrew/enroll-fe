@@ -1,1 +1,8 @@
-<p>carrier-portal works!</p>
+<h1>Carrier Portal</h1>
+<h2>Search for Persons</h2>
+<label for="search">Search by SSN:</label>
+<input type="text" name="search" id="search" [(ngModel)]="query" />
+<button type="button" (click)="searchPersons()">Search Persons</button>
+<pre>
+  {{ searchResults$ | async | json }}
+</pre>
