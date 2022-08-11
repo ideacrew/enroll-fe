@@ -70,8 +70,8 @@ button.enroll-button {
   }
 
   &:active {
-    --button-fill-color: var(--button-primary-active);
-    --button-border-color: var(--button-primary-active);
+    --button-fill-color: var(--button-primary-active, var(--grey-160));
+    --button-border-color: var(--button-primary-active, var(--grey-160));
   }
 }
 

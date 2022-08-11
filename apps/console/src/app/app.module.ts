@@ -8,12 +8,30 @@ import { RootStoreModule } from '@enroll/shared/state/root-store';
 
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth-interceptor.service';
+import { LoginComponent } from './login/login.component';
+import { CarrierPortalComponent } from './carrier-portal/carrier-portal.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent, CarrierPortalComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: 'carrier-portal',
+        pathMatch: 'full',
+      },
+      {
+        path: 'carrier-portal',
+        component: CarrierPortalComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+    ]),
     RootStoreModule,
     FormsModule,
     HttpClientModule,

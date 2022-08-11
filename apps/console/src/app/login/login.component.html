@@ -1,0 +1,27 @@
+<form class="login-form">
+  <h1>Sign In</h1>
+  <div class="input-group">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" [(ngModel)]="username" />
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      [(ngModel)]="password"
+    />
+  </div>
+  <div class="input-group">
+    <label for="realm">Realm</label>
+    <select name="realm" id="realm" [(ngModel)]="realm_name">
+      <option value="Anthem">Anthem</option>
+    </select>
+  </div>
+  <div class="button-group">
+    <button class="enroll-button" type="button" (click)="login()">
+      Sign In
+    </button>
+  </div>
+</form>
