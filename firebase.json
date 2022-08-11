@@ -34,8 +34,8 @@
       ]
     },
     {
-      "target": "carrier-portal",
-      "public": "dist/apps/carrier-portal",
+      "target": "console",
+      "public": "dist/apps/console",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

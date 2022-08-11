@@ -14,8 +14,8 @@
         "health-connector": [
           "enroll-health-connector"
         ],
-        "carrier-portal": [
-          "enroll-carrier-portal"
+        "console": [
+          "ea-console"
         ]
       }
     }

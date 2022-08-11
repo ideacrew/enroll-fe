@@ -109,7 +109,7 @@
     "deploy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "echo \"Deployment Not implemented for Console\""
+        "command": "npx firebase deploy --only hosting:coverme --token {args.token}"
       }
     }
   },
