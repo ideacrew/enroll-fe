@@ -11,9 +11,11 @@ import { AuthInterceptor } from './auth-interceptor.service';
 import { LoginComponent } from './login/login.component';
 import { CarrierPortalComponent } from './carrier-portal/carrier-portal.component';
 import { AuthGuard } from './auth.guard';
+import { PersonCoverageComponent } from './person-coverage/person-coverage.component';
+import { MemberPolicyComponent } from './person-coverage/member-policy.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CarrierPortalComponent],
+  declarations: [AppComponent, LoginComponent, CarrierPortalComponent, PersonCoverageComponent, MemberPolicyComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
@@ -26,6 +28,11 @@ import { AuthGuard } from './auth.guard';
         path: 'carrier-portal',
         component: CarrierPortalComponent,
         canActivate: [AuthGuard],
+      },
+      {
+        path: 'people/:id',
+        component: PersonCoverageComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'login',

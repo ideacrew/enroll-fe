@@ -1,0 +1,55 @@
+<div class="policy">
+  <div class="policy-information-header">
+    <h4>HBX Enrollment Group ID: {{policy.hbx_assigned_id}}</h4>
+  </div>
+  <div class="policy-information">
+    <p>Coverage: {{policy.plan.product_kind}} | {{policy.plan.name}}</p>
+    <p *ngIf="policy.rating_area">Rating Area: {{policy.rating_area}}</p>
+  </div>
+  <div class="policy-enrollees">
+    <h5>Enrollment Group</h5>
+    <table>
+      <thead>
+        <tr>
+          <th>Member Name(s)</th>
+          <th>Relationship</th>
+          <th>Coverage</th>
+          <th>Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enrollee of policy.enrollees; let k = index">
+          <td>{{enrollee.person_name.full_name}}</td>
+          <td>{{enrollee.relationship}}</td>
+          <td>{{enrollee.coverage_start}}</td>
+          <td>{{enrollee.premium_amount}}</td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+  <div class="policy-transactions">
+    <h5>Transactions</h5>
+    <table *ngIf="policy.transactions.length > 0; else noTransactions">
+      <thead>
+      <tr>
+        <th>Kind</th>
+        <th>Status</th>
+        <th>Submitted</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transaction of policy.transactions; let l = index">
+        <td>{{transaction.kind}}</td>
+        <td>{{transaction.status}}</td>
+        <td>{{transaction.submitted_at}}</td>
+      </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+</div>
+
+<ng-template #noTransactions>
+  <p>No transactions found</p>
+</ng-template>

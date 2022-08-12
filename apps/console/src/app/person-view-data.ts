@@ -22,7 +22,7 @@ export interface PolicyResponsibleParty {
 }
 
 export interface ResponsibleParty {
-  responsible_party_id: string;
+  id: string;
   person_name: PersonName;
   policies: Array<Policy>;
 }
@@ -37,10 +37,11 @@ export interface PersonName {
 }
 
 export interface Member {
-  hbx_assigned_id: string;
+  hbx_member_id: string;
   dob: Date;
   gender: string;
   ssn?: string;
+  policies: Array<Policy>;
 }
 
 // This is the top level object returned for a person resource.
@@ -88,11 +89,32 @@ export interface Policy {
   total_amount: number;
   responsible_amount: number;
   credited_amount: number;
-  kind: string;
   plan: Plan;
   subscriber_hbx_member_id: string;
   enrollees: Array<Enrollee>;
   responsible_party?: PolicyResponsibleParty;
   premium_credits: Array<PremiumCredit>;
-  transaction: Array<Transaction>;
+  transactions: Array<Transaction>;
 }
+
+export const defaultPolicy : Policy = {
+  hbx_assigned_id: "",
+  hbx_enrollment_ids: [],
+  total_amount: 0,
+  responsible_amount: 0,
+  credited_amount: 0,
+  enrollees: [],
+  premium_credits: [],
+  transactions: [],
+  plan: {
+    id: "",
+    hios_id: "",
+    name: "",
+    product_kind: "",
+    carrier: {
+      id: "",
+      name: ""
+    }
+  },
+  subscriber_hbx_member_id: ""
+};
