@@ -1,6 +1,7 @@
 export interface JwtValues {
   token: string;
   refreshToken: string;
+  expiration: number;
 }
 
 interface JwtBody {
@@ -10,15 +11,24 @@ interface JwtBody {
 export class JwtAuthService {
   constructor() {}
 
-  setJwt(currentToken: string, refreshToken: string): void {
-    window.localStorage.setItem(
-      '__jwt_authorization_current_token',
-      currentToken
-    );
-    window.localStorage.setItem(
-      '__jwt_authorization_refresh_token',
-      refreshToken
-    );
+  setJwt(currentToken: string, refreshToken: string): JwtValues | undefined {
+    const expiryTime = this.validateAndGetExpiration(currentToken);
+    if (expiryTime) {
+      window.localStorage.setItem(
+        '__jwt_authorization_current_token',
+        currentToken
+      );
+      window.localStorage.setItem(
+        '__jwt_authorization_refresh_token',
+        refreshToken
+      );
+      return {
+        token: currentToken,
+        refreshToken: refreshToken,
+        expiration: expiryTime,
+      };
+    }
+    return undefined;
   }
 
   getJwt(): JwtValues | undefined {
@@ -28,29 +38,34 @@ export class JwtAuthService {
     const refreshToken = window.localStorage.getItem(
       '__jwt_authorization_refresh_token'
     );
-    if (currentToken && refreshToken && this.jwtValid(currentToken)) {
-      return {
-        token: currentToken,
-        refreshToken: refreshToken,
-      };
+    if (currentToken && refreshToken) {
+      const expiryTime = this.validateAndGetExpiration(currentToken);
+      if (expiryTime) {
+        return {
+          token: currentToken,
+          refreshToken: refreshToken,
+          expiration: expiryTime,
+        };
+      }
     }
     return undefined;
   }
 
-  private jwtValid(jwt: string): boolean {
+  private validateAndGetExpiration(jwt: string): number | undefined {
     const jwtPortions: string[] = jwt.split('.');
     if (jwtPortions.length === 3) {
       const jwtBodyString = atob(jwtPortions[1]);
       if (jwtBodyString) {
         const jwtBody = <JwtBody | null>JSON.parse(jwtBodyString.toString());
         if (jwtBody) {
-          const now = Date.now() / 1000;
-          if (now < jwtBody.exp) {
-            return true;
+          const expiryTime = jwtBody.exp * 1000;
+          const now = Date.now();
+          if (now < expiryTime) {
+            return expiryTime;
           }
         }
       }
     }
-    return false;
+    return undefined;
   }
 }

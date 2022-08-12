@@ -18,14 +18,17 @@ interface LoginCredentials {
 export class AuthService {
   token!: string;
   refreshToken!: string;
+  expirationTime!: number;
   jwtChecker!: JwtAuthService;
 
   constructor(private http: HttpClient, private router: Router) {
+    this.expirationTime = Date.now();
     this.jwtChecker = new JwtAuthService();
     const currentJwtValues = this.jwtChecker.getJwt();
     if (currentJwtValues) {
       this.token = currentJwtValues.token;
       this.refreshToken = currentJwtValues.refreshToken;
+      this.expirationTime = currentJwtValues.expiration;
     }
   }
 
@@ -38,15 +41,40 @@ export class AuthService {
       })
       .pipe(
         tap(({ token, refresh_token }: TokenResponse) => {
-          this.token = token;
-          this.refreshToken = refresh_token;
-          this.jwtChecker.setJwt(token, refresh_token);
+          const tokenValue = this.jwtChecker.setJwt(token, refresh_token);
+          if (tokenValue) {
+            this.token = tokenValue.token;
+            this.refreshToken = tokenValue.refreshToken;
+            this.expirationTime = tokenValue.expiration;
+          }
         })
       )
       .subscribe({
         complete: () => {
           console.log('Login complete, what next?');
           this.router.navigate(['/carrier-portal']);
+        },
+      });
+  }
+
+  refresh(): void {
+    this.http
+      .post<TokenResponse>('/api/sessions/refresh', {
+        refresh_token: this.refreshToken,
+      })
+      .pipe(
+        tap(({ token, refresh_token }: TokenResponse) => {
+          const tokenValue = this.jwtChecker.setJwt(token, refresh_token);
+          if (tokenValue) {
+            this.token = tokenValue.token;
+            this.refreshToken = tokenValue.refreshToken;
+            this.expirationTime = tokenValue.expiration;
+          }
+        })
+      )
+      .subscribe({
+        complete: () => {
+          console.log('Token Refreshed.');
         },
       });
   }
