@@ -11,6 +11,11 @@ interface JwtBody {
 export class JwtAuthService {
   constructor() {}
 
+  clearJwt(): void {
+    window.localStorage.removeItem('__jwt_authorization_current_token');
+    window.localStorage.removeItem('__jwt_authorization_refresh_token');
+  }
+
   setJwt(currentToken: string, refreshToken: string): JwtValues | undefined {
     const expiryTime = this.validateAndGetExpiration(currentToken);
     if (expiryTime) {

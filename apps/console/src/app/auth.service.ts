@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
+import { tap, timer, Subscription } from 'rxjs';
 import { TokenResponse } from './authorization-data';
 import { JwtAuthService } from './jwt-auth.service';
 
@@ -16,19 +16,23 @@ interface LoginCredentials {
   providedIn: 'root',
 })
 export class AuthService {
-  token!: string;
-  refreshToken!: string;
-  expirationTime!: number;
-  jwtChecker!: JwtAuthService;
+  token: string | undefined = undefined;
+  private refreshToken: string | undefined = undefined;
+  private expirationTime!: number;
+  private tokenTime!: number;
+  private jwtChecker!: JwtAuthService;
+  private logoutTimerSubscription?: Subscription | undefined = undefined;
 
   constructor(private http: HttpClient, private router: Router) {
     this.expirationTime = Date.now();
+    this.tokenTime = Date.now();
     this.jwtChecker = new JwtAuthService();
     const currentJwtValues = this.jwtChecker.getJwt();
     if (currentJwtValues) {
       this.token = currentJwtValues.token;
       this.refreshToken = currentJwtValues.refreshToken;
       this.expirationTime = currentJwtValues.expiration;
+      this.setLogoutTimer(currentJwtValues.expiration);
     }
   }
 
@@ -46,6 +50,8 @@ export class AuthService {
             this.token = tokenValue.token;
             this.refreshToken = tokenValue.refreshToken;
             this.expirationTime = tokenValue.expiration;
+            this.tokenTime = Date.now();
+            this.setLogoutTimer(tokenValue.expiration);
           }
         })
       )
@@ -59,9 +65,15 @@ export class AuthService {
 
   refresh(): void {
     this.http
-      .post<TokenResponse>('/api/sessions/refresh', {
-        refresh_token: this.refreshToken,
-      })
+      .post<TokenResponse>(
+        '/api/sessions/refresh',
+        {
+          refresh_token: this.refreshToken,
+        },
+        {
+          headers: { Authorization: `Bearer ${this.token}` },
+        }
+      )
       .pipe(
         tap(({ token, refresh_token }: TokenResponse) => {
           const tokenValue = this.jwtChecker.setJwt(token, refresh_token);
@@ -69,6 +81,8 @@ export class AuthService {
             this.token = tokenValue.token;
             this.refreshToken = tokenValue.refreshToken;
             this.expirationTime = tokenValue.expiration;
+            this.tokenTime = Date.now();
+            this.setLogoutTimer(tokenValue.expiration);
           }
         })
       )
@@ -81,5 +95,32 @@ export class AuthService {
 
   get loggedIn(): boolean {
     return !!this.token;
+  }
+
+  get inRefreshInterval(): boolean {
+    const now = Date.now();
+
+    return (
+      now < this.expirationTime &&
+      now > (this.tokenTime + this.expirationTime) / 2
+    );
+  }
+
+  setLogoutTimer(timeInMillis: number): void {
+    if (this.logoutTimerSubscription) {
+      this.logoutTimerSubscription.unsubscribe();
+    }
+    const logoutTime = new Date(timeInMillis);
+    console.log(`Setting timer for: ${logoutTime.toISOString()}`);
+    const logoutTimer = timer(logoutTime);
+    this.logoutTimerSubscription = logoutTimer.subscribe(() => {
+      console.log(
+        `Logging out because of timer set for: ${logoutTime.toISOString()}`
+      );
+      this.expirationTime = Date.now();
+      this.token = undefined;
+      this.refreshToken = undefined;
+      this.router.navigate(['/login']);
+    });
   }
 }
