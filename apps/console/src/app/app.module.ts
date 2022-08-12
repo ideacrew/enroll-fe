@@ -15,7 +15,13 @@ import { PersonCoverageComponent } from './person-coverage/person-coverage.compo
 import { MemberPolicyComponent } from './person-coverage/member-policy.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CarrierPortalComponent, PersonCoverageComponent, MemberPolicyComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    CarrierPortalComponent,
+    PersonCoverageComponent,
+    MemberPolicyComponent,
+  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
@@ -32,7 +38,7 @@ import { MemberPolicyComponent } from './person-coverage/member-policy.component
       {
         path: 'people/:id',
         component: PersonCoverageComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'login',

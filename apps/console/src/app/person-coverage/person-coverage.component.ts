@@ -12,13 +12,14 @@ import { PersonService } from '../person.service';
 })
 export class PersonCoverageComponent {
   id!: string | null;
-  person$ : Observable<Person> = this.route.paramMap.pipe(
+  person$: Observable<Person> = this.route.paramMap.pipe(
     map((parameters: ParamMap) => parameters.get('id') ?? '___IGNORE___'),
     filter((idString: string) => idString !== '___IGNORE___'),
-    switchMap((id: string) =>
-      this.personService.getPerson(id)
-    )
+    switchMap((id: string) => this.personService.getPerson(id))
   );
 
-  constructor(private personService: PersonService, private route: ActivatedRoute) {}
+  constructor(
+    private personService: PersonService,
+    private route: ActivatedRoute
+  ) {}
 }

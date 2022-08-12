@@ -16,7 +16,7 @@ export class PersonService {
       { q }
     );
   }
-  
+
   getPerson(id: string): Observable<Person> {
     return this.http.get<Person>(
       `/api/transaction_management/people/${id}`,

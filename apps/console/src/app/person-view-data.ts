@@ -97,8 +97,8 @@ export interface Policy {
   transactions: Array<Transaction>;
 }
 
-export const defaultPolicy : Policy = {
-  hbx_assigned_id: "",
+export const defaultPolicy: Policy = {
+  hbx_assigned_id: '',
   hbx_enrollment_ids: [],
   total_amount: 0,
   responsible_amount: 0,
@@ -107,14 +107,14 @@ export const defaultPolicy : Policy = {
   premium_credits: [],
   transactions: [],
   plan: {
-    id: "",
-    hios_id: "",
-    name: "",
-    product_kind: "",
+    id: '',
+    hios_id: '',
+    name: '',
+    product_kind: '',
     carrier: {
-      id: "",
-      name: ""
-    }
+      id: '',
+      name: '',
+    },
   },
-  subscriber_hbx_member_id: ""
+  subscriber_hbx_member_id: '',
 };

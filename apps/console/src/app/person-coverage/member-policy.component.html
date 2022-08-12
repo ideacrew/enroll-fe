@@ -1,10 +1,10 @@
 <div class="policy">
   <div class="policy-information-header">
-    <h4>HBX Enrollment Group ID: {{policy.hbx_assigned_id}}</h4>
+    <h4>HBX Enrollment Group ID: {{ policy.hbx_assigned_id }}</h4>
   </div>
   <div class="policy-information">
-    <p>Coverage: {{policy.plan.product_kind}} | {{policy.plan.name}}</p>
-    <p *ngIf="policy.rating_area">Rating Area: {{policy.rating_area}}</p>
+    <p>Coverage: {{ policy.plan.product_kind }} | {{ policy.plan.name }}</p>
+    <p *ngIf="policy.rating_area">Rating Area: {{ policy.rating_area }}</p>
   </div>
   <div class="policy-enrollees">
     <h5>Enrollment Group</h5>
@@ -19,10 +19,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let enrollee of policy.enrollees; let k = index">
-          <td>{{enrollee.person_name.full_name}}</td>
-          <td>{{enrollee.relationship}}</td>
-          <td>{{enrollee.coverage_start}}</td>
-          <td>{{enrollee.premium_amount}}</td>
+          <td>{{ enrollee.person_name.full_name }}</td>
+          <td>{{ enrollee.relationship }}</td>
+          <td>{{ enrollee.coverage_start }}</td>
+          <td>{{ enrollee.premium_amount }}</td>
         </tr>
       </tbody>
       <tfoot></tfoot>
@@ -32,18 +32,18 @@
     <h5>Transactions</h5>
     <table *ngIf="policy.transactions.length > 0; else noTransactions">
       <thead>
-      <tr>
-        <th>Kind</th>
-        <th>Status</th>
-        <th>Submitted</th>
-      </tr>
+        <tr>
+          <th>Kind</th>
+          <th>Status</th>
+          <th>Submitted</th>
+        </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let transaction of policy.transactions; let l = index">
-        <td>{{transaction.kind}}</td>
-        <td>{{transaction.status}}</td>
-        <td>{{transaction.submitted_at}}</td>
-      </tr>
+        <tr *ngFor="let transaction of policy.transactions; let l = index">
+          <td>{{ transaction.kind }}</td>
+          <td>{{ transaction.status }}</td>
+          <td>{{ transaction.submitted_at }}</td>
+        </tr>
       </tbody>
       <tfoot></tfoot>
     </table>
