@@ -20,13 +20,15 @@ export class AuthService {
   private refreshToken: string | undefined = undefined;
   private expirationTime!: number;
   private tokenTime!: number;
-  private jwtChecker!: JwtAuthService;
   private logoutTimerSubscription?: Subscription | undefined = undefined;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private jwtChecker: JwtAuthService
+  ) {
     this.expirationTime = Date.now();
     this.tokenTime = Date.now();
-    this.jwtChecker = new JwtAuthService();
     const currentJwtValues = this.jwtChecker.getJwt();
     if (currentJwtValues) {
       this.token = currentJwtValues.token;
