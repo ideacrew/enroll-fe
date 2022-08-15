@@ -13,7 +13,9 @@
         <tr>
           <th>Member Name(s)</th>
           <th>Relationship</th>
-          <th>Coverage</th>
+          <th>Coverage Period</th>
+          <th>Carrier Member ID</th>
+          <th>Carrier Policy ID</th>
           <th>Premium</th>
         </tr>
       </thead>
@@ -21,11 +23,33 @@
         <tr *ngFor="let enrollee of policy.enrollees; let k = index">
           <td>{{ enrollee.person_name.full_name }}</td>
           <td>{{ enrollee.relationship }}</td>
-          <td>{{ enrollee.coverage_start }}</td>
-          <td>{{ enrollee.premium_amount }}</td>
+          <td>
+            {{ enrollee.coverage_start
+            }}<ng-template [ngIf]="enrollee.coverage_end"
+              >- {{ enrollee.coverage_end }}</ng-template
+            >
+          </td>
+          <td>{{ enrollee.carrier_member_id }}</td>
+          <td>{{ enrollee.carrier_policy_id }}</td>
+          <td class="money">{{ enrollee.premium_amount | number: '1.2-2' }}</td>
         </tr>
       </tbody>
-      <tfoot></tfoot>
+      <tfoot>
+        <tr>
+          <td colspan="5" class="totals">Total</td>
+          <td class="money">{{ policy.total_amount | number: '1.2-2' }}</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="totals">Credits</td>
+          <td class="money">{{ policy.credited_amount | number: '1.2-2' }}</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="totals">Responsible Amount</td>
+          <td class="money">
+            {{ policy.responsible_amount | number: '1.2-2' }}
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
   <div class="policy-transactions">
