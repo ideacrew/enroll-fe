@@ -43,3 +43,13 @@ td {
   display: inline;
   padding-right: 0.5rem;
 }
+
+dt {
+  font-weight: bold;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 80fr;
+  column-gap: 2rem;
+}

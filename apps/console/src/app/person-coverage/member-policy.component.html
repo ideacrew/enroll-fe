@@ -1,13 +1,25 @@
 <div class="policy">
   <div class="policy-information-header">
     <h3>
-      <img class="header-icon" src="../../assets/images/policy.svg" />HBX
-      Enrollment Group ID: {{ policy.hbx_assigned_id }}
+      <ng-template
+        *ngIf="
+          policy.plan.product_kind === 'health';
+          then healthPolicyIcon;
+          else dentalPolicyIcon
+        "
+      ></ng-template>
+      HBX Enrollment Group ID: {{ policy.hbx_assigned_id }}
     </h3>
   </div>
   <div class="policy-information">
-    <p>Coverage: {{ policy.plan.product_kind }} | {{ policy.plan.name }}</p>
-    <p *ngIf="policy.rating_area">Rating Area: {{ policy.rating_area }}</p>
+    <dl>
+      <dt>Coverage</dt>
+      <dd>{{ policy.plan.name }}</dd>
+      <ng-template [ngIf]="policy.rating_area">
+        <dt>Rating Area</dt>
+        <dd>{{ policy.rating_area }}</dd>
+      </ng-template>
+    </dl>
   </div>
   <div class="policy-enrollees">
     <h4>Enrollment Group</h4>
@@ -80,3 +92,10 @@
 <ng-template #noTransactions>
   <p>No transactions found</p>
 </ng-template>
+
+<ng-template #healthPolicyIcon
+  ><img class="header-icon" src="../../assets/images/health_policy.svg"
+/></ng-template>
+<ng-template #dentalPolicyIcon
+  ><img class="header-icon" src="../../assets/images/dental_policy.svg"
+/></ng-template>
