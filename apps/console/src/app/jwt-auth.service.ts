@@ -4,9 +4,11 @@ export interface JwtValues {
   expiration: number;
 }
 
-interface JwtBody {
+interface JwtPayload {
   exp: number;
 }
+
+import { JwtDecoder, isDecodedJwt } from '@treye/ts-jwt';
 
 export class JwtAuthService {
   constructor() {}
@@ -57,20 +59,14 @@ export class JwtAuthService {
   }
 
   private validateAndGetExpiration(jwt: string): number | undefined {
-    const jwtPortions: string[] = jwt.split('.');
-    if (jwtPortions.length === 3) {
-      const jwtBodyString = atob(jwtPortions[1]);
-      if (jwtBodyString) {
-        const jwtBody = <JwtBody | null>JSON.parse(jwtBodyString.toString());
-        if (jwtBody) {
-          const expiryTime = jwtBody.exp * 1000;
-          const now = Date.now();
-          if (now < expiryTime) {
-            return expiryTime;
-          }
-        }
-      }
+    const parseResult = this.parseJwt(jwt);
+    if (isDecodedJwt<JwtPayload>(parseResult)) {
+      return parseResult.payload.exp * 1000;
     }
     return undefined;
+  }
+
+  private parseJwt(jwt: string) {
+    return JwtDecoder.decodeJwt<JwtPayload>(jwt, ['exp']);
   }
 }
