@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap, timer, Subscription } from 'rxjs';
+import { sessionRoutes } from './endpoints';
 import { TokenResponse } from './authorization-data';
 import { JwtAuthService } from './jwt-auth.service';
 
@@ -40,7 +41,7 @@ export class AuthService {
 
   login({ username, password, realm_name }: LoginCredentials): void {
     this.http
-      .post<TokenResponse>('/api/sessions', {
+      .post<TokenResponse>(sessionRoutes.login, {
         username,
         password,
         realm_name,
@@ -68,7 +69,7 @@ export class AuthService {
   refresh(): void {
     this.http
       .post<TokenResponse>(
-        '/api/sessions/refresh',
+        sessionRoutes.refresh,
         {
           refresh_token: this.refreshToken,
         },
