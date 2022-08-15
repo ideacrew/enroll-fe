@@ -1,18 +1,17 @@
-<h1>Individual Coverage</h1>
-
 <div class="person" *ngIf="person$ | async as person; else loadingPerson">
-  <h2>{{ person.person_name.full_name }}</h2>
+  <h1 class="person-header">{{ person.person_name.full_name }}</h1>
 
   <div
     *ngFor="let member of person.members; let i = index"
     class="member-information"
   >
     <div class="member-information-header">
-      <h3>
+      <h2>
+        <img class="header-icon" src="../../assets/images/person.svg" />
         HBX Member ID: {{ member.hbx_member_id }} | Gender:
         {{ member.gender }} | DOB: {{ member.dob }}
         <ng-template [ngIf]="member.ssn">| SSN: {{ member.ssn }}</ng-template>
-      </h3>
+      </h2>
     </div>
     <div class="member-policies" *ngIf="member.policies.length > 0">
       <enroll-member-policy
@@ -28,7 +27,7 @@
     class="member-information"
   >
     <div class="member-information-header">
-      <h3>Responsible Party ID: {{ responsibleParty.id }}</h3>
+      <h2>Responsible Party ID: {{ responsibleParty.id }}</h2>
     </div>
     <div class="member-policies" *ngIf="responsibleParty.policies.length > 0">
       <enroll-member-policy

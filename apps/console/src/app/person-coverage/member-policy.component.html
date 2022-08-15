@@ -1,13 +1,16 @@
 <div class="policy">
   <div class="policy-information-header">
-    <h4>HBX Enrollment Group ID: {{ policy.hbx_assigned_id }}</h4>
+    <h3>
+      <img class="header-icon" src="../../assets/images/policy.svg" />HBX
+      Enrollment Group ID: {{ policy.hbx_assigned_id }}
+    </h3>
   </div>
   <div class="policy-information">
     <p>Coverage: {{ policy.plan.product_kind }} | {{ policy.plan.name }}</p>
     <p *ngIf="policy.rating_area">Rating Area: {{ policy.rating_area }}</p>
   </div>
   <div class="policy-enrollees">
-    <h5>Enrollment Group</h5>
+    <h4>Enrollment Group</h4>
     <table>
       <thead>
         <tr>
@@ -53,7 +56,7 @@
     </table>
   </div>
   <div class="policy-transactions">
-    <h5>Transactions</h5>
+    <h4>Transactions</h4>
     <table *ngIf="policy.transactions.length > 0; else noTransactions">
       <thead>
         <tr>

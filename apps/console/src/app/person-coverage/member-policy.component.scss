@@ -11,11 +11,24 @@ td {
 }
 
 .policy-information {
-  padding-bottom: 0.75rem;
+  padding: 0.75rem;
+}
+
+.policy-information-header {
+  padding: 0.5rem;
+  border-bottom: 2px solid #000000;
+}
+
+.policy {
+  border: 2px solid #000000;
 }
 
 .policy-enrollees {
-  padding-bottom: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.policy-transactions {
+  padding: 0.75rem;
 }
 
 .money {
@@ -24,4 +37,9 @@ td {
 
 .totals {
   text-align: right;
+}
+
+.header-icon {
+  display: inline;
+  padding-right: 0.5rem;
 }
