@@ -122,6 +122,7 @@ export class AuthService {
       this.expirationTime = Date.now();
       this.token = undefined;
       this.refreshToken = undefined;
+      this.jwtChecker.clearJwt();
       this.router.navigate(['/login']);
     });
   }

@@ -13,6 +13,7 @@ import { CarrierPortalComponent } from './carrier-portal/carrier-portal.componen
 import { AuthGuard } from './auth.guard';
 import { PersonCoverageComponent } from './person-coverage/person-coverage.component';
 import { MemberPolicyComponent } from './person-coverage/member-policy.component';
+import { JwtAuthService } from './jwt-auth.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MemberPolicyComponent } from './person-coverage/member-policy.component
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    JwtAuthService,
   ],
   bootstrap: [AppComponent],
 })
