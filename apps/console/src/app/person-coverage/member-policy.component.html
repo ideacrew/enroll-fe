@@ -1,13 +1,13 @@
 <div class="policy">
   <div class="policy-information-header">
     <h3>
-      <ng-template
+      <ng-container
         *ngIf="
           policy.plan.product_kind === 'health';
           then healthPolicyIcon;
           else dentalPolicyIcon
         "
-      ></ng-template>
+      ></ng-container>
       HBX Enrollment Group ID: {{ policy.hbx_assigned_id }}
     </h3>
   </div>
@@ -35,33 +35,33 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let enrollee of policy.enrollees; let k = index">
+        <tr *ngFor="let enrollee of policy.enrollees">
           <td>{{ enrollee.person_name.full_name }}</td>
           <td>{{ enrollee.relationship }}</td>
           <td>
             {{ enrollee.coverage_start
-            }}<ng-template [ngIf]="enrollee.coverage_end"
-              >- {{ enrollee.coverage_end }}</ng-template
+            }}<ng-container *ngIf="enrollee.coverage_end"
+              >- {{ enrollee.coverage_end }}</ng-container
             >
           </td>
           <td>{{ enrollee.carrier_member_id }}</td>
           <td>{{ enrollee.carrier_policy_id }}</td>
-          <td class="money">{{ enrollee.premium_amount | number: '1.2-2' }}</td>
+          <td class="money">{{ enrollee.premium_amount | currency }}</td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="5" class="totals">Total</td>
-          <td class="money">{{ policy.total_amount | number: '1.2-2' }}</td>
+          <td class="money">{{ policy.total_amount | currency }}</td>
         </tr>
         <tr>
           <td colspan="5" class="totals">Credits</td>
-          <td class="money">{{ policy.credited_amount | number: '1.2-2' }}</td>
+          <td class="money">{{ policy.credited_amount | currency }}</td>
         </tr>
         <tr>
           <td colspan="5" class="totals">Responsible Amount</td>
           <td class="money">
-            {{ policy.responsible_amount | number: '1.2-2' }}
+            {{ policy.responsible_amount | currency }}
           </td>
         </tr>
       </tfoot>

@@ -1,41 +1,34 @@
 <div class="person" *ngIf="person$ | async as person; else loadingPerson">
   <h1 class="person-header">{{ person.person_name.full_name }}</h1>
 
-  <div
-    *ngFor="let member of person.members; let i = index"
-    class="member-information"
-  >
+  <div *ngFor="let member of person.members" class="member-information">
     <div class="member-information-header">
       <h2>
         <img class="header-icon" src="../../assets/images/person.svg" />
         HBX Member ID: {{ member.hbx_member_id }} | Gender:
         {{ member.gender }} | DOB: {{ member.dob }}
-        <ng-template [ngIf]="member.ssn">| SSN: {{ member.ssn }}</ng-template>
+        <span *ngIf="member.ssn">| SSN: {{ member.ssn }}</span>
       </h2>
     </div>
-    <div class="member-policies" *ngIf="member.policies.length > 0">
-      <enroll-member-policy
-        *ngFor="let policy of member.policies; let j = index"
-        [policy]="policy"
-      >
-      </enroll-member-policy>
-    </div>
+    <enroll-member-policy
+      *ngFor="let policy of member.policies"
+      [policy]="policy"
+    >
+    </enroll-member-policy>
   </div>
 
   <div
-    *ngFor="let responsibleParty of person.responsible_parties; let i = index"
+    *ngFor="let responsibleParty of person.responsible_parties"
     class="member-information"
   >
     <div class="member-information-header">
       <h2>Responsible Party ID: {{ responsibleParty.id }}</h2>
     </div>
-    <div class="member-policies" *ngIf="responsibleParty.policies.length > 0">
-      <enroll-member-policy
-        *ngFor="let policy of responsibleParty.policies; let j = index"
-        [policy]="policy"
-      >
-      </enroll-member-policy>
-    </div>
+    <enroll-member-policy
+      *ngFor="let policy of responsibleParty.policies"
+      [policy]="policy"
+    >
+    </enroll-member-policy>
   </div>
 </div>
 
