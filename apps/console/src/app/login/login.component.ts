@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   username!: string;
   password!: string;
-  realm_name!: string;
+  realm_name = 'Anthem';
 
   constructor(private auth: AuthService) {}
 
