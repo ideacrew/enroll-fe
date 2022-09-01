@@ -14,6 +14,7 @@ import { AuthGuard } from './auth.guard';
 import { PersonCoverageComponent } from './person-coverage/person-coverage.component';
 import { MemberPolicyComponent } from './person-coverage/member-policy.component';
 import { JwtAuthService } from './jwt-auth.service';
+import { PortalComponent } from './portal/portal.component';
 
 @NgModule({
   declarations: [
@@ -22,28 +23,36 @@ import { JwtAuthService } from './jwt-auth.service';
     CarrierPortalComponent,
     PersonCoverageComponent,
     MemberPolicyComponent,
+    PortalComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {
-        path: '',
-        redirectTo: 'carrier-portal',
-        pathMatch: 'full',
-      },
-      {
-        path: 'carrier-portal',
-        component: CarrierPortalComponent,
-        canActivate: [AuthGuard],
-      },
-      {
-        path: 'people/:id',
-        component: PersonCoverageComponent,
-        canActivate: [AuthGuard],
-      },
-      {
         path: 'login',
         component: LoginComponent,
+      },
+      {
+        path: '',
+        component: PortalComponent,
+        canActivate: [AuthGuard],
+        children: [
+          {
+            path: 'carrier-portal',
+            component: CarrierPortalComponent,
+            canActivate: [AuthGuard],
+          },
+          {
+            path: 'carrier-portal/people/:id',
+            component: PersonCoverageComponent,
+            canActivate: [AuthGuard],
+          },
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'carrier-portal',
+          },
+        ],
       },
     ]),
     RootStoreModule,

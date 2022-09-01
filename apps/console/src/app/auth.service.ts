@@ -61,7 +61,7 @@ export class AuthService {
       .subscribe({
         complete: () => {
           console.log('Login complete, what next?');
-          this.router.navigate(['/carrier-portal']);
+          this.router.navigate(['/']);
         },
       });
   }
