@@ -40,10 +40,8 @@
           <td>{{ enrollee.person_name.full_name }}</td>
           <td>{{ enrollee.relationship }}</td>
           <td>
-            {{ enrollee.coverage_start
-            }}<ng-container *ngIf="enrollee.coverage_end"
-              >- {{ enrollee.coverage_end }}</ng-container
-            >
+            {{ enrollee.coverage_start }}
+            - {{ enrollee.coverage_end ?? 'Current' }}
           </td>
           <td>{{ enrollee.carrier_member_id }}</td>
           <td>{{ enrollee.carrier_policy_id }}</td>
@@ -108,7 +106,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let transaction of policy.transactions; let l = index">
-          <td>{{ transaction.kind }}</td>
+          <td>
+            <a
+              [routerLink]="['/carrier-portal/transactions', transaction.id]"
+              >{{ transaction.kind }}</a
+            >
+          </td>
           <td>{{ transaction.status }}</td>
           <td>{{ transaction.submitted_at }}</td>
         </tr>

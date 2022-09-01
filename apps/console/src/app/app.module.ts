@@ -17,6 +17,7 @@ import { JwtAuthService } from './jwt-auth.service';
 import { PortalComponent } from './portal/portal.component';
 import { MemberSearchComponent } from './member-search/member-search.component';
 import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal-home.component';
+import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal
     PortalComponent,
     MemberSearchComponent,
     CarrierPortalHomeComponent,
+    TransactionDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,11 @@ import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal
               {
                 path: 'members/:id',
                 component: MemberCoverageComponent,
+                canActivate: [AuthGuard],
+              },
+              {
+                path: 'transactions/:id',
+                component: TransactionDetailsComponent,
                 canActivate: [AuthGuard],
               },
               {

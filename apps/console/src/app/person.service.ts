@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { PersonSearchResult } from './person-search-data';
 import { peopleRoutes } from './endpoints';
 import { Person } from './person-view-data';
