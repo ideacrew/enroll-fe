@@ -10,3 +10,8 @@ export const peopleRoutes = {
   show: (id: string) =>
     `${environment.baseApiUrl}/transaction_management/people/${id}`,
 };
+
+export const enrollmentTransactionRoutes = {
+  show: (id: string) =>
+    `${environment.baseApiUrl}/transaction_management/enrollment_transactions/${id}`,
+};
