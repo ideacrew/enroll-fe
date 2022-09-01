@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-module */
 import { defineConfig } from 'cypress';
 import { nxE2EPreset } from '@nrwl/cypress/plugins/cypress-preset';
 

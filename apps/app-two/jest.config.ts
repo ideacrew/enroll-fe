@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'app-two',
   preset: '../../jest.preset.js',
