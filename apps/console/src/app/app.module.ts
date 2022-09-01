@@ -11,19 +11,23 @@ import { AuthInterceptor } from './auth-interceptor.service';
 import { LoginComponent } from './login/login.component';
 import { CarrierPortalComponent } from './carrier-portal/carrier-portal.component';
 import { AuthGuard } from './auth.guard';
-import { PersonCoverageComponent } from './person-coverage/person-coverage.component';
-import { MemberPolicyComponent } from './person-coverage/member-policy.component';
+import { MemberCoverageComponent } from './member-coverage/member-coverage.component';
+import { MemberPolicyComponent } from './member-policy/member-policy.component';
 import { JwtAuthService } from './jwt-auth.service';
 import { PortalComponent } from './portal/portal.component';
+import { MemberSearchComponent } from './member-search/member-search.component';
+import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CarrierPortalComponent,
-    PersonCoverageComponent,
+    MemberCoverageComponent,
     MemberPolicyComponent,
     PortalComponent,
+    MemberSearchComponent,
+    CarrierPortalHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,11 +45,22 @@ import { PortalComponent } from './portal/portal.component';
             path: 'carrier-portal',
             component: CarrierPortalComponent,
             canActivate: [AuthGuard],
-          },
-          {
-            path: 'carrier-portal/people/:id',
-            component: PersonCoverageComponent,
-            canActivate: [AuthGuard],
+            children: [
+              {
+                path: 'member-search',
+                component: MemberSearchComponent,
+              },
+              {
+                path: 'members/:id',
+                component: MemberCoverageComponent,
+                canActivate: [AuthGuard],
+              },
+              {
+                path: '',
+                component: CarrierPortalHomeComponent,
+                canActivate: [AuthGuard],
+              },
+            ],
           },
           {
             path: '',

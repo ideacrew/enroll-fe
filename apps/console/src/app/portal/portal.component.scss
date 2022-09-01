@@ -54,6 +54,10 @@
     margin: 0;
   }
 
+  ul ul {
+    margin-left: 1rem;
+  }
+
   li {
     padding: 1rem 0;
   }
@@ -72,4 +76,8 @@ main {
   grid-area: main;
   padding: 1.5rem;
   overflow-y: auto;
+}
+
+ul ul {
+  margin-left: 2rem;
 }

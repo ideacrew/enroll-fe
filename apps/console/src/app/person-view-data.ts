@@ -65,7 +65,7 @@ export interface PremiumCredit {
 export interface Enrollee {
   coverage_start: DateString;
   coverage_end?: DateString;
-  tobacco_use?: string;
+  tobacco_use?: string; // if null/not defined show "Unknown" or "U"
   premium_amount: number;
   hbx_member_id: string;
   person_name: PersonName;
@@ -83,17 +83,17 @@ export interface Transaction {
 }
 
 export interface Policy {
+  credited_amount: number;
+  enrollees: Array<Enrollee>;
   hbx_assigned_id: string;
   hbx_enrollment_ids: Array<string>;
-  rating_area?: string;
-  total_amount: number;
-  responsible_amount: number;
-  credited_amount: number;
   plan: Plan;
-  subscriber_hbx_member_id: string;
-  enrollees: Array<Enrollee>;
-  responsible_party?: PolicyResponsibleParty;
   premium_credits: Array<PremiumCredit>;
+  rating_area?: string;
+  responsible_amount: number;
+  responsible_party?: PolicyResponsibleParty;
+  subscriber_hbx_member_id: string;
+  total_amount: number;
   transactions: Array<Transaction>;
 }
 

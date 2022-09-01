@@ -5,12 +5,12 @@ import { Person } from '../person-view-data';
 import { PersonService } from '../person.service';
 
 @Component({
-  selector: 'enroll-person-coverage',
-  templateUrl: './person-coverage.component.html',
-  styleUrls: ['./person-coverage.component.scss'],
+  selector: 'enroll-member-coverage',
+  templateUrl: './member-coverage.component.html',
+  styleUrls: ['./member-coverage.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PersonCoverageComponent {
+export class MemberCoverageComponent {
   id!: string | null;
   person$: Observable<Person> = this.route.paramMap.pipe(
     map((parameters: ParamMap) => parameters.get('id') ?? '___IGNORE___'),

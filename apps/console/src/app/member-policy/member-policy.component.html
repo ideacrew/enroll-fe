@@ -8,12 +8,12 @@
           else dentalPolicyIcon
         "
       ></ng-container>
-      HBX Enrollment Group ID: {{ policy.hbx_assigned_id }}
+      Policy ID: {{ policy.hbx_assigned_id }}
     </h3>
   </div>
   <div class="policy-information">
     <dl>
-      <dt>Coverage</dt>
+      <dt>Plan Name</dt>
       <dd>{{ policy.plan.name }}</dd>
       <ng-template [ngIf]="policy.rating_area">
         <dt>Rating Area</dt>
@@ -21,6 +21,7 @@
       </ng-template>
     </dl>
   </div>
+
   <div class="policy-enrollees">
     <h4>Enrollment Group</h4>
     <table>
@@ -67,6 +68,34 @@
       </tfoot>
     </table>
   </div>
+
+  <div class="aptc-credits" *ngIf="policy.premium_credits.length > 0">
+    <h4>APTC Credits</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Credit Start</th>
+          <th>Credit End</th>
+          <th>Credit Amount</th>
+          <th>Premium Amount</th>
+          <th>Responsible Amount</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aptc of policy.premium_credits">
+          <td>{{ aptc.start_on | date }}</td>
+          <td>{{ aptc.end_on | date }}</td>
+          <td class="money">{{ aptc.credit_amount | currency }}</td>
+          <td class="money">Don't have this</td>
+          <td class="money">{{ aptc.responsible_amount | currency }}</td>
+          <td class="money">{{ aptc.total | currency }}</td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+
   <div class="policy-transactions">
     <h4>Transactions</h4>
     <table *ngIf="policy.transactions.length > 0; else noTransactions">

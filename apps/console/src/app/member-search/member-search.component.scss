@@ -1,0 +1,19 @@
+.search-results {
+  max-width: 80vw;
+}
+
+table {
+  // table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  border: 1px solid grey;
+}
+
+.person-result + .person-result {
+  margin-top: var(--s3);
+}
