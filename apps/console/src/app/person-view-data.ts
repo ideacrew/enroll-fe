@@ -63,6 +63,7 @@ export interface PremiumCredit {
 }
 
 export interface Enrollee {
+  person_id: string;
   coverage_start: DateString;
   coverage_end?: DateString;
   tobacco_use?: string; // if null/not defined show "Unknown" or "U"
