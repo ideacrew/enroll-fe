@@ -1,4 +1,29 @@
 <h1>Transaction Details</h1>
-<pre>
-  {{ transaction$ | async | json }}
-</pre>
+<div *ngIf="transaction$ | async as transaction; else loadingTransaction">
+  <div class="transaction-information">
+    <dl>
+      <dt>Transaction Kind</dt>
+      <dd>{{ transaction.transaction_kind }}</dd>
+      <dt>Reference Identification</dt>
+      <dd>{{ transaction.reference_identification }}</dd>
+      <dt>Transaction Date</dt>
+      <dd>{{ transaction.transaction_date }}</dd>
+      <dt>Transaction Time</dt>
+      <dd>{{ transaction.transaction_time }}</dd>
+      <dt>Time Code</dt>
+      <dd>{{ transaction.time_code }}</dd>
+      <dt>Interchange Control Number</dt>
+      <dd>{{ transaction.interchange_control_number }}</dd>
+      <dt>Interchange File Name</dt>
+      <dd>{{ transaction.transmission_file_name }}</dd>
+    </dl>
+  </div>
+  <h2>Payload</h2>
+  <pre>
+    {{ transaction.raw_content }}
+  </pre>
+</div>
+
+<ng-template #loadingTransaction>
+  <p>Loading...</p>
+</ng-template>
