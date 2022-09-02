@@ -37,7 +37,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let enrollee of policy.enrollees">
-          <td>{{ enrollee.person_name.full_name }}</td>
+          <td>
+            <a [routerLink]="['..', enrollee.person_id]">
+              {{ enrollee.person_name.full_name }}
+            </a>
+          </td>
           <td>{{ enrollee.relationship }}</td>
           <td>
             {{ enrollee.coverage_start }}
