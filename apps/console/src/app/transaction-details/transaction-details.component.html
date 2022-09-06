@@ -1,5 +1,7 @@
 <h1>Transaction Details</h1>
-<div *ngIf="transaction$ | async as transaction; else loadingTransaction">
+<ng-container
+  *ngIf="transaction$ | async as transaction; else loadingTransaction"
+>
   <div class="transaction-information">
     <dl>
       <dt>Transaction Kind</dt>
@@ -19,10 +21,10 @@
     </dl>
   </div>
   <h2>Payload</h2>
-  <pre>
+  <code>
     {{ transaction.raw_content }}
-  </pre>
-</div>
+  </code>
+</ng-container>
 
 <ng-template #loadingTransaction>
   <p>Loading...</p>

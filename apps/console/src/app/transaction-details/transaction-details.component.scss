@@ -4,6 +4,10 @@ dt {
 
 dl {
   display: grid;
-  grid-template-columns: max-content 80fr;
+  grid-template-columns: max-content 1fr;
   column-gap: 2rem;
+}
+
+h2 {
+  margin-top: 1.5rem;
 }
