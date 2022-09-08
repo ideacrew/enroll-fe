@@ -78,20 +78,18 @@
         <tr>
           <th>Credit Start</th>
           <th>Credit End</th>
+          <th>Total Premium Amount</th>
           <th>Credit Amount</th>
-          <th>Premium Amount</th>
           <th>Responsible Amount</th>
-          <th>Total</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let aptc of policy.premium_credits">
           <td>{{ aptc.start_on | date }}</td>
           <td>{{ aptc.end_on | date }}</td>
-          <td class="money">{{ aptc.credit_amount | currency }}</td>
-          <td class="money">Don't have this</td>
-          <td class="money">{{ aptc.responsible_amount | currency }}</td>
           <td class="money">{{ aptc.total | currency }}</td>
+          <td class="money">{{ aptc.credit_amount | currency }}</td>
+          <td class="money">{{ aptc.responsible_amount | currency }}</td>
         </tr>
       </tbody>
       <tfoot></tfoot>
