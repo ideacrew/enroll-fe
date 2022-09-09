@@ -18,6 +18,11 @@
           "apps/console/src/assets",
           {
             "glob": "**/*",
+            "input": "apps/console/src/config",
+            "output": "/"
+          },
+          {
+            "glob": "**/*",
             "input": "libs/shared/theme/src/lib/assets/icons",
             "output": "/assets/icons"
           },

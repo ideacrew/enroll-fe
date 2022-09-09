@@ -1,5 +1,9 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -18,6 +22,7 @@ import { PortalComponent } from './portal/portal.component';
 import { MemberSearchComponent } from './member-search/member-search.component';
 import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal-home.component';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
+import { initializeAppFactory } from './config';
 
 @NgModule({
   declarations: [
@@ -83,6 +88,12 @@ import { TransactionDetailsComponent } from './transaction-details/transaction-d
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeAppFactory,
+      deps: [HttpClient],
+      multi: true,
+    },
     JwtAuthService,
   ],
   bootstrap: [AppComponent],

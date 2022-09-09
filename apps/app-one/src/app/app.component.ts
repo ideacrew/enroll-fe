@@ -23,6 +23,9 @@ import { authCodeFlowConfig } from './auth.config';
       <p>
         <button (click)="refresh()">Refresh</button>
       </p>
+      <p>
+        <button (click)="logout()">Log Out</button>
+      </p>
     </div>`,
   styles: [],
 })
@@ -51,5 +54,9 @@ export class AppComponent {
 
   refresh() {
     this.oauthService.refreshToken();
+  }
+
+  logout() {
+    this.oauthService.logOut();
   }
 }

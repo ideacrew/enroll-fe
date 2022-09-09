@@ -58,7 +58,7 @@
           <td class="money">{{ policy.total_amount | currency }}</td>
         </tr>
         <tr>
-          <td colspan="5" class="totals">Credits</td>
+          <td colspan="5" class="totals">APTC Credits</td>
           <td class="money">{{ policy.credited_amount | currency }}</td>
         </tr>
         <tr>
@@ -115,7 +115,7 @@
             >
           </td>
           <td>{{ transaction.status }}</td>
-          <td>{{ transaction.submitted_at }}</td>
+          <td>{{ transaction.submitted_at | date }}</td>
         </tr>
       </tbody>
       <tfoot></tfoot>
