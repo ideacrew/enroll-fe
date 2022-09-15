@@ -1,13 +1,13 @@
 :root {
   --button-text-color: var(--grey-000);
-  --button-fill-color: var(--button-primary-color, var(--grey-160));
+  --button-fill-color: var(--button-primary-color, var(--theme-primary-100));
   --button-focus-ring-color: var(--grey-000);
-  --button-border-color: var(--button-primary-color, var(--grey-160));
+  --button-border-color: var(--button-primary-color, var(--theme-primary-100));
 }
 
 // Primary button at rest
-a.enroll-button,
-button.enroll-button {
+a.ea-button,
+button.ea-button {
   // Reset
   border: none;
   background-color: transparent;
@@ -29,7 +29,7 @@ button.enroll-button {
   font-size: 1rem;
   padding: var(--s-1) 0.625rem;
   text-decoration: none;
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
   line-height: 1;
   min-width: 10ch;
   text-align: center;
@@ -48,8 +48,11 @@ button.enroll-button {
 
   // State styles
   &:hover {
-    --button-fill-color: var(--button-primary-hover, var(--grey-190));
-    --button-border-color: var(--button-primary-hover, var(--grey-190));
+    --button-fill-color: var(--button-primary-hover, var(--theme-primary-120));
+    --button-border-color: var(
+      --button-primary-hover,
+      var(--theme-primary-120)
+    );
   }
 
   &:focus {
@@ -70,13 +73,16 @@ button.enroll-button {
   }
 
   &:active {
-    --button-fill-color: var(--button-primary-active, var(--grey-160));
-    --button-border-color: var(--button-primary-active, var(--grey-160));
+    --button-fill-color: var(--button-primary-active, var(--theme-primary-140));
+    --button-border-color: var(
+      --button-primary-active,
+      var(--theme-primary-140)
+    );
   }
 }
 
-a.enroll-button.outline,
-button.enroll-button.outline {
+a.ea-button.outline,
+button.ea-button.outline {
   --button-text-color: var(--button-primary-color, chartreuse);
   --button-fill-color: var(--grey-000, chartreuse);
   --button-focus-ring-color: var(--grey-000, chartreuse);

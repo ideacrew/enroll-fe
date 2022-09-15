@@ -1,7 +1,11 @@
 <h1>Search for Members</h1>
-<label for="search">Search by SSN or HBX ID</label>
-<input type="text" name="search" id="search" [(ngModel)]="query" />
-<button type="button" (click)="searchPersons()">Search Members</button>
+<div class="input-group">
+  <label for="search">Search by SSN or HBX ID</label>
+  <input type="text" name="search" id="search" [(ngModel)]="query" />
+  <button class="ea-button" type="button" (click)="searchPersons()">
+    Search Members
+  </button>
+</div>
 <div
   class="search-results"
   *ngIf="searchResults$ | async as searchResults; else beginSearch"

@@ -17,3 +17,12 @@ td {
 .person-result + .person-result {
   margin-top: var(--s3);
 }
+
+.input-group {
+  label {
+    display: block;
+    line-height: 1.5;
+    font-size: 1rem;
+    color: var(--type-secondary);
+  }
+}
