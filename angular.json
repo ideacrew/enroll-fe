@@ -2,8 +2,6 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "app-three": "apps/app-three",
-    "app-three-e2e": "apps/app-three-e2e",
     "console": "apps/console",
     "console-e2e": "apps/console-e2e",
     "coverme": "apps/coverme",
