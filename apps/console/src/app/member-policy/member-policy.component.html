@@ -24,7 +24,7 @@
 
   <div class="policy-enrollees">
     <h4>Enrollment Group</h4>
-    <table>
+    <table class="ea-table">
       <thead>
         <tr>
           <th>Member Name(s)</th>
@@ -32,7 +32,7 @@
           <th>Coverage Period</th>
           <th>Carrier Member ID</th>
           <th>Carrier Policy ID</th>
-          <th>Premium</th>
+          <th class="numeric">Premium</th>
         </tr>
       </thead>
       <tbody>
@@ -49,21 +49,21 @@
           </td>
           <td>{{ enrollee.carrier_member_id }}</td>
           <td>{{ enrollee.carrier_policy_id }}</td>
-          <td class="money">{{ enrollee.premium_amount | currency }}</td>
+          <td class="numeric">{{ enrollee.premium_amount | currency }}</td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="5" class="totals">Total</td>
-          <td class="money">{{ policy.total_amount | currency }}</td>
+          <td class="numeric">{{ policy.total_amount | currency }}</td>
         </tr>
         <tr>
           <td colspan="5" class="totals">APTC Credits</td>
-          <td class="money">{{ policy.credited_amount | currency }}</td>
+          <td class="numeric">{{ policy.credited_amount | currency }}</td>
         </tr>
         <tr>
           <td colspan="5" class="totals">Responsible Amount</td>
-          <td class="money">
+          <td class="numeric">
             {{ policy.responsible_amount | currency }}
           </td>
         </tr>
@@ -73,23 +73,23 @@
 
   <div class="aptc-credits" *ngIf="policy.premium_credits.length > 0">
     <h4>APTC Credits</h4>
-    <table>
+    <table class="ea-table">
       <thead>
         <tr>
           <th>Credit Start</th>
           <th>Credit End</th>
-          <th>Total Premium Amount</th>
-          <th>Credit Amount</th>
-          <th>Responsible Amount</th>
+          <th class="numeric">Total Premium Amount</th>
+          <th class="numeric">Credit Amount</th>
+          <th class="numeric">Responsible Amount</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let aptc of policy.premium_credits">
           <td>{{ aptc.start_on | date }}</td>
           <td>{{ aptc.end_on | date }}</td>
-          <td class="money">{{ aptc.total | currency }}</td>
-          <td class="money">{{ aptc.credit_amount | currency }}</td>
-          <td class="money">{{ aptc.responsible_amount | currency }}</td>
+          <td class="numeric">{{ aptc.total | currency }}</td>
+          <td class="numeric">{{ aptc.credit_amount | currency }}</td>
+          <td class="numeric">{{ aptc.responsible_amount | currency }}</td>
         </tr>
       </tbody>
       <tfoot></tfoot>
@@ -98,7 +98,10 @@
 
   <div class="policy-transactions">
     <h4>Transactions</h4>
-    <table *ngIf="policy.transactions.length > 0; else noTransactions">
+    <table
+      class="ea-table"
+      *ngIf="policy.transactions.length > 0; else noTransactions"
+    >
       <thead>
         <tr>
           <th>Kind</th>
