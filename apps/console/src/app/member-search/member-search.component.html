@@ -1,10 +1,26 @@
 <h1>Search for Members</h1>
 <div class="input-group">
   <label for="search">Search by SSN or HBX ID</label>
-  <input type="text" name="search" id="search" [(ngModel)]="query" />
-  <button class="ea-button" type="button" (click)="searchPersons()">
-    Search Members
-  </button>
+  <div class="input-with-button">
+    <input type="text" name="search" id="search" [(ngModel)]="query" />
+    <button class="ea-button" type="button" (click)="searchPersons()">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 12.5L17 17M14 8.5C14 11.5376 11.5376 14 8.5 14C5.46243 14 3 11.5376 3 8.5C3 5.46243 5.46243 3 8.5 3C11.5376 3 14 5.46243 14 8.5Z"
+          stroke="var(--grey-000)"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>Search Members</span>
+    </button>
+  </div>
 </div>
 <div
   class="search-results"
@@ -12,15 +28,11 @@
 >
   <ng-container *ngIf="searchResults.length > 0; else noResults">
     <h2>Search Results</h2>
-    <div class="person-result" *ngFor="let result of searchResults">
-      <h3>
-        <a [routerLink]="['..', 'members', result.id]">
-          {{ result.person_name.first_name }} {{ result.person_name.last_name }}
-        </a>
-      </h3>
-      <table>
+    <div class="person-result">
+      <table class="ea-table">
         <thead>
           <tr>
+            <th>Name</th>
             <th>HBX ID</th>
             <th>Policy Count</th>
             <th>SSN</th>
@@ -29,12 +41,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let member of result.members">
-            <td>{{ member.hbx_member_id }}</td>
-            <td>{{ member.policies.length }}</td>
-            <td>{{ member.ssn }}</td>
-            <td>{{ member.dob }}</td>
-            <td>{{ member.gender }}</td>
+          <tr *ngFor="let result of searchResults">
+            <ng-container *ngFor="let member of result.members">
+              <td>
+                <a [routerLink]="['..', 'members', result.id]">
+                  {{ result.person_name.first_name }}
+                  {{ result.person_name.last_name }}
+                </a>
+              </td>
+              <td>{{ member.hbx_member_id }}</td>
+              <td>{{ member.policies.length }}</td>
+              <td>{{ member.ssn }}</td>
+              <td>{{ member.dob }}</td>
+              <td>{{ member.gender }}</td>
+            </ng-container>
           </tr>
         </tbody>
       </table>
@@ -46,5 +66,7 @@
 </ng-template>
 
 <ng-template #beginSearch
-  ><p>Begin searching by SSN or HBX ID to see results</p></ng-template
->
+  ><div class="empty-search-results">
+    <p>Begin searching by SSN or HBX ID to see results</p>
+  </div>
+</ng-template>

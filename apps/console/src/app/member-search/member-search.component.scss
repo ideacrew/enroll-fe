@@ -2,18 +2,6 @@
   max-width: 80vw;
 }
 
-table {
-  // table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 0.75rem;
-  border: 1px solid grey;
-}
-
 .person-result + .person-result {
   margin-top: var(--s3);
 }
@@ -25,4 +13,20 @@ td {
     font-size: 1rem;
     color: var(--type-secondary);
   }
+
+  input {
+    height: 2.25rem;
+  }
+}
+
+.ea-button {
+  padding: 0 0.75rem;
+  height: 2.25rem;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.input-with-button {
+  display: inline-flex;
+  gap: 0.25rem;
 }
