@@ -16,14 +16,16 @@
   grid-template-columns: 1fr;
   grid-template-rows: max-content 1fr max-content;
   grid-template-areas: 'title' 'nav' 'user';
-  background-color: var(--grey-130);
+  background-color: var(--grey-050);
   gap: 1.5rem;
+
+  color: var(--grey-160);
 
   .application-title {
     padding: 1.5rem 1.5rem 0 1.5rem;
     font-size: 1.25rem;
     font-weight: 800;
-    color: white;
+    text-transform: uppercase;
   }
 }
 
@@ -41,12 +43,13 @@
   text-decoration: none;
   cursor: pointer;
   background-color: var(--theme-primary-140);
-  border-top: 3px solid var(--theme-primary-100);
+  border-top: 5px solid var(--theme-primary-100);
 }
 
 .nav {
   grid-area: nav;
   padding: 0 1.5rem;
+  color: var(--grey-160);
 
   ul {
     list-style: none;
@@ -63,7 +66,7 @@
   }
 
   a {
-    color: white;
+    color: inherit;
     text-decoration: none;
   }
 
