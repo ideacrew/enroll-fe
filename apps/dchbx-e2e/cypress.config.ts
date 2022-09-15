@@ -14,7 +14,7 @@ const cypressJsonConfig = {
 export default defineConfig({
   e2e: {
     // eslint-disable-next-line unicorn/prefer-module
-    ...nxE2EPreset(__dirname),
+    ...nxE2EPreset(__filename),
     ...cypressJsonConfig,
   },
 });
