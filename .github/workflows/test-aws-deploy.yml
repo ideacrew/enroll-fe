@@ -1,0 +1,53 @@
+name: test and deploy front end
+
+on:
+  push:
+    branches:
+      - trunk
+
+concurrency:
+  group: qb-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm ci
+      - name: Build Application(s)
+        run: npx nx console:build
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: affected-apps
+          path: dist/apps/console
+  deploy:
+    name: Deploy affected applications
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download artifact
+        id: download-artifact
+        uses: actions/download-artifact@v2
+        continue-on-error: true
+        with:
+          name: affected-apps
+          path: dist/apps/console
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm ci
+      - name: deploy
+        # run: npx nx console:deploy --env=preprod --cloudfrontId=E5RER2GERTJUC
+        run: |
+          aws s3 sync --acl public-read . s3://cme-console-preprod/ --delete
+          invalidationId=`AWS_MAX_ATTEMPTS=999 aws cloudfront create-invalidation --distribution-id E5RER2GERTJUC --output text --query 'Invalidation.Id' --paths '/*'`
+          aws cloudfront wait invalidation-completed --distribution-id E5RER2GERTJUC --id ${invalidationId}
