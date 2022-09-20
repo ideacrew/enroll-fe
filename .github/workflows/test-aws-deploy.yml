@@ -21,7 +21,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - name: Build Application(s)
-        run: npx nx console:build
+        run: npx nx run console:build
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
