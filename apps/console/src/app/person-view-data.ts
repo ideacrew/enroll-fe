@@ -96,6 +96,7 @@ export interface Policy {
   subscriber_hbx_member_id: string;
   total_amount: number;
   transactions: Array<Transaction>;
+  status: string;
 }
 
 export const defaultPolicy: Policy = {
@@ -118,4 +119,5 @@ export const defaultPolicy: Policy = {
     },
   },
   subscriber_hbx_member_id: '',
+  status: 'Submitted',
 };
