@@ -72,6 +72,7 @@ export function isPersonMemberIdentifierSearchRequest(
   return (psq as PersonIdentifierQueryRequest).q !== undefined;
 }
 
+// There HAS to be a less ugly way to do this.
 export function constructNameQuery(
   firstName: string,
   lastName: string

@@ -21,7 +21,6 @@ export class PersonService {
   }
 
   searchPeople(psq: PersonSearchRequest) {
-    console.log(psq);
     return this.http.post<PersonSearchResult[]>(peopleRoutes.search, psq);
   }
 }
