@@ -1,8 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
-import { PersonSearchResult } from './person-search-data';
+import {
+  PersonSearchResult,
+  PersonSearchRequest,
+  isPersonMemberIdentifierSearchRequest,
+} from './person-search-data';
 import { peopleRoutes } from './endpoints';
 import { Person } from './person-view-data';
 
@@ -12,11 +16,12 @@ import { Person } from './person-view-data';
 export class PersonService {
   constructor(private http: HttpClient) {}
 
-  searchPersons(q: string): Observable<PersonSearchResult[]> {
-    return this.http.post<PersonSearchResult[]>(peopleRoutes.search, { q });
-  }
-
   getPerson(id: string): Observable<Person> {
     return this.http.get<Person>(peopleRoutes.show(id), {});
+  }
+
+  searchPeople(psq: PersonSearchRequest) {
+    console.log(psq);
+    return this.http.post<PersonSearchResult[]>(peopleRoutes.search, psq);
   }
 }

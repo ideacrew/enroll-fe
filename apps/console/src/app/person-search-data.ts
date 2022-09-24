@@ -65,3 +65,34 @@ export interface PersonSearchResult {
   person_name: PersonNamesResult;
   members: MemberSearchResult[];
 }
+
+export function isPersonMemberIdentifierSearchRequest(
+  psq: PersonSearchRequest
+): psq is PersonIdentifierQueryRequest {
+  return (psq as PersonIdentifierQueryRequest).q !== undefined;
+}
+
+export function constructNameQuery(
+  firstName: string,
+  lastName: string
+): PersonNameQueryRequest | undefined {
+  const fNameIsBlank =
+    !firstName ||
+    typeof firstName == undefined ||
+    (typeof firstName === 'string' && firstName.trim().length === 0);
+  const lNameIsBlank =
+    !lastName ||
+    typeof lastName == undefined ||
+    (typeof lastName === 'string' && lastName.trim().length === 0);
+
+  if (fNameIsBlank && lNameIsBlank) {
+    return undefined;
+  }
+  if (!fNameIsBlank && !lNameIsBlank) {
+    return { name: { first_name: firstName, last_name: lastName } };
+  } else if (fNameIsBlank) {
+    return { name: { last_name: lastName } };
+  } else {
+    return { name: { first_name: firstName } };
+  }
+}

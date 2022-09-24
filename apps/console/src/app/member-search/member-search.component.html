@@ -3,7 +3,33 @@
   <label for="search">Search by SSN or HBX ID</label>
   <div class="input-with-button">
     <input type="text" name="search" id="search" [(ngModel)]="query" />
-    <button class="ea-button" type="button" (click)="searchPersons()">
+    <button
+      class="ea-button"
+      type="button"
+      (click)="searchPersonByIdentifier()"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 12.5L17 17M14 8.5C14 11.5376 11.5376 14 8.5 14C5.46243 14 3 11.5376 3 8.5C3 5.46243 5.46243 3 8.5 3C11.5376 3 14 5.46243 14 8.5Z"
+          stroke="var(--grey-000)"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>Search Members</span>
+    </button>
+  </div>
+  <label for="first_name">Search By Name</label>
+  <div class="input-with-button">
+    <input type="text" name="first_name" id="search" [(ngModel)]="firstName" />
+    <input type="text" name="last_name" id="search" [(ngModel)]="lastName" />
+    <button class="ea-button" type="button" (click)="searchPersonByName()">
       <svg
         width="20"
         height="20"
@@ -67,6 +93,6 @@
 
 <ng-template #beginSearch
   ><div class="empty-search-results">
-    <p>Begin searching by SSN or HBX ID to see results</p>
+    <p>Begin searching to see results</p>
   </div>
 </ng-template>
