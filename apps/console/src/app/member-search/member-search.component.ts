@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Subject, tap } from 'rxjs';
-import { personSearchResults } from '../mocks/person-search-result';
 
 import {
   PersonSearchResult,
@@ -16,11 +15,19 @@ import { PersonService } from '../person.service';
 export class MemberSearchComponent {
   searchType: 'member_id' | 'name' = 'member_id';
 
+  searchTerm: string | undefined;
+
   searchResults: Subject<PersonSearchResult[]> = new Subject();
   searchResults$ = this.searchResults.asObservable();
   query!: string;
   firstName!: string;
   lastName!: string;
+
+  get noResultsMessage(): string {
+    return this.searchType === 'member_id'
+      ? 'No members found with that SSN or HBX ID'
+      : 'No members found with that name';
+  }
 
   constructor(private personService: PersonService) {}
 
@@ -41,5 +48,17 @@ export class MemberSearchComponent {
       .searchPeople(searchRequest)
       .pipe(tap((results) => this.searchResults.next(results)))
       .subscribe();
+  }
+
+  searchBySearchTerm(): void {
+    if (this.searchType === 'member_id') {
+      this.query = this.searchTerm || '';
+      this.searchPersonByIdentifier();
+    } else {
+      const [firstName, lastName] = (this.searchTerm || '').split(' ');
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.searchPersonByName();
+    }
   }
 }

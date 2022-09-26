@@ -1,12 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
-import {
-  PersonSearchResult,
-  PersonSearchRequest,
-  isPersonMemberIdentifierSearchRequest,
-} from './person-search-data';
+import { PersonSearchResult, PersonSearchRequest } from './person-search-data';
 import { peopleRoutes } from './endpoints';
 import { Person } from './person-view-data';
 

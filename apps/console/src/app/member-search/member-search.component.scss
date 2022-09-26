@@ -1,5 +1,12 @@
 .search-results {
   max-width: 80vw;
+  margin-top: 2rem;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .person-result + .person-result {
@@ -31,6 +38,37 @@
   gap: 0.25rem;
 }
 
-.search-results {
-  margin-top: 2rem;
+.fancy-search-box {
+  height: 36px;
+  background-color: #fff;
+  border: 1px solid #8e8a86;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: 30ch max-content 15ch;
+
+  input[type='text'] {
+    border: none;
+    padding: 0.25rem 0.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button:has(svg) {
+    display: flex;
+    place-items: center;
+    border-right: 2px solid var(--grey-040);
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  }
+
+  .search-toggle {
+    color: var(--type-secondary);
+  }
 }

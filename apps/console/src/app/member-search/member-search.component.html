@@ -1,53 +1,51 @@
-<h1>Search for Members</h1>
-<div class="input-group">
-  <label for="search">Search by SSN or HBX ID</label>
-  <div class="input-with-button">
-    <input type="text" name="search" id="search" [(ngModel)]="query" />
+<div class="page-heading">
+  <h1>Search for Members</h1>
+
+  <form class="fancy-search-box identifier">
+    <input
+      type="text"
+      name="id-search"
+      id="id-search"
+      placeholder="Search by selected attribute"
+      [(ngModel)]="searchTerm"
+    />
+    <button class="fancy-search-button" (click)="searchBySearchTerm()">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 12.5L17 17M14 8.5C14 11.5376 11.5376 14 8.5 14C5.46243 14 3 11.5376 3 8.5C3 5.46243 5.46243 3 8.5 3C11.5376 3 14 5.46243 14 8.5Z"
+          stroke="var(--theme-primary-100)"
+          stroke-width="2"
+          stroke-linecap="round"
+        /></svg
+      ><span class="visually-hidden">Search</span>
+    </button>
     <button
-      class="ea-button"
       type="button"
-      (click)="searchPersonByIdentifier()"
+      class="search-toggle"
+      (click)="searchType = 'name'"
+      *ngIf="searchType === 'member_id'; else searchByName"
     >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12.5 12.5L17 17M14 8.5C14 11.5376 11.5376 14 8.5 14C5.46243 14 3 11.5376 3 8.5C3 5.46243 5.46243 3 8.5 3C11.5376 3 14 5.46243 14 8.5Z"
-          stroke="var(--grey-000)"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-      <span>Search Members</span>
+      by SSN or HBX ID
     </button>
-  </div>
-  <label for="first_name">Search By Name</label>
-  <div class="input-with-button">
-    <input type="text" name="first_name" id="search" [(ngModel)]="firstName" />
-    <input type="text" name="last_name" id="search" [(ngModel)]="lastName" />
-    <button class="ea-button" type="button" (click)="searchPersonByName()">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+
+    <ng-template #searchByName
+      ><button
+        type="button"
+        class="search-toggle"
+        (click)="searchType = 'member_id'"
       >
-        <path
-          d="M12.5 12.5L17 17M14 8.5C14 11.5376 11.5376 14 8.5 14C5.46243 14 3 11.5376 3 8.5C3 5.46243 5.46243 3 8.5 3C11.5376 3 14 5.46243 14 8.5Z"
-          stroke="var(--grey-000)"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-      <span>Search Members</span>
-    </button>
-  </div>
+        by Member Name
+      </button></ng-template
+    >
+  </form>
 </div>
+
 <div
   class="search-results"
   *ngIf="searchResults$ | async as searchResults; else beginSearch"
@@ -88,7 +86,7 @@
   </ng-container>
 </div>
 <ng-template #noResults>
-  <h2>No members found with that HBX Member ID or SSN</h2>
+  <h2>{{ noResultsMessage }}</h2>
 </ng-template>
 
 <ng-template #beginSearch

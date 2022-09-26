@@ -10,25 +10,10 @@ export interface PersonIdentifierQueryRequest {
 }
 
 export interface PersonNameQueryRequest {
-  name: PersonNameQueryParts;
-}
-
-export type PersonNameQueryParts =
-  | PersonFNameQuery
-  | PersonLNameQuery
-  | PersonNameQuery;
-
-export interface PersonFNameQuery {
-  first_name: string;
-}
-
-export interface PersonLNameQuery {
-  last_name: string;
-}
-
-export interface PersonNameQuery {
-  first_name: string;
-  last_name: string;
+  name: {
+    first_name?: string;
+    last_name?: string;
+  };
 }
 
 export interface PlanSearchResult {
@@ -75,25 +60,21 @@ export function isPersonMemberIdentifierSearchRequest(
 // There HAS to be a less ugly way to do this.
 export function constructNameQuery(
   firstName: string,
-  lastName: string
+  lastName: string | undefined
 ): PersonNameQueryRequest | undefined {
-  const fNameIsBlank =
-    !firstName ||
-    typeof firstName == undefined ||
-    (typeof firstName === 'string' && firstName.trim().length === 0);
-  const lNameIsBlank =
-    !lastName ||
-    typeof lastName == undefined ||
-    (typeof lastName === 'string' && lastName.trim().length === 0);
+  // If only one name was entered, consider it to be the last name
+  if (lastName === undefined) {
+    return {
+      name: {
+        last_name: firstName,
+      },
+    };
+  }
 
-  if (fNameIsBlank && lNameIsBlank) {
-    return undefined;
-  }
-  if (!fNameIsBlank && !lNameIsBlank) {
-    return { name: { first_name: firstName, last_name: lastName } };
-  } else if (fNameIsBlank) {
-    return { name: { last_name: lastName } };
-  } else {
-    return { name: { first_name: firstName } };
-  }
+  return {
+    name: {
+      first_name: firstName,
+      last_name: lastName,
+    },
+  };
 }
