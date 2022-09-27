@@ -9,9 +9,9 @@
       <dt>Reference Identification</dt>
       <dd>{{ transaction.reference_identification }}</dd>
       <dt>Transaction Date</dt>
-      <dd>{{ transaction.transaction_date }}</dd>
+      <dd>{{ transaction.transaction_date | parseRawDate | date }}</dd>
       <dt>Transaction Time</dt>
-      <dd>{{ transaction.transaction_time }}</dd>
+      <dd>{{ transaction.transaction_time | parseRawTime }}</dd>
       <dt>Time Code</dt>
       <dd>{{ transaction.time_code }}</dd>
       <dt>Interchange Control Number</dt>

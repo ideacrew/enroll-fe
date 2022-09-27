@@ -24,6 +24,8 @@ import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 import { initializeAppFactory } from './config';
 import { ParseEdiDataPipe } from './parse-edi-data.pipe';
+import { ParseRawDatePipe } from './parse-raw-date.pipe';
+import { ParseRawTimePipe } from './parse-raw-time.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ParseEdiDataPipe } from './parse-edi-data.pipe';
     CarrierPortalHomeComponent,
     TransactionDetailsComponent,
     ParseEdiDataPipe,
+    ParseRawDatePipe,
+    ParseRawTimePipe,
   ],
   imports: [
     BrowserModule,
