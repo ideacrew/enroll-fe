@@ -1,131 +1,103 @@
-<div class="policy">
-  <div class="policy-information-header">
-    <h3>
-      <ng-container
-        *ngIf="
-          policy.plan.product_kind === 'health';
-          then healthPolicyIcon;
-          else dentalPolicyIcon
-        "
-      ></ng-container>
-      Policy ID: {{ policy.hbx_assigned_id }}
-    </h3>
-  </div>
-  <div class="policy-information">
-    <dl>
-      <dt>Plan Name</dt>
-      <dd>{{ policy.plan.name }}</dd>
-      <ng-template [ngIf]="policy.rating_area">
-        <dt>Rating Area</dt>
-        <dd>{{ policy.rating_area }}</dd>
-      </ng-template>
-      <dt>Status</dt>
-      <dd>{{ policy.status }}</dd>
-    </dl>
-  </div>
+<div class="policy-enrollees">
+  <h3>Enrollment Group</h3>
+  <table class="ea-table">
+    <thead>
+      <tr>
+        <th>Member Name(s)</th>
+        <th>Relationship</th>
+        <th>Coverage Period</th>
+        <th>Carrier Member ID</th>
+        <th>Carrier Policy ID</th>
+        <th class="numeric">Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let enrollee of policy.enrollees">
+        <td>
+          <a [routerLink]="['..', enrollee.person_id]">
+            {{ enrollee.person_name.full_name }}
+          </a>
+        </td>
+        <td>{{ enrollee.relationship }}</td>
+        <td>
+          {{ enrollee.coverage_start | date }}
+          - {{ enrollee.coverage_end ?? 'Current' }}
+        </td>
+        <td>{{ enrollee.carrier_member_id }}</td>
+        <td>{{ enrollee.carrier_policy_id }}</td>
+        <td class="numeric">{{ enrollee.premium_amount | currency }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5" class="totals">Total</td>
+        <td class="numeric">{{ policy.total_amount | currency }}</td>
+      </tr>
+      <tr>
+        <td colspan="5" class="totals">APTC Credits</td>
+        <td class="numeric">{{ policy.credited_amount | currency }}</td>
+      </tr>
+      <tr>
+        <td colspan="5" class="totals">Responsible Amount</td>
+        <td class="numeric">
+          {{ policy.responsible_amount | currency }}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
-  <div class="policy-enrollees">
-    <h4>Enrollment Group</h4>
-    <table class="ea-table">
-      <thead>
-        <tr>
-          <th>Member Name(s)</th>
-          <th>Relationship</th>
-          <th>Coverage Period</th>
-          <th>Carrier Member ID</th>
-          <th>Carrier Policy ID</th>
-          <th class="numeric">Premium</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let enrollee of policy.enrollees">
-          <td>
-            <a [routerLink]="['..', enrollee.person_id]">
-              {{ enrollee.person_name.full_name }}
-            </a>
-          </td>
-          <td>{{ enrollee.relationship }}</td>
-          <td>
-            {{ enrollee.coverage_start | date }}
-            - {{ enrollee.coverage_end ?? 'Current' }}
-          </td>
-          <td>{{ enrollee.carrier_member_id }}</td>
-          <td>{{ enrollee.carrier_policy_id }}</td>
-          <td class="numeric">{{ enrollee.premium_amount | currency }}</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="5" class="totals">Total</td>
-          <td class="numeric">{{ policy.total_amount | currency }}</td>
-        </tr>
-        <tr>
-          <td colspan="5" class="totals">APTC Credits</td>
-          <td class="numeric">{{ policy.credited_amount | currency }}</td>
-        </tr>
-        <tr>
-          <td colspan="5" class="totals">Responsible Amount</td>
-          <td class="numeric">
-            {{ policy.responsible_amount | currency }}
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
+<div class="aptc-credits" *ngIf="policy.premium_credits.length > 0">
+  <h4>APTC Credits</h4>
+  <table class="ea-table">
+    <thead>
+      <tr>
+        <th>Credit Start</th>
+        <th>Credit End</th>
+        <th class="numeric">Total Premium Amount</th>
+        <th class="numeric">Credit Amount</th>
+        <th class="numeric">Responsible Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aptc of policy.premium_credits">
+        <td>{{ aptc.start_on | date }}</td>
+        <td>{{ aptc.end_on | date }}</td>
+        <td class="numeric">{{ aptc.total | currency }}</td>
+        <td class="numeric">{{ aptc.credit_amount | currency }}</td>
+        <td class="numeric">{{ aptc.responsible_amount | currency }}</td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
 
-  <div class="aptc-credits" *ngIf="policy.premium_credits.length > 0">
-    <h4>APTC Credits</h4>
-    <table class="ea-table">
-      <thead>
-        <tr>
-          <th>Credit Start</th>
-          <th>Credit End</th>
-          <th class="numeric">Total Premium Amount</th>
-          <th class="numeric">Credit Amount</th>
-          <th class="numeric">Responsible Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let aptc of policy.premium_credits">
-          <td>{{ aptc.start_on | date }}</td>
-          <td>{{ aptc.end_on | date }}</td>
-          <td class="numeric">{{ aptc.total | currency }}</td>
-          <td class="numeric">{{ aptc.credit_amount | currency }}</td>
-          <td class="numeric">{{ aptc.responsible_amount | currency }}</td>
-        </tr>
-      </tbody>
-      <tfoot></tfoot>
-    </table>
-  </div>
-
-  <div class="policy-transactions">
-    <h4>Transactions</h4>
-    <table
-      class="ea-table"
-      *ngIf="policy.transactions.length > 0; else noTransactions"
-    >
-      <thead>
-        <tr>
-          <th>Kind</th>
-          <th>Status</th>
-          <th>Submitted</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let transaction of policy.transactions | sortByDate">
-          <td>
-            <a
-              [routerLink]="['/carrier-portal/transactions', transaction.id]"
-              >{{ transaction.kind }}</a
-            >
-          </td>
-          <td>{{ transaction.status }}</td>
-          <td>{{ transaction.submitted_at | date: 'medium' }}</td>
-        </tr>
-      </tbody>
-      <tfoot></tfoot>
-    </table>
-  </div>
+<div class="policy-transactions">
+  <h3>EDI Transactions</h3>
+  <table
+    class="ea-table"
+    *ngIf="policy.transactions.length > 0; else noTransactions"
+  >
+    <thead>
+      <tr>
+        <th>Kind</th>
+        <th>Status</th>
+        <th>Submitted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of policy.transactions | sortByDate">
+        <td>
+          <a [routerLink]="['/carrier-portal/transactions', transaction.id]">{{
+            transaction.kind
+          }}</a>
+        </td>
+        <td>{{ transaction.status }}</td>
+        <td>{{ transaction.submitted_at | date: 'medium' }}</td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
 </div>
 
 <ng-template #noTransactions>

@@ -28,6 +28,7 @@ import { ParseRawDatePipe } from './parse-raw-date.pipe';
 import { ParseRawTimePipe } from './parse-raw-time.pipe';
 import { SortByDatePipe } from './sort-by-date.pipe';
 import { MemberSummaryComponent } from './member-summary/member-summary.component';
+import { SortByStatusPipe } from './sort-by-status.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MemberSummaryComponent } from './member-summary/member-summary.componen
     ParseRawTimePipe,
     SortByDatePipe,
     MemberSummaryComponent,
+    SortByStatusPipe,
   ],
   imports: [
     BrowserModule,
@@ -67,16 +69,16 @@ import { MemberSummaryComponent } from './member-summary/member-summary.componen
                 path: 'member-search',
                 component: MemberSearchComponent,
               },
-              // {
-              //   path: 'members/:id',
-              //   component: MemberCoverageComponent,
-              //   canActivate: [AuthGuard],
-              // },
               {
                 path: 'members/:id',
-                component: MemberSummaryComponent,
+                component: MemberCoverageComponent,
                 canActivate: [AuthGuard],
               },
+              // {
+              //   path: 'members/:id',
+              //   component: MemberSummaryComponent,
+              //   canActivate: [AuthGuard],
+              // },
               {
                 path: 'transactions/:id',
                 component: TransactionDetailsComponent,

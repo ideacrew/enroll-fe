@@ -3,17 +3,49 @@
 
   <div *ngFor="let member of person.members" class="member-information">
     <div class="member-information-header">
-      <h2>
-        HBX Member ID: {{ member.hbx_member_id }} | Gender:
-        {{ member.gender }} | DOB: {{ member.dob }}
-        <span *ngIf="member.ssn">| SSN: {{ member.ssn }}</span>
-      </h2>
+      <h2>Personal Info</h2>
+
+      <dl>
+        <dt>HBX Member ID</dt>
+        <dd>{{ member.hbx_member_id }}</dd>
+        <dt>Gender</dt>
+        <dd>{{ member.gender }}</dd>
+        <dt>DOB</dt>
+        <dd>{{ member.dob }}</dd>
+        <ng-container *ngIf="member.ssn">
+          <dt>SSN</dt>
+          <dd>{{ member.ssn }}</dd>
+        </ng-container>
+      </dl>
+      <!--
+      <enroll-member-policy
+        *ngFor="let policy of member.policies"
+        [policy]="policy"
+      >
+      </enroll-member-policy> -->
+      <h2>Policies</h2>
+
+      <details
+        [open]="policy.status === 'Submitted'"
+        class="policy-summary"
+        *ngFor="let policy of member.policies | sortByStatus: 'Submitted'"
+      >
+        <summary>
+          <ng-container
+            *ngIf="
+              policy.plan.product_kind === 'health';
+              then healthPolicyIcon;
+              else dentalPolicyIcon
+            "
+          ></ng-container>
+          <span>{{ policy.status }}</span>
+          <span>{{ policy.hbx_assigned_id }}</span>
+          <span>{{ policy.rating_area }}</span>
+          <span>{{ policy.plan.name }}</span>
+        </summary>
+        <enroll-member-policy [policy]="policy"></enroll-member-policy>
+      </details>
     </div>
-    <enroll-member-policy
-      *ngFor="let policy of member.policies"
-      [policy]="policy"
-    >
-    </enroll-member-policy>
   </div>
 
   <!-- Need to evaluate what this is, how to display -->
@@ -35,3 +67,10 @@
 <ng-template #loadingPerson>
   <p>Loading...</p>
 </ng-template>
+
+<ng-template #healthPolicyIcon
+  ><img class="header-icon" src="../../assets/images/health_policy.svg"
+/></ng-template>
+<ng-template #dentalPolicyIcon
+  ><img class="header-icon" src="../../assets/images/dental_policy.svg"
+/></ng-template>
