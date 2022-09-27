@@ -46,7 +46,7 @@
           </td>
           <td>{{ enrollee.relationship }}</td>
           <td>
-            {{ enrollee.coverage_start }}
+            {{ enrollee.coverage_start | date }}
             - {{ enrollee.coverage_end ?? 'Current' }}
           </td>
           <td>{{ enrollee.carrier_member_id }}</td>
@@ -112,7 +112,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let transaction of policy.transactions; let l = index">
+        <tr *ngFor="let transaction of policy.transactions | sortByDate">
           <td>
             <a
               [routerLink]="['/carrier-portal/transactions', transaction.id]"
@@ -120,7 +120,7 @@
             >
           </td>
           <td>{{ transaction.status }}</td>
-          <td>{{ transaction.submitted_at | date }}</td>
+          <td>{{ transaction.submitted_at | date: 'medium' }}</td>
         </tr>
       </tbody>
       <tfoot></tfoot>

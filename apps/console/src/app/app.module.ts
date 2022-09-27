@@ -26,6 +26,7 @@ import { initializeAppFactory } from './config';
 import { ParseEdiDataPipe } from './parse-edi-data.pipe';
 import { ParseRawDatePipe } from './parse-raw-date.pipe';
 import { ParseRawTimePipe } from './parse-raw-time.pipe';
+import { SortByDatePipe } from './sort-by-date.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ParseRawTimePipe } from './parse-raw-time.pipe';
     ParseEdiDataPipe,
     ParseRawDatePipe,
     ParseRawTimePipe,
+    SortByDatePipe,
   ],
   imports: [
     BrowserModule,

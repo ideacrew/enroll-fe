@@ -4,7 +4,6 @@
   <div *ngFor="let member of person.members" class="member-information">
     <div class="member-information-header">
       <h2>
-        <img class="header-icon" src="../../assets/images/person.svg" />
         HBX Member ID: {{ member.hbx_member_id }} | Gender:
         {{ member.gender }} | DOB: {{ member.dob }}
         <span *ngIf="member.ssn">| SSN: {{ member.ssn }}</span>
@@ -17,7 +16,8 @@
     </enroll-member-policy>
   </div>
 
-  <div
+  <!-- Need to evaluate what this is, how to display -->
+  <!-- <div
     *ngFor="let responsibleParty of person.responsible_parties"
     class="member-information"
   >
@@ -29,7 +29,7 @@
       [policy]="policy"
     >
     </enroll-member-policy>
-  </div>
+  </div> -->
 </div>
 
 <ng-template #loadingPerson>
