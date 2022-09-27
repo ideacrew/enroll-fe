@@ -1,0 +1,59 @@
+<div class="person" *ngIf="person$ | async as person; else loadingPerson">
+  <h1 class="person-header">{{ person.person_name.full_name }}</h1>
+
+  <h2>Policies</h2>
+  <div *ngFor="let member of person.members" class="member-information">
+    <table class="ea-table">
+      <thead>
+        <tr>
+          <th>Policy ID</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Plan Name</th>
+          <th>Policy Start</th>
+          <th>Policy End</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let policy of member.policies">
+          <td>{{ policy.hbx_assigned_id }}</td>
+          <td>{{ policy.plan.product_kind | titlecase }}</td>
+          <td>{{ policy.status }}</td>
+          <td>{{ policy.plan.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="member-information-header">
+      <h2>
+        HBX Member ID: {{ member.hbx_member_id }} | Gender:
+        {{ member.gender }} | DOB: {{ member.dob }}
+        <span *ngIf="member.ssn">| SSN: {{ member.ssn }}</span>
+      </h2>
+    </div>
+    <enroll-member-policy
+      *ngFor="let policy of member.policies"
+      [policy]="policy"
+    >
+    </enroll-member-policy>
+  </div>
+
+  <!-- Need to evaluate what this is, how to display -->
+  <!-- <div
+    *ngFor="let responsibleParty of person.responsible_parties"
+    class="member-information"
+  >
+    <div class="member-information-header">
+      <h2>Responsible Party ID: {{ responsibleParty.id }}</h2>
+    </div>
+    <enroll-member-policy
+      *ngFor="let policy of responsibleParty.policies"
+      [policy]="policy"
+    >
+    </enroll-member-policy>
+  </div> -->
+</div>
+
+<ng-template #loadingPerson>
+  <p>Loading...</p>
+</ng-template>

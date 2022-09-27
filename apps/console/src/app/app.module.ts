@@ -27,6 +27,7 @@ import { ParseEdiDataPipe } from './parse-edi-data.pipe';
 import { ParseRawDatePipe } from './parse-raw-date.pipe';
 import { ParseRawTimePipe } from './parse-raw-time.pipe';
 import { SortByDatePipe } from './sort-by-date.pipe';
+import { MemberSummaryComponent } from './member-summary/member-summary.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SortByDatePipe } from './sort-by-date.pipe';
     ParseRawDatePipe,
     ParseRawTimePipe,
     SortByDatePipe,
+    MemberSummaryComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,9 +67,14 @@ import { SortByDatePipe } from './sort-by-date.pipe';
                 path: 'member-search',
                 component: MemberSearchComponent,
               },
+              // {
+              //   path: 'members/:id',
+              //   component: MemberCoverageComponent,
+              //   canActivate: [AuthGuard],
+              // },
               {
                 path: 'members/:id',
-                component: MemberCoverageComponent,
+                component: MemberSummaryComponent,
                 canActivate: [AuthGuard],
               },
               {
