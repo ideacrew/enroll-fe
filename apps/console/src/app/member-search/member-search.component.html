@@ -1,5 +1,5 @@
 <div class="page-heading">
-  <h1>Search for Members</h1>
+  <h1>{{ pageHeading$ | async }}</h1>
 
   <form class="fancy-search-box identifier">
     <input
@@ -22,13 +22,14 @@
           stroke="var(--theme-primary-100)"
           stroke-width="2"
           stroke-linecap="round"
-        /></svg
-      ><span class="visually-hidden">Search</span>
+        />
+      </svg>
+      <span class="visually-hidden">Search</span>
     </button>
     <button
       type="button"
       class="search-toggle"
-      (click)="searchType = 'name'"
+      (click)="setSearchType('name')"
       *ngIf="searchType === 'member_id'; else searchByName"
     >
       by SSN or HBX ID
@@ -38,7 +39,7 @@
       ><button
         type="button"
         class="search-toggle"
-        (click)="searchType = 'member_id'"
+        (click)="setSearchType('member_id')"
       >
         by Member Name
       </button></ng-template

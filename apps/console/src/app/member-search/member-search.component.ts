@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subject, tap } from 'rxjs';
+import { BehaviorSubject, Subject, tap } from 'rxjs';
 
 import {
   PersonSearchResult,
@@ -16,6 +16,11 @@ export class MemberSearchComponent {
   searchType: 'member_id' | 'name' = 'member_id';
 
   searchTerm: string | undefined;
+
+  private pageHeading: BehaviorSubject<string> = new BehaviorSubject(
+    'Member Search'
+  );
+  pageHeading$ = this.pageHeading.asObservable();
 
   searchResults: Subject<PersonSearchResult[]> = new Subject();
   searchResults$ = this.searchResults.asObservable();
@@ -34,7 +39,12 @@ export class MemberSearchComponent {
   searchPersonByIdentifier(): void {
     this.personService
       .searchPeople({ q: this.query })
-      .pipe(tap((results) => this.searchResults.next(results)))
+      .pipe(
+        tap((results) => {
+          this.pageHeading.next(this.generatePageHeading(this.query));
+          this.searchResults.next(results);
+        })
+      )
       .subscribe();
   }
 
@@ -46,7 +56,16 @@ export class MemberSearchComponent {
     }
     this.personService
       .searchPeople(searchRequest)
-      .pipe(tap((results) => this.searchResults.next(results)))
+      .pipe(
+        tap((results) => {
+          this.pageHeading.next(
+            this.generatePageHeading(
+              `${this.firstName ?? ''} ${this.lastName ?? ''}`
+            )
+          );
+          this.searchResults.next(results);
+        })
+      )
       .subscribe();
   }
 
@@ -60,5 +79,19 @@ export class MemberSearchComponent {
       this.lastName = lastName;
       this.searchPersonByName();
     }
+  }
+
+  setSearchType(type: 'member_id' | 'name'): void {
+    this.searchType = type;
+    this.searchTerm = '';
+    this.firstName = '';
+    this.lastName = '';
+    this.query = '';
+  }
+
+  generatePageHeading(query: string): string {
+    const trimmed = query.trim();
+
+    return `Search Results for "${trimmed}"`;
   }
 }
