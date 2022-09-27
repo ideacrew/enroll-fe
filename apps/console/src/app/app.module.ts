@@ -23,6 +23,7 @@ import { MemberSearchComponent } from './member-search/member-search.component';
 import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal-home.component';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 import { initializeAppFactory } from './config';
+import { ParseEdiDataPipe } from './parse-edi-data.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { initializeAppFactory } from './config';
     MemberSearchComponent,
     CarrierPortalHomeComponent,
     TransactionDetailsComponent,
+    ParseEdiDataPipe,
   ],
   imports: [
     BrowserModule,

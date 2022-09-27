@@ -20,10 +20,14 @@
       <dd>{{ transaction.transmission_file_name }}</dd>
     </dl>
   </div>
-  <h2>Payload</h2>
-  <code>
-    {{ transaction.raw_content }}
-  </code>
+  <h2>EDI Payload</h2>
+  <pre class="edi-data parsed-transaction">
+    <span>{{ transaction.raw_content | parseEdiData }}</span>
+  </pre>
+  <h2>Raw Payload</h2>
+  <pre class="edi-data raw-transaction">
+    <span>{{ transaction.raw_content }}</span>
+  </pre>
 </ng-container>
 
 <ng-template #loadingTransaction>

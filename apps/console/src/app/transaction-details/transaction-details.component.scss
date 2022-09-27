@@ -11,3 +11,13 @@ dl {
 h2 {
   margin-top: 1.5rem;
 }
+
+.edi-data {
+  overflow-x: scroll;
+  border: 1px solid var(--grey-040);
+  border-radius: 3px;
+  background-color: var(--grey-020);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
