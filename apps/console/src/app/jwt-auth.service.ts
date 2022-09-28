@@ -6,12 +6,28 @@ export interface JwtValues {
 
 interface JwtPayload {
   exp: number;
+  iat: number;
+  jti: string;
+  iss: string;
+  aud: string;
+  sub: string;
+  typ: string;
+  azp: string;
+  name: string;
+  preferred_username: string;
+  email: string;
 }
 
 import jwt_decode from 'jwt-decode';
 
 export class JwtAuthService {
-  constructor() {}
+  get parsedJwt(): JwtPayload {
+    return this.parseJwt(this.rawJwtFromLocalStorage);
+  }
+
+  get userName(): string {
+    return this.parsedJwt.name;
+  }
 
   clearJwt(): void {
     localStorage.removeItem('__jwt_authorization_current_token');
@@ -50,6 +66,10 @@ export class JwtAuthService {
       }
     }
     return undefined;
+  }
+
+  get rawJwtFromLocalStorage(): string {
+    return localStorage.getItem('__jwt_authorization_current_token') ?? '';
   }
 
   private validateAndGetExpiration(jwt: string): number {
