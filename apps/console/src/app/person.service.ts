@@ -3,20 +3,25 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PersonSearchResult, PersonSearchRequest } from './person-search-data';
-import { peopleRoutes } from './endpoints';
 import { Person } from './person-view-data';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PersonService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private config: ConfigService) {}
 
   getPerson(id: string): Observable<Person> {
-    return this.http.get<Person>(peopleRoutes.show(id), {});
+    return this.http.get<Person>(
+      `${this.config.baseApiUrl}/transaction_management/people/${id}`
+    );
   }
 
   searchPeople(psq: PersonSearchRequest) {
-    return this.http.post<PersonSearchResult[]>(peopleRoutes.search, psq);
+    return this.http.post<PersonSearchResult[]>(
+      `${this.config.baseApiUrl}/transaction_management/people/search`,
+      psq
+    );
   }
 }

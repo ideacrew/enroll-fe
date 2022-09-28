@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap, timer, Subscription } from 'rxjs';
-import { sessionRoutes } from './endpoints';
+
 import { TokenResponse } from './authorization-data';
 import { JwtAuthService } from './jwt-auth.service';
+import { ConfigService } from './config.service';
 
 interface LoginCredentials {
   username: string;
@@ -26,7 +27,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private jwtChecker: JwtAuthService
+    private jwtChecker: JwtAuthService,
+    private config: ConfigService
   ) {
     this.expirationTime = Date.now();
     this.tokenTime = Date.now();
@@ -41,7 +43,7 @@ export class AuthService {
 
   login({ username, password, realm_name }: LoginCredentials): void {
     this.http
-      .post<TokenResponse>(sessionRoutes.login, {
+      .post<TokenResponse>(`${this.config.baseApiUrl}/sessions`, {
         username,
         password,
         realm_name,
@@ -69,7 +71,7 @@ export class AuthService {
   refresh(): void {
     this.http
       .post<TokenResponse>(
-        sessionRoutes.refresh,
+        `${this.config.baseApiUrl}/sessions/refresh`,
         {
           refresh_token: this.refreshToken,
         },

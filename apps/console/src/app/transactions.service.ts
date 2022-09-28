@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { enrollmentTransactionRoutes } from './endpoints';
+
+import { ConfigService } from './config.service';
 import { EnrollmentTransaction } from './enrollment-transaction-view-data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TransactionsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private config: ConfigService) {}
 
   getTransaction(id: string) {
     return this.http.get<EnrollmentTransaction>(
-      enrollmentTransactionRoutes.show(id)
+      `${this.config.baseApiUrl}/transaction_management/enrollment_transactions/${id}`
     );
   }
 }
