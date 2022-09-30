@@ -32,7 +32,21 @@
       (click)="setSearchType('name')"
       *ngIf="searchType === 'member_id'; else searchByName"
     >
-      by SSN or HBX ID
+      <span>by SSN or HBX ID</span>
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 8L10.7071 12.2929C10.3166 12.6834 9.68342 12.6834 9.29289 12.2929L5 8"
+          stroke="#605E5C"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </button>
 
     <ng-template #searchByName
@@ -41,9 +55,22 @@
         class="search-toggle"
         (click)="setSearchType('member_id')"
       >
-        by Member Name
-      </button></ng-template
-    >
+        <span>by Member Name</span>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 8L10.7071 12.2929C10.3166 12.6834 9.68342 12.6834 9.29289 12.2929L5 8"
+            stroke="#605E5C"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg></button
+    ></ng-template>
   </form>
 </div>
 

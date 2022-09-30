@@ -44,7 +44,7 @@
   border: 1px solid #8e8a86;
   border-radius: 3px;
   display: grid;
-  grid-template-columns: 30ch max-content 15ch;
+  grid-template-columns: 30ch max-content max-content;
 
   input[type='text'] {
     border: none;
@@ -55,13 +55,13 @@
     }
   }
 
-  button:has(svg) {
-    display: flex;
-    place-items: center;
+  .fancy-search-button {
     border-right: 2px solid var(--grey-040);
   }
 
   button {
+    display: flex;
+    place-items: center;
     border: none;
     background-color: transparent;
     padding: 0.25rem 0.5rem;
