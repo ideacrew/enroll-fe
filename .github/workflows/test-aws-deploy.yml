@@ -1,4 +1,4 @@
-name: test and deploy front end
+name: deploy to aws
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - trunk
 
 concurrency:
-  group: qb-${{ github.ref }}
+  group: aws-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
