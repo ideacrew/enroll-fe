@@ -11,7 +11,7 @@
         <dt>Gender</dt>
         <dd>{{ member.gender }}</dd>
         <dt>DOB</dt>
-        <dd>{{ member.dob }}</dd>
+        <dd>{{ member.dob | date: 'M/d/yy' }}</dd>
         <ng-container *ngIf="member.ssn">
           <dt>SSN</dt>
           <dd>{{ member.ssn }}</dd>

@@ -22,7 +22,8 @@
         "eamodio.gitlens",
         "PKief.material-icon-theme",
         "nrwl.angular-console",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "Angular.ng-template"
       ]
     }
   },
