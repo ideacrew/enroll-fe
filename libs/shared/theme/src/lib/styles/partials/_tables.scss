@@ -5,7 +5,7 @@ table.enroll-table {
 
 .ea-table {
   // table-layout: fixed;
-  width: 100%;
+  // width: 100%;
   border-collapse: collapse;
 
   th,
@@ -35,5 +35,10 @@ table.enroll-table {
 
   .numeric {
     text-align: right;
+    font-variant-numeric: tabular-nums;
   }
+}
+
+.ea-table + .ea-table {
+  margin-top: 2rem;
 }
