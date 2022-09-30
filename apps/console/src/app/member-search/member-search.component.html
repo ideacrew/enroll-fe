@@ -103,7 +103,7 @@
               </td>
               <td>{{ member.hbx_member_id }}</td>
               <td>{{ member.policies.length }}</td>
-              <td>{{ member.ssn ?? 'No SSN' }}</td>
+              <td>{{ member.ssn | formatSsn }}</td>
               <td>{{ member.dob | date: 'M/d/yy' }}</td>
               <td>{{ member.gender }}</td>
             </ng-container>

@@ -29,6 +29,7 @@ import { ParseRawTimePipe } from './parse-raw-time.pipe';
 import { SortByDatePipe } from './sort-by-date.pipe';
 import { MemberSummaryComponent } from './member-summary/member-summary.component';
 import { SortByStatusPipe } from './sort-by-status.pipe';
+import { FormatSsnPipe } from './format-ssn.pipe';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SortByStatusPipe } from './sort-by-status.pipe';
     SortByDatePipe,
     MemberSummaryComponent,
     SortByStatusPipe,
+    FormatSsnPipe,
   ],
   imports: [
     BrowserModule,

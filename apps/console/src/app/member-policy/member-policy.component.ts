@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { defaultPolicy, Policy } from '../person-view-data';
+import { Policy } from '../person-view-data';
 
 @Component({
   selector: 'enroll-member-policy',
@@ -8,8 +8,5 @@ import { defaultPolicy, Policy } from '../person-view-data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MemberPolicyComponent {
-  @Input()
-  policy: Policy = defaultPolicy;
-
-  constructor() {}
+  @Input() policy!: Policy;
 }

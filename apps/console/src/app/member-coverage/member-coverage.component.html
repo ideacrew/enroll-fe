@@ -4,7 +4,6 @@
   <div *ngFor="let member of person.members" class="member-information">
     <div class="member-information-header">
       <h2>Personal Info</h2>
-
       <dl>
         <dt>HBX Member ID</dt>
         <dd>{{ member.hbx_member_id }}</dd>
@@ -13,16 +12,10 @@
         <dt>DOB</dt>
         <dd>{{ member.dob | date: 'M/d/yy' }}</dd>
         <dt>SSN</dt>
-        <dd>{{ member.ssn ?? 'No SSN' }}</dd>
+        <dd>{{ member.ssn | formatSsn }}</dd>
       </dl>
-      <!--
-      <enroll-member-policy
-        *ngFor="let policy of member.policies"
-        [policy]="policy"
-      >
-      </enroll-member-policy> -->
-      <h2>Policies</h2>
 
+      <h2>Policies</h2>
       <details
         [open]="policy.status === 'Submitted'"
         class="policy-summary"
