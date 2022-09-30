@@ -12,10 +12,8 @@
         <dd>{{ member.gender }}</dd>
         <dt>DOB</dt>
         <dd>{{ member.dob | date: 'M/d/yy' }}</dd>
-        <ng-container *ngIf="member.ssn">
-          <dt>SSN</dt>
-          <dd>{{ member.ssn }}</dd>
-        </ng-container>
+        <dt>SSN</dt>
+        <dd>{{ member.ssn ?? 'No SSN' }}</dd>
       </dl>
       <!--
       <enroll-member-policy
