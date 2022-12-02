@@ -27,7 +27,7 @@ jobs:
             v3-${{ runner.os }}-node16-
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm i --force
+        run: npm i
       - name: Build Application(s)
         run: npx nx run console:build
       - name: Upload build artifact
