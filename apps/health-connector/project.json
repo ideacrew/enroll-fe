@@ -1,5 +1,4 @@
 {
-  "name": "health-connector",
   "projectType": "application",
   "sourceRoot": "apps/health-connector/src",
   "prefix": "enroll",
@@ -98,7 +97,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/health-connector"],
+      "outputs": ["coverage/apps/health-connector"],
       "options": {
         "jestConfig": "apps/health-connector/jest.config.ts",
         "passWithNoTests": true

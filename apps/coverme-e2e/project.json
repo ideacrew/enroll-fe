@@ -1,5 +1,4 @@
 {
-  "name": "coverme-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/coverme-e2e/src",
   "projectType": "application",

@@ -1,14 +1,11 @@
 {
-  "name": "financial-assistance-applications",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/applications/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/libs/financial-assistance/applications"
-      ],
+      "outputs": ["coverage/libs/financial-assistance/applications"],
       "options": {
         "jestConfig": "libs/financial-assistance/applications/jest.config.ts",
         "passWithNoTests": true

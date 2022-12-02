@@ -1,5 +1,4 @@
 {
-  "name": "console",
   "projectType": "application",
   "sourceRoot": "apps/console/src",
   "prefix": "enroll",
@@ -105,7 +104,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/console"],
+      "outputs": ["coverage/apps/console"],
       "options": {
         "jestConfig": "apps/console/jest.config.ts",
         "passWithNoTests": true

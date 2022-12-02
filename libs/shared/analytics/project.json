@@ -1,12 +1,11 @@
 {
-  "name": "shared-analytics",
   "projectType": "library",
   "sourceRoot": "libs/shared/analytics/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/shared/analytics"],
+      "outputs": ["coverage/libs/shared/analytics"],
       "options": {
         "jestConfig": "libs/shared/analytics/jest.config.ts",
         "passWithNoTests": true

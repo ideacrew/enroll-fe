@@ -1,12 +1,11 @@
 {
-  "name": "shared-i18n",
   "projectType": "library",
   "sourceRoot": "libs/shared/i18n/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/shared/i18n"],
+      "outputs": ["coverage/libs/shared/i18n"],
       "options": {
         "jestConfig": "libs/shared/i18n/jest.config.ts",
         "passWithNoTests": true
