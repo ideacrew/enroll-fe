@@ -25,9 +25,6 @@ jobs:
           key: v3-${{ runner.os }}-node16-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             v3-${{ runner.os }}-node16-
-      - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm i
       - name: Build Application(s)
         run: npx nx run console:build
       - name: Upload build artifact
