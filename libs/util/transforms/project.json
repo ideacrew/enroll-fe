@@ -1,11 +1,12 @@
 {
+  "name": "util-transforms",
   "projectType": "library",
   "sourceRoot": "libs/util/transforms/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/util/transforms"],
+      "outputs": ["{workspaceRoot}/coverage/libs/util/transforms"],
       "options": {
         "jestConfig": "libs/util/transforms/jest.config.ts",
         "passWithNoTests": true

@@ -7,11 +7,11 @@ export class ConfigService {
   baseApiUrl = `https://preprod-console-api.cme.openhbx.org`;
 
   constructor() {
-    const [envService, client] = window.location.host.split('.');
+    const [environmentService, client] = window.location.host.split('.');
 
-    const [env, service] = envService.split('-');
+    const [environmentName, service] = environmentService.split('-');
 
-    console.log({ env, service, client });
+    console.log({ env: environmentName, service, client });
 
     // this.baseApiUrl = `https://${env}-${service}-api.${client}.openhbx.org`;
   }

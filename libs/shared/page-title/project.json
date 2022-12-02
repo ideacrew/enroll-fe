@@ -1,11 +1,12 @@
 {
+  "name": "shared-page-title",
   "projectType": "library",
   "sourceRoot": "libs/shared/page-title/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/page-title"],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/page-title"],
       "options": {
         "jestConfig": "libs/shared/page-title/jest.config.ts",
         "passWithNoTests": true
