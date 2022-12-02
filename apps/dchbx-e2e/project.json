@@ -1,5 +1,4 @@
 {
-  "name": "dchbx-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/dchbx-e2e/src",
   "projectType": "application",

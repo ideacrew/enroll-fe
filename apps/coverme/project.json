@@ -1,5 +1,4 @@
 {
-  "name": "coverme",
   "projectType": "application",
   "sourceRoot": "apps/coverme/src",
   "prefix": "enroll",
@@ -93,7 +92,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/coverme"],
+      "outputs": ["coverage/apps/coverme"],
       "options": {
         "jestConfig": "apps/coverme/jest.config.ts",
         "passWithNoTests": true

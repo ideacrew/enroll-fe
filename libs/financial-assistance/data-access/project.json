@@ -1,14 +1,11 @@
 {
-  "name": "financial-assistance-data-access",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/data-access/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/libs/financial-assistance/data-access"
-      ],
+      "outputs": ["coverage/libs/financial-assistance/data-access"],
       "options": {
         "jestConfig": "libs/financial-assistance/data-access/jest.config.ts",
         "passWithNoTests": true

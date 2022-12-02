@@ -1,12 +1,11 @@
 {
-  "name": "shared-state-root-store",
   "projectType": "library",
   "sourceRoot": "libs/shared/state/root-store/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/shared/state/root-store"],
+      "outputs": ["coverage/libs/shared/state/root-store"],
       "options": {
         "jestConfig": "libs/shared/state/root-store/jest.config.ts",
         "passWithNoTests": true

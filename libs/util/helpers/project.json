@@ -1,12 +1,11 @@
 {
-  "name": "util-helpers",
   "projectType": "library",
   "sourceRoot": "libs/util/helpers/src",
   "prefix": "enroll",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/util/helpers"],
+      "outputs": ["coverage/libs/util/helpers"],
       "options": {
         "jestConfig": "libs/util/helpers/jest.config.ts",
         "passWithNoTests": true
