@@ -1,4 +1,5 @@
 {
+  "name": "financial-assistance-data-access",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/data-access/src",
   "prefix": "enroll",

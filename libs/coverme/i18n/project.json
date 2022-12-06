@@ -1,4 +1,5 @@
 {
+  "name": "coverme-i18n",
   "projectType": "library",
   "sourceRoot": "libs/coverme/i18n/src",
   "prefix": "enroll",

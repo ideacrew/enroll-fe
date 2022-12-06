@@ -1,4 +1,5 @@
 {
+  "name": "ui-base-shell",
   "projectType": "library",
   "sourceRoot": "libs/ui/base/shell/src",
   "prefix": "enroll",

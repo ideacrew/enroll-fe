@@ -1,4 +1,5 @@
 {
+  "name": "console",
   "projectType": "application",
   "sourceRoot": "apps/console/src",
   "prefix": "enroll",

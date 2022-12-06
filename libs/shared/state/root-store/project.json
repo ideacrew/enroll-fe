@@ -1,4 +1,5 @@
 {
+  "name": "shared-state-root-store",
   "projectType": "library",
   "sourceRoot": "libs/shared/state/root-store/src",
   "prefix": "enroll",

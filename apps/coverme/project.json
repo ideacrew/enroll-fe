@@ -1,4 +1,5 @@
 {
+  "name": "coverme",
   "projectType": "application",
   "sourceRoot": "apps/coverme/src",
   "prefix": "enroll",

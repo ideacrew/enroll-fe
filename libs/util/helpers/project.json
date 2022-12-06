@@ -1,4 +1,5 @@
 {
+  "name": "util-helpers",
   "projectType": "library",
   "sourceRoot": "libs/util/helpers/src",
   "prefix": "enroll",

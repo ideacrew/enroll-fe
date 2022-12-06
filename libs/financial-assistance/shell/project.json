@@ -1,4 +1,5 @@
 {
+  "name": "financial-assistance-shell",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/shell/src",
   "prefix": "enroll",

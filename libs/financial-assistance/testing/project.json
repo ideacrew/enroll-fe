@@ -1,4 +1,5 @@
 {
+  "name": "financial-assistance-testing",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/testing/src",
   "prefix": "enroll",

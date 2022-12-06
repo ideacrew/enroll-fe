@@ -1,4 +1,5 @@
 {
+  "name": "shared-analytics",
   "projectType": "library",
   "sourceRoot": "libs/shared/analytics/src",
   "prefix": "enroll",

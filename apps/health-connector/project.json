@@ -1,4 +1,5 @@
 {
+  "name": "health-connector",
   "projectType": "application",
   "sourceRoot": "apps/health-connector/src",
   "prefix": "enroll",

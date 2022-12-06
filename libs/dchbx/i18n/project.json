@@ -1,4 +1,5 @@
 {
+  "name": "dchbx-i18n",
   "projectType": "library",
   "sourceRoot": "libs/dchbx/i18n/src",
   "prefix": "enroll",

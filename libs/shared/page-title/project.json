@@ -1,4 +1,5 @@
 {
+  "name": "shared-page-title",
   "projectType": "library",
   "sourceRoot": "libs/shared/page-title/src",
   "prefix": "enroll",

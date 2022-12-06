@@ -1,4 +1,5 @@
 {
+  "name": "financial-assistance-store-applicants",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/store/applicants/src",
   "prefix": "enroll",

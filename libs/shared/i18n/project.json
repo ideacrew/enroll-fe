@@ -1,4 +1,5 @@
 {
+  "name": "shared-i18n",
   "projectType": "library",
   "sourceRoot": "libs/shared/i18n/src",
   "prefix": "enroll",

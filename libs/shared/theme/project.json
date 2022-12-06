@@ -1,4 +1,5 @@
 {
+  "name": "shared-theme",
   "projectType": "library",
   "sourceRoot": "libs/shared/theme/src",
   "prefix": "enroll",

@@ -1,4 +1,5 @@
 {
+  "name": "util-transforms",
   "projectType": "library",
   "sourceRoot": "libs/util/transforms/src",
   "prefix": "enroll",

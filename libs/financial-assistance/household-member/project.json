@@ -1,4 +1,5 @@
 {
+  "name": "financial-assistance-household-member",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/household-member/src",
   "prefix": "enroll",

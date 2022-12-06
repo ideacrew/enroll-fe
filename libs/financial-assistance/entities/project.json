@@ -1,4 +1,5 @@
 {
+  "name": "financial-assistance-entities",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/entities/src",
   "prefix": "enroll",
