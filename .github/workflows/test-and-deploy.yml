@@ -1,9 +1,7 @@
 name: test and deploy front end
 
 on:
-  push:
-    branches:
-      - bob
+  workflow_dispatch:
 
 concurrency:
   group: qb-${{ github.ref }}
@@ -18,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
         with:
           main-branch-name: 'trunk'
       - uses: actions/setup-node@v3
@@ -36,7 +34,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
         with:
           main-branch-name: 'trunk'
       - uses: actions/setup-node@v3
@@ -55,7 +53,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
         with:
           main-branch-name: 'trunk'
       - uses: actions/setup-node@v3
@@ -73,7 +71,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
         with:
           main-branch-name: 'trunk'
       - uses: actions/setup-node@v3
@@ -84,7 +82,7 @@ jobs:
       - name: Build Application(s)
         run: npx nx affected --target=build --parallel=3
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: affected-apps
           path: dist/apps
@@ -97,12 +95,12 @@ jobs:
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
         with:
           main-branch-name: 'trunk'
       - name: Download artifact
         id: download-artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         continue-on-error: true
         with:
           name: affected-apps
