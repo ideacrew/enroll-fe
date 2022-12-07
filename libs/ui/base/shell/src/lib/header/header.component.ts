@@ -9,6 +9,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() phoneNumber = '';
   @Input() tty = '';
+  @Input() tenant = 'me';
 
   get fullPhone(): string {
     return this.tty.length > 0

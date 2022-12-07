@@ -17,9 +17,37 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/slcsp-calculator/src/favicon.ico",
-          "apps/slcsp-calculator/src/assets"
+          "apps/slcsp-calculator/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/icons",
+            "output": "/assets/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/i18n/src/lib/assets/i18n",
+            "output": "/assets/i18n"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/fonts",
+            "output": "/assets/fonts"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/logos",
+            "output": "/assets/logos"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/config",
+            "output": "/tenant-config"
+          }
         ],
-        "styles": ["apps/slcsp-calculator/src/styles.scss"],
+        "styles": [
+          "libs/shared/theme/src/lib/styles/global.scss",
+          "apps/slcsp-calculator/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
