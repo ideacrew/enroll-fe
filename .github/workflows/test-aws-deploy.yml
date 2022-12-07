@@ -41,7 +41,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Download artifact
         id: download-artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         continue-on-error: true
         with:
           name: affected-apps
