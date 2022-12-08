@@ -28,8 +28,8 @@ export class TenantConfigService {
     return this.http
       .get<TenantConfig>(`/tenant-config/${this.tenant}.json`)
       .pipe(
-        map((colorConfig) => {
-          this.setCustomProperties(colorConfig);
+        map((tenantConfig) => {
+          this.setCustomProperties(tenantConfig);
           return true;
         }),
         catchError((error) => {
