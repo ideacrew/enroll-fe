@@ -4,13 +4,13 @@ import { catchError, map, Observable, of } from 'rxjs';
 
 export type TenantName = 'me' | 'dc' | 'ma';
 
-export type ColorConfig = Record<string, string>;
+export type TenantConfig = Record<string, string>;
 
 export const configFactory = (
   config: TenantConfigService
   // eslint-disable-next-line arrow-body-style
 ): (() => Observable<boolean>) => {
-  return () => config.loadAndSetColors();
+  return () => config.loadAndSetConfig();
 };
 
 @Injectable({
@@ -24,9 +24,9 @@ export class TenantConfigService {
     console.log({ host });
   }
 
-  loadAndSetColors(): Observable<boolean> {
+  loadAndSetConfig(): Observable<boolean> {
     return this.http
-      .get<ColorConfig>(`/tenant-config/${this.tenant}-colors.json`)
+      .get<TenantConfig>(`/tenant-config/${this.tenant}.json`)
       .pipe(
         map((colorConfig) => {
           this.setCustomProperties(colorConfig);
@@ -43,7 +43,7 @@ export class TenantConfigService {
     this.tenant = 'me';
   }
 
-  setCustomProperties(config: ColorConfig) {
+  setCustomProperties(config: TenantConfig) {
     for (const [key, value] of Object.entries(config)) {
       document.documentElement.style.setProperty(key, value);
     }
