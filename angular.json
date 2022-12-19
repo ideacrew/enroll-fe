@@ -7,8 +7,6 @@
     "coverme": "apps/coverme",
     "coverme-e2e": "apps/coverme-e2e",
     "coverme-i18n": "libs/coverme/i18n",
-    "dchbx": "apps/dchbx",
-    "dchbx-e2e": "apps/dchbx-e2e",
     "dchbx-i18n": "libs/dchbx/i18n",
     "financial-assistance-applicant": "libs/financial-assistance/applicant",
     "financial-assistance-applications": "libs/financial-assistance/applications",
