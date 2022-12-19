@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'trunk'
+      - 'test-client-deploy'
 
 concurrency:
   group: qb-${{ github.ref }}
@@ -121,10 +122,27 @@ jobs:
           name: affected-apps
           path: dist/apps
   deploy:
+    strategy:
+      matrix:
+        client: [ic, me]
     name: Deploy affected applications
     needs: [format, lint, test, build]
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-region: us-east-1
+        if: matrix.client == 'ic'
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.ME_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.ME_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+        if: matrix.client == 'me'
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -152,11 +170,5 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
-          aws-region: us-east-1
       - name: run many deployments
         run: npx nx affected --target=deploy:dev
