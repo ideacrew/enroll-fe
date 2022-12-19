@@ -1,19 +1,19 @@
 {
-  "name": "coverme-e2e",
+  "name": "enroll-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/coverme-e2e/src",
+  "sourceRoot": "apps/enroll-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/coverme-e2e/cypress.config.ts",
-        "devServerTarget": "coverme:serve:development",
+        "cypressConfig": "apps/enroll-e2e/cypress.config.ts",
+        "devServerTarget": "enroll:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "coverme:serve:production"
+          "devServerTarget": "enroll:serve:production"
         }
       }
     },
@@ -21,10 +21,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/coverme-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/enroll-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["coverme", "shared-theme"]
+  "implicitDependencies": ["enroll", "shared-theme"]
 }

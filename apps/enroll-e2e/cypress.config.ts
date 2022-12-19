@@ -5,9 +5,9 @@ const cypressJsonConfig = {
   chromeWebSecurity: false,
   fileServerFolder: '.',
   fixturesFolder: './src/fixtures',
-  screenshotsFolder: '../../dist/cypress/apps/coverme-e2e/screenshots',
+  screenshotsFolder: '../../dist/cypress/apps/enroll-e2e/screenshots',
   video: false,
-  videosFolder: '../../dist/cypress/apps/coverme-e2e/videos',
+  videosFolder: '../../dist/cypress/apps/enroll-e2e/videos',
   specPattern: 'src/e2e/**/*.cy.{js,jsx,ts,tsx}',
   supportFile: 'src/support/e2e.ts',
 };

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 export default {
-  displayName: 'coverme',
+  displayName: 'enroll',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/coverme',
+  coverageDirectory: '../../coverage/apps/enroll',
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

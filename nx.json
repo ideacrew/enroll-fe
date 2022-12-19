@@ -29,7 +29,7 @@
   "cli": {
     "packageManager": "npm"
   },
-  "defaultProject": "coverme",
+  "defaultProject": "enroll",
   "generators": {
     "@nrwl/angular:application": {
       "style": "scss",
