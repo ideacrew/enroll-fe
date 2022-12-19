@@ -120,6 +120,18 @@
         "jestConfig": "apps/slcsp-calculator/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy:dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [".github/scripts/slcsp-dev.sh"]
+      }
+    },
+    "deploy:prod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [".github/scripts/slcsp-prod.sh"]
+      }
     }
   },
   "tags": []

@@ -1,7 +1,9 @@
 name: test and deploy front end
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - 'trunk'
 
 concurrency:
   group: qb-${{ github.ref }}
@@ -22,8 +24,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
-      - run: npm ci
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
       - name: Check formatting
         run: npx nx format:check
   lint:
@@ -40,8 +50,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
-      - run: npm ci
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
       - name: Lint Application(s)
         run: npx nx workspace-lint
       - run: npx nx affected --target=lint --parallel=3
@@ -59,8 +77,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
-      - run: npm ci
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
       - name: Test Application(s)
         run: npx nx affected --target=test --parallel=3 --ci
   build:
@@ -77,8 +103,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
-      - run: npm ci
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
       - name: Build Application(s)
         run: npx nx affected --target=build --parallel=3
       - name: Upload build artifact
@@ -108,13 +142,21 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
-      - run: npm ci
-      - name: run many deployments
-        run: npx nx affected --target=deploy --token=${{ secrets.FIREBASE_TOKEN }}
-      - name: print log
-        uses: actions/upload-artifact@v3
-        if: failure()
+      - uses: actions/cache@v3
+        id: npm-cache
         with:
-          name: firebase-log
-          path: /home/runner/.npm/_logs
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-region: us-east-1
+      - name: run many deployments
+        run: npx nx affected --target=deploy:dev
