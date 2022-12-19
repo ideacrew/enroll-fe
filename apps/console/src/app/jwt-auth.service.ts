@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export interface JwtValues {
   token: string;
   refreshToken: string;
