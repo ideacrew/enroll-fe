@@ -22,7 +22,9 @@
         fill="white"
       />
     </svg>
-    <span>{{ userName }}</span>
+    <a routerLink="/login" class="logout-link" (click)="logout()">{{
+      userName
+    }}</a>
   </div>
 </div>
 <main>

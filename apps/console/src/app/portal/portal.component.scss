@@ -46,6 +46,11 @@
   border-top: 5px solid var(--theme-primary-100);
 }
 
+.logout-link {
+  color: white;
+  text-decoration: none;
+}
+
 .nav {
   grid-area: nav;
   padding: 0 1.5rem;

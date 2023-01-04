@@ -68,6 +68,11 @@ export class AuthService {
       });
   }
 
+  logout(): void {
+    this.token = undefined;
+    this.jwtChecker.clearJwt();
+  }
+
   refresh(): void {
     this.http
       .post<TokenResponse>(
