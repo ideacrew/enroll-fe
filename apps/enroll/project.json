@@ -94,7 +94,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/enroll"],
+      "outputs": ["{workspaceRoot}/coverage/apps/enroll"],
       "options": {
         "jestConfig": "apps/enroll/jest.config.ts",
         "passWithNoTests": true
