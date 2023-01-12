@@ -170,4 +170,4 @@ export const vlpDocumentKind = [
   'Other (With I-94 Number)',
 ] as const;
 
-export type VlpDocumentKind = typeof vlpDocumentKind[number];
+export type VlpDocumentKind = (typeof vlpDocumentKind)[number];

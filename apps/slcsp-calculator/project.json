@@ -64,12 +64,6 @@
               "maximumError": "4kb"
             }
           ],
-          "fileReplacements": [
-            {
-              "replace": "apps/slcsp-calculator/src/environments/environment.ts",
-              "with": "apps/slcsp-calculator/src/environments/environment.prod.ts"
-            }
-          ],
           "outputHashing": "all"
         },
         "development": {
@@ -115,7 +109,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/slcsp-calculator"],
+      "outputs": ["{workspaceRoot}/coverage/apps/slcsp-calculator"],
       "options": {
         "jestConfig": "apps/slcsp-calculator/jest.config.ts",
         "passWithNoTests": true

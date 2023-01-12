@@ -22,4 +22,4 @@ export const relationships = [
   'grandparent',
 ] as const;
 
-export type RelationshipKind = typeof relationships[number];
+export type RelationshipKind = (typeof relationships)[number];

@@ -21,11 +21,11 @@ export interface Benefit {
 
 export const benefitStatus = ['is_eligible', 'is_enrolled'] as const;
 
-export type BenefitStatusKind = typeof benefitStatus[number];
+export type BenefitStatusKind = (typeof benefitStatus)[number];
 
 export const esiCovered = ['self', 'self_and_spouse', 'family'] as const;
 
-export type EsiCoveredKind = typeof esiCovered[number];
+export type EsiCoveredKind = (typeof esiCovered)[number];
 
 export type EmployeeCostFrequency = Frequency;
 
@@ -55,4 +55,4 @@ export const benefit = [
   'peace_corps_health_benefits',
 ] as const;
 
-export type BenefitKind = typeof benefit[number];
+export type BenefitKind = (typeof benefit)[number];

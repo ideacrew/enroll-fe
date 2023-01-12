@@ -22,4 +22,4 @@ export const phoneKind = [
   'main',
 ] as const;
 
-export type PhoneKind = typeof phoneKind[number];
+export type PhoneKind = (typeof phoneKind)[number];

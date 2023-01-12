@@ -17,4 +17,4 @@ export const citizenKinds = [
   'non_native_citizen',
 ] as const;
 
-export type CitizenKind = typeof citizenKinds[number];
+export type CitizenKind = (typeof citizenKinds)[number];

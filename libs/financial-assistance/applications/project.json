@@ -6,7 +6,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/financial-assistance/applications"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/financial-assistance/applications"
+      ],
       "options": {
         "jestConfig": "libs/financial-assistance/applications/jest.config.ts",
         "passWithNoTests": true

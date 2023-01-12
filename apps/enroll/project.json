@@ -49,12 +49,6 @@
               "maximumError": "4kb"
             }
           ],
-          "fileReplacements": [
-            {
-              "replace": "apps/enroll/src/environments/environment.ts",
-              "with": "apps/enroll/src/environments/environment.prod.ts"
-            }
-          ],
           "outputHashing": "all"
         },
         "development": {
@@ -94,7 +88,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/enroll"],
+      "outputs": ["{workspaceRoot}/coverage/apps/enroll"],
       "options": {
         "jestConfig": "apps/enroll/jest.config.ts",
         "passWithNoTests": true

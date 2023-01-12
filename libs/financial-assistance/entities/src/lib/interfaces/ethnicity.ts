@@ -16,7 +16,7 @@ export const ethnicities = [
   'Other',
 ] as const;
 
-export type NonLatinEthnicityKind = typeof ethnicities[number];
+export type NonLatinEthnicityKind = (typeof ethnicities)[number];
 
 export const latinEthnicities = [
   'Mexican',
@@ -27,6 +27,6 @@ export const latinEthnicities = [
   'Other',
 ] as const;
 
-export type LatinEthnicityKind = typeof latinEthnicities[number];
+export type LatinEthnicityKind = (typeof latinEthnicities)[number];
 
 export type EthnicityKind = NonLatinEthnicityKind | LatinEthnicityKind;

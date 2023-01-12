@@ -108,22 +108,28 @@ export class ImmigrationDocumentComponent {
   // Convert to pipe
   expirationDateLabel(document: VlpDocumentKind): string {
     switch (document) {
-      case 'I-327 (Reentry Permit)':
+      case 'I-327 (Reentry Permit)': {
         return 'I-327';
-      case 'I-551 (Permanent Resident Card)':
+      }
+      case 'I-551 (Permanent Resident Card)': {
         return 'I-551';
+      }
 
-      case 'I-571 (Refugee Travel Document)':
+      case 'I-571 (Refugee Travel Document)': {
         return 'I-571';
+      }
 
-      case 'I-766 (Employment Authorization Card)':
+      case 'I-766 (Employment Authorization Card)': {
         return 'I-766';
+      }
 
-      case 'Machine Readable Immigrant Visa (with Temporary I-551 Language)':
+      case 'Machine Readable Immigrant Visa (with Temporary I-551 Language)': {
         return 'Temporary I-551';
+      }
 
-      case 'Temporary I-551 Stamp (on passport or I-94)':
+      case 'Temporary I-551 Stamp (on passport or I-94)': {
         return 'Temporary I-551 Stamp';
+      }
 
       case 'I-94 (Arrival/Departure Record)':
       case 'I-94 (Arrival/Departure Record) in Unexpired Foreign Passport':
@@ -131,11 +137,13 @@ export class ImmigrationDocumentComponent {
       case 'I-20 (Certificate of Eligibility for Nonimmigrant (F-1) Student Status)':
       case 'DS2019 (Certificate of Eligibility for Exchange Visitor (J-1) Status)':
       case 'Other (With Alien Number)':
-      case 'Other (With I-94 Number)':
+      case 'Other (With I-94 Number)': {
         return 'Passport';
+      }
 
-      default:
+      default: {
         return '';
+      }
     }
   }
 }

@@ -10,7 +10,7 @@
         <dt>Gender</dt>
         <dd>{{ member.gender }}</dd>
         <dt>DOB</dt>
-        <dd>{{ member.dob | date: 'M/d/yy' }}</dd>
+        <dd>{{ member.dob | date : 'M/d/yy' }}</dd>
         <dt>SSN</dt>
         <dd>{{ member.ssn | formatSsn }}</dd>
       </dl>
@@ -19,7 +19,7 @@
       <details
         [open]="policy.status === 'Submitted'"
         class="policy-summary"
-        *ngFor="let policy of member.policies | sortByStatus: 'Submitted'"
+        *ngFor="let policy of member.policies | sortByStatus : 'Submitted'"
       >
         <summary>
           <ng-container
