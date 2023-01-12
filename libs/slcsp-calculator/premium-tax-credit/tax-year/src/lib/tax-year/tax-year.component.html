@@ -1,1 +1,29 @@
-<p>tax-year works!</p>
+<h1>What year do you need information for?</h1>
+<p>
+  The reason that only one year appears in the list of options is because this
+  is the first year that this service is available. As a result, only the
+  current year, 2022, is available to select.
+</p>
+<p>
+  If you need to calculate your SLCSP premiums for a previous year, please visit
+  the
+  <a href="https://www.healthcare.gov/tax-tool/#/">Tax Tool at HealthCare.gov</a
+  >.
+</p>
+<form>
+  <fieldset>
+    <legend><span>What tax year are you working on?</span></legend>
+    <input
+      id="year-select-22"
+      type="radio"
+      name="year-select"
+      value="2022"
+      checked
+    />
+    <label for="year-select-22">2022</label>
+  </fieldset>
+
+  <button class="ea-button" type="button" (click)="navigateToHousehold()">
+    Continue
+  </button>
+</form>
