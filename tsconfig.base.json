@@ -51,6 +51,9 @@
       "@enroll/slcsp-calculator/data-access": [
         "libs/slcsp-calculator/data-access/src/index.ts"
       ],
+      "@enroll/slcsp-calculator/premium-tax-credit": [
+        "libs/slcsp-calculator/premium-tax-credit/src/index.ts"
+      ],
       "@enroll/slcsp-calculator/shell": [
         "libs/slcsp-calculator/shell/src/index.ts"
       ],

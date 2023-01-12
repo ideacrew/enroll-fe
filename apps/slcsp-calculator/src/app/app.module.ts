@@ -28,6 +28,13 @@ export function initializeJsonFile(jsonFileLoader: JsonFileLoaderService) {
               (m) => m.SlcspCalculatorShellModule
             ),
         },
+        {
+          path: 'premium-tax-credit',
+          loadChildren: () =>
+            import('@enroll/slcsp-calculator/premium-tax-credit').then(
+              (m) => m.SlcspCalculatorPremiumTaxCreditModule
+            ),
+        },
       ],
       { initialNavigation: 'enabledBlocking' }
     ),
