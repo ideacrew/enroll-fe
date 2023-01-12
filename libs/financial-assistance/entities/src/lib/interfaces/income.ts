@@ -52,7 +52,7 @@ export const otherIncome = [
   'income_from_irs',
 ] as const;
 
-export type OtherIncomeKind = typeof otherIncome[number];
+export type OtherIncomeKind = (typeof otherIncome)[number];
 
 export type IncomeKind =
   | EmployerIncomeKind

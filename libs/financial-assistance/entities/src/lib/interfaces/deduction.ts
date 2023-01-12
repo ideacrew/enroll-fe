@@ -28,6 +28,6 @@ export const deduction = [
   'tuition_and_fees',
 ];
 
-export type DeductionKind = typeof deduction[number];
+export type DeductionKind = (typeof deduction)[number];
 
 export type DeductionFrequency = Frequency;

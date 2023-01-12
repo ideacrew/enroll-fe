@@ -60,4 +60,4 @@ export const usStateAbbreviation = [
   'WY',
 ] as const;
 
-export type UsStateAbbreviationKind = typeof usStateAbbreviation[number];
+export type UsStateAbbreviationKind = (typeof usStateAbbreviation)[number];

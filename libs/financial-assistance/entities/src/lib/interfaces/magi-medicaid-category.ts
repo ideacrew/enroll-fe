@@ -9,4 +9,4 @@ export const magiMedicaidCategory = [
   'unborn_child',
 ] as const;
 
-export type MagiMedicaidCategory = typeof magiMedicaidCategory[number];
+export type MagiMedicaidCategory = (typeof magiMedicaidCategory)[number];

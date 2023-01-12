@@ -20,8 +20,8 @@
         </td>
         <td>{{ enrollee.relationship }}</td>
         <td>
-          {{ enrollee.coverage_start | date: 'M/d/yy' }}
-          - {{ (enrollee.coverage_end | date: 'M/d/yy') ?? 'Current' }}
+          {{ enrollee.coverage_start | date : 'M/d/yy' }}
+          - {{ (enrollee.coverage_end | date : 'M/d/yy') ?? 'Current' }}
         </td>
         <td>{{ enrollee.carrier_member_id }}</td>
         <td>{{ enrollee.carrier_policy_id }}</td>
@@ -61,8 +61,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let aptc of policy.premium_credits">
-        <td>{{ aptc.start_on | date: 'M/d/yy' }}</td>
-        <td>{{ aptc.end_on | date: 'M/d/yy' }}</td>
+        <td>{{ aptc.start_on | date : 'M/d/yy' }}</td>
+        <td>{{ aptc.end_on | date : 'M/d/yy' }}</td>
         <td class="numeric">{{ aptc.total | currency }}</td>
         <td class="numeric">{{ aptc.credit_amount | currency }}</td>
         <td class="numeric">{{ aptc.responsible_amount | currency }}</td>
@@ -93,7 +93,7 @@
           }}</a>
         </td>
         <td>{{ transaction.status }}</td>
-        <td>{{ transaction.submitted_at | date: 'M/d/yy' }}</td>
+        <td>{{ transaction.submitted_at | date : 'M/d/yy' }}</td>
       </tr>
     </tbody>
     <tfoot></tfoot>

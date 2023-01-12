@@ -7,4 +7,4 @@ export interface Email {
 }
 
 export const emailKind = ['home', 'work'] as const;
-export type EmailKind = typeof emailKind[number];
+export type EmailKind = (typeof emailKind)[number];

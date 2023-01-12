@@ -34,7 +34,7 @@ export const student = [
   'vocational_tech',
 ] as const;
 
-export type StudentKind = typeof student[number];
+export type StudentKind = (typeof student)[number];
 
 export const studentSchool = [
   'english_language_institute',
@@ -52,4 +52,4 @@ export const studentSchool = [
   'vocational',
 ];
 
-export type StudentSchoolKind = typeof studentSchool[number];
+export type StudentSchoolKind = (typeof studentSchool)[number];

@@ -10,7 +10,7 @@
       <dd>{{ transaction.reference_identification }}</dd>
       <dt>Transaction Date</dt>
       <dd>
-        {{ transaction.transaction_date | parseRawDate | date: 'M/d/yy' }}
+        {{ transaction.transaction_date | parseRawDate | date : 'M/d/yy' }}
       </dd>
       <dt>Transaction Time</dt>
       <dd>{{ transaction.transaction_time | parseRawTime }}</dd>

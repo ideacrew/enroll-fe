@@ -7,4 +7,4 @@ export const taxFiler = [
   'non_filer',
 ] as const;
 
-export type TaxFilerKind = typeof taxFiler[number];
+export type TaxFilerKind = (typeof taxFiler)[number];

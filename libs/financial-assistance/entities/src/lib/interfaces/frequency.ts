@@ -14,4 +14,4 @@ export const frequency = [
   'once',
 ] as const;
 
-export type Frequency = typeof frequency[number];
+export type Frequency = (typeof frequency)[number];
