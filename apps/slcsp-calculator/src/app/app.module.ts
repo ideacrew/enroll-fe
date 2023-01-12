@@ -19,7 +19,18 @@ export function initializeJsonFile(jsonFileLoader: JsonFileLoaderService) {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: '',
+          loadChildren: () =>
+            import('@enroll/slcsp-calculator/shell').then(
+              (m) => m.SlcspCalculatorShellModule
+            ),
+        },
+      ],
+      { initialNavigation: 'enabledBlocking' }
+    ),
     RootStoreModule,
     UiBaseShellModule,
     HttpClientModule,

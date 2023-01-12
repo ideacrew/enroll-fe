@@ -51,6 +51,9 @@
       "@enroll/slcsp-calculator/data-access": [
         "libs/slcsp-calculator/data-access/src/index.ts"
       ],
+      "@enroll/slcsp-calculator/shell": [
+        "libs/slcsp-calculator/shell/src/index.ts"
+      ],
       "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
       "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
       "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]

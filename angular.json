@@ -24,6 +24,7 @@
     "slcsp-calculator": "apps/slcsp-calculator",
     "slcsp-calculator-data-access": "libs/slcsp-calculator/data-access",
     "slcsp-calculator-e2e": "apps/slcsp-calculator-e2e",
+    "slcsp-calculator-shell": "libs/slcsp-calculator/shell",
     "ui-base-shell": "libs/ui/base/shell",
     "util-helpers": "libs/util/helpers",
     "util-transforms": "libs/util/transforms"
