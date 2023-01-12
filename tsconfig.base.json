@@ -54,6 +54,18 @@
       "@enroll/slcsp-calculator/premium-tax-credit": [
         "libs/slcsp-calculator/premium-tax-credit/src/index.ts"
       ],
+      "@enroll/slcsp-calculator/premium-tax-credit/household": [
+        "libs/slcsp-calculator/premium-tax-credit/household/src/index.ts"
+      ],
+      "@enroll/slcsp-calculator/premium-tax-credit/results": [
+        "libs/slcsp-calculator/premium-tax-credit/results/src/index.ts"
+      ],
+      "@enroll/slcsp-calculator/premium-tax-credit/review": [
+        "libs/slcsp-calculator/premium-tax-credit/review/src/index.ts"
+      ],
+      "@enroll/slcsp-calculator/premium-tax-credit/tax-year": [
+        "libs/slcsp-calculator/premium-tax-credit/tax-year/src/index.ts"
+      ],
       "@enroll/slcsp-calculator/shell": [
         "libs/slcsp-calculator/shell/src/index.ts"
       ],
