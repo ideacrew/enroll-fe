@@ -105,16 +105,10 @@
         "passWithNoTests": true
       }
     },
-    "deploy": {
+    "deploy:dev": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "dist/apps/console",
-        "commands": [
-          "aws s3 sync --acl public-read . s3://cme-console-{ args.env }/ --delete",
-          "invalidationId=`AWS_MAX_ATTEMPTS=999 aws cloudfront create-invalidation --distribution-id { args.cloudfrontId } --output text --query 'Invalidation.Id' --paths '/*'`",
-          "aws cloudfront wait invalidation-completed --distribution-id { args.cloudFrontId } --id ${invalidationId}"
-        ],
-        "parallel": false
+        "commands": [".github/scripts/console-dev.sh"]
       }
     }
   },
