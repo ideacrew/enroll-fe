@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HouseholdService } from './household.service';
 
@@ -6,7 +7,9 @@ describe('HouseholdService', () => {
   let service: HouseholdService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule],
+    });
     service = TestBed.inject(HouseholdService);
   });
 
