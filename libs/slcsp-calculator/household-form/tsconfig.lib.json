@@ -13,8 +13,5 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": [
-    "src/**/*.ts",
-    "../household-form/src/lib/household.service.spec.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

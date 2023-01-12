@@ -1,1 +1,73 @@
-<p>household works!</p>
+<h1>Tell us about your household</h1>
+<form>
+  <p>
+    Include in your household only members to whom ALL of the following apply.
+    The person:
+  </p>
+
+  <ul>
+    <li><strong>Will be</strong> included in your tax family for 2022</li>
+    <li><strong>And was</strong> enrolled in a 2022 CoverME.gov plan</li>
+    <li>
+      <strong>And wasn't</strong> eligible for coverage outside CoverME.gov for
+      at least one of the months they were enrolled in a CoverME.gov plan.
+      <p>
+        <strong>Note:</strong> “Coverage outside of CoverME.gov” includes
+        Medicare, MaineCare (Medicaid), or Cub Care (the Children's Health
+        Insurance Program), and job-based plans. It doesn't include individual
+        plans bought outside CoverME.gov.
+      </p>
+    </li>
+  </ul>
+  <p>
+    If you're unsure, see “Minimum Essential Coverage” in
+    <a href="https://www.irs.gov/publications/p974#en_US_2019_publink100023181">
+      IRS Publication 974, Premium Tax Credit (PTC) </a
+    >, for more information on when an individual is considered eligible for
+    coverage outside CoverME.gov.
+  </p>
+  <div class="form-element">
+    <label for="household-count">
+      <span
+        >How many people in your household meet all of the above
+        requirements?</span
+      >
+      <span>Be sure to include yourself if you meet all the requirements.</span>
+    </label>
+    <input type="number" name="household-count" id="household-count" />
+  </div>
+  <div class="form-element">
+    <fieldset>
+      <legend>
+        <span
+          ><span class=""
+            >Do all of these household members meet the requirements listed
+            above?</span
+          ></span
+        >
+      </legend>
+      <div class="radio-button">
+        <input
+          type="radio"
+          name="household-confirmation"
+          id="household-confirmation-yes"
+          value="true"
+        />
+        <label for="household-confirmation-yes">Yes</label>
+      </div>
+      <div class="radio-button">
+        <input
+          type="radio"
+          name="household-confirmation"
+          id="household-confirmation-no"
+          value="false"
+        />
+        <label for="household-confirmation-no">No</label>
+      </div>
+    </fieldset>
+  </div>
+
+  <button class="ea-button" type="button" (click)="navigateToMemberDetails()">
+    Continue
+  </button>
+</form>
