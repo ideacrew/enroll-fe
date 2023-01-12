@@ -22,6 +22,7 @@
     "shared-state-root-store": "libs/shared/state/root-store",
     "shared-theme": "libs/shared/theme",
     "slcsp-calculator": "apps/slcsp-calculator",
+    "slcsp-calculator-data-access": "libs/slcsp-calculator/data-access",
     "slcsp-calculator-e2e": "apps/slcsp-calculator-e2e",
     "ui-base-shell": "libs/ui/base/shell",
     "util-helpers": "libs/util/helpers",
