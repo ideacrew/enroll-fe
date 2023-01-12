@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -22,8 +22,7 @@ import { CustomHandler } from './custom-handler';
         // Remove this option if your application
         // doesn't support changing language in runtime.
         reRenderOnLangChange: true,
-        // prodMode: environment.production,
-        prodMode: false,
+        prodMode: !isDevMode(),
       }),
     },
     { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader },

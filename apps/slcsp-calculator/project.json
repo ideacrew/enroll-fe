@@ -64,12 +64,6 @@
               "maximumError": "4kb"
             }
           ],
-          "fileReplacements": [
-            {
-              "replace": "apps/slcsp-calculator/src/environments/environment.ts",
-              "with": "apps/slcsp-calculator/src/environments/environment.prod.ts"
-            }
-          ],
           "outputHashing": "all"
         },
         "development": {
