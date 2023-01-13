@@ -1,20 +1,16 @@
 import { defineConfig } from 'cypress';
 import { nxE2EPreset } from '@nrwl/cypress/plugins/cypress-preset';
 
-const cypressJsonConfig = {
-  chromeWebSecurity: false,
-  fileServerFolder: '.',
-  fixturesFolder: './src/fixtures',
-  screenshotsFolder: '../../dist/cypress/apps/enroll-e2e/screenshots',
-  video: false,
-  videosFolder: '../../dist/cypress/apps/enroll-e2e/videos',
-  specPattern: 'src/e2e/**/*.cy.{js,jsx,ts,tsx}',
-  supportFile: 'src/support/e2e.ts',
-};
 export default defineConfig({
   e2e: {
     // eslint-disable-next-line unicorn/prefer-module
-    ...nxE2EPreset(__filename),
-    ...cypressJsonConfig,
+    ...nxE2EPreset(__dirname),
+    /**
+     * TODO(@nrwl/cypress): In Cypress v12,the testIsolation option is turned on by default.
+     * This can cause tests to start breaking where not indended.
+     * You should consider enabling this once you verify tests do not depend on each other
+     * More Info: https://docs.cypress.io/guides/references/migration-guide#Test-Isolation
+     **/
+    testIsolation: false,
   },
 });
