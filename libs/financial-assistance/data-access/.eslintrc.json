@@ -5,9 +5,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "libs/financial-assistance/data-access/tsconfig.*?.json"
-        ]
+        "project": ["libs/financial-assistance/data-access/tsconfig.*?.json"]
       },
       "extends": [
         "plugin:@nrwl/nx/angular",
