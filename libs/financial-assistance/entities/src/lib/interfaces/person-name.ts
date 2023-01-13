@@ -8,4 +8,4 @@ export type PersonName = {
   name_pfx?: string;
   full_name?: string;
   alternate_name?: string;
-}
+};

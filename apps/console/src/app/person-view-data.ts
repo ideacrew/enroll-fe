@@ -6,7 +6,7 @@ export type DateString = string;
 export type Carrier = {
   id: string;
   name: string;
-}
+};
 
 export type Plan = {
   id: string;
@@ -14,18 +14,18 @@ export type Plan = {
   name: string;
   product_kind: string;
   carrier: Carrier;
-}
+};
 
 export type PolicyResponsibleParty = {
   responsible_party_id: string;
   person_name: PersonName;
-}
+};
 
 export type ResponsibleParty = {
   id: string;
   person_name: PersonName;
   policies: Array<Policy>;
-}
+};
 
 export type PersonName = {
   first_name: string;
@@ -34,7 +34,7 @@ export type PersonName = {
   name_pfx?: string;
   name_sfx?: string;
   full_name?: string;
-}
+};
 
 export type Member = {
   hbx_member_id: string;
@@ -42,7 +42,7 @@ export type Member = {
   gender: string;
   ssn?: string;
   policies: Array<Policy>;
-}
+};
 
 // This is the top level object returned for a person resource.
 // Comes from GET /transaction_management/people/<person_id>
@@ -51,7 +51,7 @@ export type Person = {
   person_name: PersonName;
   members: Array<Member>;
   responsible_parties: Array<ResponsibleParty>;
-}
+};
 
 export type PremiumCredit = {
   start_on: DateString;
@@ -60,7 +60,7 @@ export type PremiumCredit = {
   credit_amount: number;
   total: number;
   responsible_amount: number;
-}
+};
 
 export type Enrollee = {
   person_id: string;
@@ -74,14 +74,14 @@ export type Enrollee = {
   carrier_member_id?: string;
   carrier_policy_id?: string;
   relationship: string;
-}
+};
 
 export type Transaction = {
   id: string;
   kind: string;
   status: string;
   submitted_at: string;
-}
+};
 
 export type Policy = {
   credited_amount: number;
@@ -97,7 +97,7 @@ export type Policy = {
   total_amount: number;
   transactions: Array<Transaction>;
   status: string;
-}
+};
 
 export const defaultPolicy: Policy = {
   hbx_assigned_id: '',

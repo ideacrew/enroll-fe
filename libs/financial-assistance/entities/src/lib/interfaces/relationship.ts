@@ -6,7 +6,7 @@ export type Relationship = {
   applicant_reference: ApplicantReference;
   relative_reference: ApplicantReference;
   lives_with_household_member?: boolean;
-}
+};
 
 export const relationships = [
   'self',

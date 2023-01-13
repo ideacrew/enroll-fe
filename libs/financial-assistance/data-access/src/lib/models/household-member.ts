@@ -22,7 +22,7 @@ export type BaseHouseholdMember = {
   relationship: RelationshipKind;
   lives_with_primary: boolean;
   addresses?: Address[];
-}
+};
 
 export type NeedsCoverageHouseholdMember = {
   is_applying_coverage: true;
@@ -33,11 +33,11 @@ export type NeedsCoverageHouseholdMember = {
 
   indian_tribe_member: boolean;
   tribal_id?: string;
-} & BaseHouseholdMember
+} & BaseHouseholdMember;
 
 export type NoCoverageHouseholdMember = {
   is_applying_coverage: false;
-} & BaseHouseholdMember
+} & BaseHouseholdMember;
 
 export type NewHouseholdMember =
   | NeedsCoverageHouseholdMember

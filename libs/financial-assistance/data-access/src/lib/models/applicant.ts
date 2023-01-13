@@ -50,11 +50,11 @@ type BaseApplicant = {
   has_self_employment_income?: boolean;
   has_unemployment_income?: boolean;
   has_other_income?: boolean;
-}
+};
 
 export type NoCoverageApplicant = {
   is_applying_coverage: false;
-} & BaseApplicant
+} & BaseApplicant;
 
 export type NeedsCoverageApplicant = {
   is_applying_coverage: true;
@@ -110,6 +110,6 @@ export type NeedsCoverageApplicant = {
   has_enrolled_health_coverage?: boolean;
   has_eligible_health_coverage?: boolean;
   benefits?: Benefit[];
-} & BaseApplicant
+} & BaseApplicant;
 
 export type Applicant = NoCoverageApplicant | NeedsCoverageApplicant;

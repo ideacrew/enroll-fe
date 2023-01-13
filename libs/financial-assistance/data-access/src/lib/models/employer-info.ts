@@ -13,4 +13,4 @@ export type EmployerInfo = {
     kind: string;
     full_phone_number: string;
   };
-}
+};

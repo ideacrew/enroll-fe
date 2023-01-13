@@ -7,4 +7,4 @@ export type Address = {
   state: UsStateAbbreviationKind;
   zipcode: string;
   county?: string;
-}
+};

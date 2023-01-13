@@ -5,4 +5,4 @@ export type Demographic = {
   gender: GenderKind;
   dob: string;
   ethnicity: EthnicityKind[];
-}
+};

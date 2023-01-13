@@ -30,7 +30,7 @@ export type ApplicantsEntity = {
   tribal_id?: string;
   lives_with_primary?: boolean;
   is_incarcerated?: boolean;
-}
+};
 
 // export function isStaffWithDetail(
 //   staff: AgencyStaff | AgencyStaffWithDetail

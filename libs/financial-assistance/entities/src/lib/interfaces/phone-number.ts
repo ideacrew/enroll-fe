@@ -10,7 +10,7 @@ export type PhoneNumber = {
   full_phone_number?: string;
   start_on?: string; // Date
   end_on?: string; // Date
-}
+};
 
 export const phoneKind = [
   'home',

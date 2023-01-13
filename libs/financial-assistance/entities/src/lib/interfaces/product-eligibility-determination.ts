@@ -11,4 +11,4 @@ export type ProductEligibilityDetermination = {
   magi_medicaid_monthly_income_limit?: number;
   magi_as_percentage_of_fpl?: number;
   magi_medicaid_category?: boolean;
-}
+};

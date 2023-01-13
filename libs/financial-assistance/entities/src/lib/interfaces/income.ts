@@ -17,7 +17,7 @@ export type Income = {
   employer?: Employer;
   has_property_usage_rights?: boolean;
   submitted_at?: string; // Datetime
-}
+};
 
 export type IncomeFrequency = Frequency;
 

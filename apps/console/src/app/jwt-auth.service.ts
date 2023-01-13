@@ -3,7 +3,7 @@ export type JwtValues = {
   token: string;
   refreshToken: string;
   expiration: number;
-}
+};
 
 type JwtPayload = {
   exp: number;
@@ -17,7 +17,7 @@ type JwtPayload = {
   name: string;
   preferred_username: string;
   email: string;
-}
+};
 
 import jwt_decode from 'jwt-decode';
 

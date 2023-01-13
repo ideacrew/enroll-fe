@@ -9,14 +9,14 @@ export type Application = {
   startedOn: string;
   submittedOn?: string;
   determination?: string;
-}
+};
 export type ApplicationVM = {
   id: string;
   status: string;
   startedOn: Date;
   submittedOn?: Date;
   determination?: string;
-}
+};
 
 @Injectable({
   providedIn: 'root',

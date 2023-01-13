@@ -17,7 +17,7 @@ export type Benefit = {
   employee_cost_frequency?: EmployeeCostFrequency;
   end_on?: string; // date
   submitted_at?: string; // datetime
-}
+};
 
 export const benefitStatus = ['is_eligible', 'is_enrolled'] as const;
 

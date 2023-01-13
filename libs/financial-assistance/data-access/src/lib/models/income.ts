@@ -10,7 +10,7 @@ type BaseIncome = {
   amount: number;
   frequency_kind: IncomeFrequency;
   start_on: string;
-}
+};
 
 export type EmployerIncome = {
   kind: EmployerIncomeKind;
@@ -27,19 +27,19 @@ export type EmployerIncome = {
     kind: string;
     full_phone_number: string;
   };
-} & BaseIncome
+} & BaseIncome;
 
 export type SelfEmploymentIncome = {
   kind: SelfEmploymentIncome;
-} & BaseIncome
+} & BaseIncome;
 
 export type UnemploymentIncome = {
   kind: UnemploymentIncomeKind;
-} & BaseIncome
+} & BaseIncome;
 
 export type OtherIncome = {
   kind: OtherIncomeKind;
-} & BaseIncome
+} & BaseIncome;
 
 export type Income =
   | EmployerIncome

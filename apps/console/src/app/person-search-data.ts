@@ -7,25 +7,25 @@ export type PersonSearchRequest =
 
 export type PersonIdentifierQueryRequest = {
   q: string;
-}
+};
 
 export type PersonNameQueryRequest = {
   name: {
     first_name?: string;
     last_name?: string;
   };
-}
+};
 
 export type PlanSearchResult = {
   name: string;
   hios_plan_id: string;
-}
+};
 
 export type PolicySearchResult = {
   id: string;
   enrollee_count: number;
   plan: PlanSearchResult;
-}
+};
 
 export type MemberSearchResult = {
   id: string;
@@ -34,7 +34,7 @@ export type MemberSearchResult = {
   dob: string;
   gender: string;
   policies: PolicySearchResult[];
-}
+};
 
 export type PersonNamesResult = {
   name_pfx?: string;
@@ -43,13 +43,13 @@ export type PersonNamesResult = {
   last_name: string;
   first_name: string;
   full_name?: string;
-}
+};
 
 export type PersonSearchResult = {
   id: string;
   person_name: PersonNamesResult;
   members: MemberSearchResult[];
-}
+};
 
 export function isPersonMemberIdentifierSearchRequest(
   psq: PersonSearchRequest

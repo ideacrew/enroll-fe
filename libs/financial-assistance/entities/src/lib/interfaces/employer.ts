@@ -2,4 +2,4 @@
 export type Employer = {
   employer_name: string;
   employer_id: string;
-}
+};

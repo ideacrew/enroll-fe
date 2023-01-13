@@ -10,7 +10,7 @@ export type Deduction = {
   name?: string;
   end_on?: string; // date
   submitted_at: string; // datetime
-}
+};
 
 export const deduction = [
   'alimony_paid',

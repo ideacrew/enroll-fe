@@ -24,4 +24,4 @@ export type FinancialAssistanceApplication = {
   // TBD
   // mitc_households: MitcHousehold[];
   // mitc_tax_returns: MitcTaxReturn[];
-}
+};

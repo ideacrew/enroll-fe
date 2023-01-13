@@ -5,4 +5,4 @@ export type ApplicantReference = {
   dob: string;
   person_hbx_id: string; // update to family_member_hbx_id;
   encrypted_ssn: string;
-}
+};

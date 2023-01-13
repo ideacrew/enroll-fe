@@ -14,45 +14,45 @@ export type VlpBaseDocument = {
   expiration_date?: string; // Date
   issuing_country?: string;
   description?: string;
-}
+};
 
 type I327Document = {
   subject: 'I-327 (Reentry Permit)';
   alien_number: string;
   expiration_date: string;
-}
+};
 
 type I551Document = {
   subject: 'I-551 (Permanent Resident Card)';
   alien_number: string;
   card_number: string;
   expiration_date: string;
-}
+};
 
 type I571Document = {
   subject: 'I-571 (Refugee Travel Document)';
   alien_number: string;
   expiration_date: string;
-}
+};
 
 type I766Document = {
   subject: 'I-766 (Employment Authorization Card)';
   alien_number: string;
   card_number: string;
   expiration_date: string;
-}
+};
 
 type CertificateOfCitizenship = {
   subject: 'Certificate of Citizenship';
   alien_number: string;
   citizenship_number: string;
-}
+};
 
 type NaturalizationCertificate = {
   subject: 'Naturalization Certificate';
   alien_number: string;
   naturalization_number: string;
-}
+};
 
 type ImmigrantVisa = {
   subject: 'Machine Readable Immigrant Visa (with Temporary I-551 Language)';
@@ -61,7 +61,7 @@ type ImmigrantVisa = {
   passport_number: string;
   expiration_date: string;
   country_of_citizenship: string;
-}
+};
 
 type TemporaryI551Stamp = {
   subject: 'Temporary I-551 Stamp (on passport or I-94)';
@@ -69,7 +69,7 @@ type TemporaryI551Stamp = {
   passport_number: string;
   country_of_citizenship: string;
   expiration_date: string;
-}
+};
 
 type I94Document = {
   subject: 'I-94 (Arrival/Departure Record)';
@@ -77,7 +77,7 @@ type I94Document = {
   sevis_id: string;
   i94_number: string;
   expiration_date: string;
-}
+};
 
 type I194ForeignPassport = {
   subject: 'I-94 (Arrival/Departure Record) in Unexpired Foreign Passport';
@@ -86,7 +86,7 @@ type I194ForeignPassport = {
   i94_number: string;
   visa_number: string;
   expiration_date: string;
-}
+};
 
 type UnexpiredForeignPassport = {
   subject: 'Unexpired Foreign Passport';
@@ -95,7 +95,7 @@ type UnexpiredForeignPassport = {
   country_of_citizenship: string;
   i94_number: string;
   expiration_date: string;
-}
+};
 
 type I20Document = {
   subject: 'I-20 (Certificate of Eligibility for Nonimmigrant (F-1) Student Status)';
@@ -104,7 +104,7 @@ type I20Document = {
   country_of_citizenship: string;
   i94_number: string;
   expiration_date: string;
-}
+};
 
 type DS2019Document = {
   subject: 'DS2019 (Certificate of Eligibility for Exchange Visitor (J-1) Status)';
@@ -113,7 +113,7 @@ type DS2019Document = {
   country_of_citizenship: string;
   i94_number: string;
   expiration_date: string;
-}
+};
 
 type OtherDocumentWithAlienNumber = {
   subject: 'Other (With Alien Number)';
@@ -123,7 +123,7 @@ type OtherDocumentWithAlienNumber = {
   country_of_citizenship: string;
   description: string;
   expiration_date: string;
-}
+};
 
 type OtherDocumentWithI94Number = {
   subject: 'Other (With I-94 Number)';
@@ -133,7 +133,7 @@ type OtherDocumentWithI94Number = {
   i94_number: string;
   description: string;
   expiration_date: string;
-}
+};
 
 export type VlpDocument =
   | I327Document

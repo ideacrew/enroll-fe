@@ -98,4 +98,4 @@ export type Applicant = {
   // TBD
   // mitc_income?: MitcIncome;
   // mitc_relationships?: MitcRelationship[];
-}
+};
