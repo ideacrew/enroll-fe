@@ -2,7 +2,7 @@
 
 // Returned from GET /realms
 export type RealmListResponse = {
-  realms: Array<string>;
+  realms: string[];
 };
 
 // Submitted to POST /sessions

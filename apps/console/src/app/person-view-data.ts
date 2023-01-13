@@ -24,7 +24,7 @@ export type PolicyResponsibleParty = {
 export type ResponsibleParty = {
   id: string;
   person_name: PersonName;
-  policies: Array<Policy>;
+  policies: Policy[];
 };
 
 export type PersonName = {
@@ -41,7 +41,7 @@ export type Member = {
   dob: Date;
   gender: string;
   ssn?: string;
-  policies: Array<Policy>;
+  policies: Policy[];
 };
 
 // This is the top level object returned for a person resource.
@@ -49,8 +49,8 @@ export type Member = {
 export type Person = {
   id: string;
   person_name: PersonName;
-  members: Array<Member>;
-  responsible_parties: Array<ResponsibleParty>;
+  members: Member[];
+  responsible_parties: ResponsibleParty[];
 };
 
 export type PremiumCredit = {
@@ -85,17 +85,17 @@ export type Transaction = {
 
 export type Policy = {
   credited_amount: number;
-  enrollees: Array<Enrollee>;
+  enrollees: Enrollee[];
   hbx_assigned_id: string;
-  hbx_enrollment_ids: Array<string>;
+  hbx_enrollment_ids: string[];
   plan: Plan;
-  premium_credits: Array<PremiumCredit>;
+  premium_credits: PremiumCredit[];
   rating_area?: string;
   responsible_amount: number;
   responsible_party?: PolicyResponsibleParty;
   subscriber_hbx_member_id: string;
   total_amount: number;
-  transactions: Array<Transaction>;
+  transactions: Transaction[];
   status: string;
 };
 
