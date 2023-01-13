@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable unicorn/no-null */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
@@ -87,9 +88,11 @@ export class HouseholdMemberService {
   }
 
   get fullName(): string {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const firstName: string = this.householdMemberForm.get(
       'personalInformation.first_name'
     )?.value;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const lastName: string = this.householdMemberForm.get(
       'personalInformation.last_name'
     )?.value;

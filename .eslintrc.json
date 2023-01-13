@@ -81,7 +81,12 @@
     },
     {
       "files": ["*.ts"],
-      "extends": ["plugin:@nrwl/nx/typescript", "plugin:unicorn/recommended"],
+      "extends": [
+        "plugin:@nrwl/nx/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:unicorn/recommended"
+      ],
       "plugins": [
         "eslint-plugin-import",
         "@angular-eslint/eslint-plugin",

@@ -37,6 +37,7 @@ const applicantsReducer = createReducer(
   ),
   on(ApplicantsActions.loadApplicantsFailure, (state, { error }) => ({
     ...state,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     error,
   }))
 );

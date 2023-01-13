@@ -4,6 +4,11 @@
   "overrides": [
     {
       "files": ["*.ts"],
+      "parserOptions": {
+        "project": [
+          "libs/slcsp-calculator/premium-tax-credit/review/tsconfig.*?.json"
+        ]
+      },
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",

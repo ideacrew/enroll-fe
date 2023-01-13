@@ -44,5 +44,6 @@ export const getSelected = createSelector(
   getApplicantsEntities,
   selectRouteNestedParams,
   (entities, { applicantId }) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     applicantId ? entities[applicantId] : undefined
 );

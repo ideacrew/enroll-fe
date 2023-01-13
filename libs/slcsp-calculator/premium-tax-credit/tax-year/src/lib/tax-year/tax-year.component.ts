@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class TaxYearComponent {
   router = inject(Router);
 
-  navigateToHousehold() {
-    this.router.navigateByUrl('/premium-tax-credit/household');
+  async navigateToHousehold() {
+    await this.router.navigateByUrl('/premium-tax-credit/household');
   }
 }

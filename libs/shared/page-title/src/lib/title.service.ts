@@ -43,7 +43,9 @@ export class TitleService {
         }),
         mergeMap((route) => route.data),
         filterNullish<Data>(),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         filter<Data>((data) => data['title']),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         tap((data) => this.setTitle(data['title']))
       )
       .subscribe();

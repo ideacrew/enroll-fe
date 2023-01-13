@@ -4,6 +4,10 @@
   "overrides": [
     {
       "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["libs/shared/state/root-store/tsconfig.*?.json"]
+      },
+
       "extends": [
         "plugin:@nrwl/nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"

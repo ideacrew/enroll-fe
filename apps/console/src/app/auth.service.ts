@@ -63,7 +63,7 @@ export class AuthService {
       .subscribe({
         complete: () => {
           console.log('Login complete, what next?');
-          this.router.navigate(['/']);
+          void this.router.navigate(['/']);
         },
       });
   }
@@ -81,6 +81,7 @@ export class AuthService {
           refresh_token: this.refreshToken,
         },
         {
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
           headers: { Authorization: `Bearer ${this.token}` },
         }
       )
@@ -131,7 +132,7 @@ export class AuthService {
       this.token = undefined;
       this.refreshToken = undefined;
       this.jwtChecker.clearJwt();
-      this.router.navigate(['/login']);
+      void this.router.navigate(['/login']);
     });
   }
 }

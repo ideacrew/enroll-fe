@@ -11,7 +11,7 @@ export class HouseholdService {
 
   constructor() {
     this.householdForm = this.fb.group({
-      numMembers: this.fb.group(1),
+      numMembers: this.fb.control(1),
       members: this.fb.array([this.createMember()]),
     });
 
@@ -21,10 +21,19 @@ export class HouseholdService {
   createMember(): FormGroup {
     return this.fb.group({
       name: this.fb.group(''),
+      dob: this.fb.group({
+        month: this.fb.group(''),
+        day: this.fb.group(''),
+        year: this.fb.group(''),
+      }),
+      placesLived: this.fb.group(''),
+
+      marketPlaceCoverage: this.fb.group(''),
     });
   }
 
   updateMembers() {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const numberMembers = this.householdForm.get('numMembers')?.value;
     const currentMembers = this.membersArray.length;
     if (numberMembers > currentMembers) {

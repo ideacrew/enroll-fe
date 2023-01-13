@@ -10,6 +10,7 @@ export class ApplicantService {
 
   constructor(private fb: FormBuilder) {
     this.taxInfoForm = this.fb.group({
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       filingTaxes: [null, Validators.required],
       filingJointly: null,
       claimedAsDependent: null,

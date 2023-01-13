@@ -21,6 +21,7 @@ export class ApplicantsService {
     applicationId: string | null = 'no-application-id'
   ): Observable<Applicant[]> {
     return this.http.get<Applicant[]>(
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       `/applications/${applicationId}/applicants`
     );
   }

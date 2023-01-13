@@ -21,6 +21,7 @@ export class ApplicantsEffects {
             })
           ),
           catchError((error) =>
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             of(ApplicantsActions.loadApplicantsFailure({ error }))
           )
         )

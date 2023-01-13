@@ -11,7 +11,7 @@ export class HouseholdComponent {
   router = inject(Router);
   householdService = inject(HouseholdService);
 
-  navigateToMemberDetails() {
-    this.router.navigateByUrl('/premium-tax-credit/household/member');
+  async navigateToMemberDetails() {
+    await this.router.navigateByUrl('/premium-tax-credit/household/member');
   }
 }

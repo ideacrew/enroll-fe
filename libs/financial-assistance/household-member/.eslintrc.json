@@ -4,6 +4,11 @@
   "overrides": [
     {
       "files": ["*.ts"],
+      "parserOptions": {
+        "project": [
+          "libs/financial-assistance/household-member/tsconfig.*?.json"
+        ]
+      },
       "extends": [
         "plugin:@nrwl/nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"

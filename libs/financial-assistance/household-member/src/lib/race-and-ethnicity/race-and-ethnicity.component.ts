@@ -48,6 +48,7 @@ export class RaceAndEthnicityComponent implements OnInit, OnDestroy {
       .pipe(
         tap(() => {
           ethnicitiesArray.setValue(
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
             ethnicitiesArray.value.map((value: string, index: number) =>
               value ? this.ethnicities[index] : null
             ),
@@ -63,6 +64,7 @@ export class RaceAndEthnicityComponent implements OnInit, OnDestroy {
       .pipe(
         tap(() => {
           latinEthnicitiesArray.setValue(
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
             latinEthnicitiesArray.value.map((value: string, index: number) =>
               value ? this.latinEthnicities[index] : null
             ),

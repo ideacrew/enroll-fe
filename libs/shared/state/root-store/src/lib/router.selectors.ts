@@ -33,4 +33,5 @@ export const selectRouteNestedParams = createSelector(
 );
 
 export const selectRouteNestedParam = (param: string) =>
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   createSelector(selectRouteNestedParams, (params) => params && params[param]);
