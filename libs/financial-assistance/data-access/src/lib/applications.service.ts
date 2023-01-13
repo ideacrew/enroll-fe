@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface Application {
+export type Application = {
   id: string;
   status: string;
   startedOn: string;
   submittedOn?: string;
   determination?: string;
 }
-export interface ApplicationVM {
+export type ApplicationVM = {
   id: string;
   status: string;
   startedOn: Date;

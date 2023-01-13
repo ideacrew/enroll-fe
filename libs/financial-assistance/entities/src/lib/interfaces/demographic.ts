@@ -1,7 +1,7 @@
 import { EthnicityKind } from './ethnicity';
 import { GenderKind } from './gender';
 
-export interface Demographic {
+export type Demographic = {
   gender: GenderKind;
   dob: string;
   ethnicity: EthnicityKind[];

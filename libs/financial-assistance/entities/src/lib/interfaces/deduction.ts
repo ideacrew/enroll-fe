@@ -1,7 +1,7 @@
 import { Frequency } from './frequency';
 
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface Deduction {
+export type Deduction = {
   kind: DeductionKind;
   amount: number;
   start_on: string; // date

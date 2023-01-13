@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface EmployerInfo {
+export type EmployerInfo = {
   employer_name: string;
   employer_address: {
     kind: string;

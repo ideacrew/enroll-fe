@@ -5,29 +5,29 @@ export type PersonSearchRequest =
   | PersonIdentifierQueryRequest
   | PersonNameQueryRequest;
 
-export interface PersonIdentifierQueryRequest {
+export type PersonIdentifierQueryRequest = {
   q: string;
 }
 
-export interface PersonNameQueryRequest {
+export type PersonNameQueryRequest = {
   name: {
     first_name?: string;
     last_name?: string;
   };
 }
 
-export interface PlanSearchResult {
+export type PlanSearchResult = {
   name: string;
   hios_plan_id: string;
 }
 
-export interface PolicySearchResult {
+export type PolicySearchResult = {
   id: string;
   enrollee_count: number;
   plan: PlanSearchResult;
 }
 
-export interface MemberSearchResult {
+export type MemberSearchResult = {
   id: string;
   hbx_member_id: string;
   ssn?: string;
@@ -36,7 +36,7 @@ export interface MemberSearchResult {
   policies: PolicySearchResult[];
 }
 
-export interface PersonNamesResult {
+export type PersonNamesResult = {
   name_pfx?: string;
   name_sfx?: string;
   middle_name?: string;
@@ -45,7 +45,7 @@ export interface PersonNamesResult {
   full_name?: string;
 }
 
-export interface PersonSearchResult {
+export type PersonSearchResult = {
   id: string;
   person_name: PersonNamesResult;
   members: MemberSearchResult[];

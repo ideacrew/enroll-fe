@@ -1,6 +1,6 @@
 import { UsStateAbbreviationKind } from './us-state-abbreviation';
 
-export interface Address {
+export type Address = {
   street1: string;
   street2?: string;
   city: string;

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface ProductEligibilityDetermination {
+export type ProductEligibilityDetermination = {
   is_ia_eligible?: boolean;
   is_medicaid_chip_eligible?: boolean;
   is_non_magi_medicaid_eligible?: boolean;

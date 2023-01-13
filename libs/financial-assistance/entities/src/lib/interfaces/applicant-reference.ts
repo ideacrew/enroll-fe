@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface ApplicantReference {
+export type ApplicantReference = {
   first_name: string;
   last_name: string;
   dob: string;

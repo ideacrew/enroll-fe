@@ -6,7 +6,7 @@ import { Relationship } from './relationship';
 import { TaxHousehold } from './tax-household';
 import { UsStateAbbreviationKind } from './us-state-abbreviation';
 
-export interface FinancialAssistanceApplication {
+export type FinancialAssistanceApplication = {
   family_reference: FamilyReference;
   assistance_year: number;
   applicants: Applicant[];
@@ -23,5 +23,5 @@ export interface FinancialAssistanceApplication {
 
   // TBD
   // mitc_households: MitcHousehold[];
-  // mits_tax_returns: MitcTaxReturn[];
+  // mitc_tax_returns: MitcTaxReturn[];
 }

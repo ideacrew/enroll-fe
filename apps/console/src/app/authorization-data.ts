@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 // Returned from GET /realms
-export interface RealmListResponse {
+export type RealmListResponse = {
   realms: Array<string>;
 }
 
 // Submitted to POST /sessions
-export interface LoginRequest {
+export type LoginRequest = {
   username: string;
   password: string;
   realm_name: string;
 }
 
 // Returned from POST /sessions, and from POST /sessions/refresh
-export interface TokenResponse {
+export type TokenResponse = {
   token: string;
   refresh_token: string;
 }
 
 // Submitted to POST /sessions/refresh
-export interface RefreshTokenRequest {
+export type RefreshTokenRequest = {
   refresh_token: string;
 }

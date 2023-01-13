@@ -2,7 +2,7 @@ import { Employer } from './employer';
 import { Frequency } from './frequency';
 
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface Income {
+export type Income = {
   kind: IncomeKind;
   start_on: string; // Date
   amount: number;

@@ -6,7 +6,7 @@ import {
 } from '@enroll/financial-assistance/entities';
 
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface BaseHouseholdMember {
+export type BaseHouseholdMember = {
   name_pfx?: string;
   first_name: string;
   middle_name?: string;
@@ -24,7 +24,7 @@ export interface BaseHouseholdMember {
   addresses?: Address[];
 }
 
-export interface NeedsCoverageHouseholdMember extends BaseHouseholdMember {
+export type NeedsCoverageHouseholdMember = {
   is_applying_coverage: true;
 
   citizen_status: CitizenKind;
@@ -33,11 +33,11 @@ export interface NeedsCoverageHouseholdMember extends BaseHouseholdMember {
 
   indian_tribe_member: boolean;
   tribal_id?: string;
-}
+} & BaseHouseholdMember
 
-export interface NoCoverageHouseholdMember extends BaseHouseholdMember {
+export type NoCoverageHouseholdMember = {
   is_applying_coverage: false;
-}
+} & BaseHouseholdMember
 
 export type NewHouseholdMember =
   | NeedsCoverageHouseholdMember

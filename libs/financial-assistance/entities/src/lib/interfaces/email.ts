@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface Email {
+export type Email = {
   kind: EmailKind;
   address: string;
   start_on?: string;

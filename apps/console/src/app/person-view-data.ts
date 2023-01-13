@@ -3,12 +3,12 @@
 // Date as a string, specifically "YYYY-MM-DD"
 export type DateString = string;
 
-export interface Carrier {
+export type Carrier = {
   id: string;
   name: string;
 }
 
-export interface Plan {
+export type Plan = {
   id: string;
   hios_id: string;
   name: string;
@@ -16,18 +16,18 @@ export interface Plan {
   carrier: Carrier;
 }
 
-export interface PolicyResponsibleParty {
+export type PolicyResponsibleParty = {
   responsible_party_id: string;
   person_name: PersonName;
 }
 
-export interface ResponsibleParty {
+export type ResponsibleParty = {
   id: string;
   person_name: PersonName;
   policies: Array<Policy>;
 }
 
-export interface PersonName {
+export type PersonName = {
   first_name: string;
   last_name: string;
   middle_name?: string;
@@ -36,7 +36,7 @@ export interface PersonName {
   full_name?: string;
 }
 
-export interface Member {
+export type Member = {
   hbx_member_id: string;
   dob: Date;
   gender: string;
@@ -46,14 +46,14 @@ export interface Member {
 
 // This is the top level object returned for a person resource.
 // Comes from GET /transaction_management/people/<person_id>
-export interface Person {
+export type Person = {
   id: string;
   person_name: PersonName;
   members: Array<Member>;
   responsible_parties: Array<ResponsibleParty>;
 }
 
-export interface PremiumCredit {
+export type PremiumCredit = {
   start_on: DateString;
   end_on?: DateString;
   kind: string;
@@ -62,7 +62,7 @@ export interface PremiumCredit {
   responsible_amount: number;
 }
 
-export interface Enrollee {
+export type Enrollee = {
   person_id: string;
   coverage_start: DateString;
   coverage_end?: DateString;
@@ -76,14 +76,14 @@ export interface Enrollee {
   relationship: string;
 }
 
-export interface Transaction {
+export type Transaction = {
   id: string;
   kind: string;
   status: string;
   submitted_at: string;
 }
 
-export interface Policy {
+export type Policy = {
   credited_amount: number;
   enrollees: Array<Enrollee>;
   hbx_assigned_id: string;

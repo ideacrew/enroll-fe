@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 // Comes from GET /transaction_management/enrollment_transactions/<transaction_id>
-export interface EnrollmentTransaction {
+export type EnrollmentTransaction = {
   id: string;
   transaction_kind: string;
   raw_content: string;

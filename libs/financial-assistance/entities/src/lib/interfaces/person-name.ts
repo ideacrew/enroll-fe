@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface PersonName {
+export type PersonName = {
   first_name: string;
   last_name: string;
 

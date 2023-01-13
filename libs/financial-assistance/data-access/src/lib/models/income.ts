@@ -6,13 +6,13 @@ import {
   UnemploymentIncomeKind,
 } from '@enroll/financial-assistance/entities';
 
-interface BaseIncome {
+type BaseIncome = {
   amount: number;
   frequency_kind: IncomeFrequency;
   start_on: string;
 }
 
-export interface EmployerIncome extends BaseIncome {
+export type EmployerIncome = {
   kind: EmployerIncomeKind;
   employer_name: string;
   employer_address: {
@@ -27,19 +27,19 @@ export interface EmployerIncome extends BaseIncome {
     kind: string;
     full_phone_number: string;
   };
-}
+} & BaseIncome
 
-export interface SelfEmploymentIncome extends BaseIncome {
+export type SelfEmploymentIncome = {
   kind: SelfEmploymentIncome;
-}
+} & BaseIncome
 
-export interface UnemploymentIncome extends BaseIncome {
+export type UnemploymentIncome = {
   kind: UnemploymentIncomeKind;
-}
+} & BaseIncome
 
-export interface OtherIncome extends BaseIncome {
+export type OtherIncome = {
   kind: OtherIncomeKind;
-}
+} & BaseIncome
 
 export type Income =
   | EmployerIncome

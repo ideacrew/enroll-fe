@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface JwtValues {
+export type JwtValues = {
   token: string;
   refreshToken: string;
   expiration: number;
 }
 
-interface JwtPayload {
+type JwtPayload = {
   exp: number;
   iat: number;
   jti: string;

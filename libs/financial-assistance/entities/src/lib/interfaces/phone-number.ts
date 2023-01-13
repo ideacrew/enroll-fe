@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface PhoneNumber {
+export type PhoneNumber = {
   kind: PhoneKind;
   area_code: string;
   number: string; // questionable property name

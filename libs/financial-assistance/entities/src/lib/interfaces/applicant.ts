@@ -16,7 +16,7 @@ import { StudentInformation } from './student';
 import { TaxFilerKind } from './tax-filer-kind';
 import { VlpDocumentKind } from './vlp-document';
 
-export interface Applicant {
+export type Applicant = {
   name: PersonName;
   identifying_information: IdentifyingInformation;
   demographic: Demographic;

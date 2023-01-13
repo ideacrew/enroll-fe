@@ -18,7 +18,7 @@ import { EmployerIncome } from './income';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 
-interface BaseApplicant {
+type BaseApplicant = {
   id: string;
   name_pfx?: string;
   first_name: string;
@@ -52,11 +52,11 @@ interface BaseApplicant {
   has_other_income?: boolean;
 }
 
-export interface NoCoverageApplicant extends BaseApplicant {
+export type NoCoverageApplicant = {
   is_applying_coverage: false;
-}
+} & BaseApplicant
 
-export interface NeedsCoverageApplicant extends BaseApplicant {
+export type NeedsCoverageApplicant = {
   is_applying_coverage: true;
 
   citizen_status: CitizenKind;
@@ -110,6 +110,6 @@ export interface NeedsCoverageApplicant extends BaseApplicant {
   has_enrolled_health_coverage?: boolean;
   has_eligible_health_coverage?: boolean;
   benefits?: Benefit[];
-}
+} & BaseApplicant
 
 export type Applicant = NoCoverageApplicant | NeedsCoverageApplicant;

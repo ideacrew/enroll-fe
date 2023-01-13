@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ApplicantReference } from './applicant-reference';
 
-export interface Relationship {
+export type Relationship = {
   kind: RelationshipKind;
   applicant_reference: ApplicantReference;
   relative_reference: ApplicantReference;

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface CitizenImmigrationStatusInformation {
+export type CitizenImmigrationStatusInformation = {
   citizen_status: CitizenKind;
   is_resident_post_092296: boolean;
   is_lawful_presence_self_attested: boolean;

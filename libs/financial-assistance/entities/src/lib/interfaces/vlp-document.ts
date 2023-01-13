@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface VlpBaseDocument {
+export type VlpBaseDocument = {
   subject: VlpDocumentKind;
   alien_number?: string;
   i94_number?: string;
@@ -16,45 +16,45 @@ export interface VlpBaseDocument {
   description?: string;
 }
 
-interface I327Document {
+type I327Document = {
   subject: 'I-327 (Reentry Permit)';
   alien_number: string;
   expiration_date: string;
 }
 
-interface I551Document {
+type I551Document = {
   subject: 'I-551 (Permanent Resident Card)';
   alien_number: string;
   card_number: string;
   expiration_date: string;
 }
 
-interface I571Document {
+type I571Document = {
   subject: 'I-571 (Refugee Travel Document)';
   alien_number: string;
   expiration_date: string;
 }
 
-interface I766Document {
+type I766Document = {
   subject: 'I-766 (Employment Authorization Card)';
   alien_number: string;
   card_number: string;
   expiration_date: string;
 }
 
-interface CertificateOfCitizenship {
+type CertificateOfCitizenship = {
   subject: 'Certificate of Citizenship';
   alien_number: string;
   citizenship_number: string;
 }
 
-interface NaturalizationCertificate {
+type NaturalizationCertificate = {
   subject: 'Naturalization Certificate';
   alien_number: string;
   naturalization_number: string;
 }
 
-interface ImmigrantVisa {
+type ImmigrantVisa = {
   subject: 'Machine Readable Immigrant Visa (with Temporary I-551 Language)';
   alien_number: string;
   visa_number: string;
@@ -63,7 +63,7 @@ interface ImmigrantVisa {
   country_of_citizenship: string;
 }
 
-interface TemporaryI551Stamp {
+type TemporaryI551Stamp = {
   subject: 'Temporary I-551 Stamp (on passport or I-94)';
   alien_number: string;
   passport_number: string;
@@ -71,7 +71,7 @@ interface TemporaryI551Stamp {
   expiration_date: string;
 }
 
-interface I94Document {
+type I94Document = {
   subject: 'I-94 (Arrival/Departure Record)';
   passport_number: string;
   sevis_id: string;
@@ -79,7 +79,7 @@ interface I94Document {
   expiration_date: string;
 }
 
-interface I194ForeignPassport {
+type I194ForeignPassport = {
   subject: 'I-94 (Arrival/Departure Record) in Unexpired Foreign Passport';
   sevis_id: string;
   country_of_citizenship: string;
@@ -88,7 +88,7 @@ interface I194ForeignPassport {
   expiration_date: string;
 }
 
-interface UnexpiredForeignPassport {
+type UnexpiredForeignPassport = {
   subject: 'Unexpired Foreign Passport';
   passport_number: string;
   sevis_id: string;
@@ -97,7 +97,7 @@ interface UnexpiredForeignPassport {
   expiration_date: string;
 }
 
-interface I20Document {
+type I20Document = {
   subject: 'I-20 (Certificate of Eligibility for Nonimmigrant (F-1) Student Status)';
   passport_number: string;
   sevis_id: string;
@@ -106,7 +106,7 @@ interface I20Document {
   expiration_date: string;
 }
 
-interface DS2019Document {
+type DS2019Document = {
   subject: 'DS2019 (Certificate of Eligibility for Exchange Visitor (J-1) Status)';
   passport_number: string;
   sevis_id: string;
@@ -115,7 +115,7 @@ interface DS2019Document {
   expiration_date: string;
 }
 
-interface OtherDocumentWithAlienNumber {
+type OtherDocumentWithAlienNumber = {
   subject: 'Other (With Alien Number)';
   alien_number: string;
   passport_number: string;
@@ -125,7 +125,7 @@ interface OtherDocumentWithAlienNumber {
   expiration_date: string;
 }
 
-interface OtherDocumentWithI94Number {
+type OtherDocumentWithI94Number = {
   subject: 'Other (With I-94 Number)';
   passport_number: string;
   sevis_id: string;

@@ -6,13 +6,13 @@ import { ApplicantsEntity } from './applicants.models';
 
 export const APPLICANTS_FEATURE_KEY = 'applicants';
 
-export interface State extends EntityState<ApplicantsEntity> {
+export type State = {
   selectedId?: string | number; // which Applicants record has been selected
   loaded: boolean; // has the Applicants list been loaded
   error?: string | null; // last known error (if any)
-}
+} & EntityState<ApplicantsEntity>
 
-export interface ApplicantsPartialState {
+export type ApplicantsPartialState = {
   readonly [APPLICANTS_FEATURE_KEY]: State;
 }
 

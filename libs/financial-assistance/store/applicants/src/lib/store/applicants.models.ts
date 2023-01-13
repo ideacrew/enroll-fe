@@ -9,7 +9,7 @@ import {
 /**
  * Interface for the 'Applicants' data
  */
-export interface ApplicantsEntity {
+export type ApplicantsEntity = {
   id: string; // Primary ID
   is_primary_applicant: boolean;
   is_applying_coverage: boolean;

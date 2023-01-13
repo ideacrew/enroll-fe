@@ -2,7 +2,7 @@ import { Employer } from './employer';
 import { Frequency } from './frequency';
 
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface Benefit {
+export type Benefit = {
   kind: BenefitKind;
   status: BenefitStatusKind;
   start_on: string; // date
