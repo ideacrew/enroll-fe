@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-interface NotStudent {
+type NotStudent = {
   is_student: false | undefined;
-}
+};
 
-interface Student {
+type Student = {
   is_student: true;
   student_kind: StudentKind;
   student_school_kind: StudentSchoolKind;
   student_status_end_on: string; // Date
-}
+};
 
 export type StudentInformation = Student | NotStudent;
 

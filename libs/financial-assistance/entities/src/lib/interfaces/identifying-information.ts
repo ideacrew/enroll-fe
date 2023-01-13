@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-interface NoPersonalIdentifer {
+type NoPersonalIdentifier = {
   has_ssn: false;
-}
+};
 
-interface HasPersonalIdentifier {
+type HasPersonalIdentifier = {
   has_ssn: true;
   encrypted_ssn: string;
-}
+};
 
 export type IdentifyingInformation =
-  | NoPersonalIdentifer
+  | NoPersonalIdentifier
   | HasPersonalIdentifier;
