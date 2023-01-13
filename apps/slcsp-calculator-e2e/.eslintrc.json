@@ -5,7 +5,7 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
-        "project": ["apps/slcsp-calculator-e2e/tsconfig.*?.json"]
+        "project": ["apps/slcsp-calculator-e2e/tsconfig.json"]
       },
       "rules": {}
     }
