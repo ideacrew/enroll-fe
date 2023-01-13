@@ -8,11 +8,11 @@ import { TokenResponse } from './authorization-data';
 import { JwtAuthService } from './jwt-auth.service';
 import { ConfigService } from './config.service';
 
-interface LoginCredentials {
+type LoginCredentials = {
   username: string;
   password: string;
   realm_name: string;
-}
+};
 
 @Injectable({
   providedIn: 'root',
