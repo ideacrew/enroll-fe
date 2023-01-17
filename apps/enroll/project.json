@@ -93,12 +93,6 @@
         "jestConfig": "apps/enroll/jest.config.ts",
         "passWithNoTests": true
       }
-    },
-    "deploy": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "npx firebase deploy --only hosting:coverme --token {args.token}"
-      }
     }
   },
   "tags": ["client:coverme"],
