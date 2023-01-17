@@ -1,1 +1,65 @@
-<p>member works!</p>
+<h1>Tell us about {{ householdMemberName$ | async }}</h1>
+<form [formGroup]="householdFormGroup">
+  <ng-container *ngIf="householdMembersArray.at(0) as firstMember">
+    <div [formGroup]="firstMember">
+      <fieldset formGroupName="dob">
+        <legend>
+          <span>Date of birth</span>
+          <span>Example: 5/12/1975</span>
+        </legend>
+        <div class="input-group">
+          <label class="hbx-input-label" for="dob-month"> Month </label>
+          <input
+            class="dob-input"
+            type="text"
+            inputmode="numeric"
+            name="dob-month"
+            id="dob-month"
+            formControlName="month"
+          />
+        </div>
+        <div class="input-group">
+          <label class="hbx-input-label" for="dob-day"> Day </label>
+          <input
+            class="dob-input"
+            type="text"
+            inputmode="numeric"
+            name="dob-day"
+            id="dob-day"
+            formControlName="day"
+          />
+        </div>
+        <div class="input-group year-group">
+          <label class="hbx-input-label" for="dob-year"> Year </label>
+          <input
+            class="dob-input"
+            type="text"
+            inputmode="numeric"
+            name="dob-year"
+            id="dob-year"
+            formControlName="year"
+          />
+        </div>
+        <pre>
+  {{ householdMembersArray.at(0).get('dob.month')?.errors | json }}
+</pre
+        >
+
+        <div class="hbx-error-message">
+          <div *ngIf="getDateError('futureDate')">
+            <span class="visually-hidden">Error:</span> Date of birth must be in
+            the past
+          </div>
+          -->
+
+          <div *ngIf="getDateError('fakeDate')">
+            <span class="visually-hidden">Error:</span> Enter a real date of
+            birth
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </ng-container>
+</form>
+
+<enroll-household-form-info></enroll-household-form-info>

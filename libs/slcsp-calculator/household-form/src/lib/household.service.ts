@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 type HouseholdFormGroup = {
   householdConfirmation: FormControl<boolean | undefined>;
@@ -70,14 +70,6 @@ export class HouseholdService {
     }
   }
 
-  private createDobFormGroup(): FormGroup<DateOfBirthFormGroup> {
-    return new FormGroup({
-      month: new FormControl('', { nonNullable: true }),
-      day: new FormControl('', { nonNullable: true }),
-      year: new FormControl('', { nonNullable: true }),
-    });
-  }
-
   private createNewHouseholdMember(): FormGroup<HouseholdMemberFormGroup> {
     return new FormGroup<HouseholdMemberFormGroup>({
       name: new FormControl('', { nonNullable: true }),
@@ -85,12 +77,42 @@ export class HouseholdService {
     });
   }
 
+  private createDobFormGroup(): FormGroup<DateOfBirthFormGroup> {
+    return new FormGroup({
+      month: new FormControl('', {
+        nonNullable: true,
+        validators: [
+          // eslint-disable-next-line @typescript-eslint/unbound-method
+          Validators.required,
+          Validators.min(1),
+          Validators.max(12),
+        ],
+      }),
+      day: new FormControl('', {
+        nonNullable: true,
+        validators: [
+          // eslint-disable-next-line @typescript-eslint/unbound-method
+          Validators.required,
+          Validators.min(1),
+          Validators.max(31),
+        ],
+      }),
+      year: new FormControl('', {
+        nonNullable: true,
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        validators: [Validators.required],
+      }),
+    });
+  }
+
+  // Needed in order to access the household members in the template
   get householdMembersArray(): FormArray<FormGroup<HouseholdMemberFormGroup>> {
     return this.householdForm.get('members') as FormArray<
       FormGroup<HouseholdMemberFormGroup>
     >;
   }
 
+  // Needed in order to iterate over the household members in the template
   get householdMemberControls(): Array<FormGroup<HouseholdMemberFormGroup>> {
     return this.householdMembersArray.controls;
   }
