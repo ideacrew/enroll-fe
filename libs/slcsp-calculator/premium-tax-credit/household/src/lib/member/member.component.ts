@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { selectRouteParam } from '@enroll/shared/state/root-store';
+import { Store } from '@ngrx/store';
+import { map, shareReplay, startWith } from 'rxjs';
 
 import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
-import { shareReplay, startWith } from 'rxjs';
 
 @Component({
   templateUrl: './member.component.html',
@@ -13,6 +15,12 @@ export class MemberComponent {
   householdFormGroup = this.householdService.householdForm;
   householdMembersArray = this.householdService.householdMembersArray;
 
+  store = inject(Store);
+  memberId$ = this.store.select(selectRouteParam('memberId')).pipe(
+    map((memberId) => Number.parseInt(memberId ?? '1', 10)),
+    shareReplay(1)
+  );
+
   // DRY this up
   householdMemberName$ = this.householdMembersArray
     .at(0) // needs to be dynamic
@@ -21,10 +29,4 @@ export class MemberComponent {
       startWith(this.householdMembersArray.at(0).get('name')?.value),
       shareReplay(1)
     );
-
-  getDateError(errorCode: string): boolean {
-    return (
-      this.householdMembersArray.at(0).get('dob')?.hasError(errorCode) ?? false
-    );
-  }
 }

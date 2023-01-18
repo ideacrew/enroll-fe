@@ -4,6 +4,6 @@ import { HouseholdComponent } from './household/household.component';
 import { MemberComponent } from './member/member.component';
 
 export const householdRoutes: Route[] = [
-  { path: 'member', component: MemberComponent },
+  { path: 'member/:memberId', component: MemberComponent },
   { path: '', pathMatch: 'full', component: HouseholdComponent },
 ];

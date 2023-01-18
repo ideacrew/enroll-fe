@@ -24,6 +24,7 @@ export class HouseholdComponent {
   }
 
   async navigateToMemberDetails() {
-    await this.router.navigateByUrl('/premium-tax-credit/household/member');
+    // From this component, always navigate to the first member in household
+    await this.router.navigateByUrl('/premium-tax-credit/household/member/1');
   }
 }
