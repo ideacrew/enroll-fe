@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { defaultHouseholdForm } from '../mocks/household-form.mock';
 import { HouseholdCountComponent } from './household-count.component';
 
 describe('HouseholdCountComponent', () => {
@@ -13,6 +14,7 @@ describe('HouseholdCountComponent', () => {
 
     fixture = TestBed.createComponent(HouseholdCountComponent);
     component = fixture.componentInstance;
+    component.parent = defaultHouseholdForm();
     fixture.detectChanges();
   });
 
