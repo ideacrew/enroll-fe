@@ -28,7 +28,11 @@
   </p>
 
   <!-- New self-closing tag syntax in Angular 15.1 -->
-  <enroll-household-count [parent]="householdFormGroup" />
+
+  <enroll-household-count
+    [parent]="householdFormGroup"
+    (newHouseholdCount)="changeHouseholdCount($event)"
+  />
 
   <enroll-household-confirmation [parent]="householdFormGroup" />
 

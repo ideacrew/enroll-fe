@@ -15,10 +15,12 @@ export class HouseholdComponent {
   householdConfirmation$ = this.householdService.householdConfirmation$;
   householdMemberControls = this.householdService.householdMemberControls;
 
-  addMembersToHouseholdForm(): void {
-    // const newCount = this.numberInput.nativeElement.value;
+  changeHouseholdCount(newCount: number): void {
+    if (newCount < 1) {
+      throw new Error('Household count must be greater than 0');
+    }
 
-    this.householdService.addMemberToHousehold();
+    // this.householdService.addMemberToHousehold();
   }
 
   async navigateToMemberDetails() {

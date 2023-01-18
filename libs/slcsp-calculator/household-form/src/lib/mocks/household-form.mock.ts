@@ -11,7 +11,11 @@ export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
   new FormGroup<HouseholdFormGroup>({
     householdConfirmation: new FormControl(undefined, { nonNullable: true }),
     // Start with a single member in the household
-    householdCount: new FormControl(1, { nonNullable: true }),
+    householdCount: new FormControl(1, {
+      nonNullable: true,
+      // eslint-disable-next-line @typescript-eslint/unbound-method
+      validators: [Validators.required, Validators.min(1)],
+    }),
 
     // Start with 2022 because this isn't changing until 2024
     taxYear: new FormControl('2022', { nonNullable: true }),

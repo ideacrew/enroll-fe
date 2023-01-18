@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HouseholdFormGroup } from '../interfaces/form-types';
@@ -13,4 +19,15 @@ import { HouseholdFormGroup } from '../interfaces/form-types';
 })
 export class HouseholdCountComponent {
   @Input() parent!: FormGroup<HouseholdFormGroup>;
+
+  @Output() newHouseholdCount: EventEmitter<number> =
+    new EventEmitter<number>();
+
+  get householdCount(): number {
+    return this.parent.get('householdCount')?.value ?? 0;
+  }
+
+  changeHouseholdCount(): void {
+    this.newHouseholdCount.emit(this.householdCount);
+  }
 }

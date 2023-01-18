@@ -12,5 +12,8 @@
     name="household-count"
     id="household-count"
     formControlName="householdCount"
+    #householdCount
+    min="1"
+    (input)="changeHouseholdCount()"
   />
 </ng-container>
