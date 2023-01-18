@@ -12,12 +12,33 @@ type HouseholdFormGroup = {
 type HouseholdMemberFormGroup = {
   name: FormControl<string>;
   dob: FormGroup<DateOfBirthFormGroup>;
+  residences: FormArray<FormGroup<ResidenceFormGroup>>;
 };
 
 type DateOfBirthFormGroup = {
   month: FormControl<string>;
   day: FormControl<string>;
   year: FormControl<string>;
+};
+
+type ResidenceFormGroup = {
+  zipCode: FormControl<string | null>;
+  months: FormGroup<MonthFormGroup>;
+};
+
+type MonthFormGroup = {
+  jan: FormControl<boolean>;
+  feb: FormControl<boolean>;
+  mar: FormControl<boolean>;
+  apr: FormControl<boolean>;
+  may: FormControl<boolean>;
+  jun: FormControl<boolean>;
+  jul: FormControl<boolean>;
+  aug: FormControl<boolean>;
+  sep: FormControl<boolean>;
+  oct: FormControl<boolean>;
+  nov: FormControl<boolean>;
+  dec: FormControl<boolean>;
 };
 
 @Injectable({
@@ -72,8 +93,33 @@ export class HouseholdService {
 
   private createNewHouseholdMember(): FormGroup<HouseholdMemberFormGroup> {
     return new FormGroup<HouseholdMemberFormGroup>({
-      name: new FormControl('', { nonNullable: true }),
+      name: new FormControl('Mark', { nonNullable: true }),
       dob: this.createDobFormGroup(),
+      residences: new FormArray([this.createResidencesFormGroup()]),
+    });
+  }
+
+  private createResidencesFormGroup(): FormGroup<ResidenceFormGroup> {
+    return new FormGroup<ResidenceFormGroup>({
+      zipCode: new FormControl(''),
+      months: this.createMonthsFormGroup(),
+    });
+  }
+
+  private createMonthsFormGroup(): FormGroup<MonthFormGroup> {
+    return new FormGroup<MonthFormGroup>({
+      jan: new FormControl(false, { nonNullable: true }),
+      feb: new FormControl(false, { nonNullable: true }),
+      mar: new FormControl(false, { nonNullable: true }),
+      apr: new FormControl(false, { nonNullable: true }),
+      may: new FormControl(false, { nonNullable: true }),
+      jun: new FormControl(false, { nonNullable: true }),
+      jul: new FormControl(false, { nonNullable: true }),
+      aug: new FormControl(false, { nonNullable: true }),
+      sep: new FormControl(false, { nonNullable: true }),
+      oct: new FormControl(false, { nonNullable: true }),
+      nov: new FormControl(false, { nonNullable: true }),
+      dec: new FormControl(false, { nonNullable: true }),
     });
   }
 

@@ -40,10 +40,10 @@
             formControlName="year"
           />
         </div>
-        <pre>
+        <!-- <pre>
   {{ householdMembersArray.at(0).get('dob.month')?.errors | json }}
 </pre
-        >
+        > -->
 
         <div class="hbx-error-message">
           <div *ngIf="getDateError('futureDate')">
@@ -58,6 +58,23 @@
           </div>
         </div>
       </fieldset>
+
+      <div
+        class="member-residence-container"
+        *ngIf="householdMemberName$ | async as memberName"
+      >
+        <h2>Tell us where {{ memberName }} lived during all of 2022</h2>
+        <h3>
+          We are assuming that {{ memberName }}'s household lived in Maine.
+        </h3>
+        <label for="zip-code"
+          ><span
+            >In what ZIP code did {{ memberName }}'s household live in
+            2022?</span
+          ></label
+        >
+        <input type="text" autocomplete="off" />
+      </div>
     </div>
   </ng-container>
 </form>

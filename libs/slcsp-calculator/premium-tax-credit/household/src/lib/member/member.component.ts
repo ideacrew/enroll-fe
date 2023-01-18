@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
-import { startWith } from 'rxjs';
+import { shareReplay, startWith } from 'rxjs';
 
 @Component({
   templateUrl: './member.component.html',
@@ -18,7 +18,8 @@ export class MemberComponent {
     .at(0) // needs to be dynamic
     .get('name')
     ?.valueChanges.pipe(
-      startWith(this.householdMembersArray.at(0).get('name')?.value)
+      startWith(this.householdMembersArray.at(0).get('name')?.value),
+      shareReplay(1)
     );
 
   getDateError(errorCode: string): boolean {
