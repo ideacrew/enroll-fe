@@ -7,6 +7,7 @@ import {
   HouseholdFormInfoComponent,
   HouseholdCountComponent,
   HouseholdConfirmationComponent,
+  HouseholdMemberNameComponent,
 } from '@enroll/slcsp-calculator/household-form';
 
 import { householdRoutes } from './library.routes';
@@ -23,6 +24,7 @@ import { CoverageComponent } from './coverage/coverage.component';
     HouseholdFormInfoComponent,
     HouseholdCountComponent,
     HouseholdConfirmationComponent,
+    HouseholdMemberNameComponent,
   ],
   declarations: [HouseholdComponent, MemberComponent, CoverageComponent],
 })
