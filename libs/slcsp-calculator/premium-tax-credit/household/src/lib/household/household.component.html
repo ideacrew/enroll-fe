@@ -26,22 +26,10 @@
     >, for more information on when an individual is considered eligible for
     coverage outside CoverME.gov.
   </p>
-  <div class="form-element">
-    <label for="household-count">
-      <span
-        >How many people in your household meet all of the above
-        requirements?</span
-      >
-      <span>Be sure to include yourself if you meet all the requirements.</span>
-    </label>
-    <!-- As this changes, add or remove household members. -->
-    <input
-      type="number"
-      name="household-count"
-      id="household-count"
-      formControlName="householdCount"
-    />
-  </div>
+
+  <!-- New self-closing tag syntax in Angular 15.1 -->
+  <enroll-household-count [parent]="householdFormGroup" />
+
   <div class="form-element">
     <fieldset>
       <legend>

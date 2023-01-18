@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HouseholdFormInfoComponent } from '@enroll/slcsp-calculator/household-form';
+import {
+  HouseholdFormInfoComponent,
+  HouseholdCountComponent,
+} from '@enroll/slcsp-calculator/household-form';
 
 import { householdRoutes } from './library.routes';
 import { HouseholdComponent } from './household/household.component';
@@ -17,6 +20,7 @@ import { CoverageComponent } from './coverage/coverage.component';
     ReactiveFormsModule,
     RouterModule.forChild(householdRoutes),
     HouseholdFormInfoComponent,
+    HouseholdCountComponent,
   ],
   declarations: [HouseholdComponent, MemberComponent, CoverageComponent],
 })
