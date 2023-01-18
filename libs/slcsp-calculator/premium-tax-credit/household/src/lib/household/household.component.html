@@ -34,10 +34,8 @@
 
   <ng-container *ngIf="householdConfirmation$ | async">
     <div class="household-members" formArrayName="members">
-      <div *ngFor="let member of householdMemberControls; let i = index">
-        <enroll-household-member-name
-          [parent]="householdMemberControls.at(i)"
-        ></enroll-household-member-name>
+      <div *ngFor="let member of householdMemberControls">
+        <enroll-household-member-name [parent]="member" />
       </div>
     </div>
   </ng-container>

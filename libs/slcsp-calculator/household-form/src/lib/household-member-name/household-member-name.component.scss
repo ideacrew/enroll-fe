@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+label span {
+  display: block;
+}
+
+label span:first-child {
+  font-weight: 700;
+}
