@@ -30,38 +30,7 @@
   <!-- New self-closing tag syntax in Angular 15.1 -->
   <enroll-household-count [parent]="householdFormGroup" />
 
-  <div class="form-element">
-    <fieldset>
-      <legend>
-        <span
-          ><span
-            >Do all of these household members meet the requirements listed
-            above?</span
-          ></span
-        >
-      </legend>
-      <div class="radio-button">
-        <input
-          type="radio"
-          name="householdConfirmation"
-          id="household-confirmation-yes"
-          [value]="true"
-          formControlName="householdConfirmation"
-        />
-        <label for="household-confirmation-yes">Yes</label>
-      </div>
-      <div class="radio-button">
-        <input
-          type="radio"
-          name="householdConfirmation"
-          id="household-confirmation-no"
-          [value]="false"
-          formControlName="householdConfirmation"
-        />
-        <label for="household-confirmation-no">No</label>
-      </div>
-    </fieldset>
-  </div>
+  <enroll-household-confirmation [parent]="householdFormGroup" />
 
   <ng-container *ngIf="householdConfirmation$ | async">
     <div class="household-members" formArrayName="members">

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   HouseholdFormInfoComponent,
   HouseholdCountComponent,
+  HouseholdConfirmationComponent,
 } from '@enroll/slcsp-calculator/household-form';
 
 import { householdRoutes } from './library.routes';
@@ -21,6 +22,7 @@ import { CoverageComponent } from './coverage/coverage.component';
     RouterModule.forChild(householdRoutes),
     HouseholdFormInfoComponent,
     HouseholdCountComponent,
+    HouseholdConfirmationComponent,
   ],
   declarations: [HouseholdComponent, MemberComponent, CoverageComponent],
 })

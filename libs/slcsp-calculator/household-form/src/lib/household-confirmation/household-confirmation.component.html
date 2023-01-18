@@ -1,0 +1,32 @@
+<ng-container [formGroup]="parent">
+  <fieldset>
+    <legend>
+      <span
+        ><span
+          >Do all of these household members meet the requirements listed
+          above?</span
+        ></span
+      >
+    </legend>
+    <div class="radio-button">
+      <input
+        type="radio"
+        name="householdConfirmation"
+        id="household-confirmation-yes"
+        [value]="true"
+        formControlName="householdConfirmation"
+      />
+      <label for="household-confirmation-yes">Yes</label>
+    </div>
+    <div class="radio-button">
+      <input
+        type="radio"
+        name="householdConfirmation"
+        id="household-confirmation-no"
+        [value]="false"
+        formControlName="householdConfirmation"
+      />
+      <label for="household-confirmation-no">No</label>
+    </div>
+  </fieldset>
+</ng-container>
