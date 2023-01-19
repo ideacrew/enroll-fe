@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { defaultHouseholdMember } from '../mocks/household-form.mock';
+import { defaultHouseholdMember } from '../form-initialization/initial-household-form';
 
 import { HouseholdMemberDobComponent } from './household-member-dob.component';
 

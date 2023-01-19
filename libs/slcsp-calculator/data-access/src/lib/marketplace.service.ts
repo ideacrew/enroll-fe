@@ -12,9 +12,9 @@ import {
   providedIn: 'root',
 })
 export class MarketplaceService {
-  apiKey = MARKETPLACE_API_KEY;
-  baseUrl = 'https://marketplace.api.healthcare.gov/api/v1';
-  http = inject(HttpClient);
+  private readonly apiKey = MARKETPLACE_API_KEY;
+  private readonly baseUrl = 'https://marketplace.api.healthcare.gov/api/v1';
+  private readonly http = inject(HttpClient);
 
   searchForZipCode(zipCode: string): Observable<MarketplaceCounty> {
     if (zipCode.length !== 5) {

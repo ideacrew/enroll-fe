@@ -63,7 +63,10 @@ export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
 
 export const createResidenceFormGroup = (): FormGroup<ResidenceFormGroup> =>
   new FormGroup<ResidenceFormGroup>({
-    zipCode: new FormControl(''),
+    zipCode: new FormControl('', {
+      // eslint-disable-next-line @typescript-eslint/unbound-method
+      validators: [Validators.required, Validators.min(1), Validators.max(5)],
+    }),
     months: createMonthsFormGroup(),
   });
 

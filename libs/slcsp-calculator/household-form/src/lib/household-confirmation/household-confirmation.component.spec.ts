@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { defaultHouseholdForm } from '../mocks/household-form.mock';
+import { defaultHouseholdForm } from '../form-initialization/initial-household-form';
 
 import { HouseholdConfirmationComponent } from './household-confirmation.component';
 

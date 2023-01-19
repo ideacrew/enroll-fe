@@ -8,7 +8,7 @@ import {
 import {
   defaultHouseholdForm,
   defaultHouseholdMember,
-} from './mocks/household-form.mock';
+} from './form-initialization/initial-household-form';
 
 @Injectable({
   providedIn: 'root',

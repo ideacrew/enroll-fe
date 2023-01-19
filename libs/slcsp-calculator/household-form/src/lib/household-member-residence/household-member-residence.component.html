@@ -5,7 +5,19 @@
         <label for="zip-code"
           ><span>In what ZIP code did Mark live in 2022?</span></label
         >
-        <input type="text" formControlName="zipCode" />
+        <input
+          (input)="searchForZipCode(i)"
+          type="text"
+          formControlName="zipCode"
+        />
+        <div
+          class="zip-search-results"
+          *ngIf="searchResults$ | async as county"
+        >
+          <span (click)="setResultAsZipcode(county, i)"
+            >{{ county.zipcode }}, {{ county.name }}, {{ county.state }}</span
+          >
+        </div>
       </ng-container>
     </div>
   </ng-container>
