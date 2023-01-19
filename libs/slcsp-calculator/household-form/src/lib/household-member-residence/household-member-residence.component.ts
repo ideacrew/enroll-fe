@@ -17,12 +17,12 @@ import {
   HouseholdMemberFormGroup,
   ResidenceFormGroup,
 } from '../interfaces/form-types';
+import { MemberResidenceMonthsComponent } from '../member-residence-months/member-residence-months.component';
 
 @Component({
   selector: 'enroll-household-member-residence',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  providers: [],
+  imports: [CommonModule, ReactiveFormsModule, MemberResidenceMonthsComponent],
   templateUrl: './household-member-residence.component.html',
   styleUrls: ['./household-member-residence.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,10 +32,10 @@ export class HouseholdMemberResidencesComponent {
   private readonly searchResults = new Subject<MarketplaceCounty | undefined>();
   searchResults$ = this.searchResults.asObservable();
 
-  @Input() parent!: FormGroup<HouseholdMemberFormGroup>;
+  @Input() memberFormGroup!: FormGroup<HouseholdMemberFormGroup>;
 
   get residences() {
-    return this.parent.get('residences') as FormArray<
+    return this.memberFormGroup.get('residences') as FormArray<
       FormGroup<ResidenceFormGroup>
     >;
   }

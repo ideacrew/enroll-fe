@@ -1,6 +1,6 @@
-<ng-container [formGroup]="parent">
+<ng-container [formGroup]="memberFormGroup">
   <ng-container formArrayName="residences">
-    <div *ngFor="let residences of residences.controls; let i = index">
+    <div *ngFor="let residence of residences.controls; let i = index">
       <ng-container [formGroupName]="i">
         <label for="zip-code"
           ><span>In what ZIP code did Mark live in 2022?</span></label
@@ -19,6 +19,8 @@
           >
         </div>
       </ng-container>
+
+      <enroll-member-residence-months [residenceFormGroup]="residences.at(i)" />
     </div>
   </ng-container>
 </ng-container>

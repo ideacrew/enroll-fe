@@ -14,7 +14,7 @@ describe('HouseholdMemberDobComponent', () => {
 
     fixture = TestBed.createComponent(HouseholdMemberDobComponent);
     component = fixture.componentInstance;
-    component.parent = defaultHouseholdMember();
+    component.memberFormGroup = defaultHouseholdMember();
     fixture.detectChanges();
   });
 

@@ -12,5 +12,5 @@ import { HouseholdMemberFormGroup } from '../interfaces/form-types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HouseholdMemberDobComponent {
-  @Input() parent!: FormGroup<HouseholdMemberFormGroup>;
+  @Input() memberFormGroup!: FormGroup<HouseholdMemberFormGroup>;
 }

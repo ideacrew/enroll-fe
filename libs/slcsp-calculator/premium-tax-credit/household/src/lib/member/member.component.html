@@ -4,9 +4,9 @@
     [formGroup]="householdFormGroup"
     *ngIf="householdMembersArray.at(memberId - 1) as firstMember"
   >
-    <enroll-household-member-dob [parent]="firstMember" />
+    <enroll-household-member-dob [memberFormGroup]="firstMember" />
 
-    <enroll-household-member-residence [parent]="firstMember" />
+    <enroll-household-member-residence [memberFormGroup]="firstMember" />
 
     <button class="ea-button" type="button">Continue</button>
   </form>

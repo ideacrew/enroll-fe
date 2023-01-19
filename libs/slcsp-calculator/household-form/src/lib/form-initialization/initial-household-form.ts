@@ -1,4 +1,5 @@
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Month, months } from '../interfaces';
 import {
   DateOfBirthFormGroup,
   HouseholdFormGroup,
@@ -67,10 +68,10 @@ export const createResidenceFormGroup = (): FormGroup<ResidenceFormGroup> =>
       // eslint-disable-next-line @typescript-eslint/unbound-method
       validators: [Validators.required, Validators.min(1), Validators.max(5)],
     }),
-    months: createMonthsFormGroup(),
+    months: createEmptyMonthsFormGroup(),
   });
 
-export const createMonthsFormGroup = (): FormGroup<MonthFormGroup> =>
+export const createEmptyMonthsFormGroup = (): FormGroup<MonthFormGroup> =>
   new FormGroup<MonthFormGroup>({
     jan: new FormControl(false, { nonNullable: true }),
     feb: new FormControl(false, { nonNullable: true }),
@@ -85,3 +86,22 @@ export const createMonthsFormGroup = (): FormGroup<MonthFormGroup> =>
     nov: new FormControl(false, { nonNullable: true }),
     dec: new FormControl(false, { nonNullable: true }),
   });
+
+// Create a formGroup just like the empty months, but accept an array of months
+// that are set to true
+export const createLeftoverMonthsFormGroup = (
+  existingMonths: Record<Month, boolean>
+): FormGroup<MonthFormGroup> => {
+  const formGroup = createEmptyMonthsFormGroup();
+
+  // Loop over the existing months and set the formGroup to true for each
+  // using a for...of loop because it's easier to read
+  // using the months array from the interfaces file because this makes it typesafe
+  for (const month of months) {
+    if (existingMonths[month]) {
+      formGroup.get(month)?.setValue(true);
+    }
+  }
+
+  return formGroup;
+};

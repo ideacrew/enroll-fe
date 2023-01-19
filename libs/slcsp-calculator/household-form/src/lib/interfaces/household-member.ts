@@ -1,15 +1,4 @@
-export type HouseholdMember = {
-  name: string;
-  dob: {
-    month: string;
-    day: string;
-    year: string;
-  };
-  placesLived: PlacesLived;
-  marketPlaceCoverage: MarketplaceCoverage;
-};
-
-const months = [
+export const months = [
   'jan',
   'feb',
   'mar',
@@ -25,6 +14,3 @@ const months = [
 ] as const;
 
 export type Month = (typeof months)[number];
-
-type PlacesLived = Record<Month, string>;
-type MarketplaceCoverage = Record<Month, boolean>;

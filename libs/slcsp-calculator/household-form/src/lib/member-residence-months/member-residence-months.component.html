@@ -1,0 +1,120 @@
+<ng-container [formGroup]="residenceFormGroup">
+  <fieldset formGroupName="months">
+    <legend>
+      <span>What months did Mark live in Cumberland County, ME?</span>
+    </legend>
+    <div class="month-selection-buttons"></div>
+    <div class="month-selector">
+      <ol>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="jan"
+              id="months-jan"
+            /><label for="months-jan"><span></span>Jan</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="feb"
+              id="months-feb"
+            /><label for="months-feb"><span></span>Feb</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="mar"
+              id="months-mar"
+            /><label for="months-mar"><span></span>Mar</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="apr"
+              id="months-apr"
+            /><label for="months-apr"><span></span>Apr</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="may"
+              id="months-may"
+            /><label for="months-may"><span></span>May</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="jun"
+              id="months-jun"
+            /><label for="months-jun"><span></span>Jun</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="jul"
+              id="months-jul"
+            /><label for="months-jul"><span></span>Jul</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="aug"
+              id="months-aug"
+            /><label for="months-aug"><span></span>Aug</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="sep"
+              id="months-sep"
+            /><label for="months-sep"><span></span>Sep</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="oct"
+              id="months-oct"
+            /><label for="months-oct"><span></span>Oct</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="nov"
+              id="months-nov"
+            /><label for="months-nov"><span></span>Nov</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input
+              type="checkbox"
+              formControlName="dec"
+              id="months-dec"
+            /><label for="months-dec"><span></span>Dec</label>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </fieldset>
+</ng-container>

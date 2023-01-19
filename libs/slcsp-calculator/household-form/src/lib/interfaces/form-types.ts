@@ -1,4 +1,5 @@
 import { FormControl, FormArray, FormGroup } from '@angular/forms';
+import { Month } from './household-member';
 
 export type HouseholdFormGroup = {
   householdConfirmation: FormControl<boolean | undefined>;
@@ -25,17 +26,4 @@ export type ResidenceFormGroup = {
   months: FormGroup<MonthFormGroup>;
 };
 
-export type MonthFormGroup = {
-  jan: FormControl<boolean>;
-  feb: FormControl<boolean>;
-  mar: FormControl<boolean>;
-  apr: FormControl<boolean>;
-  may: FormControl<boolean>;
-  jun: FormControl<boolean>;
-  jul: FormControl<boolean>;
-  aug: FormControl<boolean>;
-  sep: FormControl<boolean>;
-  oct: FormControl<boolean>;
-  nov: FormControl<boolean>;
-  dec: FormControl<boolean>;
-};
+export type MonthFormGroup = Record<Month, FormControl<boolean>>;
