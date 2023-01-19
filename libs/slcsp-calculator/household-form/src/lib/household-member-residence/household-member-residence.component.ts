@@ -22,6 +22,7 @@ import {
   selector: 'enroll-household-member-residence',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+  providers: [],
   templateUrl: './household-member-residence.component.html',
   styleUrls: ['./household-member-residence.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
