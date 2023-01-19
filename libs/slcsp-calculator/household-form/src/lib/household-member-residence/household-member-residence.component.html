@@ -1,24 +1,9 @@
 <ng-container [formGroup]="memberFormGroup">
   <ng-container formArrayName="residences">
     <div *ngFor="let residence of residences.controls; let i = index">
-      <ng-container [formGroupName]="i">
-        <label for="zip-code"
-          ><span>In what ZIP code did Mark live in 2022?</span></label
-        >
-        <input
-          (input)="searchForZipCode(i)"
-          type="text"
-          formControlName="zipCode"
-        />
-        <div
-          class="zip-search-results"
-          *ngIf="searchResults$ | async as county"
-        >
-          <span (click)="setResultAsZipcode(county, i)"
-            >{{ county.zipcode }}, {{ county.name }}, {{ county.state }}</span
-          >
-        </div>
-      </ng-container>
+      <enroll-member-residence-zipcode
+        [residenceFormGroup]="residences.at(i)"
+      />
 
       <enroll-member-residence-months [residenceFormGroup]="residences.at(i)" />
     </div>
