@@ -6,3 +6,4 @@ export * from './lib/household-count/household-count.component';
 export * from './lib/household-confirmation/household-confirmation.component';
 export * from './lib/household-member-name/household-member-name.component';
 export * from './lib/household-member-dob/household-member-dob.component';
+export * from './lib/household-member-residence/household-member-residence.component';

@@ -31,7 +31,7 @@ export const defaultHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
   new FormGroup<HouseholdMemberFormGroup>({
     name: new FormControl('Mark', { nonNullable: true }),
     dob: createDobFormGroup(),
-    residences: new FormArray([createResidencesFormGroup()]),
+    residences: new FormArray([createResidenceFormGroup()]),
   });
 
 export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
@@ -61,7 +61,7 @@ export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
     }),
   });
 
-export const createResidencesFormGroup = (): FormGroup<ResidenceFormGroup> =>
+export const createResidenceFormGroup = (): FormGroup<ResidenceFormGroup> =>
   new FormGroup<ResidenceFormGroup>({
     zipCode: new FormControl(''),
     months: createMonthsFormGroup(),

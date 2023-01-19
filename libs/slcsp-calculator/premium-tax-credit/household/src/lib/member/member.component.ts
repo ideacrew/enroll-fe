@@ -29,4 +29,8 @@ export class MemberComponent {
       startWith(this.householdMembersArray.at(0).get('name')?.value),
       shareReplay(1)
     );
+
+  // get residences() {
+  //   return this.
+  // }
 }

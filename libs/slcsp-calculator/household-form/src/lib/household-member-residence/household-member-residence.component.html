@@ -1,0 +1,12 @@
+<ng-container [formGroup]="parent">
+  <ng-container formArrayName="residences">
+    <div *ngFor="let residences of residences.controls; let i = index">
+      <ng-container [formGroupName]="i">
+        <label for="zip-code"
+          ><span>In what ZIP code did Mark live in 2022?</span></label
+        >
+        <input type="text" formControlName="zipCode" />
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>
