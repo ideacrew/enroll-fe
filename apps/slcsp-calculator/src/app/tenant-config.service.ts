@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 
 export type TenantName = 'me' | 'dc' | 'ma';
@@ -21,7 +21,9 @@ export class TenantConfigService {
 
   constructor(private http: HttpClient) {
     const host = window.location.host.split('.');
-    console.log({ host });
+    if (isDevMode()) {
+      console.log({ host });
+    }
   }
 
   loadAndSetConfig(): Observable<boolean> {
