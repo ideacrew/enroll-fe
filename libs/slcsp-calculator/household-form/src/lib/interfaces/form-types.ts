@@ -22,8 +22,15 @@ export type DateOfBirthFormGroup = {
 };
 
 export type ResidenceFormGroup = {
-  zipCode: FormControl<string | null>;
+  county: FormGroup<CountyFormGroup>;
   months: FormGroup<MonthFormGroup>;
+};
+
+export type CountyFormGroup = {
+  zipcode: FormControl<string>;
+  name: FormControl<string>;
+  fips: FormControl<string>;
+  state: FormControl<string>;
 };
 
 export type MonthFormGroup = Record<Month, FormControl<boolean>>;

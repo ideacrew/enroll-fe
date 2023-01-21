@@ -3,10 +3,12 @@ import {
   Component,
   inject,
   Input,
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Subject, Subscription } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
@@ -24,29 +26,45 @@ import { ResidenceFormGroup } from '../interfaces/form-types';
   styleUrls: ['./member-residence-zipcode.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MemberResidenceZipcodeComponent {
+export class MemberResidenceZipcodeComponent implements OnInit, OnDestroy {
   private readonly marketplaceAPI = inject(MarketplaceService);
   private readonly searchResults = new Subject<MarketplaceCounty | undefined>();
   searchResults$ = this.searchResults.asObservable();
 
+  querySubscription!: Subscription;
+
+  // Zipcode search field
+  // private readonly zipCodeSubscription =
+  zipCodeQuery = new FormControl<string>('', { nonNullable: true });
+
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
 
-  searchForZipCode() {
-    const zipCode = this.residenceFormGroup.get('zipCode')?.value;
+  ngOnInit(): void {
+    this.querySubscription = this.zipCodeQuery.valueChanges.subscribe({
+      next: (zipCode) => {
+        if (zipCode && zipCode.length === 5) {
+          this.searchForZipCode(zipCode);
+        }
+      },
+    });
+  }
 
-    if (zipCode && zipCode.length === 5) {
-      this.marketplaceAPI.searchForZipCode(zipCode).subscribe({
-        next: (county) => {
-          this.searchResults.next(county);
-        },
-      });
-    }
+  searchForZipCode(zipCode: string) {
+    this.marketplaceAPI.searchForZipCode(zipCode).subscribe({
+      next: (county) => {
+        this.searchResults.next(county);
+      },
+    });
   }
 
   setResultAsZipcode(county: MarketplaceCounty): void {
     // eslint-disable-next-line unicorn/no-useless-undefined
     this.searchResults.next(undefined);
-    // Set the value of the county to the zipcode formControl
-    this.residenceFormGroup.get('zipCode')?.setValue(county.zipcode);
+    // Set the value of the county to the county formGroup
+    this.residenceFormGroup.get('county')?.setValue(county);
+  }
+
+  ngOnDestroy(): void {
+    this.querySubscription.unsubscribe();
   }
 }

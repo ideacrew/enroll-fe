@@ -1,6 +1,8 @@
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Month, months } from '../interfaces';
 import {
+  CountyFormGroup,
   DateOfBirthFormGroup,
   HouseholdFormGroup,
   HouseholdMemberFormGroup,
@@ -64,11 +66,16 @@ export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
 
 export const createResidenceFormGroup = (): FormGroup<ResidenceFormGroup> =>
   new FormGroup<ResidenceFormGroup>({
-    zipCode: new FormControl('', {
-      // eslint-disable-next-line @typescript-eslint/unbound-method
-      validators: [Validators.required, Validators.min(1), Validators.max(5)],
-    }),
+    county: createCountyFormGroup(),
     months: createEmptyMonthsFormGroup(),
+  });
+
+export const createCountyFormGroup = (): FormGroup<CountyFormGroup> =>
+  new FormGroup<CountyFormGroup>({
+    zipcode: new FormControl('', { nonNullable: true }),
+    name: new FormControl('', { nonNullable: true }),
+    fips: new FormControl('', { nonNullable: true }),
+    state: new FormControl('', { nonNullable: true }),
   });
 
 export const createEmptyMonthsFormGroup = (): FormGroup<MonthFormGroup> =>

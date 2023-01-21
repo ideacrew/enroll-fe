@@ -8,6 +8,7 @@ import {
 } from '../interfaces/form-types';
 import { MemberResidenceMonthsComponent } from '../member-residence-months/member-residence-months.component';
 import { MemberResidenceZipcodeComponent } from '../member-residence-zipcode/member-residence-zipcode.component';
+import { createResidenceFormGroup } from '../form-initialization/initial-household-form';
 
 @Component({
   selector: 'enroll-household-member-residence',
@@ -29,5 +30,9 @@ export class HouseholdMemberResidencesComponent {
     return this.memberFormGroup.get('residences') as FormArray<
       FormGroup<ResidenceFormGroup>
     >;
+  }
+
+  addResidence() {
+    this.residences.push(createResidenceFormGroup());
   }
 }
