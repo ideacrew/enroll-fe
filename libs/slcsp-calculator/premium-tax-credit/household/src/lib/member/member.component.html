@@ -8,7 +8,9 @@
 
     <enroll-household-member-residence [memberFormGroup]="firstMember" />
 
-    <button class="ea-button" type="button">Continue</button>
+    <button class="ea-button" type="button" (click)="navigateToNextPage()">
+      Continue
+    </button>
   </form>
 </ng-container>
 

@@ -8,3 +8,4 @@ export * from './lib/household-member-name/household-member-name.component';
 export * from './lib/household-member-dob/household-member-dob.component';
 export * from './lib/household-member-residence/household-member-residence.component';
 export * from './lib/member-residence-months/member-residence-months.component';
+export * from './lib/household-member-coverage/household-member-coverage.component';

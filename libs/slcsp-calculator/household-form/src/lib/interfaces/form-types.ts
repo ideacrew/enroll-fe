@@ -10,9 +10,11 @@ export type HouseholdFormGroup = {
 };
 
 export type HouseholdMemberFormGroup = {
+  primaryMember: FormControl<boolean>;
   name: FormControl<string>;
   dob: FormGroup<DateOfBirthFormGroup>;
   residences: FormArray<FormGroup<ResidenceFormGroup>>;
+  coverage: FormGroup<CoverageFormGroup>;
 };
 
 export type DateOfBirthFormGroup = {
@@ -34,3 +36,4 @@ export type CountyFormGroup = {
 };
 
 export type MonthFormGroup = Record<Month, FormControl<boolean>>;
+export type CoverageFormGroup = MonthFormGroup;

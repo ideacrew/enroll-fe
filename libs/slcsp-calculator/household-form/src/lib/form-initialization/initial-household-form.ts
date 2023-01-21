@@ -2,6 +2,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import {
   CountyFormGroup,
+  CoverageFormGroup,
   DateOfBirthFormGroup,
   HouseholdFormGroup,
   HouseholdMemberFormGroup,
@@ -31,9 +32,20 @@ export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
 
 export const defaultHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
   new FormGroup<HouseholdMemberFormGroup>({
+    primaryMember: new FormControl(true, { nonNullable: true }),
     name: new FormControl('Mark', { nonNullable: true }),
     dob: createDobFormGroup(),
     residences: new FormArray([createResidenceFormGroup()]),
+    coverage: createCoverageFormGroup(),
+  });
+
+export const newHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
+  new FormGroup<HouseholdMemberFormGroup>({
+    primaryMember: new FormControl(false, { nonNullable: true }),
+    name: new FormControl('', { nonNullable: true }),
+    dob: createDobFormGroup(),
+    residences: new FormArray([createResidenceFormGroup()]),
+    coverage: createCoverageFormGroup(),
   });
 
 export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
@@ -113,3 +125,19 @@ export const createLeftoverMonthsFormGroup = (
 
   return newFormGroup;
 };
+
+export const createCoverageFormGroup = (): FormGroup<CoverageFormGroup> =>
+  new FormGroup<CoverageFormGroup>({
+    jan: new FormControl(false, { nonNullable: true }),
+    feb: new FormControl(false, { nonNullable: true }),
+    mar: new FormControl(false, { nonNullable: true }),
+    apr: new FormControl(false, { nonNullable: true }),
+    may: new FormControl(false, { nonNullable: true }),
+    jun: new FormControl(false, { nonNullable: true }),
+    jul: new FormControl(false, { nonNullable: true }),
+    aug: new FormControl(false, { nonNullable: true }),
+    sep: new FormControl(false, { nonNullable: true }),
+    oct: new FormControl(false, { nonNullable: true }),
+    nov: new FormControl(false, { nonNullable: true }),
+    dec: new FormControl(false, { nonNullable: true }),
+  });
