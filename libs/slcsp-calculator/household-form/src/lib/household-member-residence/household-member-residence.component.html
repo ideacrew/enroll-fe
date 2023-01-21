@@ -5,7 +5,10 @@
         [residenceFormGroup]="residences.at(i)"
       />
 
-      <enroll-member-residence-months [residenceFormGroup]="residences.at(i)" />
+      <enroll-member-residence-months
+        *ngIf="residences.at(i).get('county.zipcode')?.value"
+        [residenceFormGroup]="residences.at(i)"
+      />
     </div>
   </ng-container>
 

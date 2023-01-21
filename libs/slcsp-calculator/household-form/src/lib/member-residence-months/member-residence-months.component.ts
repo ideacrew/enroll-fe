@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -12,6 +17,10 @@ import { ResidenceFormGroup } from '../interfaces/form-types';
   styleUrls: ['./member-residence-months.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MemberResidenceMonthsComponent {
+export class MemberResidenceMonthsComponent implements OnInit {
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
+
+  ngOnInit(): void {
+    console.log(this.residenceFormGroup.get('county')?.value);
+  }
 }
