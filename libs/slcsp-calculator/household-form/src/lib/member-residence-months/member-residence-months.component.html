@@ -1,7 +1,10 @@
 <ng-container [formGroup]="residenceFormGroup">
   <fieldset formGroupName="months">
     <legend>
-      <span>What months did Mark live in Cumberland County, ME?</span>
+      <span
+        >What months did Mark live in {{ countyName }},
+        {{ stateAbbreviation }}?</span
+      >
     </legend>
     <div class="month-selection-buttons"></div>
     <div class="month-selector">
@@ -11,8 +14,8 @@
             <input
               type="checkbox"
               formControlName="jan"
-              id="months-jan"
-            /><label for="months-jan"><span></span>Jan</label>
+              id="{{ fips }}-months-jan"
+            /><label for="{{ fips }}-months-jan"><span></span>Jan</label>
           </div>
         </li>
         <li>
@@ -20,8 +23,8 @@
             <input
               type="checkbox"
               formControlName="feb"
-              id="months-feb"
-            /><label for="months-feb"><span></span>Feb</label>
+              id="{{ fips }}-months-feb"
+            /><label for="{{ fips }}-months-feb"><span></span>Feb</label>
           </div>
         </li>
         <li>
@@ -29,8 +32,8 @@
             <input
               type="checkbox"
               formControlName="mar"
-              id="months-mar"
-            /><label for="months-mar"><span></span>Mar</label>
+              id="{{ fips }}-months-mar"
+            /><label for="{{ fips }}-months-mar"><span></span>Mar</label>
           </div>
         </li>
         <li>
@@ -38,8 +41,8 @@
             <input
               type="checkbox"
               formControlName="apr"
-              id="months-apr"
-            /><label for="months-apr"><span></span>Apr</label>
+              id="{{ fips }}-months-apr"
+            /><label for="{{ fips }}-months-apr"><span></span>Apr</label>
           </div>
         </li>
         <li>
@@ -47,8 +50,8 @@
             <input
               type="checkbox"
               formControlName="may"
-              id="months-may"
-            /><label for="months-may"><span></span>May</label>
+              id="{{ fips }}-months-may"
+            /><label for="{{ fips }}-months-may"><span></span>May</label>
           </div>
         </li>
         <li>
@@ -56,8 +59,8 @@
             <input
               type="checkbox"
               formControlName="jun"
-              id="months-jun"
-            /><label for="months-jun"><span></span>Jun</label>
+              id="{{ fips }}-months-jun"
+            /><label for="{{ fips }}-months-jun"><span></span>Jun</label>
           </div>
         </li>
         <li>
@@ -65,8 +68,8 @@
             <input
               type="checkbox"
               formControlName="jul"
-              id="months-jul"
-            /><label for="months-jul"><span></span>Jul</label>
+              id="{{ fips }}-months-jul"
+            /><label for="{{ fips }}-months-jul"><span></span>Jul</label>
           </div>
         </li>
         <li>
@@ -74,8 +77,8 @@
             <input
               type="checkbox"
               formControlName="aug"
-              id="months-aug"
-            /><label for="months-aug"><span></span>Aug</label>
+              id="{{ fips }}-months-aug"
+            /><label for="{{ fips }}-months-aug"><span></span>Aug</label>
           </div>
         </li>
         <li>
@@ -83,8 +86,8 @@
             <input
               type="checkbox"
               formControlName="sep"
-              id="months-sep"
-            /><label for="months-sep"><span></span>Sep</label>
+              id="{{ fips }}-months-sep"
+            /><label for="{{ fips }}-months-sep"><span></span>Sep</label>
           </div>
         </li>
         <li>
@@ -92,8 +95,8 @@
             <input
               type="checkbox"
               formControlName="oct"
-              id="months-oct"
-            /><label for="months-oct"><span></span>Oct</label>
+              id="{{ fips }}-months-oct"
+            /><label for="{{ fips }}-months-oct"><span></span>Oct</label>
           </div>
         </li>
         <li>
@@ -101,8 +104,8 @@
             <input
               type="checkbox"
               formControlName="nov"
-              id="months-nov"
-            /><label for="months-nov"><span></span>Nov</label>
+              id="{{ fips }}-months-nov"
+            /><label for="{{ fips }}-months-nov"><span></span>Nov</label>
           </div>
         </li>
         <li>
@@ -110,8 +113,8 @@
             <input
               type="checkbox"
               formControlName="dec"
-              id="months-dec"
-            /><label for="months-dec"><span></span>Dec</label>
+              id="{{ fips }}-months-dec"
+            /><label for="{{ fips }}-months-dec"><span></span>Dec</label>
           </div>
         </li>
       </ol>

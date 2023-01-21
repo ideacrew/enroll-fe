@@ -1,6 +1,5 @@
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Month, months } from '../interfaces';
 import {
   CountyFormGroup,
   DateOfBirthFormGroup,
@@ -97,18 +96,20 @@ export const createEmptyMonthsFormGroup = (): FormGroup<MonthFormGroup> =>
 // Create a formGroup just like the empty months, but accept an array of months
 // that are set to true
 export const createLeftoverMonthsFormGroup = (
-  existingMonths: Record<Month, boolean>
+  existingMonths: Array<FormGroup<MonthFormGroup>>
 ): FormGroup<MonthFormGroup> => {
-  const formGroup = createEmptyMonthsFormGroup();
+  const newFormGroup = createEmptyMonthsFormGroup();
 
-  // Loop over the existing months and set the formGroup to true for each
-  // using a for...of loop because it's easier to read
-  // using the months array from the interfaces file because this makes it typesafe
-  for (const month of months) {
-    if (existingMonths[month]) {
-      formGroup.get(month)?.setValue(true);
+  // Loop through each month formGroup
+  for (const month of existingMonths) {
+    // Loop through each month in the formGroup value and disable
+    // the new formGroup control for that corresponding month
+    for (const [key, value] of Object.entries(month.value)) {
+      if (value) {
+        newFormGroup.get(key)?.disable();
+      }
     }
   }
 
-  return formGroup;
+  return newFormGroup;
 };

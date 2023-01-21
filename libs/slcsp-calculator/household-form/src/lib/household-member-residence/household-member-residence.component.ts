@@ -4,11 +4,15 @@ import { FormArray, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import {
   HouseholdMemberFormGroup,
+  MonthFormGroup,
   ResidenceFormGroup,
 } from '../interfaces/form-types';
 import { MemberResidenceMonthsComponent } from '../member-residence-months/member-residence-months.component';
 import { MemberResidenceZipcodeComponent } from '../member-residence-zipcode/member-residence-zipcode.component';
-import { createResidenceFormGroup } from '../form-initialization/initial-household-form';
+import {
+  createCountyFormGroup,
+  createLeftoverMonthsFormGroup,
+} from '../form-initialization/initial-household-form';
 
 @Component({
   selector: 'enroll-household-member-residence',
@@ -32,7 +36,31 @@ export class HouseholdMemberResidencesComponent {
     >;
   }
 
+  get residenceControls() {
+    return this.residences.controls;
+  }
+
+  get numberOfResidences(): number {
+    return this.residences.length;
+  }
+
   addResidence() {
-    this.residences.push(createResidenceFormGroup());
+    const residenceMonths: Array<FormGroup<MonthFormGroup>> =
+      this.residenceControls.map(
+        (residenceControl) =>
+          residenceControl.get('months') as FormGroup<MonthFormGroup>
+      );
+
+    const newResidenceMonths: FormGroup<MonthFormGroup> =
+      createLeftoverMonthsFormGroup(residenceMonths);
+
+    console.log('newResidenceMonths', newResidenceMonths);
+
+    this.residences.push(
+      new FormGroup<ResidenceFormGroup>({
+        county: createCountyFormGroup(),
+        months: newResidenceMonths,
+      })
+    );
   }
 }
