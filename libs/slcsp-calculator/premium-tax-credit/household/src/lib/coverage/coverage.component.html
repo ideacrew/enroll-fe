@@ -1,12 +1,11 @@
 <ng-container *ngIf="memberId$ | async as memberId">
   <h1>{{ householdMemberName$ | async }}: Marketplace Coverage</h1>
 
-  <form
-    [formGroup]="householdFormGroup"
-    *ngIf="householdMembersArray.at(memberId - 1) as firstMember"
-  >
-    <enroll-household-member-coverage [memberFormGroup]="firstMember" />
-  </form>
+  <enroll-household-member-coverage
+    [memberFormGroup]="householdMembersArray.at(memberId - 1)"
+  />
 </ng-container>
+
+<button class="ea-button" type="button" (click)="nextStep()">Continue</button>
 
 <enroll-household-form-info />
