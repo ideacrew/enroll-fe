@@ -11,3 +11,4 @@ export * from './lib/member-residence-months/member-residence-months.component';
 export * from './lib/household-member-coverage/household-member-coverage.component';
 export * from './lib/review-household/review-household.component';
 export * from './lib/review-tax-year/review-tax-year.component';
+export * from './lib/household-member/household-member.component';

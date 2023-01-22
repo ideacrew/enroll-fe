@@ -1,0 +1,7 @@
+<form [formGroup]="householdMemberFormGroup">
+  <h1>Tell us about {{ householdMemberName }}</h1>
+  <enroll-household-member-dob [memberFormGroup]="householdMemberFormGroup" />
+  <enroll-household-member-residence
+    [memberFormGroup]="householdMemberFormGroup"
+  />
+</form>

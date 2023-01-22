@@ -25,22 +25,7 @@ export class MemberComponent {
     shareReplay(1)
   );
 
-  // DRY this up
-  householdMemberName$ = this.memberId$.pipe(
-    map((memberId) => this.householdMembersArray.at(memberId - 1)?.value),
-    map((householdMember) => householdMember.name)
-  );
-
-  get householdMemberCount() {
-    return this.householdMembersArray.length;
-  }
-
   navigateToNextPage() {
-    console.log({
-      memberId: this.memberId,
-      householdMemberCount: this.householdMemberCount,
-    });
-
     void this.router.navigateByUrl(
       `/premium-tax-credit/household/member/${this.memberId}/coverage`
     );

@@ -1,17 +1,11 @@
 <ng-container *ngIf="memberId$ | async as memberId">
-  <h1>Tell us about {{ householdMemberName$ | async }}</h1>
-  <form
-    [formGroup]="householdFormGroup"
-    *ngIf="householdMembersArray.at(memberId - 1) as firstMember"
-  >
-    <enroll-household-member-dob [memberFormGroup]="firstMember" />
+  <enroll-household-member
+    [householdMemberFormGroup]="householdMembersArray.at(memberId - 1)"
+  />
 
-    <enroll-household-member-residence [memberFormGroup]="firstMember" />
-
-    <button class="ea-button" type="button" (click)="navigateToNextPage()">
-      Continue
-    </button>
-  </form>
+  <button class="ea-button" type="button" (click)="navigateToNextPage()">
+    Continue
+  </button>
 </ng-container>
 
 <enroll-household-form-info></enroll-household-form-info>
