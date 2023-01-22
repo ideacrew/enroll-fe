@@ -13,6 +13,5 @@ import { HouseholdMemberFormGroup } from '../interfaces/form-types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HouseholdMemberNameComponent {
-  // This could be undefined because FormArrays can be empty
-  @Input() parent!: FormGroup<HouseholdMemberFormGroup> | undefined;
+  @Input() parent!: FormGroup<HouseholdMemberFormGroup>;
 }

@@ -36,13 +36,13 @@
 
   <enroll-household-confirmation [parent]="householdFormGroup" />
 
-  <ng-container *ngIf="householdConfirmation$ | async">
-    <div class="household-members" formArrayName="members">
-      <div *ngFor="let member of householdMemberControls">
-        <enroll-household-member-name [parent]="member" />
-      </div>
+  <div class="household-members" formArrayName="members">
+    <div *ngFor="let member of householdMemberControls">
+      <enroll-household-member-name [parent]="member" />
     </div>
-  </ng-container>
+  </div>
+
+  <!-- <enroll-member-names [householdFormGroup]="householdFormGroup" /> -->
 
   <button class="ea-button" type="button" (click)="navigateToMemberDetails()">
     Continue

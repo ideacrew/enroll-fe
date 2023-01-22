@@ -7,7 +7,7 @@ import {
 } from './interfaces/form-types';
 import {
   defaultHouseholdForm,
-  defaultHouseholdMember,
+  newHouseholdMember,
 } from './form-initialization/initial-household-form';
 import { mockHouseholdForm } from './form-initialization/mock-household-form';
 
@@ -15,36 +15,34 @@ import { mockHouseholdForm } from './form-initialization/mock-household-form';
   providedIn: 'root',
 })
 export class HouseholdService {
+  mock = false;
   // Initial form state for household form
-  householdForm: FormGroup<HouseholdFormGroup> = isDevMode()
-    ? mockHouseholdForm()
-    : defaultHouseholdForm();
+  householdForm: FormGroup<HouseholdFormGroup> =
+    isDevMode() && this.mock ? mockHouseholdForm() : defaultHouseholdForm();
 
   readonly householdConfirmation$ = this.householdForm.get(
     'householdConfirmation'
   )?.valueChanges;
 
-  addMemberToHousehold() {
-    const numberOfMembersControl = this.householdForm.get('householdCount');
+  updateHouseholdCount(newCount: number): void {
+    const currentMembers = this.householdMembersArray.length;
+    console.log({ currentMembers: newCount });
 
-    if (numberOfMembersControl === null) {
-      throw new Error(
-        'Number of members control is null. This should never happen.'
-      );
-    } else {
-      const numberOfMembers = numberOfMembersControl.value;
+    if (newCount < currentMembers) {
+      // Remove members from the household
+      for (let index = currentMembers; index > newCount; index--) {
+        this.householdMembersArray.removeAt(index - 1);
+      }
+    }
 
-      // Increment the number of members in the household
-      numberOfMembersControl.setValue(numberOfMembers + 1);
+    if (newCount === currentMembers) {
+      return;
+    }
 
-      // Add a new member to the household
-      const membersControl = this.householdMembersArray;
-
-      // If members control isn't null, add a new household member to the array
-      if (membersControl === null) {
-        throw new Error('Members control is null. This should never happen.');
-      } else {
-        this.householdMembersArray.push(defaultHouseholdMember());
+    if (newCount > currentMembers) {
+      // Add members to the household
+      for (let index = currentMembers; index < newCount; index++) {
+        this.householdMembersArray.push(newHouseholdMember());
       }
     }
   }

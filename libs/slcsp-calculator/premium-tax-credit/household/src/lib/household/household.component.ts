@@ -20,7 +20,9 @@ export class HouseholdComponent {
       throw new Error('Household count must be greater than 0');
     }
 
-    // this.householdService.addMemberToHousehold();
+    if (newCount >= 1) {
+      this.householdService.updateHouseholdCount(newCount);
+    }
   }
 
   async navigateToMemberDetails() {
