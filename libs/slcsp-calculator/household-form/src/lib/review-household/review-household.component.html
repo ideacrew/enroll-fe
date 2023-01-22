@@ -1,18 +1,26 @@
-<ng-container *ngFor="let member of householdMembers">
+<ng-container *ngFor="let member of householdMembers; index as i">
   <h2>{{ member.name }}</h2>
-  <h3>Date of birth</h3>
-  <div>{{ member.dob.month }}/{{ member.dob.day }}/{{ member.dob.year }}</div>
-  <hr />
-  <h3>Location(s) lived</h3>
-  <div *ngFor="let residence of member.residences">
-    <div>
-      {{ residence.months | residenceMonths }}
-    </div>
-
-    {{ residence.county.zipcode }}, {{ residence.county.name }},
-    {{ residence.county.state }}
+  <div class="review-step review-dob">
+    <h3>Date of birth</h3>
+    <div>{{ member.dob.month }}/{{ member.dob.day }}/{{ member.dob.year }}</div>
+    <a routerLink="../household/member/{{ i + 1 }}">Edit</a>
   </div>
   <hr />
-  <h3>Marketplace coverage months</h3>
-  <div>{{ member.coverage | residenceMonths }}</div>
+  <div class="review-step review-locations-lived">
+    <h3>Location(s) lived</h3>
+    <div *ngFor="let residence of member.residences">
+      <div>
+        {{ residence.months | residenceMonths }}
+      </div>
+      {{ residence.county.zipcode }}, {{ residence.county.name }},
+      {{ residence.county.state }}
+    </div>
+    <a routerLink="../household/member/{{ i + 1 }}">Edit</a>
+  </div>
+  <hr />
+  <div class="review-step review-coverage">
+    <h3>Marketplace coverage months</h3>
+    <div>{{ member.coverage | residenceMonths }}</div>
+    <a routerLink="../household/member/{{ i + 1 }}/coverage">Edit</a>
+  </div>
 </ng-container>

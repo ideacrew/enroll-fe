@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { HouseholdFormGroup } from '../interfaces/form-types';
 import { ResidenceMonthsPipe } from '../residence-months/residence-months.pipe';
@@ -8,7 +9,7 @@ import { ResidenceMonthsPipe } from '../residence-months/residence-months.pipe';
 @Component({
   selector: 'enroll-review-household',
   standalone: true,
-  imports: [CommonModule, ResidenceMonthsPipe],
+  imports: [CommonModule, ResidenceMonthsPipe, RouterModule],
   templateUrl: './review-household.component.html',
   styleUrls: ['./review-household.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
