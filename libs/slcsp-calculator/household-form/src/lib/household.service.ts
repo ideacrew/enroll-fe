@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 
 import {
@@ -9,13 +9,16 @@ import {
   defaultHouseholdForm,
   defaultHouseholdMember,
 } from './form-initialization/initial-household-form';
+import { mockHouseholdForm } from './form-initialization/mock-household-form';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HouseholdService {
   // Initial form state for household form
-  householdForm: FormGroup<HouseholdFormGroup> = defaultHouseholdForm();
+  householdForm: FormGroup<HouseholdFormGroup> = isDevMode()
+    ? mockHouseholdForm()
+    : defaultHouseholdForm();
 
   readonly householdConfirmation$ = this.householdForm.get(
     'householdConfirmation'
