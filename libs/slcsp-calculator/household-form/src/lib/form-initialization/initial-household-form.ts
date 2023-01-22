@@ -33,7 +33,7 @@ export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
 export const defaultHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
   new FormGroup<HouseholdMemberFormGroup>({
     primaryMember: new FormControl(true, { nonNullable: true }),
-    name: new FormControl('Mark', { nonNullable: true }),
+    name: new FormControl('', { nonNullable: true }),
     dob: createDobFormGroup(),
     residences: new FormArray([createResidenceFormGroup()]),
     coverage: createCoverageFormGroup(),
