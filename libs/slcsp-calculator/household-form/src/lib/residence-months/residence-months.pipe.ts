@@ -6,11 +6,21 @@ import { Month } from '../interfaces';
   standalone: true,
 })
 export class ResidenceMonthsPipe implements PipeTransform {
-  transform(value: Record<Month, boolean>): Month[] | 'All year' {
-    const trueMonths = Object.keys(value).filter(
+  transform(value: Record<Month, boolean>): string {
+    const trueMonths: Month[] = Object.keys(value).filter(
       (month) => value[month as Month] === true
     ) as Month[];
 
-    return trueMonths.length === 12 ? 'All year' : trueMonths;
+    if (trueMonths.length === 12) {
+      return 'All year';
+    } else {
+      // Capitalize each month name
+      const capitalMonths: string[] = trueMonths.map(
+        (month: Month) => month[0].toUpperCase() + month.slice(1)
+      );
+
+      // Return array as comma-separated string
+      return capitalMonths.join(', ');
+    }
   }
 }
