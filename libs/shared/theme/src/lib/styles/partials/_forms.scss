@@ -105,3 +105,50 @@
     display: block;
   }
 }
+
+.radio-container {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  align-items: center;
+}
+
+.ea-radio {
+  // Base values at rest
+  --border-color: var(--grey-090);
+
+  // Static properties
+  display: grid;
+  align-items: center;
+  place-content: center;
+  border-width: 2px;
+  border-style: solid;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  appearance: none;
+  border-radius: 100%;
+  background-color: var(--grey-000);
+  position: relative;
+
+  // Dynamic properties
+  border-color: var(--border-color);
+
+  &:checked {
+    --border-color: var(--theme-primary-100);
+  }
+
+  &:before {
+    content: '';
+    box-shadow: inset 0 0 4em 1em var(--theme-primary-100);
+    opacity: 0;
+    border-radius: 100%;
+    height: 22px;
+    width: 22px;
+    grid-area: 1/-1;
+  }
+
+  &:checked:before {
+    opacity: 1;
+  }
+}
