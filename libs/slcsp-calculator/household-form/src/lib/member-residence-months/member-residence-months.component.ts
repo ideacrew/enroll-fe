@@ -27,4 +27,38 @@ export class MemberResidenceMonthsComponent {
   get stateAbbreviation(): string {
     return this.residenceFormGroup.get('county.state')?.value || '';
   }
+
+  selectAllMonths(): void {
+    this.residenceFormGroup.get('months')?.patchValue({
+      jan: true,
+      feb: true,
+      mar: true,
+      apr: true,
+      may: true,
+      jun: true,
+      jul: true,
+      aug: true,
+      sep: true,
+      oct: true,
+      nov: true,
+      dec: true,
+    });
+  }
+
+  clearAllMonths(): void {
+    this.residenceFormGroup.get('months')?.patchValue({
+      jan: false,
+      feb: false,
+      mar: false,
+      apr: false,
+      may: false,
+      jun: false,
+      jul: false,
+      aug: false,
+      sep: false,
+      oct: false,
+      nov: false,
+      dec: false,
+    });
+  }
 }

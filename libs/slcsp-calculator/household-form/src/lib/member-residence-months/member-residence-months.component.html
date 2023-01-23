@@ -6,7 +6,14 @@
         {{ stateAbbreviation }}?</span
       >
     </legend>
-    <div class="month-selection-buttons"></div>
+    <div class="month-selection-buttons">
+      <button class="ea-button outline" (click)="selectAllMonths()">
+        Select all
+      </button>
+      <button class="ea-button outline" (click)="clearAllMonths()">
+        Clear all
+      </button>
+    </div>
     <div class="month-selector">
       <ol class="months-list">
         <li>
