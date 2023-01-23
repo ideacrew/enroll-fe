@@ -25,6 +25,18 @@ export class HouseholdComponent {
     }
   }
 
+  get confirmation(): boolean {
+    const confirmationControl = this.householdFormGroup.get(
+      'householdConfirmation'
+    );
+
+    if (confirmationControl !== undefined && confirmationControl !== null) {
+      return confirmationControl.value ?? false;
+    }
+
+    return false;
+  }
+
   async navigateToMemberDetails() {
     // From this component, always navigate to the first member in household
     await this.router.navigateByUrl('/premium-tax-credit/household/member/1');

@@ -40,7 +40,7 @@
 
   <enroll-household-confirmation [parent]="householdFormGroup" />
 
-  <div class="household-members" formArrayName="members">
+  <div *ngIf="confirmation" class="household-members" formArrayName="members">
     <div *ngFor="let member of householdMemberControls; index as i">
       <enroll-household-member-name [parent]="member" [index]="i" />
     </div>
