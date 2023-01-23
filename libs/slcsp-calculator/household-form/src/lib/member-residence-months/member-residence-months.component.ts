@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { ResidenceFormGroup } from '../interfaces/form-types';
+import { Month } from '../interfaces';
 
 @Component({
   selector: 'enroll-member-residence-months',
@@ -28,37 +29,42 @@ export class MemberResidenceMonthsComponent {
     return this.residenceFormGroup.get('county.state')?.value || '';
   }
 
+  // Select all months that aren't disabled
   selectAllMonths(): void {
-    this.residenceFormGroup.get('months')?.patchValue({
-      jan: true,
-      feb: true,
-      mar: true,
-      apr: true,
-      may: true,
-      jun: true,
-      jul: true,
-      aug: true,
-      sep: true,
-      oct: true,
-      nov: true,
-      dec: true,
-    });
+    const monthsControl = this.residenceFormGroup.get('months');
+
+    if (monthsControl === undefined || monthsControl === null) {
+      throw new Error('No months defined');
+    }
+    // Get existing months as an object
+    const existingMonths: Record<Month, boolean> = monthsControl.value;
+
+    const newMonths: Record<Month, boolean> = { ...existingMonths };
+
+    // Set all months to true
+    for (const month of Object.keys(existingMonths)) {
+      newMonths[month as Month] = true;
+    }
+
+    monthsControl.patchValue(newMonths);
   }
 
   clearAllMonths(): void {
-    this.residenceFormGroup.get('months')?.patchValue({
-      jan: false,
-      feb: false,
-      mar: false,
-      apr: false,
-      may: false,
-      jun: false,
-      jul: false,
-      aug: false,
-      sep: false,
-      oct: false,
-      nov: false,
-      dec: false,
-    });
+    const monthsControl = this.residenceFormGroup.get('months');
+
+    if (monthsControl === undefined || monthsControl === null) {
+      throw new Error('No months defined');
+    }
+    // Get existing months as an object
+    const existingMonths: Record<Month, boolean> = monthsControl.value;
+
+    const newMonths: Record<Month, boolean> = { ...existingMonths };
+
+    // Set all months to true
+    for (const month of Object.keys(existingMonths)) {
+      newMonths[month as Month] = false;
+    }
+
+    monthsControl.patchValue(newMonths);
   }
 }
