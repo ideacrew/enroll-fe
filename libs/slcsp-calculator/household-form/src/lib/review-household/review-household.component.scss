@@ -5,5 +5,14 @@
 
 .review-step {
   position: relative;
-  outline: 1px solid red;
+}
+
+.edit-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+h3 {
+  margin: 0;
 }

@@ -3,7 +3,7 @@
   <div class="review-step review-dob">
     <h3>Date of birth</h3>
     <div>{{ member.dob.month }}/{{ member.dob.day }}/{{ member.dob.year }}</div>
-    <a routerLink="../household/member/{{ i + 1 }}">Edit</a>
+    <a class="edit-link" routerLink="../household/member/{{ i + 1 }}">Edit</a>
   </div>
   <hr />
   <div class="review-step review-locations-lived">
@@ -15,12 +15,14 @@
       {{ residence.county.zipcode }}, {{ residence.county.name }},
       {{ residence.county.state }}
     </div>
-    <a routerLink="../household/member/{{ i + 1 }}">Edit</a>
+    <a class="edit-link" routerLink="../household/member/{{ i + 1 }}">Edit</a>
   </div>
   <hr />
   <div class="review-step review-coverage">
     <h3>Marketplace coverage months</h3>
     <div>{{ member.coverage | residenceMonths }}</div>
-    <a routerLink="../household/member/{{ i + 1 }}/coverage">Edit</a>
+    <a class="edit-link" routerLink="../household/member/{{ i + 1 }}/coverage"
+      >Edit</a
+    >
   </div>
 </ng-container>
