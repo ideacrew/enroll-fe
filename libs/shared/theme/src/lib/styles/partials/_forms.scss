@@ -152,3 +152,78 @@
     opacity: 1;
   }
 }
+
+.month-selector {
+  max-width: 50ch;
+}
+
+.months-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > li {
+    list-style: none;
+  }
+}
+
+.checkbox-input-group {
+  width: 100px;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  align-items: center;
+}
+
+.ea-checkbox-input {
+  appearance: none;
+  align-items: center;
+  background-color: var(--grey-000);
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--grey-090);
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  position: relative;
+
+  &:before {
+    box-sizing: content-box;
+    box-shadow: inset 0 0 4em 1em var(--theme-primary-100, red);
+    content: '';
+    grid-area: 1 / -1;
+    height: 2rem;
+    width: 2rem;
+    opacity: 0;
+  }
+
+  &:checked:before {
+    opacity: 1;
+  }
+
+  &:disabled,
+  &:disabled:before {
+    background-color: var(--grey-050, chartreuse);
+    border-color: var(--grey-100, chartreuse);
+  }
+
+  &:after {
+    box-sizing: content-box;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0 0 4px 4px;
+    border-color: transparent transparent white white;
+    content: '';
+    grid-area: 1 / -1;
+    height: 4px;
+    width: 10px;
+    transform: rotate(-45deg) translateX(0.075em);
+    opacity: 0;
+  }
+
+  &:checked:after {
+    opacity: 1;
+  }
+}
