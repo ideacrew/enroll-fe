@@ -6,3 +6,11 @@ legend {
   padding: 0;
   margin: 0;
 }
+
+fieldset {
+  margin-top: 1.5rem;
+}
+
+fieldset > legend > span {
+  font-weight: 700;
+}
