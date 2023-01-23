@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  max-width: 70ch;
+}
+
+.step {
+  display: flex;
+  justify-content: space-between;
+  counter-increment: step-counter;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.step h2 {
+  margin: 0;
+}
+
+.step:before {
+  content: counter(step-counter);
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+  text-align: center;
+  color: var(--grey-000);
+  background-color: var(--theme-primary-100);
+  font-size: 1.25rem;
+  height: 2rem;
+  width: 2rem;
+  left: -3rem;
+  top: 1px;
+}
