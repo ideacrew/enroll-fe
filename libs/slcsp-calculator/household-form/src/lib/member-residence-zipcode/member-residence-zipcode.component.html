@@ -1,11 +1,17 @@
-<ng-container>
-  <label for="zip-code"
-    ><span>In what ZIP code did {{ memberName }} live in 2022?</span></label
+<label for="autocomplete-zipcode-{{ index }}"
+  ><span>In what ZIP code did {{ memberName }} live in 2022?</span></label
+>
+<input
+  #zipCodeInput
+  class="enroll-input"
+  type="text"
+  [formControl]="zipCodeQuery"
+  autocomplete="off"
+  role="combobox"
+  id="autocomplete-zipcode-{{ index }}"
+/>
+<div class="zip-search-results" *ngIf="searchResults$ | async as county">
+  <span (click)="setResultAsZipcode(county)"
+    >{{ county.zipcode }}, {{ county.name }}, {{ county.state }}</span
   >
-  <input type="text" [formControl]="zipCodeQuery" />
-  <div class="zip-search-results" *ngIf="searchResults$ | async as county">
-    <span (click)="setResultAsZipcode(county)"
-      >{{ county.zipcode }}, {{ county.name }}, {{ county.state }}</span
-    >
-  </div>
-</ng-container>
+</div>

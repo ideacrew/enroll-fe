@@ -1,41 +1,45 @@
-<ng-container [formGroup]="memberFormGroup">
+<form [formGroup]="memberFormGroup">
   <fieldset formGroupName="dob">
     <legend>
       <span>Date of birth</span>
-      <span>Example: 5/12/1975</span>
+      <span class="hint">Example: 5/12/1975</span>
     </legend>
-    <div class="input-group">
-      <label class="hbx-input-label" for="dob-month"> Month </label>
-      <input
-        class="dob-input"
-        type="text"
-        inputmode="numeric"
-        name="dob-month"
-        id="dob-month"
-        formControlName="month"
-      />
-    </div>
-    <div class="input-group">
-      <label class="hbx-input-label" for="dob-day"> Day </label>
-      <input
-        class="dob-input"
-        type="text"
-        inputmode="numeric"
-        name="dob-day"
-        id="dob-day"
-        formControlName="day"
-      />
-    </div>
-    <div class="input-group year-group">
-      <label class="hbx-input-label" for="dob-year"> Year </label>
-      <input
-        class="dob-input"
-        type="text"
-        inputmode="numeric"
-        name="dob-year"
-        id="dob-year"
-        formControlName="year"
-      />
+    <div class="dob-container">
+      <div class="input-group">
+        <label class="hbx-input-label" for="dob-month"> Month </label>
+        <input
+          class="month-input dob-input enroll-input"
+          type="text"
+          inputmode="numeric"
+          name="dob-month"
+          id="dob-month"
+          formControlName="month"
+        />
+      </div>
+      <span>/</span>
+      <div class="input-group">
+        <label class="hbx-input-label" for="dob-day"> Day </label>
+        <input
+          class="day-input dob-input enroll-input"
+          type="text"
+          inputmode="numeric"
+          name="dob-day"
+          id="dob-day"
+          formControlName="day"
+        />
+      </div>
+      <span>/</span>
+      <div class="input-group year-group">
+        <label class="hbx-input-label" for="dob-year"> Year </label>
+        <input
+          class="year-input dob-input enroll-input"
+          type="text"
+          inputmode="numeric"
+          name="dob-year"
+          id="dob-year"
+          formControlName="year"
+        />
+      </div>
     </div>
   </fieldset>
-</ng-container>
+</form>

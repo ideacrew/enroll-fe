@@ -83,12 +83,13 @@ button.ea-button {
 
 a.ea-button.outline,
 button.ea-button.outline {
-  --button-text-color: var(--button-primary-color, chartreuse);
+  --button-text-color: var(--button-primary-color, var(--theme-primary-100));
   --button-fill-color: var(--grey-000, chartreuse);
   --button-focus-ring-color: var(--grey-000, chartreuse);
 
   &:hover {
-    --button-text-color: var(--button-primary-hover);
+    --button-text-color: var(--theme-primary-120);
+    --button-border-color: var(--theme-primary-120);
   }
 
   &:active {

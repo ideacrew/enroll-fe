@@ -1,9 +1,11 @@
+<h2>Tell us where {{ memberName }} lived during all of 2022</h2>
 <ng-container [formGroup]="memberFormGroup">
   <ng-container formArrayName="residences">
     <div *ngFor="let residence of residences.controls; let i = index">
       <enroll-member-residence-zipcode
         [residenceFormGroup]="residences.at(i)"
         [memberName]="memberName"
+        [index]="i"
       />
 
       <enroll-member-residence-months
@@ -14,5 +16,12 @@
     </div>
   </ng-container>
 
-  <button type="button" (click)="addResidence()">Add Residence</button>
+  <button
+    class="new-residence-button ea-button outline"
+    t
+    ype="button"
+    (click)="addResidence()"
+  >
+    Add Residence
+  </button>
 </ng-container>

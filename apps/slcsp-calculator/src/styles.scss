@@ -11,14 +11,11 @@ fieldset {
   margin-top: 1.5rem;
 }
 
-fieldset > legend > span {
-  font-weight: 700;
-}
-
 .continue-button {
   margin-top: 3rem;
 }
 
+legend span:first-child,
 label span:first-child {
   font-weight: 700;
 }
@@ -29,4 +26,8 @@ label span {
 
 .enroll-input {
   margin-top: 0.25rem;
+}
+
+.hint {
+  display: block;
 }

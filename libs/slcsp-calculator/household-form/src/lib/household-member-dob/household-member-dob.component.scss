@@ -1,3 +1,33 @@
 :host {
   display: block;
 }
+
+.dob-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  > span {
+    font-size: 1.5rem;
+  }
+}
+
+.input-group label {
+  display: block;
+}
+
+.dob-input {
+  padding: 0.5rem;
+  box-sizing: content-box;
+  height: auto;
+}
+
+.month-input,
+.day-input {
+  width: 3ch;
+}
+
+.year-input {
+  width: 6ch;
+}

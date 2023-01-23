@@ -1,10 +1,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   inject,
   Input,
   OnDestroy,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -33,12 +35,14 @@ export class MemberResidenceZipcodeComponent implements OnInit, OnDestroy {
 
   querySubscription!: Subscription;
 
-  // Zipcode search field
-  // private readonly zipCodeSubscription =
   zipCodeQuery = new FormControl<string>('', { nonNullable: true });
 
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
   @Input() memberName!: string;
+  @Input() index!: number;
+
+  // Get reference to #zipCodeInput
+  @ViewChild('zipCodeInput') zipCodeInput!: ElementRef<HTMLInputElement>;
 
   ngOnInit(): void {
     this.querySubscription = this.zipCodeQuery.valueChanges.subscribe({
@@ -61,6 +65,7 @@ export class MemberResidenceZipcodeComponent implements OnInit, OnDestroy {
   setResultAsZipcode(county: MarketplaceCounty): void {
     // eslint-disable-next-line unicorn/no-useless-undefined
     this.searchResults.next(undefined);
+    this.zipCodeInput.nativeElement.value = `${county.zipcode}, ${county.name}, ${county.state}`;
     // Set the value of the county to the county formGroup
     this.residenceFormGroup.get('county')?.setValue(county);
   }
