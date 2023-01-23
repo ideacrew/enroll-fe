@@ -14,4 +14,15 @@ import { HouseholdMemberFormGroup } from '../interfaces/form-types';
 })
 export class HouseholdMemberNameComponent {
   @Input() parent!: FormGroup<HouseholdMemberFormGroup>;
+  @Input() index!: number;
+
+  get primaryMember(): boolean {
+    const primaryMemberControl = this.parent.get('primaryMember');
+
+    if (primaryMemberControl) {
+      return primaryMemberControl.value;
+    } else {
+      throw new Error('primaryMember control is missing');
+    }
+  }
 }

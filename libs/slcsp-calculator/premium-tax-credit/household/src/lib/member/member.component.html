@@ -1,6 +1,7 @@
 <ng-container *ngIf="memberId$ | async as memberId">
   <enroll-household-member
     [householdMemberFormGroup]="householdMembersArray.at(memberId - 1)"
+    [memberId]="memberId"
   />
 
   <button class="ea-button" type="button" (click)="navigateToNextPage()">

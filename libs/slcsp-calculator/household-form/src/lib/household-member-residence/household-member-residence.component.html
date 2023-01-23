@@ -3,11 +3,13 @@
     <div *ngFor="let residence of residences.controls; let i = index">
       <enroll-member-residence-zipcode
         [residenceFormGroup]="residences.at(i)"
+        [memberName]="memberName"
       />
 
       <enroll-member-residence-months
         *ngIf="residences.at(i).get('county.zipcode')?.value"
         [residenceFormGroup]="residences.at(i)"
+        [memberName]="memberName"
       />
     </div>
   </ng-container>

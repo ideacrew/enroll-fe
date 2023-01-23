@@ -21,6 +21,7 @@ import { HouseholdMemberResidencesComponent } from '../household-member-residenc
 })
 export class HouseholdMemberComponent {
   @Input() householdMemberFormGroup!: FormGroup<HouseholdMemberFormGroup>;
+  @Input() memberId!: number;
 
   get householdMemberName() {
     return this.householdMemberFormGroup.get('name')?.value;

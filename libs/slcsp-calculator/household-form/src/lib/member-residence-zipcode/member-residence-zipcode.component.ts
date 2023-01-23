@@ -38,6 +38,7 @@ export class MemberResidenceZipcodeComponent implements OnInit, OnDestroy {
   zipCodeQuery = new FormControl<string>('', { nonNullable: true });
 
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
+  @Input() memberName!: string;
 
   ngOnInit(): void {
     this.querySubscription = this.zipCodeQuery.valueChanges.subscribe({

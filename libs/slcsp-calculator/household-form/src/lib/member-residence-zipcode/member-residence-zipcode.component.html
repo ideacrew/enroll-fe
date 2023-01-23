@@ -1,6 +1,6 @@
 <ng-container>
   <label for="zip-code"
-    ><span>In what ZIP code did Mark live in 2022?</span></label
+    ><span>In what ZIP code did {{ memberName }} live in 2022?</span></label
   >
   <input type="text" [formControl]="zipCodeQuery" />
   <div class="zip-search-results" *ngIf="searchResults$ | async as county">

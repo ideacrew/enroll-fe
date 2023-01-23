@@ -14,6 +14,7 @@ import { ResidenceFormGroup } from '../interfaces/form-types';
 })
 export class MemberResidenceMonthsComponent {
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
+  @Input() memberName!: string;
 
   get fips(): string {
     return this.residenceFormGroup.get('county.fips')?.value || '';
