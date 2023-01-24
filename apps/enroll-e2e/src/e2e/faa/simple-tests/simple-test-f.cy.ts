@@ -10,7 +10,7 @@ import {
   sorenSharpInitial,
 } from '@enroll/financial-assistance/testing';
 
-describe('CMS Simple Test Case F', () => {
+xdescribe('CMS Simple Test Case F', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);

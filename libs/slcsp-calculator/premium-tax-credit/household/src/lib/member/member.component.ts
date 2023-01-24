@@ -24,10 +24,4 @@ export class MemberComponent {
     tap((memberId) => (this.memberId = memberId)),
     shareReplay(1)
   );
-
-  navigateToNextPage() {
-    void this.router.navigateByUrl(
-      `/premium-tax-credit/household/member/${this.memberId}/coverage`
-    );
-  }
 }

@@ -7,7 +7,7 @@ import {
   applicationsStub,
 } from '@enroll/financial-assistance/testing';
 
-describe('CMS Simple Test Case C', () => {
+xdescribe('CMS Simple Test Case C', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);

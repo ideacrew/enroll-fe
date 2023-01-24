@@ -31,8 +31,6 @@
     coverage outside CoverME.gov.
   </p>
 
-  <!-- New self-closing tag syntax in Angular 15.1 -->
-
   <enroll-household-count
     [parent]="householdFormGroup"
     (newHouseholdCount)="changeHouseholdCount($event)"
@@ -40,21 +38,23 @@
 
   <enroll-household-confirmation [parent]="householdFormGroup" />
 
-  <div *ngIf="confirmation" class="household-members" formArrayName="members">
+  <div
+    *ngIf="confirmation"
+    data-cy="household-members-list"
+    class="household-members"
+    formArrayName="members"
+  >
     <div *ngFor="let member of householdMemberControls; index as i">
       <enroll-household-member-name [parent]="member" [index]="i" />
     </div>
   </div>
 
-  <!-- <enroll-member-names [householdFormGroup]="householdFormGroup" /> -->
-
-  <button
+  <a
+    data-cy="navigate-to-member-details"
     class="continue-button ea-button"
     type="button"
-    (click)="navigateToMemberDetails()"
+    routerLink="member/1"
   >
     Continue
-  </button>
+  </a>
 </form>
-
-<!-- <enroll-household-form-info /> -->

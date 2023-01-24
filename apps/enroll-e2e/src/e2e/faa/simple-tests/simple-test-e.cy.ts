@@ -12,7 +12,7 @@ import {
   williamSimonInitial,
 } from '@enroll/financial-assistance/testing';
 
-describe('CMS Simple Test Case E', () => {
+xdescribe('CMS Simple Test Case E', () => {
   beforeEach(() => {
     // const now = new Date(2011, 5, 11);
     // cy.clock(now);

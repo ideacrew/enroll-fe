@@ -2,15 +2,10 @@ import { defineConfig } from 'cypress';
 import { nxE2EPreset } from '@nrwl/cypress/plugins/cypress-preset';
 
 export default defineConfig({
+  viewportWidth: 1400,
+  viewportHeight: 800,
   e2e: {
     // eslint-disable-next-line unicorn/prefer-module
     ...nxE2EPreset(__dirname),
-    /**
-     * TODO(@nrwl/cypress): In Cypress v12,the testIsolation option is turned on by default.
-     * This can cause tests to start breaking where not indended.
-     * You should consider enabling this once you verify tests do not depend on each other
-     * More Info: https://docs.cypress.io/guides/references/migration-guide#Test-Isolation
-     **/
-    testIsolation: false,
   },
 });

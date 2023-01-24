@@ -4,13 +4,13 @@
     [memberId]="memberId"
   />
 
-  <button
+  <a
     class="ea-button continue-button"
     type="button"
-    (click)="navigateToNextPage()"
+    routerLink="member/{{ memberId }}/coverage"
   >
     Continue
-  </button>
+  </a>
 </ng-container>
 
 <!-- <enroll-household-form-info /> -->
