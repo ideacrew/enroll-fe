@@ -159,7 +159,7 @@ jobs:
       matrix:
         client: [ic, me]
     name: Deploy affected applications
-    needs: [format, lint, test, build]
+    needs: [format, lint, test, e2e, build]
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS credentials
