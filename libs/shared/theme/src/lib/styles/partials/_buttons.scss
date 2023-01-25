@@ -79,6 +79,14 @@ button.ea-button {
       var(--theme-primary-140)
     );
   }
+
+  &.disabled,
+  &:disabled {
+    background-color: var(--grey-040);
+    border-color: var(--grey-040);
+    color: var(--grey-100);
+    cursor: not-allowed;
+  }
 }
 
 a.ea-button.outline,

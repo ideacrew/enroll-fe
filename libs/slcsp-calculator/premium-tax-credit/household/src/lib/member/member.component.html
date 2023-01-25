@@ -4,9 +4,15 @@
     [memberId]="memberId"
   />
 
-  <a class="ea-button continue-button" type="button" routerLink="coverage">
+  <button
+    data-cy="navigate-to-member-coverage"
+    class="ea-button continue-button"
+    type="button"
+    (click)="navigateToCoverage()"
+    [disabled]="!validMemberDetailPage"
+  >
     Continue
-  </a>
+  </button>
 </ng-container>
 
 <!-- <enroll-household-form-info /> -->

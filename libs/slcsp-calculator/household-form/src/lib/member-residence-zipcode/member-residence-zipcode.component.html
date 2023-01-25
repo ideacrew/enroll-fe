@@ -3,6 +3,7 @@
 >
 <input
   #zipCodeInput
+  [attr.data-cy]="'zipcode-input-' + index"
   class="enroll-input"
   type="text"
   [formControl]="zipCodeQuery"
@@ -11,7 +12,9 @@
   id="autocomplete-zipcode-{{ index }}"
 />
 <div class="zip-search-results" *ngIf="searchResults$ | async as county">
-  <span (click)="setResultAsZipcode(county)"
+  <span
+    [attr.data-cy]="'zipcode-result-' + index"
+    (click)="setResultAsZipcode(county)"
     >{{ county.zipcode }}, {{ county.name }}, {{ county.state }}</span
   >
 </div>

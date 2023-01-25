@@ -43,4 +43,21 @@ export class HouseholdComponent {
 
     return false;
   }
+
+  get validHouseholdPage(): boolean {
+    const validHouseholdCount =
+      this.householdFormGroup.get('householdCount')?.valid ?? false;
+
+    const householdConfirmation = this.householdFormGroup.get(
+      'householdConfirmation'
+    );
+
+    const validHouseholdConfirmation = householdConfirmation?.value ?? false;
+
+    return validHouseholdCount && validHouseholdConfirmation;
+  }
+
+  navigateToMemberDetails(): void {
+    void this.router.navigateByUrl('/premium-tax-credit/household/member/1');
+  }
 }

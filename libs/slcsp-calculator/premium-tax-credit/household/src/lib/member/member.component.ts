@@ -24,4 +24,16 @@ export class MemberComponent {
     tap((memberId) => (this.memberId = memberId)),
     shareReplay(1)
   );
+
+  get validMemberDetailPage(): boolean {
+    const validMembers = this.householdFormGroup.get('members')?.valid ?? false;
+
+    return validMembers;
+  }
+
+  navigateToCoverage(): void {
+    void this.router.navigateByUrl(
+      `/premium-tax-credit/household/member/${this.memberId}/coverage`
+    );
+  }
 }

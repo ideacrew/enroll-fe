@@ -53,12 +53,13 @@
     </div>
   </div>
 
-  <a
+  <button
     data-cy="navigate-to-member-details"
     class="continue-button ea-button"
     type="button"
-    routerLink="member/1"
+    (click)="navigateToMemberDetails()"
+    [disabled]="!validHouseholdPage"
   >
     Continue
-  </a>
+  </button>
 </form>
