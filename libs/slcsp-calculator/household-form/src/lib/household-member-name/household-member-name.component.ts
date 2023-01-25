@@ -7,8 +7,9 @@ import {
   TRANSLOCO_SCOPE,
 } from '@ngneat/transloco';
 
+import { TaxRelationships } from '@enroll/shared/types';
+
 import { HouseholdMemberFormGroup } from '../interfaces/form-types';
-import { TaxRelationships } from '../../../../../shared/types/src/lib/tax-relationship';
 import { scopeLoader } from '../util/i18n/standalone-loader';
 
 @Component({
