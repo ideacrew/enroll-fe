@@ -15,7 +15,7 @@ import { mockHouseholdForm } from './form-initialization/mock-household-form';
   providedIn: 'root',
 })
 export class HouseholdService {
-  mock = true;
+  mock = false;
   // Initial form state for household form
   householdForm: FormGroup<HouseholdFormGroup> =
     isDevMode() && this.mock ? mockHouseholdForm() : defaultHouseholdForm();
