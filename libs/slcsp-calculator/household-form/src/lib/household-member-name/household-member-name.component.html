@@ -1,23 +1,51 @@
-<ng-container [formGroup]="parent">
-  <label for="member-{{ index }}">
-    <ng-container *ngIf="index === 0; else notPrimary">
+<ng-container [formGroup]="householdMember" *transloco="let t">
+  <ng-container *ngIf="index === 0; else notPrimary">
+    <label for="member-{{ index }}">
       <span>First name of the primary person</span>
       <span
         >The primary person is the primary taxpayer of the household. If a
         married couple files a joint return, either spouse may be the primary
         taxpayer.</span
       >
-    </ng-container>
+    </label>
+    <input
+      [attr.data-cy]="'member-' + index"
+      class="enroll-input"
+      type="text"
+      id="primary-member"
+      formControlName="name"
+    />
+  </ng-container>
 
-    <ng-template #notPrimary>
-      <span>First name of person {{ index + 1 }}</span>
-    </ng-template>
-  </label>
-  <input
-    [attr.data-cy]="'member-' + index"
-    class="enroll-input"
-    type="text"
-    id="primary-member"
-    formControlName="name"
-  />
+  <ng-template #notPrimary>
+    <div class="secondary-member">
+      <label for="member-{{ index }}">
+        <span
+          >First name of person {{ index + 1 }} and their relationship to
+          {{ primaryMemberName }}</span
+        >
+      </label>
+      <input
+        [attr.data-cy]="'member-' + index"
+        class="enroll-input"
+        type="text"
+        id="member-{{ index }}"
+        formControlName="name"
+      />
+      <span class="relationship-divider">is {{ primaryMemberName }}'s</span>
+      <select
+        class="enroll-input enroll-select"
+        id="relationship-{{ index }}"
+        formControlName="relationship"
+      >
+        <option selected value="null">Select a relationship</option>
+        <option
+          *ngFor="let relationship of taxRelationships"
+          [value]="relationship"
+        >
+          {{ t('relationships.' + relationship) }}
+        </option>
+      </select>
+    </div>
+  </ng-template>
 </ng-container>

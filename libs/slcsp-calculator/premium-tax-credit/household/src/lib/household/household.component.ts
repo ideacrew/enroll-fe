@@ -25,6 +25,13 @@ export class HouseholdComponent {
     }
   }
 
+  get primaryMemberName(): string {
+    return (
+      this.householdService.householdMembersArray.at(0).get('name')?.value ??
+      'primary member'
+    );
+  }
+
   get confirmation(): boolean {
     const confirmationControl = this.householdFormGroup.get(
       'householdConfirmation'

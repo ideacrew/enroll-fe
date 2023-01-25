@@ -35,7 +35,7 @@ export class ResultsComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    console.log(this.householdService.householdForm.value);
+    console.log(JSON.stringify(this.householdService.householdForm.value));
   }
 
   print(): void {

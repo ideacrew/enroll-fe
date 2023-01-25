@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import {
@@ -33,6 +34,7 @@ export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
 export const defaultHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
   new FormGroup<HouseholdMemberFormGroup>({
     primaryMember: new FormControl(true, { nonNullable: true }),
+    relationship: new FormControl('self', { nonNullable: true }),
     name: new FormControl('', { nonNullable: true }),
     dob: createDobFormGroup(),
     residences: new FormArray([createResidenceFormGroup()]),
@@ -42,6 +44,8 @@ export const defaultHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
 export const newHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
   new FormGroup<HouseholdMemberFormGroup>({
     primaryMember: new FormControl(false, { nonNullable: true }),
+    // eslint-disable-next-line unicorn/no-null
+    relationship: new FormControl(null, { validators: [Validators.required] }),
     name: new FormControl('', { nonNullable: true }),
     dob: createDobFormGroup(),
     residences: new FormArray([createResidenceFormGroup()]),
@@ -52,25 +56,14 @@ export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
   new FormGroup({
     month: new FormControl('', {
       nonNullable: true,
-      validators: [
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        Validators.required,
-        Validators.min(1),
-        Validators.max(12),
-      ],
+      validators: [Validators.required, Validators.min(1), Validators.max(12)],
     }),
     day: new FormControl('', {
       nonNullable: true,
-      validators: [
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        Validators.required,
-        Validators.min(1),
-        Validators.max(31),
-      ],
+      validators: [Validators.required, Validators.min(1), Validators.max(31)],
     }),
     year: new FormControl('', {
       nonNullable: true,
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       validators: [Validators.required],
     }),
   });
@@ -83,10 +76,22 @@ export const createResidenceFormGroup = (): FormGroup<ResidenceFormGroup> =>
 
 export const createCountyFormGroup = (): FormGroup<CountyFormGroup> =>
   new FormGroup<CountyFormGroup>({
-    zipcode: new FormControl('', { nonNullable: true }),
-    name: new FormControl('', { nonNullable: true }),
-    fips: new FormControl('', { nonNullable: true }),
-    state: new FormControl('', { nonNullable: true }),
+    zipcode: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    name: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    fips: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    state: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
   });
 
 export const createEmptyMonthsFormGroup = (): FormGroup<MonthFormGroup> =>

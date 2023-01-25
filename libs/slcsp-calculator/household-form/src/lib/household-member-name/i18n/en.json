@@ -1,0 +1,18 @@
+{
+  "spouse": "Spouse",
+  "domestic-partner": "Domestic partner",
+  "child": "Child",
+  "parent": "Parent",
+  "sibling": "Sibling",
+  "unrelated": "Unrelated",
+  "aunt-uncle": "Aunt or uncle",
+  "nephew-niece": "Nephew or niece",
+  "grandchild": "Grandchild",
+  "grandparent": "Grandparent",
+  "father-mother-in-law": "Father- or mother-in-law",
+  "daughter-son-in-law": "Daughter- or son-in-law",
+  "brother-sister-in-law": "Brother- or sister-in-law",
+  "cousin": "Cousin",
+  "domestic-partners-child": "Domestic partner's child",
+  "parents-domestic-partner": "Parent's domestic partner"
+}

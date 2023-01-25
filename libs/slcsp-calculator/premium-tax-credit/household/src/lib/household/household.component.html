@@ -45,7 +45,11 @@
     formArrayName="members"
   >
     <div *ngFor="let member of householdMemberControls; index as i">
-      <enroll-household-member-name [parent]="member" [index]="i" />
+      <enroll-household-member-name
+        [householdMember]="member"
+        [index]="i"
+        [primaryMemberName]="primaryMemberName"
+      />
     </div>
   </div>
 

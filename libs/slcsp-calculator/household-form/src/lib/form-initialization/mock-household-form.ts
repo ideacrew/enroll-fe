@@ -32,6 +32,7 @@ export const mockHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
 const mockPrimaryHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
   new FormGroup<HouseholdMemberFormGroup>({
     primaryMember: new FormControl(true, { nonNullable: true }),
+    relationship: new FormControl('self', { nonNullable: true }),
     name: new FormControl('Mark', { nonNullable: true }),
     dob: mockDobFormGroup(),
     residences: new FormArray([mockResidenceFormGroup()]),

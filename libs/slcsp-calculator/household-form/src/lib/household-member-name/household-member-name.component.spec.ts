@@ -14,7 +14,7 @@ describe('HouseholdMemberNameComponent', () => {
 
     fixture = TestBed.createComponent(HouseholdMemberNameComponent);
     component = fixture.componentInstance;
-    component.parent = defaultHouseholdMember();
+    component.householdMember = defaultHouseholdMember();
     fixture.detectChanges();
   });
 
