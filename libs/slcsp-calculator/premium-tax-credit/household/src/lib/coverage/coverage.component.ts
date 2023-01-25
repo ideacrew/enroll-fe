@@ -34,6 +34,10 @@ export class CoverageComponent {
       throw new Error('Invalid member id');
     }
 
+    if (this.validCoverageForm === false) {
+      return;
+    }
+
     // need to navigate to either the next member of the household
     // or the review page if this is the last member of the household
     if (this.memberId < this.householdMembersArray.length) {
@@ -45,5 +49,15 @@ export class CoverageComponent {
     if (this.memberId === this.householdMembersArray.length) {
       void this.router.navigateByUrl(`/premium-tax-credit/review`);
     }
+  }
+
+  get validCoverageForm(): boolean {
+    const coverageControl = this.householdMembersArray
+      .at(this.memberId - 1)
+      .get('coverage');
+
+    const isCoverageValid = coverageControl?.valid ?? false;
+
+    return isCoverageValid;
   }
 }

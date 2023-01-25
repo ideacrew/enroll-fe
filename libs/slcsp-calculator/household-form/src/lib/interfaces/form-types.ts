@@ -1,6 +1,6 @@
 import { FormControl, FormArray, FormGroup } from '@angular/forms';
-import { Month } from './household-member';
-import { AllRelationships } from './tax-relationship';
+import { Month } from '../../../../../shared/types/src/lib/month';
+import { AllRelationships } from '../../../../../shared/types/src/lib/tax-relationship';
 
 export type HouseholdFormGroup = {
   householdConfirmation: FormControl<boolean | undefined>;

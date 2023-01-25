@@ -6,7 +6,13 @@
   />
 </ng-container>
 
-<button class="ea-button continue-button" type="button" (click)="nextStep()">
+<button
+  data-cy="navigate-to-next-step"
+  [disabled]="!validCoverageForm"
+  class="ea-button continue-button"
+  type="button"
+  (click)="nextStep()"
+>
   Continue
 </button>
 

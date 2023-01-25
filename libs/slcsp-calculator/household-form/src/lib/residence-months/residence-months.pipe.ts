@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Month } from '../interfaces';
+
+import { Month } from '@enroll/shared/types';
 
 @Pipe({
   name: 'residenceMonths',

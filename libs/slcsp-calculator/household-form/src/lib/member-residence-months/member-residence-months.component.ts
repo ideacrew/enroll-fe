@@ -2,8 +2,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
+import { Month } from '@enroll/shared/types';
+
 import { ResidenceFormGroup } from '../interfaces/form-types';
-import { Month } from '../interfaces';
 
 @Component({
   selector: 'enroll-member-residence-months',

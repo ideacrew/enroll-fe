@@ -8,7 +8,7 @@ import {
 } from '@ngneat/transloco';
 
 import { HouseholdMemberFormGroup } from '../interfaces/form-types';
-import { TaxRelationships } from '../interfaces/tax-relationship';
+import { TaxRelationships } from '../../../../../shared/types/src/lib/tax-relationship';
 import { scopeLoader } from '../util/i18n/standalone-loader';
 
 @Component({

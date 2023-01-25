@@ -1,15 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { TenantConfigService } from '@enroll/tenant-config';
 import { Translation, TranslocoLoader } from '@ngneat/transloco';
-
-import { TenantConfigService } from './tenant-config.service';
 
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
-  constructor(
-    private http: HttpClient,
-    private tenantConfig: TenantConfigService
-  ) {}
+  http = inject(HttpClient);
+  tenantConfig = inject(TenantConfigService);
 
   getTranslation(lang: string) {
     return this.http.get<Translation>(

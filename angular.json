@@ -21,6 +21,7 @@
     "shared-page-title": "libs/shared/page-title",
     "shared-state-root-store": "libs/shared/state/root-store",
     "shared-theme": "libs/shared/theme",
+    "shared-types": "libs/shared/types",
     "slcsp-calculator": "apps/slcsp-calculator",
     "slcsp-calculator-data-access": "libs/slcsp-calculator/data-access",
     "slcsp-calculator-e2e": "apps/slcsp-calculator-e2e",
@@ -31,6 +32,7 @@
     "slcsp-calculator-premium-tax-credit-review": "libs/slcsp-calculator/premium-tax-credit/review",
     "slcsp-calculator-premium-tax-credit-tax-year": "libs/slcsp-calculator/premium-tax-credit/tax-year",
     "slcsp-calculator-shell": "libs/slcsp-calculator/shell",
+    "tenant-config": "libs/tenant-config",
     "ui-base-shell": "libs/ui/base/shell",
     "util-helpers": "libs/util/helpers",
     "util-transforms": "libs/util/transforms"

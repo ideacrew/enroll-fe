@@ -1,42 +1,26 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { months } from '@enroll/shared/types';
 
-import {
-  HouseholdService,
-  months,
-} from '@enroll/slcsp-calculator/household-form';
+import { SlcspEstimateService } from '@enroll/slcsp-calculator/data-access';
+
+import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
+import { SlcspEstimate } from 'libs/slcsp-calculator/data-access/src/lib/interfaces/slcsp-estimate';
+import { Observable } from 'rxjs';
 
 @Component({
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent {
   householdService = inject(HouseholdService);
+  slcspEstimateService = inject(SlcspEstimateService);
   monthList = months;
 
-  slcspPremiums = {
-    jan: 965.35,
-    feb: 965.35,
-    mar: 965.35,
-    apr: 965.35,
-    may: 965.35,
-    jun: 965.35,
-    jul: 965.35,
-    aug: 965.35,
-    sep: 965.35,
-    oct: 965.35,
-    nov: 965.35,
-    dec: 965.35,
-  };
-
-  ngOnInit(): void {
-    console.log(JSON.stringify(this.householdService.householdForm.value));
-  }
+  estimate$: Observable<SlcspEstimate> =
+    this.slcspEstimateService.getSlcspEstimate(
+      this.householdService.householdForm.value
+    );
 
   print(): void {
     window.print();

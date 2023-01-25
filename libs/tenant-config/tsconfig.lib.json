@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../dist/out-tsc",
+    "outDir": "../../dist/out-tsc",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
@@ -13,9 +13,5 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": [
-    "src/**/*.ts",
-    "../data-access/src/lib/slcsp-estimate.service.spec.ts",
-    "../../shared/types/src/lib/tax-relationship.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

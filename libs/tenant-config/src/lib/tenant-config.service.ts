@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, isDevMode } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-
-export type TenantName = 'me' | 'dc' | 'ma';
+import { TenantName } from './tenant-name';
+import { tenantMapping } from './url-mapping';
 
 export type TenantConfig = Record<string, string>;
 
@@ -17,14 +17,8 @@ export const configFactory = (
   providedIn: 'root',
 })
 export class TenantConfigService {
-  tenant = 'me';
-
-  constructor(private http: HttpClient) {
-    const host = window.location.host.split('.');
-    if (isDevMode()) {
-      console.log({ host });
-    }
-  }
+  tenant: TenantName = tenantMapping(window.location.host);
+  http = inject(HttpClient);
 
   loadAndSetConfig(): Observable<boolean> {
     return this.http
@@ -39,10 +33,6 @@ export class TenantConfigService {
           return of(false);
         })
       );
-  }
-
-  initializeTenant(): void {
-    this.tenant = 'me';
   }
 
   setCustomProperties(config: TenantConfig) {

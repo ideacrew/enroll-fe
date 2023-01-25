@@ -9,6 +9,10 @@ describe('slcsp-calculator', () => {
   });
 
   it('should fill out the form for 1 person with no change in residence', () => {
+    ////////////////////
+    // Household Page //
+    ////////////////////
+
     // Initial household page state
     cy.get('[data-cy="navigate-to-member-details"]').should('be.disabled');
 
@@ -29,6 +33,10 @@ describe('slcsp-calculator', () => {
     // Fill in first name of primary person
     cy.get('[data-cy="member-0"]').type('John');
     cy.get('[data-cy="navigate-to-member-details"]').click();
+
+    ////////////////////////
+    // Member Detail Page //
+    ////////////////////////
 
     // Initial Member details page state
     cy.get('[data-cy="member-heading"]').contains('Tell us about John');
@@ -51,6 +59,42 @@ describe('slcsp-calculator', () => {
       'have.value',
       '04003, Cumberland County, ME'
     );
-    // cy.get('[data-cy="navigate-to-member-coverage"]').click();
+
+    // Select all months
+    cy.get('[data-cy="23005-select-all-months"]').click();
+    cy.get('[data-cy="navigate-to-member-coverage"]').click();
+
+    //////////////////////////
+    // Member Coverage Page //
+    //////////////////////////
+
+    // Initial Member coverage page state
+    cy.get('h1').contains('John: Marketplace Coverage');
+
+    // Valid coverage includes any combination of selected checkboxes
+    // Including all or none
+    cy.get('[data-cy="navigate-to-next-step"]').should('not.be.disabled');
+
+    // Don't set any coverage months in this test
+    cy.get('[data-cy="navigate-to-next-step"]').click();
+
+    /////////////////
+    // Review page //
+    /////////////////
+
+    // Initial state
+    cy.get('h1').contains('Review Your Information');
+
+    cy.intercept('**/slcsp_calculator/estimate', {
+      fixture: 'simple-results.json',
+    }).as('slcsp-estimate');
+    cy.get('[data-cy="continue-to-results"]').click();
+
+    //////////////////
+    // Results page //
+    //////////////////
+
+    cy.wait('@slcsp-estimate');
+    cy.get('h1').contains('Your Results');
   });
 });

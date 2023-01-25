@@ -1,26 +1,28 @@
-<h1>Your Results</h1>
-<p>
-  These monthly premiums are used to calculate your premium tax credit. They're
-  not the premiums you paid.
-</p>
-<h2>
-  Enter these amounts on IRS Form 8962 when you prepare your 2022 income tax
-  return.
-</h2>
-<table class="premium-table">
-  <thead>
-    <tr>
-      <th class="visually-hidden">Month</th>
-      <th>Monthly SLCSP premiums</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let month of monthList">
-      <td class="month-name">{{ month | titlecase }}</td>
-      <td class="currency">{{ slcspPremiums[month] | currency }}</td>
-    </tr>
-  </tbody>
-</table>
-<button class="ea-button print-button" type="button" (click)="print()">
-  Print
-</button>
+<ng-container *ngIf="estimate$ | async as estimate">
+  <h1>Your Results</h1>
+  <p>
+    These monthly premiums are used to calculate your premium tax credit.
+    They're not the premiums you paid.
+  </p>
+  <h2>
+    Enter these amounts on IRS Form 8962 when you prepare your 2022 income tax
+    return.
+  </h2>
+  <table class="premium-table">
+    <thead>
+      <tr>
+        <th class="visually-hidden">Month</th>
+        <th>Monthly SLCSP premiums</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let month of monthList">
+        <td class="month-name">{{ month | titlecase }}</td>
+        <td class="currency">{{ estimate[month] | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="ea-button print-button" type="button" (click)="print()">
+    Print
+  </button>
+</ng-container>

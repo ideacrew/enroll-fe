@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../dist/out-tsc",
+    "outDir": "../../dist/out-tsc",
     "module": "commonjs",
     "types": ["jest", "node"]
   },
@@ -10,7 +10,6 @@
     "jest.config.ts",
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
-    "src/**/*.d.ts",
-    "../data-access/src/lib/slcsp-estimate.service.spec.ts"
+    "src/**/*.d.ts"
   ]
 }

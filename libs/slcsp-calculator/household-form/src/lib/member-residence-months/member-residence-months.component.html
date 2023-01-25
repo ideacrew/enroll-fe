@@ -7,10 +7,18 @@
       >
     </legend>
     <div class="month-selection-buttons">
-      <button class="ea-button outline" (click)="selectAllMonths()">
+      <button
+        [attr.data-cy]="fips + '-select-all-months'"
+        class="ea-button outline"
+        (click)="selectAllMonths()"
+      >
         Select all
       </button>
-      <button class="ea-button outline" (click)="clearAllMonths()">
+      <button
+        [attr.data-cy]="fips + '-clear-all-months'"
+        class="ea-button outline"
+        (click)="clearAllMonths()"
+      >
         Clear all
       </button>
     </div>

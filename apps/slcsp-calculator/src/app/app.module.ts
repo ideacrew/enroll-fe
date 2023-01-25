@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { RootStoreModule } from '@enroll/shared/state/root-store';
 import { UiBaseShellModule } from '@enroll/ui/base/shell';
+import {
+  APPLICATION_NAME,
+  configFactory,
+  TenantConfigService,
+} from '@enroll/tenant-config';
 
 import { AppComponent } from './app.component';
 import { SlcspI18nModule } from './i18n.module';
 import { JsonFileLoaderService } from './json-file-loader.service';
-import { configFactory, TenantConfigService } from './tenant-config.service';
 
 export function initializeJsonFile(jsonFileLoader: JsonFileLoaderService) {
   return () => jsonFileLoader.loadJson('/tenant-config/me-colors.json');
@@ -52,6 +56,10 @@ export function initializeJsonFile(jsonFileLoader: JsonFileLoaderService) {
       useFactory: configFactory,
       deps: [TenantConfigService],
       multi: true,
+    },
+    {
+      provide: APPLICATION_NAME,
+      useValue: 'slcsp-calculator',
     },
   ],
   bootstrap: [AppComponent],
