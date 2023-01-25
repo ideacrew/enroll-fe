@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { months } from '@enroll/shared/types';
-
-import { SlcspEstimateService } from '@enroll/slcsp-calculator/data-access';
-
-import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
-import { SlcspEstimate } from 'libs/slcsp-calculator/data-access/src/lib/interfaces/slcsp-estimate';
 import { Observable } from 'rxjs';
+
+import { months } from '@enroll/shared/types';
+import {
+  SlcspEstimate,
+  SlcspEstimateService,
+} from '@enroll/slcsp-calculator/data-access';
+import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
 
 @Component({
   templateUrl: './results.component.html',
