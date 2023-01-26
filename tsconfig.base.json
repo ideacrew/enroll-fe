@@ -6,10 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "lib": [
-      "es2022",
-      "dom"
-    ],
+    "lib": ["es2022", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
     "rootDir": ".",
@@ -18,12 +15,8 @@
     "sourceMap": true,
     "target": "es2015",
     "paths": {
-      "@enroll/coverme/i18n": [
-        "libs/coverme/i18n/src/index.ts"
-      ],
-      "@enroll/dchbx/i18n": [
-        "libs/dchbx/i18n/src/index.ts"
-      ],
+      "@enroll/coverme/i18n": ["libs/coverme/i18n/src/index.ts"],
+      "@enroll/dchbx/i18n": ["libs/dchbx/i18n/src/index.ts"],
       "@enroll/financial-assistance/applicant": [
         "libs/financial-assistance/applicant/src/index.ts"
       ],
@@ -48,24 +41,14 @@
       "@enroll/financial-assistance/testing": [
         "libs/financial-assistance/testing/src/index.ts"
       ],
-      "@enroll/shared/analytics": [
-        "libs/shared/analytics/src/index.ts"
-      ],
-      "@enroll/shared/i18n": [
-        "libs/shared/i18n/src/index.ts"
-      ],
-      "@enroll/shared/page-title": [
-        "libs/shared/page-title/src/index.ts"
-      ],
+      "@enroll/shared/analytics": ["libs/shared/analytics/src/index.ts"],
+      "@enroll/shared/i18n": ["libs/shared/i18n/src/index.ts"],
+      "@enroll/shared/page-title": ["libs/shared/page-title/src/index.ts"],
       "@enroll/shared/state/root-store": [
         "libs/shared/state/root-store/src/index.ts"
       ],
-      "@enroll/shared/theme": [
-        "libs/shared/theme/src/index.ts"
-      ],
-      "@enroll/shared/types": [
-        "libs/shared/types/src/index.ts"
-      ],
+      "@enroll/shared/theme": ["libs/shared/theme/src/index.ts"],
+      "@enroll/shared/types": ["libs/shared/types/src/index.ts"],
       "@enroll/slcsp-calculator/data-access": [
         "libs/slcsp-calculator/data-access/src/index.ts"
       ],
@@ -90,22 +73,11 @@
       "@enroll/slcsp-calculator/shell": [
         "libs/slcsp-calculator/shell/src/index.ts"
       ],
-      "@enroll/tenant-config": [
-        "libs/tenant-config/src/index.ts"
-      ],
-      "@enroll/ui/base/shell": [
-        "libs/ui/base/shell/src/index.ts"
-      ],
-      "@enroll/util/helpers": [
-        "libs/util/helpers/src/index.ts"
-      ],
-      "@enroll/util/transforms": [
-        "libs/util/transforms/src/index.ts"
-      ]
+      "@enroll/tenant-config": ["libs/tenant-config/src/index.ts"],
+      "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
+      "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
+      "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
