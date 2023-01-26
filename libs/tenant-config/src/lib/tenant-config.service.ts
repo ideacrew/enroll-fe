@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { TenantName } from './tenant-name';
-import { tenantMapping } from './url-mapping';
 
-export type TenantConfig = Record<string, string>;
+import { APPLICATION_NAME } from './application-name-token';
+import { TenantConfig, tenantMapping } from './url-mapping';
+
+type KeyValueConfig = Record<string, string>;
 
 export const configFactory = (
   config: TenantConfigService
@@ -17,15 +18,19 @@ export const configFactory = (
   providedIn: 'root',
 })
 export class TenantConfigService {
-  tenant: TenantName = tenantMapping(window.location.host);
+  applicationName = inject(APPLICATION_NAME);
+  tenantConfig: TenantConfig = tenantMapping(
+    window.location.host,
+    this.applicationName
+  );
   http = inject(HttpClient);
 
   loadAndSetConfig(): Observable<boolean> {
     return this.http
-      .get<TenantConfig>(`/tenant-config/${this.tenant}.json`)
+      .get<KeyValueConfig>(`/tenant-config/${this.tenantConfig.tenant}.json`)
       .pipe(
-        map((tenantConfig) => {
-          this.setCustomProperties(tenantConfig);
+        map((config) => {
+          this.setCustomProperties(config);
           return true;
         }),
         catchError((error) => {
@@ -35,7 +40,7 @@ export class TenantConfigService {
       );
   }
 
-  setCustomProperties(config: TenantConfig) {
+  setCustomProperties(config: KeyValueConfig) {
     for (const [key, value] of Object.entries(config)) {
       document.documentElement.style.setProperty(key, value);
     }
