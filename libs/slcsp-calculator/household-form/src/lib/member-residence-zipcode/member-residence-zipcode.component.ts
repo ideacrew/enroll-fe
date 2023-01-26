@@ -65,7 +65,7 @@ export class MemberResidenceZipcodeComponent implements OnInit, OnDestroy {
   setResultAsZipcode(county: MarketplaceCounty): void {
     // eslint-disable-next-line unicorn/no-useless-undefined
     this.searchResults.next(undefined);
-    this.zipCodeInput.nativeElement.value = `${county.zipcode}, ${county.name}, ${county.state}`;
+    this.zipCodeInput.nativeElement.value = `${county.zipcode}, ${county.name} County, ${county.state}`;
     // Set the value of the county to the county formGroup
     this.residenceFormGroup.get('county')?.setValue(county);
   }
