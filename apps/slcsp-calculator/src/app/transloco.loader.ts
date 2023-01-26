@@ -6,7 +6,7 @@ import { Translation, TranslocoLoader } from '@ngneat/transloco';
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
   http = inject(HttpClient);
-  tenantConfig = inject(TenantConfigService);
+  tenantConfig = inject(TenantConfigService).tenantConfig;
 
   getTranslation(lang: string) {
     return this.http.get<Translation>(
