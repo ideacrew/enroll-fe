@@ -35,7 +35,7 @@ export const tenantMapping = (
 ): TenantConfig => {
   const matchingConfig = tenantConfig.find(
     (config) =>
-      config.host.includes(host) && config.application === applicationName
+      host.includes(config.host) && config.application === applicationName
   );
 
   if (matchingConfig === undefined) {
