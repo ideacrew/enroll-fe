@@ -23,6 +23,12 @@ const tenantConfig: TenantConfig[] = [
     baseApiUrl: 'https://pvt-3-enroll.cme.openhbx.org',
   },
   {
+    host: 'dev-tax-tool.cme.openhbx.org',
+    application: 'slcsp-calculator',
+    tenant: 'me',
+    baseApiUrl: 'https://pvt-3-enroll.cme.openhbx.org',
+  },
+  {
     host: 'tax-tool.coverme.gov',
     application: 'slcsp-calculator',
     tenant: 'me',
