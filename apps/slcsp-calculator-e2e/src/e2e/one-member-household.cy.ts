@@ -1,4 +1,65 @@
+import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
+import { HouseholdFormValue } from '@enroll/slcsp-calculator/household-form';
+
 describe('slcsp-calculator', () => {
+  const householdMember1: HouseholdMember = {
+    primaryMember: true,
+    relationship: 'self',
+    name: 'John',
+    dob: {
+      month: '1',
+      day: '1',
+      year: '1979',
+    },
+    residences: [
+      {
+        county: {
+          zipcode: '04003',
+          name: 'Cumberland',
+          fips: '23005',
+          state: 'ME',
+        },
+        months: {
+          jan: true,
+          feb: true,
+          mar: true,
+          apr: true,
+          may: true,
+          jun: true,
+          jul: true,
+          aug: true,
+          sep: true,
+          oct: true,
+          nov: true,
+          dec: true,
+        },
+      },
+    ],
+    coverage: {
+      jan: false,
+      feb: false,
+      mar: false,
+      apr: false,
+      may: false,
+      jun: false,
+      jul: false,
+      aug: false,
+      sep: false,
+      oct: false,
+      nov: false,
+      dec: false,
+    },
+  };
+  const householdMembers: HouseholdMember[] = [householdMember1];
+
+  const finalFormValue: HouseholdFormValue = {
+    householdCount: 1,
+    householdConfirmation: true,
+    taxYear: '2022',
+    state: 'ME',
+    members: householdMembers,
+  };
+
   beforeEach(() => {
     cy.visit('/');
 
@@ -31,7 +92,7 @@ describe('slcsp-calculator', () => {
     cy.get('[data-cy="household-members-list"]').should('exist');
 
     // Fill in first name of primary person
-    cy.get('[data-cy="member-0"]').type('John');
+    cy.get('[data-cy="member-0"]').type(householdMember1.name);
     cy.get('[data-cy="navigate-to-member-details"]').click();
 
     ////////////////////////
@@ -39,19 +100,23 @@ describe('slcsp-calculator', () => {
     ////////////////////////
 
     // Initial Member details page state
-    cy.get('[data-cy="member-heading"]').contains('Tell us about John');
+    cy.get('[data-cy="member-heading"]').contains(
+      `Tell us about ${householdMember1.name}`
+    );
     cy.get('[data-cy="navigate-to-member-coverage"]').should('be.disabled');
 
     // DOB Form
-    cy.get('[data-cy="month-input"]').type('1');
-    cy.get('[data-cy="day-input"]').type('1');
-    cy.get('[data-cy="year-input"]').type('1979');
+    cy.get('[data-cy="month-input"]').type(householdMember1.dob.month);
+    cy.get('[data-cy="day-input"]').type(householdMember1.dob.day);
+    cy.get('[data-cy="year-input"]').type(householdMember1.dob.year);
 
     // Zip code search, after this is typed in an api call should be made
     cy.intercept('**/counties/**/04003**', { fixture: 'zipcode.json' }).as(
       'zipcodeSearch'
     );
-    cy.get('[data-cy="zipcode-input-0"]').type('04003');
+    cy.get('[data-cy="zipcode-input-0"]').type(
+      householdMember1.residences[0].county.zipcode
+    );
     cy.wait('@zipcodeSearch');
 
     cy.get('[data-cy="zipcode-result-0"]').click();
@@ -69,7 +134,7 @@ describe('slcsp-calculator', () => {
     //////////////////////////
 
     // Initial Member coverage page state
-    cy.get('h1').contains('John: Marketplace Coverage');
+    cy.get('h1').contains(`${householdMember1.name}: Marketplace Coverage`);
 
     // Valid coverage includes any combination of selected checkboxes
     // Including all or none
@@ -94,7 +159,9 @@ describe('slcsp-calculator', () => {
     // Results page //
     //////////////////
 
-    cy.wait('@slcsp-estimate');
+    cy.wait('@slcsp-estimate')
+      .its('request.body')
+      .should('deep.equal', finalFormValue);
     cy.get('h1').contains('Your Results');
   });
 });

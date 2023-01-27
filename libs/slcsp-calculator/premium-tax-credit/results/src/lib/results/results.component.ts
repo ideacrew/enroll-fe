@@ -6,7 +6,10 @@ import {
   SlcspEstimate,
   SlcspEstimateService,
 } from '@enroll/slcsp-calculator/data-access';
-import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
+import {
+  HouseholdFormValue,
+  HouseholdService,
+} from '@enroll/slcsp-calculator/household-form';
 
 @Component({
   templateUrl: './results.component.html',
@@ -20,7 +23,8 @@ export class ResultsComponent {
 
   estimate$: Observable<SlcspEstimate> =
     this.slcspEstimateService.getSlcspEstimate(
-      this.householdService.householdForm.value
+      // Usually typecasting isn't great
+      this.householdService.householdForm.value as HouseholdFormValue
     );
 
   print(): void {
