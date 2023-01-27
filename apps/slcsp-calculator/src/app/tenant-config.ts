@@ -8,6 +8,12 @@ export const slcspTenantConfig: TenantConfig[] = [
     baseApiUrl: 'https://pvt-3-enroll.cme.openhbx.org',
   },
   {
+    host: 'preview.app.github.dev',
+    application: 'slcsp-calculator',
+    tenant: 'me',
+    baseApiUrl: 'https://pvt-3-enroll.cme.openhbx.org',
+  },
+  {
     host: 'd2yxzsn2107sjf.cloudfront.net',
     application: 'slcsp-calculator',
     tenant: 'me',
