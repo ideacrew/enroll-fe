@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 
-import { APPLICATION_NAME } from './application-name-token';
-import { TenantConfig, tenantMapping } from './url-mapping';
+import { APPLICATION_NAME, TENANT_CONFIG } from './tenant-config-tokens';
+import { TenantName } from './tenant-name';
+import { TenantConfig } from './url-mapping';
 
 type KeyValueConfig = Record<string, string>;
 
@@ -19,15 +20,38 @@ export const configFactory = (
 })
 export class TenantConfigService {
   applicationName = inject(APPLICATION_NAME);
-  tenantConfig: TenantConfig = tenantMapping(
-    window.location.host,
-    this.applicationName
-  );
   http = inject(HttpClient);
+  tenantConfig: TenantConfig[] = inject(TENANT_CONFIG);
+
+  private get hostName(): string {
+    return window.location.host;
+  }
+
+  get currentTenantMapping(): TenantConfig {
+    const matchingConfig = this.tenantConfig.find(
+      (config) =>
+        this.hostName.includes(config.host) &&
+        config.application === this.applicationName
+    );
+
+    if (matchingConfig === undefined) {
+      throw new Error('No matching tenant config found.');
+    }
+
+    return matchingConfig;
+  }
+
+  get tenantName(): TenantName {
+    return this.currentTenantMapping.tenant;
+  }
+
+  get baseApiUrl(): string {
+    return this.currentTenantMapping.baseApiUrl;
+  }
 
   loadAndSetConfig(): Observable<boolean> {
     return this.http
-      .get<KeyValueConfig>(`/tenant-config/${this.tenantConfig.tenant}.json`)
+      .get<KeyValueConfig>(`/tenant-config/${this.tenantName}.json`)
       .pipe(
         map((config) => {
           this.setCustomProperties(config);

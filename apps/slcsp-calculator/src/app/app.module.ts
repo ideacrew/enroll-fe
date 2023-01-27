@@ -10,11 +10,13 @@ import {
   APPLICATION_NAME,
   configFactory,
   TenantConfigService,
+  TENANT_CONFIG,
 } from '@enroll/tenant-config';
 
 import { AppComponent } from './app.component';
 import { SlcspI18nModule } from './i18n.module';
 import { JsonFileLoaderService } from './json-file-loader.service';
+import { slcspTenantConfig } from './tenant-config';
 
 export function initializeJsonFile(jsonFileLoader: JsonFileLoaderService) {
   return () => jsonFileLoader.loadJson('/tenant-config/me-colors.json');
@@ -60,6 +62,10 @@ export function initializeJsonFile(jsonFileLoader: JsonFileLoaderService) {
     {
       provide: APPLICATION_NAME,
       useValue: 'slcsp-calculator',
+    },
+    {
+      provide: TENANT_CONFIG,
+      useValue: slcspTenantConfig,
     },
   ],
   bootstrap: [AppComponent],

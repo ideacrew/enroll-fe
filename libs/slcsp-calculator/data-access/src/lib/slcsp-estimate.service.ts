@@ -11,13 +11,13 @@ import { mockSlcspEstimate } from './mocks';
   providedIn: 'root',
 })
 export class SlcspEstimateService {
-  private readonly tenantConfig = inject(TenantConfigService).tenantConfig;
+  private readonly baseApiUrl = inject(TenantConfigService).baseApiUrl;
   private readonly http = inject(HttpClient);
 
   getSlcspEstimate(formValue: unknown): Observable<SlcspEstimate> {
     return this.http
       .post<SlcspEstimate>(
-        `${this.tenantConfig.baseApiUrl}/api/v2/slcsp_calculator/estimate`,
+        `${this.baseApiUrl}/api/v2/slcsp_calculator/estimate`,
         formValue
       )
       .pipe(catchError(() => of(mockSlcspEstimate)));

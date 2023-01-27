@@ -6,11 +6,11 @@ import { Translation, TranslocoLoader } from '@ngneat/transloco';
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
   http = inject(HttpClient);
-  tenantConfig = inject(TenantConfigService).tenantConfig;
+  tenantName = inject(TenantConfigService).tenantName;
 
   getTranslation(lang: string) {
     return this.http.get<Translation>(
-      `/assets/i18n/${this.tenantConfig.tenant}-${lang}.json`
+      `/assets/i18n/${this.tenantName}-${lang}.json`
     );
   }
 }
