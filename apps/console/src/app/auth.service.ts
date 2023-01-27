@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap, timer, Subscription } from 'rxjs';
 
+import { TenantConfigService } from '@enroll/tenant-config';
+
 import { TokenResponse } from './authorization-data';
 import { JwtAuthService } from './jwt-auth.service';
-import { ConfigService } from './config.service';
 
 type LoginCredentials = {
   username: string;
@@ -24,12 +25,10 @@ export class AuthService {
   private tokenTime!: number;
   private logoutTimerSubscription?: Subscription | undefined = undefined;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private jwtChecker: JwtAuthService,
-    private config: ConfigService
-  ) {
+  http = inject(HttpClient);
+  baseApiUrl = inject(TenantConfigService).baseApiUrl;
+
+  constructor(private router: Router, private jwtChecker: JwtAuthService) {
     this.expirationTime = Date.now();
     this.tokenTime = Date.now();
     const currentJwtValues = this.jwtChecker.getJwt();
@@ -43,7 +42,7 @@ export class AuthService {
 
   login({ username, password, realm_name }: LoginCredentials): void {
     this.http
-      .post<TokenResponse>(`${this.config.baseApiUrl}/sessions`, {
+      .post<TokenResponse>(`${this.baseApiUrl}/sessions`, {
         username,
         password,
         realm_name,
@@ -76,7 +75,7 @@ export class AuthService {
   refresh(): void {
     this.http
       .post<TokenResponse>(
-        `${this.config.baseApiUrl}/sessions/refresh`,
+        `${this.baseApiUrl}/sessions/refresh`,
         {
           refresh_token: this.refreshToken,
         },

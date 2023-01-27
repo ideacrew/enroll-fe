@@ -19,11 +19,6 @@
           "apps/console/src/assets",
           {
             "glob": "**/*",
-            "input": "apps/console/src/config",
-            "output": "/"
-          },
-          {
-            "glob": "**/*",
             "input": "libs/shared/theme/src/lib/assets/icons",
             "output": "/assets/icons"
           },
@@ -31,6 +26,11 @@
             "glob": "**/*",
             "input": "libs/shared/theme/src/lib/assets/fonts",
             "output": "/assets/fonts"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/config",
+            "output": "/tenant-config"
           }
         ],
         "styles": [

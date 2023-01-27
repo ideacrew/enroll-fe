@@ -1,14 +1,16 @@
-import {
-  HttpClient,
-  HttpClientModule,
-  HTTP_INTERCEPTORS,
-} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { RootStoreModule } from '@enroll/shared/state/root-store';
+import {
+  APPLICATION_NAME,
+  configFactory,
+  TenantConfigService,
+  TENANT_CONFIG,
+} from '@enroll/tenant-config';
 
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth-interceptor.service';
@@ -22,7 +24,6 @@ import { PortalComponent } from './portal/portal.component';
 import { MemberSearchComponent } from './member-search/member-search.component';
 import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal-home.component';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
-import { initializeAppFactory } from './config';
 import { ParseEdiDataPipe } from './parse-edi-data.pipe';
 import { ParseRawDatePipe } from './parse-raw-date.pipe';
 import { ParseRawTimePipe } from './parse-raw-time.pipe';
@@ -30,6 +31,7 @@ import { SortByDatePipe } from './sort-by-date.pipe';
 import { MemberSummaryComponent } from './member-summary/member-summary.component';
 import { SortByStatusPipe } from './sort-by-status.pipe';
 import { FormatSsnPipe } from './format-ssn.pipe';
+import { consoleTenantConfig } from './tenant-config';
 
 @NgModule({
   declarations: [
@@ -109,9 +111,17 @@ import { FormatSsnPipe } from './format-ssn.pipe';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
       provide: APP_INITIALIZER,
-      useFactory: initializeAppFactory,
-      deps: [HttpClient],
+      useFactory: configFactory,
+      deps: [TenantConfigService],
       multi: true,
+    },
+    {
+      provide: APPLICATION_NAME,
+      useValue: 'console',
+    },
+    {
+      provide: TENANT_CONFIG,
+      useValue: consoleTenantConfig,
     },
     JwtAuthService,
   ],
