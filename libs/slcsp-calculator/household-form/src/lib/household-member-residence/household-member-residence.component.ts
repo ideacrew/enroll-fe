@@ -45,8 +45,7 @@ export class HouseholdMemberResidencesComponent {
   }
 
   get memberName(): string {
-    const nameControl = this.memberFormGroup.get('name');
-    return nameControl ? nameControl.value : '';
+    return this.memberFormGroup.get('name')?.value ?? '';
   }
 
   addResidence() {

@@ -12,7 +12,7 @@ export type HouseholdFormGroup = {
 export type HouseholdMemberFormGroup = {
   primaryMember: FormControl<boolean>;
   relationship: FormControl<AllRelationships | null>;
-  name: FormControl<string>;
+  name: FormControl<string | null>;
   dob: FormGroup<DateOfBirthFormGroup>;
   residences: FormArray<FormGroup<ResidenceFormGroup>>;
   coverage: FormGroup<CoverageFormGroup>;

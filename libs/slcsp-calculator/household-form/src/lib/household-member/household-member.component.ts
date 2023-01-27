@@ -26,4 +26,12 @@ export class HouseholdMemberComponent {
   get householdMemberName() {
     return this.householdMemberFormGroup.get('name')?.value;
   }
+
+  get validDob(): boolean {
+    return this.householdMemberFormGroup.get('dob')?.valid ?? false;
+  }
+
+  get showResidence(): boolean {
+    return this.memberId === 1 && this.validDob;
+  }
 }

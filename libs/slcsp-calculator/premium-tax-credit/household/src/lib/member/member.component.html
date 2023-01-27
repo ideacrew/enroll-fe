@@ -1,6 +1,6 @@
 <ng-container *ngIf="memberId$ | async as memberId">
   <enroll-household-member
-    [householdMemberFormGroup]="householdMembersArray.at(memberId - 1)"
+    [householdMemberFormGroup]="memberFormGroup"
     [memberId]="memberId"
   />
 

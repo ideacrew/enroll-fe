@@ -44,6 +44,11 @@ export class HouseholdComponent {
     return false;
   }
 
+  // This needs to check the validity of four things:
+  // 1. The household count is valid (greater than 0)
+  // 2. The household confirmation is valid (true)
+  // 3. The household member names are valid (not empty)
+  // 4. Any secondary members have a valid relationship to the primary member
   get validHouseholdPage(): boolean {
     const validHouseholdCount =
       this.householdFormGroup.get('householdCount')?.valid ?? false;
@@ -54,10 +59,21 @@ export class HouseholdComponent {
 
     const validHouseholdConfirmation = householdConfirmation?.value ?? false;
 
-    return validHouseholdCount && validHouseholdConfirmation;
+    const householdMembers = this.householdService.householdMembersArray;
+    const validNames = householdMembers.controls.every(
+      (member) =>
+        (member.get('name')?.valid ?? false) &&
+        (member.get('relationship')?.valid ?? false)
+    );
+
+    return validHouseholdCount && validHouseholdConfirmation && validNames;
   }
 
   navigateToMemberDetails(): void {
-    void this.router.navigateByUrl('/premium-tax-credit/household/member/1');
+    if (this.validHouseholdPage) {
+      void this.router.navigateByUrl('/premium-tax-credit/household/member/1');
+    } else {
+      throw new Error('Household page is not valid');
+    }
   }
 }

@@ -26,7 +26,6 @@ export class HouseholdService {
 
   updateHouseholdCount(newCount: number): void {
     const currentMembers = this.householdMembersArray.length;
-    console.log({ currentMembers: newCount });
 
     if (newCount < currentMembers) {
       // Remove members from the household

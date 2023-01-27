@@ -2,7 +2,7 @@
   <h1 data-cy="member-heading">Tell us about {{ householdMemberName }}</h1>
   <enroll-household-member-dob [memberFormGroup]="householdMemberFormGroup" />
   <enroll-household-member-residence
-    *ngIf="memberId === 1"
+    *ngIf="showResidence"
     [memberFormGroup]="householdMemberFormGroup"
   />
 </form>
