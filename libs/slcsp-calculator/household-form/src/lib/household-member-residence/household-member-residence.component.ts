@@ -48,6 +48,10 @@ export class HouseholdMemberResidencesComponent {
     return this.memberFormGroup.get('name')?.value ?? '';
   }
 
+  validCounty(index: number): boolean {
+    return this.residences.at(index).get('county')?.valid ?? false;
+  }
+
   addResidence() {
     const residenceMonths: Array<FormGroup<MonthFormGroup>> =
       this.residenceControls.map(

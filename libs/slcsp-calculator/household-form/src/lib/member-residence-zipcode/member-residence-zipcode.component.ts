@@ -1,16 +1,13 @@
+/* eslint-disable unicorn/no-null */
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   inject,
   Input,
-  OnDestroy,
-  OnInit,
-  ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Subject, Subscription } from 'rxjs';
+import { distinctUntilChanged, Observable, of, switchMap } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
@@ -28,49 +25,54 @@ import { ResidenceFormGroup } from '../interfaces/form-types';
   styleUrls: ['./member-residence-zipcode.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MemberResidenceZipcodeComponent implements OnInit, OnDestroy {
+export class MemberResidenceZipcodeComponent {
   private readonly marketplaceAPI = inject(MarketplaceService);
-  private readonly searchResults = new Subject<MarketplaceCounty | undefined>();
-  searchResults$ = this.searchResults.asObservable();
 
-  querySubscription!: Subscription;
-
-  zipCodeQuery = new FormControl<string>('', { nonNullable: true });
+  zipCodeQuery = new FormControl<string | null>(null);
+  selectedCounty!: MarketplaceCounty;
 
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
   @Input() memberName!: string;
   @Input() index!: number;
 
-  // Get reference to #zipCodeInput
-  @ViewChild('zipCodeInput') zipCodeInput!: ElementRef<HTMLInputElement>;
+  zipCodeQueryValue$ = this.zipCodeQuery.valueChanges;
 
-  ngOnInit(): void {
-    this.querySubscription = this.zipCodeQuery.valueChanges.subscribe({
-      next: (zipCode) => {
-        if (zipCode && zipCode.length === 5) {
-          this.searchForZipCode(zipCode);
+  newSearchResults$: Observable<MarketplaceCounty | null | string> =
+    this.zipCodeQueryValue$.pipe(
+      distinctUntilChanged(),
+      switchMap((query) => {
+        if (query !== null && query.length === 5) {
+          return this.marketplaceAPI.searchForZipCode(query);
         }
-      },
-    });
+
+        if (query !== null && query.length < 5) {
+          return of('No results');
+        }
+
+        return of(null);
+      })
+    );
+
+  get countyStatus(): unknown {
+    return this.residenceFormGroup.get('county')?.status;
   }
 
-  searchForZipCode(zipCode: string) {
-    this.marketplaceAPI.searchForZipCode(zipCode).subscribe({
-      next: (county) => {
-        this.searchResults.next(county);
-      },
-    });
-  }
-
-  setResultAsZipcode(county: MarketplaceCounty): void {
-    // eslint-disable-next-line unicorn/no-useless-undefined
-    this.searchResults.next(undefined);
-    this.zipCodeInput.nativeElement.value = `${county.zipcode}, ${county.name} County, ${county.state}`;
-    // Set the value of the county to the county formGroup
+  selectCounty(county: MarketplaceCounty) {
+    this.zipCodeQuery.setValue(
+      `${county.zipcode}, ${county.name} County, ${county.state}`
+    );
     this.residenceFormGroup.get('county')?.setValue(county);
   }
 
-  ngOnDestroy(): void {
-    this.querySubscription.unsubscribe();
+  resultIsCounty(
+    result: MarketplaceCounty | null | string
+  ): result is MarketplaceCounty {
+    return result !== null && result !== 'No results';
+  }
+
+  clearSearch(): void {
+    this.zipCodeQuery.setValue(null);
+    this.residenceFormGroup.get('county')?.reset();
+    this.residenceFormGroup.get('months')?.reset();
   }
 }

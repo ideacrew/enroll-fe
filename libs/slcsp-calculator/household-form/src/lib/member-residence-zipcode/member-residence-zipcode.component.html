@@ -1,20 +1,44 @@
 <label for="autocomplete-zipcode-{{ index }}"
-  ><span>In what ZIP code did {{ memberName }} live in 2022?</span></label
->
+  ><span>In what ZIP code did {{ memberName }} live in 2022?</span>
+</label>
 <input
   #zipCodeInput
   [attr.data-cy]="'zipcode-input-' + index"
-  class="enroll-input"
+  class="zip-query-input enroll-input"
   type="text"
   [formControl]="zipCodeQuery"
   autocomplete="off"
+  aria-expanded="false"
+  aria-autocomplete="list"
   role="combobox"
   id="autocomplete-zipcode-{{ index }}"
 />
-<div class="zip-search-results" *ngIf="searchResults$ | async as county">
-  <span
-    [attr.data-cy]="'zipcode-result-' + index"
-    (click)="setResultAsZipcode(county)"
-    >{{ county.zipcode }}, {{ county.name }}, {{ county.state }}</span
+<div class="simple-button-container">
+  <button
+    data-cy="clear-county-search"
+    class="simple-button"
+    type="button"
+    (click)="clearSearch()"
   >
+    Clear search
+  </button>
+</div>
+
+<div class="results" *ngIf="newSearchResults$ | async as result">
+  <div class="county-option" *ngIf="result === 'No results'">
+    No results. Search for a different ZIP code.
+  </div>
+  <div *ngIf="resultIsCounty(result)" class="county-option" role="option">
+    <div>
+      {{ result.zipcode }}, {{ result.name }} County, {{ result.state }}
+    </div>
+    <button
+      data-cy="select-county"
+      class="ea-button"
+      type="button"
+      (click)="selectCounty(result)"
+    >
+      Select county
+    </button>
+  </div>
 </div>

@@ -119,7 +119,7 @@ describe('slcsp-calculator', () => {
     );
     cy.wait('@zipcodeSearch');
 
-    cy.get('[data-cy="zipcode-result-0"]').click();
+    cy.get('[data-cy="select-county"]').click();
     cy.get('[data-cy="zipcode-input-0"]').should(
       'have.value',
       '04003, Cumberland County, ME'

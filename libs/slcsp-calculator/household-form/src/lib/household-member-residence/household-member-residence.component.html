@@ -13,14 +13,14 @@
         [residenceFormGroup]="residences.at(i)"
         [memberName]="memberName"
       />
+      <button
+        *ngIf="validCounty(i)"
+        class="new-residence-button ea-button outline"
+        type="button"
+        (click)="addResidence()"
+      >
+        Add another location
+      </button>
     </div>
   </ng-container>
-
-  <button
-    class="new-residence-button ea-button outline"
-    type="button"
-    (click)="addResidence()"
-  >
-    Add Residence
-  </button>
 </ng-container>

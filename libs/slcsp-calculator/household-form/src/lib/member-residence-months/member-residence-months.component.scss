@@ -5,4 +5,9 @@
 .month-selection-buttons {
   display: flex;
   gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.ea-button.outline {
+  padding: 0.5rem;
 }
