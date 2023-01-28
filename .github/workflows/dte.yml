@@ -1,4 +1,4 @@
-name: dte
+name: Distributed Task Execution
 
 on:
   push:
