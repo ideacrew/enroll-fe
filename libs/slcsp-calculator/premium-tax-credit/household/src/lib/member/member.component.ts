@@ -43,12 +43,6 @@ export class MemberComponent {
     const validDobGroup = this.memberFormGroup.get('dob')?.valid ?? false;
     const validResidenceGroup = this.memberResidenceControl?.valid ?? false;
 
-    console.log({
-      primaryMember: isPrimaryMember,
-      validDobGroup,
-      residenceGroup: validResidenceGroup,
-    });
-
     return isPrimaryMember
       ? validDobGroup && validResidenceGroup
       : validDobGroup;

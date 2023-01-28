@@ -58,8 +58,6 @@ export class HouseholdMemberResidencesComponent {
     const newResidenceMonths: FormGroup<MonthFormGroup> =
       createLeftoverMonthsFormGroup(residenceMonths);
 
-    console.log('newResidenceMonths', newResidenceMonths);
-
     this.residences.push(
       new FormGroup<ResidenceFormGroup>({
         county: createCountyFormGroup(),
