@@ -15,7 +15,7 @@ describe('slcsp-calculator', () => {
       {
         county: {
           zipcode: '04003',
-          name: 'Cumberland',
+          name: 'Cumberland County',
           fips: '23005',
           state: 'ME',
         },
