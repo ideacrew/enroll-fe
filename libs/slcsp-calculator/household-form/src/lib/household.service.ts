@@ -1,6 +1,8 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 
+import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
+
 import {
   HouseholdFormGroup,
   HouseholdMemberFormGroup,
@@ -10,6 +12,7 @@ import {
   newHouseholdMember,
 } from './form-initialization/initial-household-form';
 import { mockHouseholdForm } from './form-initialization/mock-household-form';
+import { HouseholdFormValue } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +26,18 @@ export class HouseholdService {
   readonly householdConfirmation$ = this.householdForm.get(
     'householdConfirmation'
   )?.valueChanges;
+
+  // Needed in order to access the household members in the template
+  get householdMembersArray(): FormArray<FormGroup<HouseholdMemberFormGroup>> {
+    return this.householdForm.get('members') as FormArray<
+      FormGroup<HouseholdMemberFormGroup>
+    >;
+  }
+
+  // Needed in order to iterate over the household members in the template
+  get householdMemberControls(): Array<FormGroup<HouseholdMemberFormGroup>> {
+    return this.householdMembersArray.controls;
+  }
 
   updateHouseholdCount(newCount: number): void {
     const currentMembers = this.householdMembersArray.length;
@@ -46,15 +61,26 @@ export class HouseholdService {
     }
   }
 
-  // Needed in order to access the household members in the template
-  get householdMembersArray(): FormArray<FormGroup<HouseholdMemberFormGroup>> {
-    return this.householdForm.get('members') as FormArray<
-      FormGroup<HouseholdMemberFormGroup>
-    >;
-  }
+  getTransformedValue(): HouseholdFormValue {
+    const originalFormValue = this.householdForm.value as HouseholdFormValue;
 
-  // Needed in order to iterate over the household members in the template
-  get householdMemberControls(): Array<FormGroup<HouseholdMemberFormGroup>> {
-    return this.householdMembersArray.controls;
+    // Duplicate the primary member's residence to all other members of the form
+    const primaryMemberResidence = originalFormValue.members[0].residences;
+
+    const [primaryMember, ...secondaryMembers] = originalFormValue.members;
+
+    const newSecondaryMembers: HouseholdMember[] = secondaryMembers.map(
+      (member): HouseholdMember => ({
+        ...member,
+        residences: primaryMemberResidence,
+      })
+    );
+
+    const transformedFormValue = {
+      ...originalFormValue,
+      members: [primaryMember, ...newSecondaryMembers],
+    };
+
+    return transformedFormValue;
   }
 }

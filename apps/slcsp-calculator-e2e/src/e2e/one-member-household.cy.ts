@@ -53,7 +53,7 @@ describe('slcsp-calculator', () => {
   const householdMembers: HouseholdMember[] = [householdMember1];
 
   const finalFormValue: HouseholdFormValue = {
-    householdCount: 1,
+    householdCount: householdMembers.length,
     householdConfirmation: true,
     taxYear: '2022',
     state: 'ME',

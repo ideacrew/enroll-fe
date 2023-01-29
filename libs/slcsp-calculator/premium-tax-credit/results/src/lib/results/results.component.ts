@@ -21,10 +21,13 @@ export class ResultsComponent {
   slcspEstimateService = inject(SlcspEstimateService);
   monthList = months;
 
+  transformedValue: HouseholdFormValue =
+    this.householdService.getTransformedValue();
+
   estimate$: Observable<SlcspEstimate> =
     this.slcspEstimateService.getSlcspEstimate(
       // Usually typecasting isn't great
-      this.householdService.householdForm.value as HouseholdFormValue
+      this.transformedValue
     );
 
   print(): void {
