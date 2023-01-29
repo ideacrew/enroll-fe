@@ -59,7 +59,7 @@ export class MemberResidenceZipcodeComponent {
 
   selectCounty(county: MarketplaceCounty) {
     this.zipCodeQuery.setValue(
-      `${county.zipcode}, ${county.name} County, ${county.state}`
+      `${county.zipcode}, ${county.name}, ${county.state}`
     );
     this.residenceFormGroup.get('county')?.setValue(county);
   }

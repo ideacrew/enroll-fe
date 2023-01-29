@@ -29,9 +29,7 @@
     No results. Search for a different ZIP code.
   </div>
   <div *ngIf="resultIsCounty(result)" class="county-option" role="option">
-    <div>
-      {{ result.zipcode }}, {{ result.name }} County, {{ result.state }}
-    </div>
+    <div>{{ result.zipcode }}, {{ result.name }}, {{ result.state }}</div>
     <button
       data-cy="select-county"
       class="ea-button"
