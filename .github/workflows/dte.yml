@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - trunk
-  pull_request:
+
+concurrency:
+  group: dte-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   main:
