@@ -16,7 +16,7 @@
         "tsConfig": "apps/enroll/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/enroll/src/favicon.ico",
+          "apps/enroll/src/favicon.svg",
           "apps/enroll/src/assets",
           {
             "glob": "**/*",

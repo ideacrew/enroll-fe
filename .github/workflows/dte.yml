@@ -84,5 +84,10 @@ jobs:
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
+      - name: Replace favicons
+        if: matrix.client == 'me'
+        run: node .github/scripts/update-favicon.js
+        env:
+          TENANT: ${{ matrix.client }}
       - name: run many deployments
         run: npx nx affected --target=deploy:dev
