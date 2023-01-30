@@ -23,6 +23,8 @@ export class HouseholdService {
   householdForm: FormGroup<HouseholdFormGroup> =
     isDevMode() && this.mock ? mockHouseholdForm() : defaultHouseholdForm();
 
+  formHasBeenStarted = false;
+
   readonly householdConfirmation$ = this.householdForm.get(
     'householdConfirmation'
   )?.valueChanges;

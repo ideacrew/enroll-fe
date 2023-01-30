@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { formGuard } from '@enroll/slcsp-calculator/household-form';
 
 import { FeatureShellComponent } from './feature-shell/feature-shell.component';
 
@@ -9,6 +10,7 @@ export const premiumTaxCreditRoutes: Route[] = [
       import('@enroll/slcsp-calculator/premium-tax-credit/results').then(
         (m) => m.ResultsModule
       ),
+    canMatch: [formGuard],
   },
   {
     path: 'review',
@@ -16,6 +18,7 @@ export const premiumTaxCreditRoutes: Route[] = [
       import('@enroll/slcsp-calculator/premium-tax-credit/review').then(
         (m) => m.ReviewModule
       ),
+    canMatch: [formGuard],
   },
   {
     path: 'household',

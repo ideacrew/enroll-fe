@@ -12,3 +12,4 @@ export * from './lib/household-member-coverage/household-member-coverage.compone
 export * from './lib/review-household/review-household.component';
 export * from './lib/review-tax-year/review-tax-year.component';
 export * from './lib/household-member/household-member.component';
+export * from './lib/util/guards/form.guard';
