@@ -2,7 +2,10 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map, shareReplay, tap } from 'rxjs';
 
-import { selectRouteParam } from '@enroll/shared/state/root-store';
+import {
+  selectQueryParam,
+  selectRouteParam,
+} from '@enroll/shared/state/root-store';
 import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
 import { Router } from '@angular/router';
 
@@ -28,6 +31,8 @@ export class CoverageComponent {
     map((memberId) => this.householdMembersArray.at(memberId - 1)?.value),
     map((householdMember) => householdMember.name)
   );
+
+  reviewing$ = this.store.select(selectQueryParam('reviewing'));
 
   nextStep() {
     if (this.memberId > this.householdMembersArray.length) {

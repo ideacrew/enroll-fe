@@ -3,7 +3,12 @@
   <div class="review-step review-dob">
     <h3>Date of birth</h3>
     <div>{{ member.dob.month }}/{{ member.dob.day }}/{{ member.dob.year }}</div>
-    <a class="edit-link" routerLink="../household/member/{{ i + 1 }}">Edit</a>
+    <a
+      class="edit-link"
+      routerLink="../household/member/{{ i + 1 }}"
+      [queryParams]="{ reviewing: true }"
+      >Edit</a
+    >
   </div>
   <div class="review-step review-locations-lived" *ngIf="i === 0">
     <h3>Location(s) lived</h3>
@@ -14,12 +19,20 @@
       {{ residence.county.zipcode }}, {{ residence.county.name }},
       {{ residence.county.state }}
     </div>
-    <a class="edit-link" routerLink="../household/member/{{ i + 1 }}">Edit</a>
+    <a
+      class="edit-link"
+      routerLink="../household/member/{{ i + 1 }}"
+      [queryParams]="{ reviewing: true }"
+      >Edit</a
+    >
   </div>
   <div class="review-step review-coverage">
     <h3>Marketplace coverage months</h3>
     <div>{{ member.coverage | residenceMonths }}</div>
-    <a class="edit-link" routerLink="../household/member/{{ i + 1 }}/coverage"
+    <a
+      class="edit-link"
+      routerLink="../household/member/{{ i + 1 }}/coverage"
+      [queryParams]="{ reviewing: true }"
       >Edit</a
     >
   </div>

@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { selectRouteParam } from '@enroll/shared/state/root-store';
+import {
+  selectRouteParam,
+  selectQueryParam,
+} from '@enroll/shared/state/root-store';
 import { Store } from '@ngrx/store';
 import { map, shareReplay, tap } from 'rxjs';
 
@@ -28,6 +31,8 @@ export class MemberComponent {
     tap((memberId) => (this.memberId = memberId)),
     shareReplay(1)
   );
+
+  reviewing$ = this.store.select(selectQueryParam('reviewing'));
 
   get memberFormGroup(): FormGroup<HouseholdMemberFormGroup> {
     return this.householdMembersArray.at(this.memberId - 1);

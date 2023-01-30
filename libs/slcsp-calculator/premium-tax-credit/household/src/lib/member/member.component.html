@@ -4,15 +4,23 @@
     [memberId]="memberId"
   />
 
-  <button
-    data-cy="navigate-to-member-coverage"
-    class="ea-button continue-button"
-    type="button"
-    (click)="navigateToCoverage()"
-    [disabled]="!validMemberDetailPage"
-  >
-    Continue
-  </button>
-</ng-container>
+  <ng-container *ngIf="reviewing$ | async; else continue">
+    <a class="ea-button continue-button" routerLink="../../../review"
+      >Save Changes</a
+    >
+  </ng-container>
 
-<!-- <enroll-household-form-info /> -->
+  <ng-template #continue>
+    <button
+      data-cy="navigate-to-member-coverage"
+      class="ea-button continue-button"
+      type="button"
+      (click)="navigateToCoverage()"
+      [disabled]="!validMemberDetailPage"
+    >
+      Continue
+    </button>
+  </ng-template>
+
+  <!-- <enroll-household-form-info /> -->
+</ng-container>
