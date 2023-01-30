@@ -5,8 +5,7 @@
     <div>{{ member.dob.month }}/{{ member.dob.day }}/{{ member.dob.year }}</div>
     <a class="edit-link" routerLink="../household/member/{{ i + 1 }}">Edit</a>
   </div>
-  <hr />
-  <div class="review-step review-locations-lived">
+  <div class="review-step review-locations-lived" *ngIf="i === 0">
     <h3>Location(s) lived</h3>
     <div *ngFor="let residence of member.residences">
       <div>
@@ -17,7 +16,6 @@
     </div>
     <a class="edit-link" routerLink="../household/member/{{ i + 1 }}">Edit</a>
   </div>
-  <hr />
   <div class="review-step review-coverage">
     <h3>Marketplace coverage months</h3>
     <div>{{ member.coverage | residenceMonths }}</div>

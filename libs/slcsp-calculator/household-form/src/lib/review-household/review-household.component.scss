@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.review-step:not(:last-child) {
+  border-bottom: 2px solid var(--grey-050);
+}
+
 .edit-link {
   position: absolute;
   top: 0;
