@@ -1,115 +1,19 @@
 import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
 import { HouseholdFormValue } from '@enroll/slcsp-calculator/household-form';
+import {
+  createFinalFormValue,
+  householdMember1,
+  householdMember2,
+} from '@enroll/slcsp-calculator/testing';
 
 describe('slcsp-calculator', () => {
-  const householdMember1: HouseholdMember = {
-    primaryMember: true,
-    relationship: 'self',
-    name: 'John',
-    dob: {
-      month: '1',
-      day: '1',
-      year: '1979',
-    },
-    residences: [
-      {
-        county: {
-          zipcode: '04003',
-          name: 'Cumberland County',
-          fips: '23005',
-          state: 'ME',
-        },
-        months: {
-          jan: true,
-          feb: true,
-          mar: true,
-          apr: true,
-          may: true,
-          jun: true,
-          jul: true,
-          aug: true,
-          sep: true,
-          oct: true,
-          nov: true,
-          dec: true,
-        },
-      },
-    ],
-    coverage: {
-      jan: false,
-      feb: false,
-      mar: false,
-      apr: false,
-      may: false,
-      jun: false,
-      jul: false,
-      aug: false,
-      sep: false,
-      oct: false,
-      nov: false,
-      dec: false,
-    },
-  };
-  const householdMember2: HouseholdMember = {
-    primaryMember: false,
-    relationship: 'spouse',
-    name: 'Suzy',
-    dob: {
-      month: '1',
-      day: '1',
-      year: '1979',
-    },
-    residences: [
-      {
-        county: {
-          zipcode: '04003',
-          name: 'Cumberland County',
-          fips: '23005',
-          state: 'ME',
-        },
-        months: {
-          jan: true,
-          feb: true,
-          mar: true,
-          apr: true,
-          may: true,
-          jun: true,
-          jul: true,
-          aug: true,
-          sep: true,
-          oct: true,
-          nov: true,
-          dec: true,
-        },
-      },
-    ],
-    coverage: {
-      jan: false,
-      feb: false,
-      mar: false,
-      apr: false,
-      may: false,
-      jun: false,
-      jul: false,
-      aug: false,
-      sep: false,
-      oct: false,
-      nov: false,
-      dec: false,
-    },
-  };
   const householdMembers: HouseholdMember[] = [
     householdMember1,
     householdMember2,
   ];
 
-  const finalFormValue: HouseholdFormValue = {
-    householdCount: householdMembers.length,
-    householdConfirmation: true,
-    taxYear: '2022',
-    state: 'ME',
-    members: householdMembers,
-  };
+  const finalFormValue: HouseholdFormValue =
+    createFinalFormValue(householdMembers);
 
   beforeEach(() => {
     cy.visit('/');

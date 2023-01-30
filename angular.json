@@ -32,6 +32,7 @@
     "slcsp-calculator-premium-tax-credit-review": "libs/slcsp-calculator/premium-tax-credit/review",
     "slcsp-calculator-premium-tax-credit-tax-year": "libs/slcsp-calculator/premium-tax-credit/tax-year",
     "slcsp-calculator-shell": "libs/slcsp-calculator/shell",
+    "slcsp-calculator-testing": "libs/slcsp-calculator/testing",
     "tenant-config": "libs/tenant-config",
     "ui-base-shell": "libs/ui/base/shell",
     "util-helpers": "libs/util/helpers",
