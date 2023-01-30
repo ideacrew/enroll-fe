@@ -24,19 +24,21 @@
   </button>
 </div>
 
-<div class="results" *ngIf="newSearchResults$ | async as result">
-  <div class="county-option" *ngIf="result === 'No results'">
+<div class="results" *ngIf="newSearchResults$ | async as results">
+  <div class="county-option" *ngIf="results === 'No results'">
     No results. Search for a different ZIP code.
   </div>
-  <div *ngIf="resultIsCounty(result)" class="county-option" role="option">
-    <div>{{ result.zipcode }}, {{ result.name }}, {{ result.state }}</div>
-    <button
-      data-cy="select-county"
-      class="ea-button"
-      type="button"
-      (click)="selectCounty(result)"
-    >
-      Select county
-    </button>
-  </div>
+  <ng-container *ngIf="resultsAreCounties(results)">
+    <div *ngFor="let result of results" class="county-option">
+      <div>{{ result.zipcode }}, {{ result.name }}, {{ result.state }}</div>
+      <button
+        data-cy="select-county"
+        class="ea-button"
+        type="button"
+        (click)="selectCounty(result)"
+      >
+        Select county
+      </button>
+    </div>
+  </ng-container>
 </div>

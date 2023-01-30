@@ -37,7 +37,7 @@ export class MemberResidenceZipcodeComponent {
 
   zipCodeQueryValue$ = this.zipCodeQuery.valueChanges;
 
-  newSearchResults$: Observable<MarketplaceCounty | null | string> =
+  newSearchResults$: Observable<MarketplaceCounty[] | null | string> =
     this.zipCodeQueryValue$.pipe(
       distinctUntilChanged(),
       switchMap((query) => {
@@ -64,9 +64,9 @@ export class MemberResidenceZipcodeComponent {
     this.residenceFormGroup.get('county')?.setValue(county);
   }
 
-  resultIsCounty(
-    result: MarketplaceCounty | null | string
-  ): result is MarketplaceCounty {
+  resultsAreCounties(
+    result: MarketplaceCounty[] | null | string
+  ): result is MarketplaceCounty[] {
     return result !== null && result !== 'No results';
   }
 
