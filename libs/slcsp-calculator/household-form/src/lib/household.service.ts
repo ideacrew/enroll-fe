@@ -1,8 +1,6 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 
-import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
-
 import {
   HouseholdFormGroup,
   HouseholdMemberFormGroup,
@@ -13,6 +11,7 @@ import {
 } from './form-initialization/initial-household-form';
 import { mockHouseholdForm } from './form-initialization/mock-household-form';
 import { HouseholdFormValue } from './interfaces';
+import { duplicateResidencesAcrossSecondaryMembers } from './util/transforms/duplicate-residences';
 
 @Injectable({
   providedIn: 'root',
@@ -66,21 +65,11 @@ export class HouseholdService {
   getTransformedValue(): HouseholdFormValue {
     const originalFormValue = this.householdForm.value as HouseholdFormValue;
 
-    // Duplicate the primary member's residence to all other members of the form
-    const primaryMemberResidence = originalFormValue.members[0].residences;
-
-    const [primaryMember, ...secondaryMembers] = originalFormValue.members;
-
-    const newSecondaryMembers: HouseholdMember[] = secondaryMembers.map(
-      (member): HouseholdMember => ({
-        ...member,
-        residences: primaryMemberResidence,
-      })
-    );
-
     const transformedFormValue = {
       ...originalFormValue,
-      members: [primaryMember, ...newSecondaryMembers],
+      members: duplicateResidencesAcrossSecondaryMembers(
+        originalFormValue.members
+      ),
     };
 
     return transformedFormValue;

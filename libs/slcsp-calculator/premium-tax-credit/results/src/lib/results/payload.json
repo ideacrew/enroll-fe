@@ -1,120 +1,61 @@
-[
-  {
-    "householdConfirmation": true,
-    "householdCount": 2,
-    "taxYear": "2022",
-    "state": "ME",
-    "members": [
-      {
-        "primaryMember": true,
-        "relationship": "self",
-        "name": "Mark",
-        "dob": {
-          "month": "1",
-          "day": "1",
-          "year": "1979"
-        },
-        "residences": [
-          {
-            "county": {
-              "zipcode": "04003",
-              "name": "Cumberland County",
-              "fips": "23005",
-              "state": "ME"
-            },
-            "months": {
-              "jan": true,
-              "feb": true,
-              "mar": true,
-              "apr": true,
-              "may": true,
-              "jun": true,
-              "jul": true,
-              "aug": true,
-              "sep": true,
-              "oct": true,
-              "nov": true,
-              "dec": true
-            }
+{
+  "householdConfirmation": true,
+  "householdCount": 1,
+  "taxYear": "2022",
+  "state": "ME",
+  "members": [
+    {
+      "primaryMember": true,
+      "relationship": "self",
+      "name": "carlos",
+      "dob": { "month": "11", "day": "14", "year": "1986" },
+      "residences": [
+        {
+          "county": {
+            "zipcode": "04003",
+            "name": "Cumberland County",
+            "fips": "23005",
+            "state": "ME"
+          },
+          "months": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
           }
-        ],
-        "coverage": {
-          "jan": true,
-          "feb": true,
-          "mar": true,
-          "apr": true,
-          "may": true,
-          "jun": true,
-          "jul": true,
-          "aug": true,
-          "sep": true,
-          "oct": true,
-          "nov": true,
-          "dec": true
-        }
-      },
-      {
-        "primaryMember": false,
-        "relationship": null,
-        "name": "Nella",
-        "dob": {
-          "month": "5",
-          "day": "5",
-          "year": "1975"
         },
-        "residences": [
-          {
-            "county": {
-              "zipcode": "",
-              "name": "",
-              "fips": "",
-              "state": ""
-            },
-            "months": {
-              "jan": false,
-              "feb": false,
-              "mar": false,
-              "apr": false,
-              "may": false,
-              "jun": false,
-              "jul": false,
-              "aug": false,
-              "sep": false,
-              "oct": false,
-              "nov": false,
-              "dec": false
-            }
-          }
-        ],
-        "coverage": {
-          "jan": true,
-          "feb": true,
-          "mar": true,
-          "apr": true,
-          "may": true,
-          "jun": true,
-          "jul": true,
-          "aug": true,
-          "sep": true,
-          "oct": true,
-          "nov": true,
-          "dec": true
+        {
+          "county": {
+            "zipcode": "04413",
+            "name": "Washington County",
+            "fips": "23029",
+            "state": "ME"
+          },
+          "months": { "oct": true, "nov": true, "dec": true }
         }
+      ],
+      "coverage": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       }
-    ]
-  },
-  {
-    "jan": 965.35,
-    "feb": 965.35,
-    "mar": 965.35,
-    "apr": 965.35,
-    "may": 965.35,
-    "jun": 965.35,
-    "jul": 965.35,
-    "aug": 965.35,
-    "sep": 965.35,
-    "oct": 965.35,
-    "nov": 965.35,
-    "dec": 965.35
-  }
-]
+    }
+  ]
+}
