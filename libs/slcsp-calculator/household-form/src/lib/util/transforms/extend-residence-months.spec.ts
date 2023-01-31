@@ -1,7 +1,5 @@
-import {
-  extendResidenceMonths,
-  PartialMonths,
-} from './extend-residence-months';
+import { PartialMonths } from '@enroll/slcsp-calculator/types';
+import { extendResidenceMonths } from './extend-residence-months';
 
 describe('extending residence months', () => {
   it('should extend residence months', () => {

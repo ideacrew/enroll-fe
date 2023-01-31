@@ -1,9 +1,10 @@
 import { Month } from '@enroll/shared/types';
+
 import { MarketplaceCounty } from './county';
 
-export type Residence = {
+export type SlcspResidence = {
   county: MarketplaceCounty;
-  months: Record<Month, boolean>;
+  months: SlcspMonths;
 };
 
 export type SlcspCounty = MarketplaceCounty;

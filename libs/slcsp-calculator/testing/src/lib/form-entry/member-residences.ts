@@ -1,7 +1,7 @@
-import { Residence } from '@enroll/slcsp-calculator/data-access';
+import { SlcspResidence } from '@enroll/slcsp-calculator/data-access';
 import { fillInResidenceMonths } from './residence-months';
 
-export const fillInResidences = (residences: Residence[]) => {
+export const fillInResidences = (residences: SlcspResidence[]) => {
   for (const [index, residence] of residences.entries()) {
     const { county, months } = residence;
 

@@ -1,0 +1,11 @@
+<div class="checkbox-input-group" [formGroup]="residenceFormGroup">
+  <input
+    [attr.data-cy]="index + '-absent'"
+    class="ea-checkbox-input"
+    type="checkbox"
+    formControlName="absent"
+    id="{{ index }}-absent"
+  /><label for="{{ index }}-absent"
+    ><span></span>{{ memberName }} lived in another country or died.</label
+  >
+</div>

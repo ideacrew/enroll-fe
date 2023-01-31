@@ -1,10 +1,10 @@
 import {
   MarketplaceCounty,
-  Residence,
+  SlcspResidence,
 } from '@enroll/slcsp-calculator/data-access';
 
-export const mockResidence = (): Residence => ({
-  county: createCounty(),
+export const mockResidence = (): SlcspResidence => ({
+  county: mockCounty(),
   months: {
     jan: true,
     feb: true,
@@ -21,15 +21,15 @@ export const mockResidence = (): Residence => ({
   },
 });
 
-const createCounty = (): MarketplaceCounty => ({
+export const mockCounty = (): MarketplaceCounty => ({
   zipcode: '04003',
   name: 'Cumberland County',
   fips: '23005',
   state: 'ME',
 });
 
-export const createDifferentResidences = (): Residence[] => {
-  const residence1: Residence = {
+export const createDifferentResidences = (): SlcspResidence[] => {
+  const residence1: SlcspResidence = {
     county: {
       zipcode: '04003',
       name: 'Cumberland County',
@@ -52,7 +52,7 @@ export const createDifferentResidences = (): Residence[] => {
     },
   };
 
-  const residence2: Residence = {
+  const residence2: SlcspResidence = {
     county: {
       zipcode: '04001',
       name: 'York County',

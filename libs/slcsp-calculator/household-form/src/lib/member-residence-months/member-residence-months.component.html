@@ -1,10 +1,7 @@
 <form [formGroup]="residenceFormGroup">
   <fieldset formGroupName="months">
     <legend>
-      <span
-        >What months did {{ memberName }} live in {{ countyName }},
-        {{ stateAbbreviation }}?</span
-      >
+      <span>{{ monthsText }}</span>
     </legend>
     <div class="month-selection-buttons">
       <button

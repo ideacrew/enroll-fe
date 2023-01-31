@@ -1,8 +1,5 @@
 import { Month, months } from '@enroll/shared/types';
-
-export type PartialMonths = {
-  [key in Month]?: boolean;
-};
+import { PartialMonths } from '@enroll/slcsp-calculator/types';
 
 export const extendResidenceMonths = (
   existingMonths: PartialMonths

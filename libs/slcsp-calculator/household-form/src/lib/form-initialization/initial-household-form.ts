@@ -11,6 +11,7 @@ import {
   MonthFormGroup,
   ResidenceFormGroup,
 } from '@enroll/slcsp-calculator/types';
+import { residenceValidator } from '../util/validators/residence-validator';
 
 export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
   new FormGroup<HouseholdFormGroup>({
@@ -53,7 +54,7 @@ export const newHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
       validators: [Validators.required],
     }),
     dob: createDobFormGroup(),
-    residences: new FormArray([createResidenceFormGroup()]),
+    residences: new FormArray([createResidenceFormGroup()], {}),
     coverage: createCoverageFormGroup(),
   });
 
@@ -74,28 +75,28 @@ export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
   });
 
 export const createResidenceFormGroup = (): FormGroup<ResidenceFormGroup> =>
-  new FormGroup<ResidenceFormGroup>({
-    county: createCountyFormGroup(),
-    months: createEmptyMonthsFormGroup(),
-  });
+  new FormGroup<ResidenceFormGroup>(
+    {
+      county: createCountyFormGroup(),
+      months: createEmptyMonthsFormGroup(),
+      absent: new FormControl(false, { nonNullable: true }),
+    },
+    { validators: [residenceValidator()] }
+  );
 
 export const createCountyFormGroup = (): FormGroup<CountyFormGroup> =>
   new FormGroup<CountyFormGroup>({
     zipcode: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required],
     }),
     name: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required],
     }),
     fips: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required],
     }),
     state: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required],
     }),
   });
 

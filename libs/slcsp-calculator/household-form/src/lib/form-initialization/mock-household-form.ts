@@ -70,6 +70,7 @@ const mockResidenceFormGroup = (): FormGroup<ResidenceFormGroup> =>
   new FormGroup<ResidenceFormGroup>({
     county: mockCountyFormGroup(),
     months: mockMonthsFormGroup(),
+    absent: new FormControl(false, { nonNullable: true }),
   });
 
 const mockCountyFormGroup = (): FormGroup<CountyFormGroup> =>
