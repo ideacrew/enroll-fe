@@ -1,4 +1,5 @@
 import { AllRelationships } from '@enroll/shared/types';
+
 import { Coverage } from './coverage';
 import { DateOfBirth } from './dob';
 import { Residence } from './residence';
