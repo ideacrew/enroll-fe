@@ -1,9 +1,11 @@
 import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
 import {
-  createFinalFormValue,
-  fillInHouseholdForm,
   householdMember1,
   householdMember2,
+  createFinalFormValue,
+} from '@enroll/slcsp-calculator/mocks';
+import {
+  fillInHouseholdForm,
   initialNavigation,
 } from '@enroll/slcsp-calculator/testing';
 import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
