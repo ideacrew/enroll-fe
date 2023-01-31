@@ -1,9 +1,9 @@
 import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
-import { HouseholdFormValue } from '@enroll/slcsp-calculator/household-form';
 import {
   createFinalFormValue,
   householdMember1,
 } from '@enroll/slcsp-calculator/testing';
+import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
 
 describe('slcsp-calculator', () => {
   const householdMembers: HouseholdMember[] = [householdMember1];
