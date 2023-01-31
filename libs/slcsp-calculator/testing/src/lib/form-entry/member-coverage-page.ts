@@ -1,7 +1,7 @@
 import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
 
 export const fillInMemberCoveragePage = (member: HouseholdMember) => {
-  cy.get('h1').contains(`${member.name}: Marketplace Coverage`);
+  cy.get('h1').contains(`${member.name}: CoverME.gov Coverage`);
 
   // Valid coverage includes any combination of selected checkboxes
   // Including all or none

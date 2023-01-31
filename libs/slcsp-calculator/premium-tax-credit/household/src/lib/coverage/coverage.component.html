@@ -1,5 +1,5 @@
 <ng-container *ngIf="memberId$ | async as memberId">
-  <h1>{{ householdMemberName$ | async }}: Marketplace Coverage</h1>
+  <h1>{{ householdMemberName$ | async }}: CoverME.gov Coverage</h1>
 
   <enroll-household-member-coverage
     [memberFormGroup]="householdMembersArray.at(memberId - 1)"
