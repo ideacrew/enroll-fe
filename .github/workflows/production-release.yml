@@ -1,0 +1,92 @@
+name: release to production
+
+on:
+  release:
+    types: [prereleased]
+
+concurrency:
+  group: prod-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  main:
+    name: Nx Cloud - Main Job
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.2
+    with:
+      number-of-agents: 3
+      main-branch-name: trunk
+      init-commands: |
+        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
+      parallel-commands: |
+        npx nx-cloud record -- npx nx workspace-lint
+        npx nx-cloud record -- npx nx format:check
+      parallel-commands-on-agents: |
+        npx nx affected --target=lint --parallel=3
+        npx nx affected --target=test --parallel=3 --ci --code-coverage
+        npx nx affected --target=build --parallel=3
+        npx nx affected --target=e2e --parallel=3 --ci
+      artifacts-path: dist/apps
+      artifacts-name: affected-apps
+
+  agents:
+    name: Nx Cloud - Agents
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11.2
+    with:
+      number-of-agents: 3
+
+  deploy:
+    strategy:
+      matrix:
+        client: [ic, me]
+    name: Deploy affected applications
+    needs: [main, agents]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-region: us-east-1
+        if: matrix.client == 'ic'
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.ME_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.ME_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+        if: matrix.client == 'me'
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v3
+        with:
+          main-branch-name: 'trunk'
+      - name: Download artifact
+        id: download-artifact
+        uses: actions/download-artifact@v3
+        continue-on-error: true
+        with:
+          name: affected-apps
+          path: dist/apps
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
+      - name: Replace favicons
+        if: matrix.client == 'me'
+        run: node .github/scripts/update-favicon.js
+        env:
+          TENANT: ${{ matrix.client }}
+      - name: run many deployments
+        run: npx nx affected --target=deploy:prod
