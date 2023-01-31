@@ -8,13 +8,19 @@
         [index]="i"
       />
 
+      <enroll-member-absent
+        [residenceFormGroup]="residences.at(i)"
+        [memberName]="memberName"
+        [index]="i"
+      />
+
       <enroll-member-residence-months
-        *ngIf="residences.at(i).get('county.zipcode')?.value"
+        *ngIf="showMonths(i)"
         [residenceFormGroup]="residences.at(i)"
         [memberName]="memberName"
       />
       <button
-        *ngIf="validCounty(i)"
+        *ngIf="showAddResidenceButton(i)"
         data-cy="add-residence"
         class="new-residence-button ea-button outline"
         type="button"

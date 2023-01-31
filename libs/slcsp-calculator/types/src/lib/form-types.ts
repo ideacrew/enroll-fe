@@ -27,6 +27,7 @@ export type DateOfBirthFormGroup = {
 export type ResidenceFormGroup = {
   county: FormGroup<CountyFormGroup>;
   months: FormGroup<MonthFormGroup>;
+  absent: FormControl<boolean>;
 };
 
 export type CountyFormGroup = {

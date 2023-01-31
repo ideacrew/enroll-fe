@@ -68,4 +68,13 @@ export class MemberResidenceMonthsComponent {
 
     monthsControl.patchValue(newMonths);
   }
+
+  get monthsText(): string {
+    const isAbsent = this.residenceFormGroup.get('absent')?.value || false;
+
+    return isAbsent
+      ? `What months did ${this.memberName} live in another country or was deceased?`
+      : `What months did ${this.memberName} live in ${this.countyName},
+    ${this.stateAbbreviation}?`;
+  }
 }

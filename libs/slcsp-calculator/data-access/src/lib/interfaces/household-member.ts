@@ -2,13 +2,13 @@ import { AllRelationships } from '@enroll/shared/types';
 
 import { Coverage } from './coverage';
 import { DateOfBirth } from './dob';
-import { Residence } from './residence';
+import { SlcspResidence } from './residence';
 
 export type HouseholdMember = {
   primaryMember: boolean;
-  relationship: AllRelationships | null;
+  relationship: AllRelationships;
   name: string;
   dob: DateOfBirth;
-  residences: Residence[];
+  residences: SlcspResidence[];
   coverage: Coverage;
 };

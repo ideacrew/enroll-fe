@@ -62,6 +62,7 @@ export class MemberResidenceZipcodeComponent {
       `${county.zipcode}, ${county.name}, ${county.state}`
     );
     this.residenceFormGroup.get('county')?.setValue(county);
+    this.residenceFormGroup.get('absent')?.disable();
   }
 
   resultsAreCounties(
@@ -74,5 +75,6 @@ export class MemberResidenceZipcodeComponent {
     this.zipCodeQuery.setValue(null);
     this.residenceFormGroup.get('county')?.reset();
     this.residenceFormGroup.get('months')?.reset();
+    this.residenceFormGroup.get('absent')?.enable();
   }
 }
