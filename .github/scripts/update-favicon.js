@@ -16,5 +16,10 @@ if (!fs.existsSync('dist/apps')) {
 // Grab reference to the correct favicon file
 const faviconPath = `dist/apps/slcsp-calculator/assets/logos/${tenant}-favicon.svg`;
 
+console.log('Replacing favicon with', faviconPath);
 // overwrite favicon with faviconPath at root of application folder
 fs.copyFileSync(faviconPath, 'dist/apps/slcsp-calculator/favicon.svg');
+
+// Read contents of new svg
+const svg = fs.readFileSync('dist/apps/slcsp-calculator/favicon.svg', 'utf8');
+console.log('Replaced!', svg);
