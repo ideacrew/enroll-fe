@@ -8,6 +8,7 @@ describe('residence months validation', () => {
     const residences: ResidenceFormValue[] = [
       {
         county: mockCounty(),
+        absent: false,
         months: {
           jan: true,
           feb: true,
@@ -32,6 +33,7 @@ describe('residence months validation', () => {
     const residences: ResidenceFormValue[] = [
       {
         county: mockCounty(),
+        absent: false,
         months: {
           jan: true,
           feb: true,
@@ -56,6 +58,7 @@ describe('residence months validation', () => {
     const residences: ResidenceFormValue[] = [
       {
         county: mockCounty(),
+        absent: false,
         months: {
           jan: true,
           feb: true,
@@ -73,6 +76,7 @@ describe('residence months validation', () => {
       },
       {
         county: mockCounty(),
+        absent: false,
         months: {
           jul: true,
           aug: true,
@@ -90,6 +94,7 @@ describe('residence months validation', () => {
     const residences: ResidenceFormValue[] = [
       {
         county: mockCounty(),
+        absent: false,
         months: {
           jan: true,
           feb: true,
@@ -107,6 +112,7 @@ describe('residence months validation', () => {
       },
       {
         county: mockCounty(),
+        absent: false,
         months: {
           jul: true,
           aug: true,

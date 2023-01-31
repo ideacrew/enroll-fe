@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createResidenceFormGroup } from '../form-initialization/initial-household-form';
 
 import { MemberAbsentComponent } from './member-absent.component';
 
@@ -13,6 +14,9 @@ describe('MemberAbsentComponent', () => {
 
     fixture = TestBed.createComponent(MemberAbsentComponent);
     component = fixture.componentInstance;
+    component.index = 0;
+    component.memberName = 'Test';
+    component.residenceFormGroup = createResidenceFormGroup();
     fixture.detectChanges();
   });
 
