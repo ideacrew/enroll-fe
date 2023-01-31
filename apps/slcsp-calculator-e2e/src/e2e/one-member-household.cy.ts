@@ -1,7 +1,7 @@
 import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
 import {
   createFinalFormValue,
-  householdMember1,
+  mockPrimaryHouseholdMember,
 } from '@enroll/slcsp-calculator/mocks';
 import {
   fillInHouseholdForm,
@@ -10,7 +10,7 @@ import {
 import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
 
 describe('slcsp-calculator', () => {
-  const householdMembers: HouseholdMember[] = [householdMember1];
+  const householdMembers: HouseholdMember[] = [mockPrimaryHouseholdMember()];
 
   const finalFormValue: HouseholdFormValue =
     createFinalFormValue(householdMembers);
