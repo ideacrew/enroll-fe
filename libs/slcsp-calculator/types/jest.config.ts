@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   displayName: 'slcsp-calculator-types',
   preset: '../../../jest.preset.js',

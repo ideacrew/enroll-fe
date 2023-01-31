@@ -5,7 +5,7 @@ import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
 import {
   HouseholdFormGroup,
   HouseholdMemberFormGroup,
-} from '../../../types/src/lib/form-types';
+} from '@enroll/slcsp-calculator/types';
 import {
   defaultHouseholdForm,
   newHouseholdMember,
