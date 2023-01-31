@@ -1,7 +1,7 @@
 import {
   householdMember1,
   householdMember2,
-} from '@enroll/slcsp-calculator/testing';
+} from '@enroll/slcsp-calculator/mocks';
 
 import { duplicateResidencesAcrossSecondaryMembers } from './duplicate-residences';
 

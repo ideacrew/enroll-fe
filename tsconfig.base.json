@@ -55,6 +55,9 @@
       "@enroll/slcsp-calculator/household-form": [
         "libs/slcsp-calculator/household-form/src/index.ts"
       ],
+      "@enroll/slcsp-calculator/mocks": [
+        "libs/slcsp-calculator/mocks/src/index.ts"
+      ],
       "@enroll/slcsp-calculator/premium-tax-credit": [
         "libs/slcsp-calculator/premium-tax-credit/src/index.ts"
       ],

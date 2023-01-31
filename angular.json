@@ -26,6 +26,7 @@
     "slcsp-calculator-data-access": "libs/slcsp-calculator/data-access",
     "slcsp-calculator-e2e": "apps/slcsp-calculator-e2e",
     "slcsp-calculator-household-form": "libs/slcsp-calculator/household-form",
+    "slcsp-calculator-mocks": "libs/slcsp-calculator/mocks",
     "slcsp-calculator-premium-tax-credit": "libs/slcsp-calculator/premium-tax-credit",
     "slcsp-calculator-premium-tax-credit-household": "libs/slcsp-calculator/premium-tax-credit/household",
     "slcsp-calculator-premium-tax-credit-results": "libs/slcsp-calculator/premium-tax-credit/results",

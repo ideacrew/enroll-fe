@@ -3,8 +3,8 @@
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
     "declaration": true,
-    "types": ["cypress"]
+    "types": []
   },
-  "include": ["src/**/*.ts", "../mocks/src/lib/household-form-value.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts"]
 }
