@@ -1,6 +1,6 @@
 import {
-  householdMember1,
-  householdMember2,
+  mockPrimaryHouseholdMember,
+  mockSecondaryHouseholdMember,
 } from '@enroll/slcsp-calculator/mocks';
 
 import { duplicateResidencesAcrossSecondaryMembers } from './duplicate-residences';
@@ -13,15 +13,15 @@ describe('duplicateResidences', () => {
 
   it('should return the primary member if only a primary member is passed in', () => {
     const result = duplicateResidencesAcrossSecondaryMembers([
-      householdMember1,
+      mockPrimaryHouseholdMember(),
     ]);
     expect(result).toHaveLength(1);
   });
 
   it('should return the primary member and duplicate the primary member residences to all other members', () => {
     const result = duplicateResidencesAcrossSecondaryMembers([
-      householdMember1,
-      householdMember2,
+      mockPrimaryHouseholdMember(),
+      mockSecondaryHouseholdMember(),
     ]);
     expect(result).toHaveLength(2);
 
