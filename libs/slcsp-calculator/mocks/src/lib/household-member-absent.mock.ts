@@ -1,35 +1,30 @@
+import { faker } from '@faker-js/faker';
+
 import {
-  MarketplaceCounty,
+  HouseholdMember,
   SlcspResidence,
 } from '@enroll/slcsp-calculator/data-access';
 
-export const mockResidence = (): SlcspResidence => ({
-  county: mockCounty(),
-  absent: false,
-  months: {
-    jan: true,
-    feb: true,
-    mar: true,
-    apr: true,
-    may: true,
-    jun: true,
-    jul: true,
-    aug: true,
-    sep: true,
-    oct: true,
-    nov: true,
-    dec: true,
-  },
-});
+import { mockCoverage } from './member-coverage.mock';
 
-export const mockCounty = (): MarketplaceCounty => ({
-  zipcode: '04003',
-  name: 'Cumberland County',
-  fips: '23005',
-  state: 'ME',
-});
+export const absentHouseholdMember = (): HouseholdMember => {
+  const householdMember: HouseholdMember = {
+    primaryMember: true,
+    relationship: 'self',
+    name: faker.name.firstName(),
+    dob: {
+      month: '1',
+      day: '15',
+      year: '2000',
+    },
+    residences: absentResidences(),
+    coverage: mockCoverage(),
+  };
 
-export const createDifferentResidences = (): SlcspResidence[] => {
+  return householdMember;
+};
+
+const absentResidences = (): SlcspResidence[] => {
   const residence1: SlcspResidence = {
     county: {
       zipcode: '04003',
@@ -54,12 +49,12 @@ export const createDifferentResidences = (): SlcspResidence[] => {
     absent: false,
   };
 
-  const residence2: SlcspResidence = {
+  const absentResidence: SlcspResidence = {
     county: {
-      zipcode: '04001',
-      name: 'York County',
-      fips: '23031',
-      state: 'ME',
+      zipcode: '',
+      name: '',
+      fips: '',
+      state: '',
     },
     months: {
       jan: false,
@@ -75,8 +70,8 @@ export const createDifferentResidences = (): SlcspResidence[] => {
       nov: true,
       dec: true,
     },
-    absent: false,
+    absent: true,
   };
 
-  return [residence1, residence2];
+  return [residence1, absentResidence];
 };

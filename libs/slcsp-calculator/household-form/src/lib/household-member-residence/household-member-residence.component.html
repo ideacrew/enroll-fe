@@ -15,6 +15,7 @@
       />
 
       <enroll-member-residence-months
+        [index]="i"
         *ngIf="showMonths(i)"
         [residenceFormGroup]="residences.at(i)"
         [memberName]="memberName"

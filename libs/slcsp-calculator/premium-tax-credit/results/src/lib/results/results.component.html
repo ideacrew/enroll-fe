@@ -18,7 +18,10 @@
     <tbody>
       <tr *ngFor="let month of monthList">
         <td class="month-name">{{ month | titlecase }}</td>
-        <td class="currency">{{ estimate[month] | currency }}</td>
+        <td class="currency" *ngIf="isNumber(estimate[month])">
+          {{ estimate[month] | currency }}
+        </td>
+        <td *ngIf="isString(estimate[month])">{{ estimate[month] }}</td>
       </tr>
     </tbody>
   </table>

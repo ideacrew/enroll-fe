@@ -1,11 +1,12 @@
-.enroll-input {
-  width: 40ch;
-}
-
 :host {
   display: block;
   position: relative;
   max-width: 40ch;
+  margin-top: var(--s2);
+}
+
+.enroll-input {
+  width: 40ch;
 }
 
 .zip-query-input {

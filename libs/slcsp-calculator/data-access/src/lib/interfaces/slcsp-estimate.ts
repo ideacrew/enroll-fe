@@ -1,3 +1,3 @@
 import { Month } from '@enroll/shared/types';
 
-export type SlcspEstimate = Record<Month, number | null>;
+export type SlcspEstimate = Record<Month, number | null | string>;

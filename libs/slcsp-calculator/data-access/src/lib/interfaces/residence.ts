@@ -5,6 +5,7 @@ import { MarketplaceCounty } from './county';
 export type SlcspResidence = {
   county: MarketplaceCounty;
   months: SlcspMonths;
+  absent: boolean;
 };
 
 export type SlcspCounty = MarketplaceCounty;

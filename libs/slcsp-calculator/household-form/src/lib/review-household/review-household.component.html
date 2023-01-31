@@ -12,12 +12,18 @@
   </div>
   <div class="review-step review-locations-lived" *ngIf="i === 0">
     <h3>Location(s) lived</h3>
-    <div *ngFor="let residence of member.residences">
+    <div *ngFor="let residence of member.residences" class="member-residence">
       <div>
         {{ residence.months | residenceMonths }}
       </div>
-      {{ residence.county.zipcode }}, {{ residence.county.name }},
-      {{ residence.county.state }}
+
+      <ng-container *ngIf="residence.county.name.length; else absent">
+        {{ residence.county.zipcode }}, {{ residence.county.name }},
+        {{ residence.county.state }}
+      </ng-container>
+      <ng-template #absent>
+        Lived in another country or was deceased
+      </ng-template>
     </div>
     <a
       class="edit-link"

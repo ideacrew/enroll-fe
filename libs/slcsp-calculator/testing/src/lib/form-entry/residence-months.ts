@@ -1,7 +1,7 @@
 import { Month } from '@enroll/shared/types';
 
 export const fillInResidenceMonths = (
-  fips: string,
+  index: number,
   months: Record<Month, boolean>
 ) => {
   // eslint-disable-next-line guard-for-in
@@ -10,7 +10,7 @@ export const fillInResidenceMonths = (
     const isMonthTrue = months[month as Month];
 
     if (isMonthTrue) {
-      cy.get(`[data-cy="${fips}-${month}"]`).check();
+      cy.get(`[data-cy="${index}-${month}"]`).check();
     }
   }
 };

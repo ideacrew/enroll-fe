@@ -5,14 +5,14 @@
     </legend>
     <div class="month-selection-buttons">
       <button
-        [attr.data-cy]="fips + '--select-all-months'"
+        [attr.data-cy]="index + '--select-all-months'"
         class="ea-button outline"
         (click)="selectAllMonths()"
       >
         Select all
       </button>
       <button
-        [attr.data-cy]="fips + '--clear-all-months'"
+        [attr.data-cy]="index + '--clear-all-months'"
         class="ea-button outline"
         (click)="clearAllMonths()"
       >
@@ -24,133 +24,133 @@
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-jan'"
+              [attr.data-cy]="index + '-jan'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="jan"
-              id="{{ fips }}-months-jan"
-            /><label for="{{ fips }}-months-jan"><span></span>Jan</label>
+              id="{{ index }}-months-jan"
+            /><label for="{{ index }}-months-jan"><span></span>Jan</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-feb'"
+              [attr.data-cy]="index + '-feb'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="feb"
-              id="{{ fips }}-months-feb"
-            /><label for="{{ fips }}-months-feb"><span></span>Feb</label>
+              id="{{ index }}-months-feb"
+            /><label for="{{ index }}-months-feb"><span></span>Feb</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-mar'"
+              [attr.data-cy]="index + '-mar'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="mar"
-              id="{{ fips }}-months-mar"
-            /><label for="{{ fips }}-months-mar"><span></span>Mar</label>
+              id="{{ index }}-months-mar"
+            /><label for="{{ index }}-months-mar"><span></span>Mar</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-apr'"
+              [attr.data-cy]="index + '-apr'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="apr"
-              id="{{ fips }}-months-apr"
-            /><label for="{{ fips }}-months-apr"><span></span>Apr</label>
+              id="{{ index }}-months-apr"
+            /><label for="{{ index }}-months-apr"><span></span>Apr</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-may'"
+              [attr.data-cy]="index + '-may'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="may"
-              id="{{ fips }}-months-may"
-            /><label for="{{ fips }}-months-may"><span></span>May</label>
+              id="{{ index }}-months-may"
+            /><label for="{{ index }}-months-may"><span></span>May</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-jun'"
+              [attr.data-cy]="index + '-jun'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="jun"
-              id="{{ fips }}-months-jun"
-            /><label for="{{ fips }}-months-jun"><span></span>Jun</label>
+              id="{{ index }}-months-jun"
+            /><label for="{{ index }}-months-jun"><span></span>Jun</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-jul'"
+              [attr.data-cy]="index + '-jul'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="jul"
-              id="{{ fips }}-months-jul"
-            /><label for="{{ fips }}-months-jul"><span></span>Jul</label>
+              id="{{ index }}-months-jul"
+            /><label for="{{ index }}-months-jul"><span></span>Jul</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-aug'"
+              [attr.data-cy]="index + '-aug'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="aug"
-              id="{{ fips }}-months-aug"
-            /><label for="{{ fips }}-months-aug"><span></span>Aug</label>
+              id="{{ index }}-months-aug"
+            /><label for="{{ index }}-months-aug"><span></span>Aug</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-sep'"
+              [attr.data-cy]="index + '-sep'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="sep"
-              id="{{ fips }}-months-sep"
-            /><label for="{{ fips }}-months-sep"><span></span>Sep</label>
+              id="{{ index }}-months-sep"
+            /><label for="{{ index }}-months-sep"><span></span>Sep</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-oct'"
+              [attr.data-cy]="index + '-oct'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="oct"
-              id="{{ fips }}-months-oct"
-            /><label for="{{ fips }}-months-oct"><span></span>Oct</label>
+              id="{{ index }}-months-oct"
+            /><label for="{{ index }}-months-oct"><span></span>Oct</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-nov'"
+              [attr.data-cy]="index + '-nov'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="nov"
-              id="{{ fips }}-months-nov"
-            /><label for="{{ fips }}-months-nov"><span></span>Nov</label>
+              id="{{ index }}-months-nov"
+            /><label for="{{ index }}-months-nov"><span></span>Nov</label>
           </div>
         </li>
         <li>
           <div class="checkbox-input-group">
             <input
-              [attr.data-cy]="fips + '-dec'"
+              [attr.data-cy]="index + '-dec'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="dec"
-              id="{{ fips }}-months-dec"
-            /><label for="{{ fips }}-months-dec"><span></span>Dec</label>
+              id="{{ index }}-months-dec"
+            /><label for="{{ index }}-months-dec"><span></span>Dec</label>
           </div>
         </li>
       </ol>

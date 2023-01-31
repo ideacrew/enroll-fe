@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { Month } from '@enroll/shared/types';
-
 import { ResidenceFormGroup } from '@enroll/slcsp-calculator/types';
 
 @Component({
@@ -17,6 +16,7 @@ import { ResidenceFormGroup } from '@enroll/slcsp-calculator/types';
 export class MemberResidenceMonthsComponent {
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
   @Input() memberName!: string;
+  @Input() index!: number;
 
   get fips(): string {
     return this.residenceFormGroup.get('county.fips')?.value || '';

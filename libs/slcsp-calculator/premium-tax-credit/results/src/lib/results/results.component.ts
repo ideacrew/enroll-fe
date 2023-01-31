@@ -31,4 +31,12 @@ export class ResultsComponent {
   print(): void {
     window.print();
   }
+
+  isNumber(value: number | null | string): boolean {
+    return typeof value === 'number';
+  }
+
+  isString(value: number | null | string): boolean {
+    return typeof value === 'string';
+  }
 }

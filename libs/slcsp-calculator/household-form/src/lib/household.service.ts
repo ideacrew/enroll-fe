@@ -66,6 +66,7 @@ export class HouseholdService {
 
   getTransformedValue(): HouseholdFormValue {
     const originalFormValue = this.householdForm.value as HouseholdFormValue;
+    console.log({ originalFormValue });
 
     const [primaryMember, ...secondaryMembers] = originalFormValue.members;
 
@@ -73,6 +74,7 @@ export class HouseholdService {
     const extendedResidences = primaryMember.residences.map((residence) => ({
       ...residence,
       months: extendResidenceMonths(residence.months),
+      absent: residence.absent ?? false,
     }));
 
     const newPrimaryMember: HouseholdMember = {
