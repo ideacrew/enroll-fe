@@ -7,7 +7,7 @@ import {
   HouseholdMemberFormGroup,
   MonthFormGroup,
   ResidenceFormGroup,
-} from '../interfaces/form-types';
+} from '@enroll/slcsp-calculator/types';
 
 export const mockHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
   new FormGroup<HouseholdFormGroup>({

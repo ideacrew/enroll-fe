@@ -6,10 +6,8 @@ import {
   SlcspEstimate,
   SlcspEstimateService,
 } from '@enroll/slcsp-calculator/data-access';
-import {
-  HouseholdFormValue,
-  HouseholdService,
-} from '@enroll/slcsp-calculator/household-form';
+import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
+import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
 
 @Component({
   templateUrl: './results.component.html',

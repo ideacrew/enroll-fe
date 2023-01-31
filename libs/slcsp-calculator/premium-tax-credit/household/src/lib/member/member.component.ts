@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 import {
   selectRouteParam,
   selectQueryParam,
@@ -6,12 +8,8 @@ import {
 import { Store } from '@ngrx/store';
 import { map, shareReplay, tap } from 'rxjs';
 
-import {
-  HouseholdMemberFormGroup,
-  HouseholdService,
-} from '@enroll/slcsp-calculator/household-form';
-import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
+import { HouseholdMemberFormGroup } from '@enroll/slcsp-calculator/types';
 
 @Component({
   templateUrl: './member.component.html',

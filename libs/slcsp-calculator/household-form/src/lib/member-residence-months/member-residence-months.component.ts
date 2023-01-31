@@ -4,7 +4,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { Month } from '@enroll/shared/types';
 
-import { ResidenceFormGroup } from '../interfaces/form-types';
+import { ResidenceFormGroup } from '@enroll/slcsp-calculator/types';
 
 @Component({
   selector: 'enroll-member-residence-months',

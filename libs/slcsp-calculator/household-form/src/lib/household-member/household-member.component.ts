@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { HouseholdMemberFormGroup } from '../interfaces/form-types';
+import { HouseholdMemberFormGroup } from '@enroll/slcsp-calculator/types';
 import { HouseholdMemberDobComponent } from '../household-member-dob/household-member-dob.component';
 import { HouseholdMemberResidencesComponent } from '../household-member-residence/household-member-residence.component';
 

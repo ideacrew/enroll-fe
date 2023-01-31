@@ -10,7 +10,7 @@ import {
   HouseholdMemberFormGroup,
   MonthFormGroup,
   ResidenceFormGroup,
-} from '../interfaces/form-types';
+} from '@enroll/slcsp-calculator/types';
 
 export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
   new FormGroup<HouseholdFormGroup>({

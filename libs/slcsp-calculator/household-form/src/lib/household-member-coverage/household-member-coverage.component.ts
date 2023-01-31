@@ -4,7 +4,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { Month } from '@enroll/shared/types';
 
-import { HouseholdMemberFormGroup } from '../interfaces/form-types';
+import { HouseholdMemberFormGroup } from '@enroll/slcsp-calculator/types';
 
 @Component({
   selector: 'enroll-household-member-coverage',

@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormGroup } from '@angular/forms';
 
-import { HouseholdFormGroup } from '../interfaces/form-types';
+import { HouseholdFormGroup } from '@enroll/slcsp-calculator/types';
 import { ResidenceMonthsPipe } from '../residence-months/residence-months.pipe';
 
 @Component({

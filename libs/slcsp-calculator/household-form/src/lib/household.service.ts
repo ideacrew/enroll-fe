@@ -1,16 +1,16 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
+import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
 
 import {
   HouseholdFormGroup,
   HouseholdMemberFormGroup,
-} from './interfaces/form-types';
+} from '../../../types/src/lib/form-types';
 import {
   defaultHouseholdForm,
   newHouseholdMember,
 } from './form-initialization/initial-household-form';
 import { mockHouseholdForm } from './form-initialization/mock-household-form';
-import { HouseholdFormValue } from './interfaces';
 import { duplicateResidencesAcrossSecondaryMembers } from './util/transforms/duplicate-residences';
 
 @Injectable({
@@ -71,6 +71,7 @@ export class HouseholdService {
         originalFormValue.members
       ),
     };
+    console.log(transformedFormValue);
 
     return transformedFormValue;
   }

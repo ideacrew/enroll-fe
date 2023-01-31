@@ -15,7 +15,7 @@ import {
   MarketplaceCounty,
 } from '@enroll/slcsp-calculator/data-access';
 
-import { ResidenceFormGroup } from '../interfaces/form-types';
+import { ResidenceFormGroup } from '@enroll/slcsp-calculator/types';
 
 @Component({
   selector: 'enroll-member-residence-zipcode',

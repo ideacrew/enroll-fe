@@ -76,6 +76,9 @@
       "@enroll/slcsp-calculator/testing": [
         "libs/slcsp-calculator/testing/src/index.ts"
       ],
+      "@enroll/slcsp-calculator/types": [
+        "libs/slcsp-calculator/types/src/index.ts"
+      ],
       "@enroll/tenant-config": ["libs/tenant-config/src/index.ts"],
       "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
       "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],

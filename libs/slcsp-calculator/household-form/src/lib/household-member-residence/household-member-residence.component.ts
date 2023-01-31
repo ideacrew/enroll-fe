@@ -6,7 +6,7 @@ import {
   HouseholdMemberFormGroup,
   MonthFormGroup,
   ResidenceFormGroup,
-} from '../interfaces/form-types';
+} from '@enroll/slcsp-calculator/types';
 import { MemberResidenceMonthsComponent } from '../member-residence-months/member-residence-months.component';
 import { MemberResidenceZipcodeComponent } from '../member-residence-zipcode/member-residence-zipcode.component';
 import {

@@ -9,7 +9,7 @@ import {
 
 import { TaxRelationships } from '@enroll/shared/types';
 
-import { HouseholdMemberFormGroup } from '../interfaces/form-types';
+import { HouseholdMemberFormGroup } from '@enroll/slcsp-calculator/types';
 import { scopeLoader } from '../util/i18n/standalone-loader';
 
 @Component({

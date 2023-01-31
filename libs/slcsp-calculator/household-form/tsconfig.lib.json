@@ -16,6 +16,7 @@
   "include": [
     "src/**/*.ts",
     "../data-access/src/lib/slcsp-estimate.service.spec.ts",
-    "../../shared/types/src/lib/tax-relationship.ts"
+    "../../shared/types/src/lib/tax-relationship.ts",
+    "../types/src/lib/form-types.ts"
   ]
 }

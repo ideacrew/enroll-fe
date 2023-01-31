@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { HouseholdFormGroup } from '../interfaces/form-types';
+import { HouseholdFormGroup } from '@enroll/slcsp-calculator/types';
 
 @Component({
   selector: 'enroll-household-count',
