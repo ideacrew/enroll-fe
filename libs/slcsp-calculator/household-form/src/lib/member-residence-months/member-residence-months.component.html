@@ -8,14 +8,14 @@
     </legend>
     <div class="month-selection-buttons">
       <button
-        [attr.data-cy]="fips + '-select-all-months'"
+        [attr.data-cy]="fips + '--select-all-months'"
         class="ea-button outline"
         (click)="selectAllMonths()"
       >
         Select all
       </button>
       <button
-        [attr.data-cy]="fips + '-clear-all-months'"
+        [attr.data-cy]="fips + '--clear-all-months'"
         class="ea-button outline"
         (click)="clearAllMonths()"
       >
@@ -27,6 +27,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-jan'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="jan"
@@ -37,6 +38,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-feb'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="feb"
@@ -47,6 +49,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-mar'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="mar"
@@ -57,6 +60,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-apr'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="apr"
@@ -67,6 +71,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-may'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="may"
@@ -77,6 +82,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-jun'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="jun"
@@ -87,6 +93,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-jul'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="jul"
@@ -97,6 +104,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-aug'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="aug"
@@ -107,6 +115,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-sep'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="sep"
@@ -117,6 +126,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-oct'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="oct"
@@ -127,6 +137,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-nov'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="nov"
@@ -137,6 +148,7 @@
         <li>
           <div class="checkbox-input-group">
             <input
+              [attr.data-cy]="fips + '-dec'"
               class="ea-checkbox-input"
               type="checkbox"
               formControlName="dec"

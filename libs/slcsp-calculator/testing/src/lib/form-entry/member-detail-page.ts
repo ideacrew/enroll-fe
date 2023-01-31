@@ -1,12 +1,11 @@
 import { HouseholdMember } from '@enroll/slcsp-calculator/data-access';
+import { fillInResidences } from './member-residences';
 
 export const fillInMemberDetailPage = (member: HouseholdMember) => {
-  const [residence] = member.residences;
+  const { residences } = member;
 
-  const { county } = residence;
   const { dob, name: memberName, primaryMember } = member;
   const { month, day, year } = dob;
-  const { zipcode, fips, name: countyName, state } = county;
 
   cy.get('[data-cy="member-heading"]').contains(`Tell us about ${memberName}`);
   cy.get('[data-cy="navigate-to-member-coverage"]').should('be.disabled');
@@ -19,19 +18,7 @@ export const fillInMemberDetailPage = (member: HouseholdMember) => {
   // Secondary members are not required to enter residence information
   if (primaryMember) {
     // Zip code search, after this is typed in an api call should be made
-    cy.intercept(`**/counties/**/${zipcode}**`, {
-      fixture: 'zipcode.json',
-    }).as('zipcodeSearch');
-    cy.get('[data-cy="zipcode-input-0"]').type(zipcode);
-    cy.wait('@zipcodeSearch');
-
-    cy.get('[data-cy="select-county"]').click();
-    cy.get('[data-cy="zipcode-input-0"]').should(
-      'have.value',
-      `${zipcode}, ${countyName}, ${state}`
-    );
-
-    cy.get(`[data-cy="${fips}-select-all-months"]`).click();
+    fillInResidences(residences);
   } else {
     cy.get('[data-cy="zipcode-input-0"]').should('not.exist');
   }

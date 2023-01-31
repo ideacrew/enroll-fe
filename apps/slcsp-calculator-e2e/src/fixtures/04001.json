@@ -1,0 +1,10 @@
+{
+  "counties": [
+    {
+      "zipcode": "04001",
+      "name": "York County",
+      "fips": "23031",
+      "state": "ME"
+    }
+  ]
+}
