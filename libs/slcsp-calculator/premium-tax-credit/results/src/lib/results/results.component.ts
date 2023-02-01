@@ -1,5 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  inject,
+  ViewChild,
+} from '@angular/core';
 import { Observable } from 'rxjs';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 import { months } from '@enroll/shared/types';
 import {
@@ -28,6 +36,12 @@ export class ResultsComponent {
       this.transformedValue
     );
 
+  @ViewChild('pdfTable', { static: false }) pdfTable:
+    | ElementRef<HTMLTableElement>
+    | undefined;
+
+  @ViewChild('results', { static: false }) results!: ElementRef<HTMLDivElement>;
+
   print(): void {
     window.print();
   }
@@ -38,5 +52,46 @@ export class ResultsComponent {
 
   isString(value: number | null | string): boolean {
     return typeof value === 'string';
+  }
+
+  async saveAsPDF(): Promise<void> {
+    const document = new jsPDF({
+      orientation: 'portrait',
+      unit: 'in',
+      format: [8.5, 11],
+    });
+
+    const table = this.pdfTable?.nativeElement;
+    const resultsContainer = this.results.nativeElement;
+
+    if (table !== undefined) {
+      console.log('Generating table');
+      // await document.html(table);
+
+      console.log(resultsContainer);
+
+      await document.html(resultsContainer, {
+        // eslint-disable-next-line unicorn/prevent-abbreviations
+        callback: function (doc) {
+          doc.save('results.pdf');
+        },
+        x: 10,
+        y: 10,
+      });
+    }
+
+    // document.save('slcsp-estimate.pdf');
+  }
+
+  saveAsAutoTable(): void {
+    const document = new jsPDF();
+
+    if (this.pdfTable === undefined) {
+      return;
+    } else {
+      document.text('From HTML with CSS', 14, 22);
+      autoTable(document, { html: this.pdfTable.nativeElement });
+      document.save('slcsp-estimate.pdf');
+    }
   }
 }
