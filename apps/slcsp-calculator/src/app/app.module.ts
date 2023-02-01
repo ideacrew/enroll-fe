@@ -18,10 +18,6 @@ import { SlcspI18nModule } from './i18n.module';
 import { JsonFileLoaderService } from './json-file-loader.service';
 import { slcspTenantConfig } from './tenant-config';
 
-export function initializeJsonFile(jsonFileLoader: JsonFileLoaderService) {
-  return () => jsonFileLoader.loadJson('/tenant-config/me-colors.json');
-}
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

@@ -1,9 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'enroll-login',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,10 +18,10 @@ export class LoginComponent {
   password!: string;
   realm_name = 'Anthem';
 
-  constructor(private auth: AuthService) {}
+  authService = inject(AuthService);
 
   login(): void {
-    this.auth.login({
+    this.authService.login({
       username: this.username,
       password: this.password,
       realm_name: this.realm_name,

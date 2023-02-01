@@ -11,15 +11,12 @@ import {
   TenantConfigService,
   TENANT_CONFIG,
 } from '@enroll/tenant-config';
+import { AuthGuard, AuthInterceptor } from '@enroll/console/auth';
 
 import { AppComponent } from './app.component';
-import { AuthInterceptor } from './auth-interceptor.service';
-import { LoginComponent } from './login/login.component';
 import { CarrierPortalComponent } from './carrier-portal/carrier-portal.component';
-import { AuthGuard } from './auth.guard';
 import { MemberCoverageComponent } from './member-coverage/member-coverage.component';
 import { MemberPolicyComponent } from './member-policy/member-policy.component';
-import { JwtAuthService } from './jwt-auth.service';
 import { PortalComponent } from './portal/portal.component';
 import { MemberSearchComponent } from './member-search/member-search.component';
 import { CarrierPortalHomeComponent } from './carrier-portal-home/carrier-portal-home.component';
@@ -36,7 +33,6 @@ import { consoleTenantConfig } from './tenant-config';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     CarrierPortalComponent,
     MemberCoverageComponent,
     MemberPolicyComponent,
@@ -57,7 +53,8 @@ import { consoleTenantConfig } from './tenant-config';
     RouterModule.forRoot([
       {
         path: 'login',
-        component: LoginComponent,
+        loadChildren: () =>
+          import('@enroll/console/auth').then((m) => m.consoleAuthRoutes),
       },
       {
         path: '',
@@ -102,6 +99,11 @@ import { consoleTenantConfig } from './tenant-config';
           },
         ],
       },
+      {
+        path: 'shell',
+        loadChildren: () =>
+          import('@enroll/console/shell').then((m) => m.consoleShellRoutes),
+      },
     ]),
     RootStoreModule,
     FormsModule,
@@ -123,7 +125,6 @@ import { consoleTenantConfig } from './tenant-config';
       provide: TENANT_CONFIG,
       useValue: consoleTenantConfig,
     },
-    JwtAuthService,
   ],
   bootstrap: [AppComponent],
 })

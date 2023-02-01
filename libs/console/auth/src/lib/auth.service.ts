@@ -6,8 +6,8 @@ import { tap, timer, Subscription } from 'rxjs';
 
 import { TenantConfigService } from '@enroll/tenant-config';
 
-import { TokenResponse } from './authorization-data';
 import { JwtAuthService } from './jwt-auth.service';
+import { TokenResponse } from './authorization-data';
 
 type LoginCredentials = {
   username: string;
@@ -27,8 +27,10 @@ export class AuthService {
 
   http = inject(HttpClient);
   baseApiUrl = inject(TenantConfigService).baseApiUrl;
+  jwtChecker = inject(JwtAuthService);
+  router = inject(Router);
 
-  constructor(private router: Router, private jwtChecker: JwtAuthService) {
+  constructor() {
     this.expirationTime = Date.now();
     this.tokenTime = Date.now();
     const currentJwtValues = this.jwtChecker.getJwt();

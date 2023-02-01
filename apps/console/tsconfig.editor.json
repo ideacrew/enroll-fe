@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "../../libs/console/auth/src/lib/auth.guard.ts"],
   "compilerOptions": {
     "types": ["jest", "node"]
   }
