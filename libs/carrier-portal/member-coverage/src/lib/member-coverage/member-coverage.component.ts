@@ -10,6 +10,7 @@ import {
   MemberPolicyComponent,
   SortByStatusPipe,
 } from '@enroll/carrier-portal/ui';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   standalone: true,
@@ -21,6 +22,7 @@ import {
     FormatSsnPipe,
     SortByStatusPipe,
     MemberPolicyComponent,
+    HttpClientModule,
   ],
   templateUrl: './member-coverage.component.html',
   styleUrls: ['./member-coverage.component.scss'],
