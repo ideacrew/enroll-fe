@@ -23,6 +23,7 @@
             {{ estimate[month] | currency }}
           </td>
           <td *ngIf="isString(estimate[month])">{{ estimate[month] }}</td>
+          <td *ngIf="estimate[month] === null"></td>
         </tr>
       </tbody>
     </table>
