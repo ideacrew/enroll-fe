@@ -4,17 +4,18 @@ const fs = require('fs');
 const tenant = process.env.TENANT; // 'dc' or 'me'
 
 if (!tenant) {
-  throw new Error('TENANT environment variable not set');
+  console.error('TENANT environment variable not set');
+  process.exit(1);
 }
 
 // Check if the dist/apps directory exists, exit if it does not
-if (!fs.existsSync('dist/apps')) {
-  console.log('Dist directory does not exist, exiting script');
-  return;
+if (!fs.existsSync('dist/apps/slcsp-calculator')) {
+  console.error('Dist directory does not exist, exiting script');
+  process.exit(1);
 }
 
 // Grab reference to the correct favicon file
-const faviconPath = `dist/apps/slcsp-calculator/assets/logos/${tenant}-favicon.svg`;
+const faviconPath = `dist/apps/slcsp-calculator/${tenant}-favicon.svg`;
 
 console.log('Replacing favicon with', faviconPath);
 // overwrite favicon with faviconPath at root of application folder

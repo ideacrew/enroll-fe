@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/console",
         "index": "apps/console/src/index.html",
@@ -15,7 +17,7 @@
         "tsConfig": "apps/console/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/console/src/favicon.ico",
+          "apps/console/src/me-favicon.svg",
           "apps/console/src/assets",
           {
             "glob": "**/*",
@@ -94,12 +96,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/console/**/*.ts", "apps/console/**/*.html"]
+        "lintFilePatterns": [
+          "apps/console/**/*.ts",
+          "apps/console/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/console"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/console"
+      ],
       "options": {
         "jestConfig": "apps/console/jest.config.ts",
         "passWithNoTests": true
@@ -108,7 +115,15 @@
     "deploy:dev": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": [".github/scripts/console-dev.sh"]
+        "commands": [
+          ".github/scripts/console-dev.sh"
+        ]
+      }
+    },
+    "replace-favicon": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node .github/scripts/update-console-favicon.js"
       }
     }
   },
