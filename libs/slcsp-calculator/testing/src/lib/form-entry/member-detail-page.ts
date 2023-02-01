@@ -23,6 +23,5 @@ export const fillInMemberDetailPage = (member: HouseholdMember) => {
     cy.get('[data-cy="zipcode-input-0"]').should('not.exist');
   }
 
-  // Select all months
   cy.get('[data-cy="navigate-to-member-coverage"]').click();
 };

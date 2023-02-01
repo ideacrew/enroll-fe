@@ -1,14 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { map, shareReplay, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+
 import {
   selectRouteParam,
   selectQueryParam,
 } from '@enroll/shared/state/root-store';
-import { Store } from '@ngrx/store';
-import { map, shareReplay, tap } from 'rxjs';
-
-import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
+import {
+  HouseholdService,
+  noGapInResidence,
+} from '@enroll/slcsp-calculator/household-form';
 import { HouseholdMemberFormGroup } from '@enroll/slcsp-calculator/types';
 
 @Component({
@@ -45,9 +48,11 @@ export class MemberComponent {
     const isPrimaryMember = this.memberId === 1;
     const validDobGroup = this.memberFormGroup.get('dob')?.valid ?? false;
     const validResidenceGroup = this.memberResidenceControl?.valid ?? false;
+    const memberResidences = this.memberResidenceControl?.value ?? [];
+    const noGap = noGapInResidence(memberResidences);
 
     return isPrimaryMember
-      ? validDobGroup && validResidenceGroup
+      ? validDobGroup && validResidenceGroup && noGap
       : validDobGroup;
   }
 

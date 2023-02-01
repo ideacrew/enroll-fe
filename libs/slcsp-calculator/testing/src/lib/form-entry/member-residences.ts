@@ -26,6 +26,7 @@ export const fillInResidences = (residences: SlcspResidence[]) => {
 
     // If this is not the last residence, add another residence
     if (index < residences.length - 1) {
+      cy.get('[data-cy="navigate-to-member-coverage"]').should('be.disabled');
       cy.get('[data-cy="add-residence"]').click();
     }
   }
