@@ -7,9 +7,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/slcsp-calculator",
         "index": "apps/slcsp-calculator/src/index.html",
@@ -111,9 +109,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/apps/slcsp-calculator"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/apps/slcsp-calculator"],
       "options": {
         "jestConfig": "apps/slcsp-calculator/jest.config.ts",
         "passWithNoTests": true
@@ -122,17 +118,13 @@
     "deploy:dev": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": [
-          ".github/scripts/slcsp-dev.sh"
-        ]
+        "commands": [".github/scripts/slcsp-dev.sh"]
       }
     },
     "deploy:prod": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": [
-          ".github/scripts/slcsp-prod.sh"
-        ]
+        "commands": [".github/scripts/slcsp-prod.sh"]
       }
     },
     "replace-favicon": {
