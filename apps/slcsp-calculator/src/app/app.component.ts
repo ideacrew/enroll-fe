@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AnalyticsService } from '@enroll/shared/analytics';
 
 @Component({
   selector: 'enroll-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'slcsp-calculator';
+  ga = inject(AnalyticsService);
 }
