@@ -2,7 +2,7 @@ name: release to production
 
 on:
   release:
-    types: [prereleased]
+    types: [released]
 
 concurrency:
   group: prod-${{ github.ref }}
