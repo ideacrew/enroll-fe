@@ -85,6 +85,8 @@ export type Transaction = {
 
 export type Policy = {
   credited_amount: number;
+  broker_name?: string;
+  broker_npn?: string;
   enrollees: Enrollee[];
   hbx_assigned_id: string;
   hbx_enrollment_ids: string[];

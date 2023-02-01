@@ -1,5 +1,15 @@
 <div class="policy-enrollees">
   <h3>Enrollment Group</h3>
+  <div class="policy-meta">
+    <span>Policy: {{ policy.hbx_assigned_id }}</span>
+    <span
+      >Broker:
+      <ng-container *ngIf="policy.broker_name; else noBroker"
+        >{{ policy.broker_name }} ({{ policy.broker_npn }})</ng-container
+      ></span
+    >
+    <ng-template #noBroker>No broker found</ng-template>
+  </div>
   <table class="ea-table">
     <thead>
       <tr>
