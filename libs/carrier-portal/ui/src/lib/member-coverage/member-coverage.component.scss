@@ -1,0 +1,38 @@
+.header-icon {
+  display: inline;
+}
+
+dt {
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 1rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 2rem;
+}
+
+.policy-summary {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 5px solid var(--grey-030);
+
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+}
+
+.policy-summary {
+  margin-top: 1rem;
+}
+
+.policy-summary[open] {
+  border-color: var(--theme-primary-060);
+}

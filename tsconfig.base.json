@@ -15,6 +15,29 @@
     "sourceMap": true,
     "target": "es2015",
     "paths": {
+      "@enroll/carrier-portal/data-access": [
+        "libs/carrier-portal/data-access/src/index.ts"
+      ],
+      "@enroll/carrier-portal/landing-page": [
+        "libs/carrier-portal/landing-page/src/index.ts"
+      ],
+      "@enroll/carrier-portal/member-coverage": [
+        "libs/carrier-portal/member-coverage/src/index.ts"
+      ],
+      "@enroll/carrier-portal/member-search": [
+        "libs/carrier-portal/member-search/src/index.ts"
+      ],
+      "@enroll/carrier-portal/shell": [
+        "libs/carrier-portal/shell/src/index.ts"
+      ],
+      "@enroll/carrier-portal/transaction-details": [
+        "libs/carrier-portal/transaction-details/src/index.ts"
+      ],
+      "@enroll/carrier-portal/types": [
+        "libs/carrier-portal/types/src/index.ts"
+      ],
+      "@enroll/carrier-portal/ui": ["libs/carrier-portal/ui/src/index.ts"],
+      "@enroll/carrier-portal/util": ["libs/carrier-portal/util/src/index.ts"],
       "@enroll/console/auth": ["libs/console/auth/src/index.ts"],
       "@enroll/console/shell": ["libs/console/shell/src/index.ts"],
       "@enroll/coverme/i18n": ["libs/coverme/i18n/src/index.ts"],
@@ -85,6 +108,7 @@
         "libs/slcsp-calculator/types/src/index.ts"
       ],
       "@enroll/tenant-config": ["libs/tenant-config/src/index.ts"],
+      "@enroll/testing": ["libs/testing/src/index.ts"],
       "@enroll/ui/base/shell": ["libs/ui/base/shell/src/index.ts"],
       "@enroll/util/helpers": ["libs/util/helpers/src/index.ts"],
       "@enroll/util/transforms": ["libs/util/transforms/src/index.ts"]

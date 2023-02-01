@@ -2,6 +2,15 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "carrier-portal-data-access": "libs/carrier-portal/data-access",
+    "carrier-portal-landing-page": "libs/carrier-portal/landing-page",
+    "carrier-portal-member-coverage": "libs/carrier-portal/member-coverage",
+    "carrier-portal-member-search": "libs/carrier-portal/member-search",
+    "carrier-portal-shell": "libs/carrier-portal/shell",
+    "carrier-portal-transaction-details": "libs/carrier-portal/transaction-details",
+    "carrier-portal-types": "libs/carrier-portal/types",
+    "carrier-portal-ui": "libs/carrier-portal/ui",
+    "carrier-portal-util": "libs/carrier-portal/util",
     "console": "apps/console",
     "console-auth": "libs/console/auth",
     "console-e2e": "apps/console-e2e",
@@ -38,6 +47,7 @@
     "slcsp-calculator-testing": "libs/slcsp-calculator/testing",
     "slcsp-calculator-types": "libs/slcsp-calculator/types",
     "tenant-config": "libs/tenant-config",
+    "testing": "libs/testing",
     "ui-base-shell": "libs/ui/base/shell",
     "util-helpers": "libs/util/helpers",
     "util-transforms": "libs/util/transforms"

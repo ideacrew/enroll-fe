@@ -1,6 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["**/*.ts", "../../libs/console/auth/src/lib/auth.guard.ts"],
+  "include": [
+    "**/*.ts",
+    "../../libs/console/auth/src/lib/auth.guard.ts",
+    "../../libs/carrier-portal/data-access/src/lib/person.service.ts",
+    "../../libs/carrier-portal/data-access/src/lib/types/person-search-data.ts",
+    "../../libs/carrier-portal/ui/src/lib/pipes/format-ssn.pipe.ts"
+  ],
   "compilerOptions": {
     "types": ["jest", "node"]
   }
