@@ -16,7 +16,7 @@
         "tsConfig": "apps/slcsp-calculator/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/slcsp-calculator/src/favicon.svg",
+          "apps/slcsp-calculator/src/me-favicon.svg",
           "apps/slcsp-calculator/src/assets",
           {
             "glob": "**/*",
