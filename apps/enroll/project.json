@@ -27,6 +27,16 @@
             "glob": "**/*",
             "input": "libs/shared/i18n/src/lib/assets/i18n",
             "output": "/assets/i18n"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/config",
+            "output": "/tenant-config"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/theme/src/lib/assets/logos",
+            "output": "/assets/logos"
           }
         ],
         "styles": [

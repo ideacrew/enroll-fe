@@ -1,15 +1,31 @@
-import { isDevMode, NgModule } from '@angular/core';
+import { inject, Injectable, isDevMode, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
+  Translation,
   translocoConfig,
+  TranslocoLoader,
   TranslocoModule,
   TRANSLOCO_CONFIG,
   TRANSLOCO_LOADER,
   TRANSLOCO_MISSING_HANDLER,
 } from '@ngneat/transloco';
-import { TranslocoHttpLoader } from './transloco.loader';
+
+import { TenantConfigService } from '@enroll/tenant-config';
+
 import { CustomHandler } from './custom-handler';
+
+@Injectable({ providedIn: 'root' })
+export class TranslocoHttpLoader implements TranslocoLoader {
+  http = inject(HttpClient);
+  tenantName = inject(TenantConfigService).tenantName;
+
+  getTranslation(lang: string) {
+    return this.http.get<Translation>(
+      `/assets/i18n/${this.tenantName}-${lang}.json`
+    );
+  }
+}
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],

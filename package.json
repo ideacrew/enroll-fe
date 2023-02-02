@@ -5,8 +5,7 @@
   "scripts": {
     "ng": "nx",
     "start:health-connector": "ng serve --project=health-connector --publicHost=${CODESPACE_NAME}-4200.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}:443",
-    "start:dchbx": "ng serve --project=dchbx --publicHost=${CODESPACE_NAME}-4200.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}:443",
-    "start:coverme": "ng serve --project=coverme --publicHost=${CODESPACE_NAME}-4200.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}:443",
+    "start:enroll": "ng serve --project=enroll --publicHost=${CODESPACE_NAME}-4200.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}:443",
     "start:console": "nx serve --project=console --publicHost=${CODESPACE_NAME}-4205.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}:443",
     "start:slcsp": "nx serve --project=slcsp-calculator --publicHost=${CODESPACE_NAME}-4206.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}:443",
     "start:console:local": "nx serve --project=console --configuration=proxy",
