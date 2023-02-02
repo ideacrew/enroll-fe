@@ -11,4 +11,6 @@ export type EnrollmentTransaction = {
   time_code: string;
   transmission_file_name: string;
   interchange_control_number: string;
+  sender?: string;
+  receiver?: string;
 };

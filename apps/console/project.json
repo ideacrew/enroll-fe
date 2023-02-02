@@ -16,6 +16,7 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/console/src/me-favicon.svg",
+          "apps/console/src/ic-favicon.svg",
           "apps/console/src/assets",
           {
             "glob": "**/*",
