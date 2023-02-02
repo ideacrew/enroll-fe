@@ -84,7 +84,6 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
       - name: Replace favicons
-        if: matrix.client == 'me'
         run: npx nx affected --target=replace-favicon
         env:
           TENANT: ${{ matrix.client }}
