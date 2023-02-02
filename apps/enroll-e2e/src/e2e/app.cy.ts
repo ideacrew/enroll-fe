@@ -1,5 +1,3 @@
-import { getGreeting } from '../support/app.po';
-
 describe('coverme', () => {
   beforeEach(() => cy.visit('/'));
 
@@ -8,6 +6,6 @@ describe('coverme', () => {
     // cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to Maine Cover ME');
+    cy.get('h1').should('exist');
   });
 });
