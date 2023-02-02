@@ -1,7 +1,10 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'enroll-footer',
+  standalone: true,
+  imports: [TranslocoModule],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
