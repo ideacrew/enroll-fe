@@ -10,7 +10,5 @@
     "shell": {
       "copyright": "{{ currentYear }} Maine Cover ME. All Rights Reserved."
     }
-  },
-  "male": "Male",
-  "female": "Female"
+  }
 }

@@ -7,7 +7,7 @@ import {
 import { Component, inject } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import { Observable, map, filter, switchMap } from 'rxjs';
-import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe, NgIf, TitleCasePipe } from '@angular/common';
 
 import { TransactionsService } from '@enroll/carrier-portal/data-access';
 import { EnrollmentTransaction } from '@enroll/carrier-portal/types';
@@ -29,6 +29,7 @@ import { scopeLoader } from '@enroll/shared/i18n';
     ParseRawTimePipe,
     HttpClientModule,
     TranslocoModule,
+    TitleCasePipe,
   ],
   templateUrl: './transaction-details.component.html',
   styleUrls: ['./transaction-details.component.scss'],
@@ -36,7 +37,7 @@ import { scopeLoader } from '@enroll/shared/i18n';
     {
       provide: TRANSLOCO_SCOPE,
       useValue: {
-        scope: 'edi',
+        scope: 'transactionDetails',
         loader: scopeLoader(
           (lang: string, root: string) =>
             import(`./${root}/${lang}.json`) as Promise<Translation>

@@ -106,7 +106,7 @@
                 <td>{{ member.policies.length }}</td>
                 <td>{{ member.ssn | formatSsn }}</td>
                 <td>{{ member.dob | date : 'M/d/YYYY' }}</td>
-                <td>{{ t(member.gender) }}</td>
+                <td>{{ t(member.gender) | titlecase }}</td>
               </ng-container>
             </tr>
           </tbody>

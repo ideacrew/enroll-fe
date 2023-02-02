@@ -1,15 +1,27 @@
-import { isDevMode, NgModule } from '@angular/core';
+import { Injectable, isDevMode, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
+  Translation,
   translocoConfig,
+  TranslocoLoader,
   TranslocoModule,
   TRANSLOCO_CONFIG,
   TRANSLOCO_LOADER,
   TRANSLOCO_MISSING_HANDLER,
 } from '@ngneat/transloco';
-import { TranslocoHttpLoader } from './transloco.loader';
 import { CustomHandler } from './custom-handler';
+
+@Injectable({ providedIn: 'root' })
+export class GenericTranslationsLoader implements TranslocoLoader {
+  constructor(private http: HttpClient) {
+    console.log('shared i18n');
+  }
+
+  getTranslation(lang: string) {
+    return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
+  }
+}
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
@@ -25,9 +37,9 @@ import { CustomHandler } from './custom-handler';
         prodMode: !isDevMode(),
       }),
     },
-    { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader },
+    { provide: TRANSLOCO_LOADER, useClass: GenericTranslationsLoader },
     { provide: TRANSLOCO_MISSING_HANDLER, useClass: CustomHandler },
   ],
   exports: [TranslocoModule],
 })
-export class SharedI18nModule {}
+export class GenericTranslationsModule {}

@@ -1,16 +1,29 @@
 {
-  "welcome": "Welcome to this State-based Marketplace",
-  "logoAlt": "marketplace logo",
-  "shell": {
-    "help": "Get Help"
+  "male": "male",
+  "female": "female",
+  "relationships": {
+    "spouse": "spouse",
+    "child": "child",
+    "parent": "parent",
+    "sibling": "sibling",
+    "grandparent": "grandparent",
+    "grandchild": "grandchild",
+    "aunt": "aunt",
+    "uncle": "uncle",
+    "nephew": "nephew",
+    "niece": "niece",
+    "cousin": "cousin",
+    "friend": "friend",
+    "partner": "partner",
+    "domestic_partner": "domestic partner",
+    "manager": "manager",
+    "assistant": "assistant",
+    "referred_by": "referred by",
+    "self": "self"
   },
-  "customerService": "Customer Service",
-  "financialAssistance": "Financial Assistance",
-  "myInsuredPortal": "My Insured Portal",
-  "familyInformation": "Generic Family Information",
-  "name": "name",
-  "age": "age",
-  "gender": "gender",
-  "relationship": "relationship",
-  "status": "status"
+  "edi": {
+    "maintenance": "maintenance",
+    "initial_enrollment": "initial enrollment",
+    "effectuation": "effectuation"
+  }
 }

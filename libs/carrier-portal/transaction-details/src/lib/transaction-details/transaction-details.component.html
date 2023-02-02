@@ -9,7 +9,9 @@
         <dd>
           {{ t('edi.' + transaction.transaction_kind) }}
         </dd>
-        <dt>Reference Identification</dt>
+        <dt>
+          {{ t('transactionDetails.referenceIdentification') | titlecase }}
+        </dt>
         <dd>{{ transaction.reference_identification }}</dd>
         <dt>Transaction Date</dt>
         <dd>

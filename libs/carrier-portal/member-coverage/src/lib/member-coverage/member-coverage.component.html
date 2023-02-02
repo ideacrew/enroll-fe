@@ -9,7 +9,8 @@
           <dt>HBX Member ID</dt>
           <dd>{{ member.hbx_member_id }}</dd>
           <dt>Gender</dt>
-          <dd>{{ t(member.gender) }}</dd>
+          <!-- This translation is coming from the generic translations -->
+          <dd>{{ t(member.gender) | titlecase }}</dd>
           <dt>DOB</dt>
           <dd>{{ member.dob | date : 'M/d/yy' }}</dd>
           <dt>SSN</dt>

@@ -1,5 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
+import {
+  AsyncPipe,
+  DatePipe,
+  NgFor,
+  NgIf,
+  TitleCasePipe,
+} from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { filter, map, switchMap, Observable } from 'rxjs';
 import {
@@ -15,7 +22,6 @@ import {
   MemberPolicyComponent,
   SortByStatusPipe,
 } from '@enroll/carrier-portal/ui';
-import { HttpClientModule } from '@angular/common/http';
 import { scopeLoader } from '@enroll/shared/i18n';
 
 @Component({
@@ -30,6 +36,7 @@ import { scopeLoader } from '@enroll/shared/i18n';
     MemberPolicyComponent,
     HttpClientModule,
     TranslocoModule,
+    TitleCasePipe,
   ],
   templateUrl: './member-coverage.component.html',
   styleUrls: ['./member-coverage.component.scss'],

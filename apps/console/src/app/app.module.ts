@@ -12,10 +12,13 @@ import {
   TENANT_CONFIG,
 } from '@enroll/tenant-config';
 import { AuthGuard, AuthInterceptor } from '@enroll/console/auth';
+import {
+  GenericTranslationsModule,
+  TenantTranslationModule,
+} from '@enroll/shared/i18n';
 
 import { AppComponent } from './app.component';
 import { consoleTenantConfig } from './tenant-config';
-import { ConsoleI18nModule } from './i18n.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +40,8 @@ import { ConsoleI18nModule } from './i18n.module';
     RootStoreModule,
     FormsModule,
     HttpClientModule,
-    ConsoleI18nModule,
+    TenantTranslationModule,
+    GenericTranslationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
