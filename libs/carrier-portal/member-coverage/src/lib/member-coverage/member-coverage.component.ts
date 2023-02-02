@@ -2,6 +2,11 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { filter, map, switchMap, Observable } from 'rxjs';
+import {
+  TRANSLOCO_SCOPE,
+  Translation,
+  TranslocoModule,
+} from '@ngneat/transloco';
 
 import { Person } from '@enroll/carrier-portal/types';
 import { PersonService } from '@enroll/carrier-portal/data-access';
@@ -11,6 +16,7 @@ import {
   SortByStatusPipe,
 } from '@enroll/carrier-portal/ui';
 import { HttpClientModule } from '@angular/common/http';
+import { scopeLoader } from '@enroll/shared/i18n';
 
 @Component({
   standalone: true,
@@ -23,10 +29,23 @@ import { HttpClientModule } from '@angular/common/http';
     SortByStatusPipe,
     MemberPolicyComponent,
     HttpClientModule,
+    TranslocoModule,
   ],
   templateUrl: './member-coverage.component.html',
   styleUrls: ['./member-coverage.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {
+        scope: 'memberCoverage',
+        loader: scopeLoader(
+          (lang: string, root: string) =>
+            import(`./${root}/${lang}.json`) as Promise<Translation>
+        ),
+      },
+    },
+  ],
 })
 export class MemberCoverageComponent {
   personService = inject(PersonService);

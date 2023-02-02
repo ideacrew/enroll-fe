@@ -12,6 +12,7 @@ import {
   PersonService,
 } from '@enroll/carrier-portal/data-access';
 import { FormatSsnPipe } from '@enroll/carrier-portal/ui';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'enroll-member-search',
@@ -22,6 +23,7 @@ import { FormatSsnPipe } from '@enroll/carrier-portal/ui';
     FormsModule,
     FormatSsnPipe,
     HttpClientModule,
+    TranslocoModule,
   ],
   templateUrl: './member-search.component.html',
   styleUrls: ['./member-search.component.scss'],
