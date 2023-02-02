@@ -1,3 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
+import {
+  Translation,
+  TranslocoModule,
+  TRANSLOCO_SCOPE,
+} from '@ngneat/transloco';
 import { Component, inject } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import { Observable, map, filter, switchMap } from 'rxjs';
@@ -10,7 +16,7 @@ import {
   ParseRawDatePipe,
   ParseRawTimePipe,
 } from '@enroll/carrier-portal/ui';
-import { HttpClientModule } from '@angular/common/http';
+import { scopeLoader } from '@enroll/shared/i18n';
 
 @Component({
   standalone: true,
@@ -22,9 +28,22 @@ import { HttpClientModule } from '@angular/common/http';
     ParseEdiDataPipe,
     ParseRawTimePipe,
     HttpClientModule,
+    TranslocoModule,
   ],
   templateUrl: './transaction-details.component.html',
   styleUrls: ['./transaction-details.component.scss'],
+  providers: [
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {
+        scope: 'edi',
+        loader: scopeLoader(
+          (lang: string, root: string) =>
+            import(`./${root}/${lang}.json`) as Promise<Translation>
+        ),
+      },
+    },
+  ],
 })
 export class TransactionDetailsComponent {
   transactionsService = inject(TransactionsService);

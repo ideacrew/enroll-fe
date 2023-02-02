@@ -3,7 +3,7 @@
 // Comes from GET /transaction_management/enrollment_transactions/<transaction_id>
 export type EnrollmentTransaction = {
   id: string;
-  transaction_kind: string;
+  transaction_kind: string; // Need a string literal type for this
   raw_content: string;
   reference_identification: string;
   transaction_date: string;

@@ -15,7 +15,6 @@ import {
 
 import { AppComponent } from './app.component';
 import { SlcspI18nModule } from './i18n.module';
-import { JsonFileLoaderService } from './json-file-loader.service';
 import { slcspTenantConfig } from './tenant-config';
 
 @NgModule({
@@ -48,7 +47,6 @@ import { slcspTenantConfig } from './tenant-config';
     SlcspI18nModule,
   ],
   providers: [
-    JsonFileLoaderService,
     {
       provide: APP_INITIALIZER,
       useFactory: configFactory,

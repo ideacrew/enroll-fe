@@ -15,6 +15,7 @@ import { AuthGuard, AuthInterceptor } from '@enroll/console/auth';
 
 import { AppComponent } from './app.component';
 import { consoleTenantConfig } from './tenant-config';
+import { ConsoleI18nModule } from './i18n.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +37,7 @@ import { consoleTenantConfig } from './tenant-config';
     RootStoreModule,
     FormsModule,
     HttpClientModule,
+    ConsoleI18nModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

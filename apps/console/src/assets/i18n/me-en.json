@@ -1,0 +1,14 @@
+{
+  "tagLine": "Tax Tool",
+  "shell": {
+    "supportPhone": "(800) 965-7476/TTY:711",
+    "supportEmail": "smallbusiness@coverme.gov",
+    "help": "Get Help"
+  },
+  "customerService": "Customer Service",
+  "client": {
+    "shell": {
+      "copyright": "{{ currentYear }} Maine Cover ME. All Rights Reserved."
+    }
+  }
+}
