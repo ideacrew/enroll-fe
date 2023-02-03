@@ -40,8 +40,6 @@
       "@enroll/carrier-portal/util": ["libs/carrier-portal/util/src/index.ts"],
       "@enroll/console/auth": ["libs/console/auth/src/index.ts"],
       "@enroll/console/shell": ["libs/console/shell/src/index.ts"],
-      "@enroll/coverme/i18n": ["libs/coverme/i18n/src/index.ts"],
-      "@enroll/dchbx/i18n": ["libs/dchbx/i18n/src/index.ts"],
       "@enroll/financial-assistance/applicant": [
         "libs/financial-assistance/applicant/src/index.ts"
       ],
