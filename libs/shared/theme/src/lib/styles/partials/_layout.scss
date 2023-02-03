@@ -8,21 +8,14 @@
 }
 
 .content-container {
-  max-width: var(--content-width);
-  margin: var(--s2) auto;
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(95vh - var(--header-height));
+  padding: 0 var(--s0);
 }
 
-// [class$='-container'] {
-//   margin: 0 auto;
-// }
-// .app-container,
-// .page-container,
-// .content-container,
-// .nav-container,
-// .header-container,
-// .footer-container,
-// .alert-container {
-//   max-width: var(--content-width);
-//   margin: 0 auto;
-// }
+@media screen and (min-width: 768px) {
+  .content-container {
+    max-width: var(--content-width);
+    margin: var(--s2) auto;
+    padding: 0;
+  }
+}

@@ -1,60 +1,87 @@
 .header {
   background-color: var(--grey-000);
   border-bottom: 3px solid var(--theme-secondary-100);
-  height: var(--header-height);
 }
 
 .container {
-  max-width: var(--content-width);
-  margin: 0 auto;
+  padding: var(--s-1) var(--s0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr;
-  column-gap: var(--s-1);
-  align-content: center;
-  // height: var(--header-height);
-  height: 100%;
+// .container * {
+//   outline: 1px solid red;
+// }
+
+.customer-service {
+  display: none;
 }
 
 .home-link {
-  padding-right: var(--s0);
-  border-right: 1px solid var(--grey-040, chartreuse);
-  grid-column: span 2;
-  display: flex;
-  align-items: center;
-  align-self: stretch;
+  width: 15ch;
+  display: block;
 }
 
-.client-logo {
-  max-height: 40px;
-  display: inline;
-}
+@media screen and (min-width: 768px) {
+  .header {
+    height: var(--header-height);
+  }
 
-.tag-line {
-  grid-column: span 7;
-  align-self: center;
-  font-weight: 400;
-}
+  .container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0;
 
-.customer-service {
-  grid-column: 10 / span 3;
-  align-self: center;
-  justify-self: end;
-  text-align: right;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: var(--s-1);
+    align-content: center;
+    // height: var(--header-height);
+    height: 100%;
+  }
 
-  .phone-link {
+  .home-link {
+    padding-right: var(--s0);
+    border-right: 1px solid var(--grey-040, chartreuse);
+    grid-column: span 2;
     display: flex;
     align-items: center;
-    gap: var(--s-2);
+    align-self: stretch;
   }
 
-  a {
-    text-decoration: none;
-    color: var(--type-primary);
+  .client-logo {
+    max-height: 40px;
+    display: inline;
   }
 
-  svg {
-    transform: scale(-1, 1);
+  .tag-line {
+    grid-column: span 7;
+    align-self: center;
+    font-weight: 400;
+  }
+
+  .customer-service {
+    display: block;
+    grid-column: 10 / span 3;
+    align-self: center;
+    justify-self: end;
+    text-align: right;
+
+    .phone-link {
+      display: flex;
+      align-items: center;
+      gap: var(--s-2);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--type-primary);
+    }
+
+    svg {
+      transform: scale(-1, 1);
+    }
   }
 }
