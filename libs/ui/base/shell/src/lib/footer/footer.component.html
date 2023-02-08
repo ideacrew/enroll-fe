@@ -32,7 +32,7 @@
         </svg>
         <a href="tel:{{ phoneNumber }}">{{ fullPhone }}</a></span
       >
-      <span
+      <span *ngIf="email"
         ><svg
           aria-hidden="true"
           focusable="false"
