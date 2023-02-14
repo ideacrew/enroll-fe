@@ -29,6 +29,10 @@
         <dd>{{ transaction.sender ?? 'Sender unknown' }}</dd>
         <dt>Receiver</dt>
         <dd>{{ transaction.receiver ?? 'Receiver unknown' }}</dd>
+        <dt>Acknowledgement State</dt>
+        <dd>{{ transaction.ack_state }}</dd>
+        <dt>Acknowledged at</dt>
+        <dd>{{ transaction.ack_at }}</dd>
       </dl>
     </div>
     <h2>EDI Payload</h2>
