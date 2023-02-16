@@ -32,4 +32,16 @@ h3 {
 .policy-meta {
   display: flex;
   gap: var(--s0);
+  flex-direction: column;
+
+  div {
+    display: flex;
+  }
+
+  span.group-info-header {
+    color: var(--type-secondary, chartreuse);
+    text-align: left;
+    font-weight: 600;
+    width: 150px;
+  }
 }

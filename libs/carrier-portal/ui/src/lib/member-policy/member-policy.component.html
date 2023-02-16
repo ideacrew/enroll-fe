@@ -2,14 +2,23 @@
   <div class="policy-enrollees">
     <h3>Enrollment Group</h3>
     <div class="policy-meta">
-      <span>Policy: {{ policy.hbx_assigned_id }}</span>
-      <span
-        >Broker:
-        <ng-container *ngIf="policy.broker_name; else noBroker"
-          >{{ policy.broker_name }} ({{ policy.broker_npn }})</ng-container
-        ></span
-      >
-      <ng-template #noBroker>No broker found</ng-template>
+      <div>
+        <span class="group-info-header">Policy</span>
+        <span>{{ policy.hbx_assigned_id }}</span>
+      </div>
+      <div>
+        <span class="group-info-header">Broker</span>
+        <div>
+          <ng-container *ngIf="policy.broker_name; else noBroker"
+            >{{ policy.broker_name }} ({{ policy.broker_npn }})</ng-container
+          >
+          <ng-template #noBroker>No broker found</ng-template>
+        </div>
+      </div>
+      <div>
+        <span class="group-info-header">Responsible Party</span>
+        <span>{{ policy.responsible_party?.person_name?.full_name }}</span>
+      </div>
     </div>
     <table class="ea-table">
       <thead>

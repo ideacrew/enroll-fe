@@ -13,4 +13,6 @@ export type EnrollmentTransaction = {
   interchange_control_number: string;
   sender?: string;
   receiver?: string;
+  ack_state: string;
+  ack_at: string;
 };
