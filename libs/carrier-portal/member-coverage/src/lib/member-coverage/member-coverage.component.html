@@ -17,6 +17,18 @@
           <dd>{{ member.ssn | formatSsn }}</dd>
         </dl>
 
+        <h2>Contact Info</h2>
+        <dl>
+          <dt>Mailing Address</dt>
+          <dd>{{ full_address(member.mailing_address) }}</dd>
+          <dt>Home Address</dt>
+          <dd>{{ full_address(member.home_address) }}</dd>
+          <dt>Home Email</dt>
+          <dd>{{ member.home_email }}</dd>
+          <dt>Mobile Phone</dt>
+          <dd>{{ member.mobile_phone }}</dd>
+        </dl>
+
         <h2>Policies</h2>
         <details
           [open]="policy.status === 'Submitted'"

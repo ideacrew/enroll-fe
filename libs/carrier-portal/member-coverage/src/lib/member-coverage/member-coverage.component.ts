@@ -64,4 +64,18 @@ export class MemberCoverageComponent {
     filter((idString: string) => idString !== '___IGNORE___'),
     switchMap((id: string) => this.personService.getPerson(id))
   );
+
+  full_address(address: any) {
+    var str = '';
+    if (address) {
+      str += `${address.address_1},`
+
+      if(address.address_2) {
+        str += `${address.address_2},`
+      }
+
+      str += `${address.city}, ${address.state} ${address.zipcode}`
+    }
+    return str;
+  }
 }

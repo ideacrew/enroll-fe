@@ -38,11 +38,24 @@ export type PersonName = {
 
 export type Member = {
   hbx_member_id: string;
-  dob: Date;
+  dob: DateString;
   gender: string;
   ssn?: string;
   policies: Policy[];
+  mailing_address: Address;
+  home_address: Address;
+  home_email: string;
+  mobile_phone: string;
 };
+
+export type Address = {
+  address_1: string;
+  address_2?: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  county_fips?: string;
+}
 
 // This is the top level object returned for a person resource.
 // Comes from GET /transaction_management/people/<person_id>

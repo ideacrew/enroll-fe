@@ -31,7 +31,6 @@ h3 {
 
 .policy-meta {
   display: flex;
-  gap: var(--s0);
   flex-direction: column;
 
   div {
@@ -44,4 +43,8 @@ h3 {
     font-weight: 600;
     width: 150px;
   }
+}
+
+.ea-table {
+  margin-top: 1rem;
 }
