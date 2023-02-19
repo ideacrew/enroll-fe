@@ -55,7 +55,7 @@ export type Address = {
   state: string;
   zipcode: string;
   county_fips?: string;
-}
+};
 
 // This is the top level object returned for a person resource.
 // Comes from GET /transaction_management/people/<person_id>

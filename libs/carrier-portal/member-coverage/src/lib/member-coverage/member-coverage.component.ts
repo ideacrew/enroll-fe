@@ -68,13 +68,13 @@ export class MemberCoverageComponent {
   full_address(address: any) {
     var str = '';
     if (address) {
-      str += `${address.address_1},`
+      str += `${address.address_1},`;
 
-      if(address.address_2) {
-        str += `${address.address_2},`
+      if (address.address_2) {
+        str += `${address.address_2},`;
       }
 
-      str += `${address.city}, ${address.state} ${address.zipcode}`
+      str += `${address.city}, ${address.state} ${address.zipcode}`;
     }
     return str;
   }
