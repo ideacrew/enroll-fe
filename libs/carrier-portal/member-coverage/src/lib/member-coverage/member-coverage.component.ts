@@ -65,7 +65,7 @@ export class MemberCoverageComponent {
     switchMap((id: string) => this.personService.getPerson(id))
   );
 
-  full_address(address: any) {
+  fullAddress(address: any) {
     var str = '';
     if (address) {
       str += `${address.address_1},`;
