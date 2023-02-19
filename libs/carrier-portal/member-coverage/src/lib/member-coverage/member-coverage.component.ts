@@ -23,6 +23,7 @@ import {
   SortByStatusPipe,
 } from '@enroll/carrier-portal/ui';
 import { scopeLoader } from '@enroll/shared/i18n';
+import { Address } from '@enroll/carrier-portal/types';
 
 @Component({
   standalone: true,
@@ -65,17 +66,17 @@ export class MemberCoverageComponent {
     switchMap((id: string) => this.personService.getPerson(id))
   );
 
-  fullAddress(address: any) {
-    let str = '';
+  fullAddress(address: Address) {
+    let adrString = '';
     if (address) {
-      str += `${address.address_1},`;
+      adrString += `${address.address_1},`;
 
       if (address.address_2) {
-        str += `${address.address_2},`;
+        adrString += `${address.address_2},`;
       }
 
-      str += `${address.city}, ${address.state} ${address.zipcode}`;
+      adrString += `${address.city}, ${address.state} ${address.zipcode}`;
     }
-    return str;
+    return adrString;
   }
 }
