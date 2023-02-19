@@ -66,7 +66,7 @@ export class MemberCoverageComponent {
   );
 
   fullAddress(address: any) {
-    var str = '';
+    let str = '';
     if (address) {
       str += `${address.address_1},`;
 
