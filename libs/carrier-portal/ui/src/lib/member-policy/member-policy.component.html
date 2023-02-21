@@ -15,9 +15,9 @@
           <ng-template #noBroker>No broker found</ng-template>
         </div>
       </div>
-      <div>
+      <div *ngIf="policy.responsible_party">
         <span class="group-info-header">Responsible Party</span>
-        <span>{{ policy.responsible_party?.person_name?.full_name }}</span>
+        <span>{{ policy.responsible_party.person_name?.full_name }}</span>
       </div>
     </div>
     <table class="ea-table">
@@ -58,7 +58,9 @@
           <td class="numeric">{{ policy.credited_amount | currency }}</td>
         </tr>
         <tr>
-          <td colspan="5" class="totals">Responsible Amount</td>
+          <td colspan="5" class="totals">
+            <strong>Responsible Amount</strong>
+          </td>
           <td class="numeric">
             {{ policy.responsible_amount | currency }}
           </td>
