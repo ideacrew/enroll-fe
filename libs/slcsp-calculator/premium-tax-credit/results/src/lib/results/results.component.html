@@ -1,5 +1,5 @@
 <div #results class="results">
-  <ng-container *ngIf="estimate$ | async as estimate">
+  <ng-container *ngIf="estimate$ | async as estimate; else loadingTemplate">
     <h1>Your Results</h1>
     <p>
       These monthly premiums are used to calculate your premium tax credit.
@@ -40,4 +40,13 @@
       </button>
     </div>
   </ng-container>
+
+  <ng-template #loadingTemplate>
+    <div *transloco="let t">
+      <p class="alert-danger" *ngIf="canShowErrorMsg$ | async">
+        {{ t('client.premiumTaxCredit.results.errorText') }}
+      </p>
+      <p class="alert-info" *ngIf="!(canShowErrorMsg$ | async)">loading...</p>
+    </div>
+  </ng-template>
 </div>

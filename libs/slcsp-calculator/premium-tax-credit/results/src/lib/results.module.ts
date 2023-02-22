@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { resultsRoutes } from './library.routes';
 import { ResultsComponent } from './results/results.component';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   imports: [
     CommonModule,
+    TranslocoModule,
     RouterModule.forChild(resultsRoutes),
     HttpClientModule,
   ],
