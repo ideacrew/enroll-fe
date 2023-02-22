@@ -29,12 +29,6 @@ export class ResultsComponent implements OnInit {
   monthList = months;
   canShowErrorMsg$ = new BehaviorSubject(false);
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.canShowErrorMsg$.next(true);
-    }, 500);
-  }
-
   transformedValue: HouseholdFormValue =
     this.householdService.getTransformedValue();
 
@@ -49,6 +43,12 @@ export class ResultsComponent implements OnInit {
     | undefined;
 
   @ViewChild('results', { static: false }) results!: ElementRef<HTMLDivElement>;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.canShowErrorMsg$.next(true);
+    }, 500);
+  }
 
   print(): void {
     window.print();
