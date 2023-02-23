@@ -43,10 +43,13 @@
 
   <ng-template #loadingTemplate>
     <div *transloco="let t">
-      <p class="alert-danger" *ngIf="canShowErrorMsg$ | async">
+      <p class="alert-danger" *ngIf="canShowErrorMsg$ | async; else loading">
         {{ t('client.premiumTaxCredit.results.errorText') }}
       </p>
-      <p class="alert-info" *ngIf="!(canShowErrorMsg$ | async)">loading...</p>
+
+      <ng-template #loading>
+        <p class="alert-info">loading...</p>
+      </ng-template>
     </div>
   </ng-template>
 </div>
