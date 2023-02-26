@@ -28,6 +28,7 @@ export class ResultsComponent implements OnInit {
   slcspEstimateService = inject(SlcspEstimateService);
   monthList = months;
   canShowErrorMsg$ = new BehaviorSubject(false);
+  slcspValues$ = new BehaviorSubject<SlcspEstimate | undefined>(undefined);
 
   transformedValue: HouseholdFormValue =
     this.householdService.getTransformedValue();
@@ -45,9 +46,12 @@ export class ResultsComponent implements OnInit {
   @ViewChild('results', { static: false }) results!: ElementRef<HTMLDivElement>;
 
   ngOnInit() {
-    setTimeout(() => {
-      this.canShowErrorMsg$.next(true);
-    }, 500);
+    this.estimate$.subscribe({
+      next: (response) => {
+        this.slcspValues$.next(response);
+      },
+      error: () => this.canShowErrorMsg$.next(true),
+    });
   }
 
   print(): void {
