@@ -16,7 +16,7 @@ export class HouseholdMemberDobComponent {
   @Input() memberFormGroup!: FormGroup<HouseholdMemberFormGroup>;
 
   isDobTouched(): boolean {
-    var dob = this.memberFormGroup.controls['dob'];
+    const dob = this.memberFormGroup.controls['dob'];
 
     return (
       dob.controls['day'].touched &&
