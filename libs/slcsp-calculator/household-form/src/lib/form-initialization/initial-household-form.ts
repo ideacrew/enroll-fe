@@ -70,7 +70,11 @@ export const createDobFormGroup = (): FormGroup<DateOfBirthFormGroup> =>
     }),
     year: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required],
+      validators: [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(4),
+      ],
     }),
   });
 

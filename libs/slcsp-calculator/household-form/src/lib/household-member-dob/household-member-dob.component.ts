@@ -14,4 +14,14 @@ import { HouseholdMemberFormGroup } from '@enroll/slcsp-calculator/types';
 })
 export class HouseholdMemberDobComponent {
   @Input() memberFormGroup!: FormGroup<HouseholdMemberFormGroup>;
+
+  isDobTouched(): boolean {
+    var dob = this.memberFormGroup.controls['dob'];
+
+    return (
+      dob.controls['day'].touched &&
+      dob.controls['month'].touched &&
+      dob.controls['year'].touched
+    );
+  }
 }
