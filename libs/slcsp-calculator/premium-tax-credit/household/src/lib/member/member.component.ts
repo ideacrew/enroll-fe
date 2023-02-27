@@ -46,14 +46,56 @@ export class MemberComponent {
   // This should eventually be an observable
   get validMemberDetailPage(): boolean {
     const isPrimaryMember = this.memberId === 1;
-    const validDobGroup = this.memberFormGroup.get('dob')?.valid ?? false;
+    const dob = this.memberFormGroup.get('dob');
+
+    // eslint-disable-next-line unicorn/no-null
+    this.memberFormGroup.controls['dob'].setErrors(null);
+
+    if (dob?.valid) {
+      const value = dob.value;
+
+      if (Number.parseInt(value.year, 10) > 2022) {
+        this.memberFormGroup.controls['dob'].setErrors({
+          msg: 'Date of birth cannot be after the tax year',
+        });
+        return false;
+      }
+
+      const age = this.calculateAge(
+        new Date(
+          Number.parseInt(value.year, 10),
+          Number.parseInt(value.month, 10) - 1,
+          Number.parseInt(value.day, 10)
+        )
+      );
+
+      if (age > 125) {
+        this.memberFormGroup.controls['dob'].setErrors({
+          msg: 'Age cannot exceed 125 years',
+        });
+        return false;
+      }
+    } else {
+      if (dob?.touched) {
+        this.memberFormGroup.controls['dob'].setErrors({
+          msg: 'Dob is invalid',
+        });
+      }
+
+      return false;
+    }
+
     const validResidenceGroup = this.memberResidenceControl?.valid ?? false;
     const memberResidences = this.memberResidenceControl?.value ?? [];
     const noGap = noGapInResidence(memberResidences);
 
-    return isPrimaryMember
-      ? validDobGroup && validResidenceGroup && noGap
-      : validDobGroup;
+    return isPrimaryMember ? validResidenceGroup && noGap : true;
+  }
+
+  calculateAge(date: Date) {
+    let diff = (Date.now() - date.getTime()) / 1000;
+    diff /= 60 * 60 * 24;
+    return Math.abs(Math.round(diff / 365.25));
   }
 
   get memberResidenceControl() {

@@ -44,5 +44,10 @@
         />
       </div>
     </div>
+    <div *ngIf="isDobTouched()">
+      <div *ngIf="memberFormGroup.controls['dob'].errors">
+        {{ memberFormGroup.controls['dob'].errors['msg'] }}
+      </div>
+    </div>
   </fieldset>
 </form>
