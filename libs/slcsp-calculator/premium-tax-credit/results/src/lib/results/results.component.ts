@@ -3,9 +3,10 @@ import {
   Component,
   ElementRef,
   inject,
+  OnInit,
   ViewChild,
 } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
@@ -22,10 +23,12 @@ import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
   styleUrls: ['./results.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ResultsComponent {
+export class ResultsComponent implements OnInit {
   householdService = inject(HouseholdService);
   slcspEstimateService = inject(SlcspEstimateService);
   monthList = months;
+  canShowErrorMsg$ = new BehaviorSubject(false);
+  slcspValues$ = new BehaviorSubject<SlcspEstimate | undefined>(undefined);
 
   transformedValue: HouseholdFormValue =
     this.householdService.getTransformedValue();
@@ -41,6 +44,15 @@ export class ResultsComponent {
     | undefined;
 
   @ViewChild('results', { static: false }) results!: ElementRef<HTMLDivElement>;
+
+  ngOnInit() {
+    this.estimate$.subscribe({
+      next: (response) => {
+        this.slcspValues$.next(response);
+      },
+      error: () => this.canShowErrorMsg$.next(true),
+    });
+  }
 
   print(): void {
     window.print();

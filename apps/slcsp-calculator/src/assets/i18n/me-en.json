@@ -8,7 +8,12 @@
   "customerService": "Customer Service",
   "client": {
     "shell": {
-      "copyright": "{{ currentYear }} Maine Cover ME. All Rights Reserved."
+      "copyright": "{{ currentYear }} CoverME.gov. All Rights Reserved."
+    },
+    "premiumTaxCredit": {
+      "results": {
+        "errorText": "Error - data was entered which does not match entry fields. Please review form instructions and re-enter your information. If you need assistance call the CoverME.gov Consumer Assistance Center at 866-636-0355."
+      }
     }
   }
 }
