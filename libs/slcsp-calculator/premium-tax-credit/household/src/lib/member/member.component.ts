@@ -89,14 +89,15 @@ export class MemberComponent {
     } else {
       if (dob?.touched) {
         const invalidKeys: string[] = [];
-        for (const key of Object.keys(this.memberFormGroup.controls['dob'].controls)) {
-            const controlErrors =
-              this.memberFormGroup.controls['dob'].get(key)?.errors;
-            if (controlErrors !== null) {
-              invalidKeys.push(this.titlecase.transform(key));
-            }
+        for (const key of Object.keys(
+          this.memberFormGroup.controls['dob'].controls
+        )) {
+          const controlErrors =
+            this.memberFormGroup.controls['dob'].get(key)?.errors;
+          if (controlErrors !== null) {
+            invalidKeys.push(this.titlecase.transform(key));
           }
-        
+        }
 
         this.memberFormGroup.controls['dob'].setErrors({
           msg: invalidKeys.join(', ') + ' is invalid',
