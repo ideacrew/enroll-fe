@@ -92,7 +92,7 @@ export class MemberComponent {
         for (const key of Object.keys(this.memberFormGroup.controls['dob'].controls)) {
             const controlErrors =
               this.memberFormGroup.controls['dob'].get(key)?.errors;
-            if (controlErrors !== undefined) {
+            if (controlErrors !== null) {
               invalidKeys.push(this.titlecase.transform(key));
             }
           }
