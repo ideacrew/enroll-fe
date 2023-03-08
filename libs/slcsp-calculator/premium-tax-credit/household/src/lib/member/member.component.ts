@@ -13,6 +13,7 @@ import {
   noGapInResidence,
 } from '@enroll/slcsp-calculator/household-form';
 import { HouseholdMemberFormGroup } from '@enroll/slcsp-calculator/types';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   templateUrl: './member.component.html',
@@ -35,6 +36,8 @@ export class MemberComponent {
 
   reviewing$ = this.store.select(selectQueryParam('reviewing'));
 
+  constructor(private titlecase: TitleCasePipe) {}
+
   get memberFormGroup(): FormGroup<HouseholdMemberFormGroup> {
     return this.householdMembersArray.at(this.memberId - 1);
   }
@@ -53,6 +56,14 @@ export class MemberComponent {
 
     if (dob?.valid) {
       const value = dob.value;
+
+      if (!this.isValidDate(value)) {
+        this.memberFormGroup.controls['dob'].setErrors({
+          msg: 'Day is invalid for given month',
+        });
+
+        return false;
+      }
 
       if (Number.parseInt(value.year, 10) > 2022) {
         this.memberFormGroup.controls['dob'].setErrors({
@@ -77,8 +88,19 @@ export class MemberComponent {
       }
     } else {
       if (dob?.touched) {
+        const invalidKeys: string[] = [];
+        for (const key of Object.keys(
+          this.memberFormGroup.controls['dob'].controls
+        )) {
+          const controlErrors =
+            this.memberFormGroup.controls['dob'].get(key)?.errors;
+          if (controlErrors !== null) {
+            invalidKeys.push(this.titlecase.transform(key));
+          }
+        }
+
         this.memberFormGroup.controls['dob'].setErrors({
-          msg: 'Dob is invalid',
+          msg: invalidKeys.join(', ') + ' is invalid',
         });
       }
 
@@ -90,6 +112,21 @@ export class MemberComponent {
     const noGap = noGapInResidence(memberResidences);
 
     return isPrimaryMember ? validResidenceGroup && noGap : true;
+  }
+
+  isValidDate(dob: { month: string; day: string; year: string }) {
+    const month = Number.parseInt(dob.month, 10);
+    const day = Number.parseInt(dob.day, 10);
+    const year = Number.parseInt(dob.year, 10);
+
+    const monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // leap years
+    if (year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0)) {
+      monthLength[1] = 29;
+    }
+
+    return day <= monthLength[month - 1];
   }
 
   calculateAge(date: Date) {
