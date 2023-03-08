@@ -1,0 +1,25 @@
+<ng-template [ngIf]="hasContactInfo()">
+  <h2>Contact Info</h2>
+  <dl>
+    <ng-template [ngIf]="person.home_address">
+      <dt>Home Address</dt>
+      <dd>{{ fullAddress(person.home_address) }}</dd>
+    </ng-template>
+    <ng-template [ngIf]="person.mailing_address">
+      <dt>Mailing Address</dt>
+      <dd>{{ fullAddress(person.mailing_address) }}</dd>
+    </ng-template>
+    <ng-template [ngIf]="person.home_phone">
+      <dt>Home Phone</dt>
+      <dd>{{ person.home_phone }}</dd>
+    </ng-template>
+    <ng-template [ngIf]="person.mobile_phone">
+      <dt>Mobile Phone</dt>
+      <dd>{{ person.mobile_phone }}</dd>
+    </ng-template>
+    <ng-template [ngIf]="person.home_email">
+      <dt>Home Email</dt>
+      <dd>{{ person.home_email }}</dd>
+    </ng-template>
+  </dl>
+</ng-template>

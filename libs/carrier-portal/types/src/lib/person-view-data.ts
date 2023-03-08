@@ -42,10 +42,6 @@ export type Member = {
   gender: string;
   ssn?: string;
   policies: Policy[];
-  mailing_address: Address;
-  home_address: Address;
-  home_email: string;
-  mobile_phone: string;
 };
 
 export type Address = {
@@ -64,6 +60,11 @@ export type Person = {
   person_name: PersonName;
   members: Member[];
   responsible_parties: ResponsibleParty[];
+  home_address?: Address;
+  mailing_address?: Address;
+  home_email?: string;
+  home_phone?: string;
+  mobile_phone?: string;
 };
 
 export type PremiumCredit = {
