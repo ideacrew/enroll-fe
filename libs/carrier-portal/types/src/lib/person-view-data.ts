@@ -90,6 +90,12 @@ export type Enrollee = {
   relationship: string;
 };
 
+export type Broker = {
+  broker_id: string;
+  broker_name: string;
+  broker_npn: string;
+};
+
 export type Transaction = {
   id: string;
   kind: string;
@@ -99,8 +105,7 @@ export type Transaction = {
 
 export type Policy = {
   credited_amount: number;
-  broker_name?: string;
-  broker_npn?: string;
+  broker?: Broker;
   enrollees: Enrollee[];
   hbx_assigned_id: string;
   hbx_enrollment_ids: string[];

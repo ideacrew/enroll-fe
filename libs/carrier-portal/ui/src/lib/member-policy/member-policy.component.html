@@ -9,15 +9,15 @@
       <div>
         <span class="group-info-header">Broker</span>
         <div>
-          <ng-container *ngIf="policy.broker_name; else noBroker"
-            >{{ policy.broker_name }} ({{ policy.broker_npn }})</ng-container
-          >
+          <ng-container *ngIf="policy.broker; else noBroker">
+            {{ policy.broker.broker_name }}
+          </ng-container>
           <ng-template #noBroker>No broker found</ng-template>
         </div>
       </div>
       <div *ngIf="policy.responsible_party">
         <span class="group-info-header">Responsible Party</span>
-        <span>{{ policy.responsible_party.person_name?.full_name }}</span>
+        <span>{{ policy.responsible_party.person_name.full_name }}</span>
       </div>
     </div>
     <table class="ea-table">
