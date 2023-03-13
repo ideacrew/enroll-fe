@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { tap, timer, Subscription } from 'rxjs';
+import { tap, timer, Subscription, BehaviorSubject } from 'rxjs';
 
 import { TenantConfigService } from '@enroll/tenant-config';
 
@@ -13,6 +13,10 @@ type LoginCredentials = {
   username: string;
   password: string;
   realm_name: string;
+};
+
+type HasLoginError = {
+  loginError$: BehaviorSubject<boolean>;
 };
 
 @Injectable({
@@ -42,15 +46,18 @@ export class AuthService {
     }
   }
 
-  login({ username, password, realm_name }: LoginCredentials): void {
+  login(
+    { username, password, realm_name }: LoginCredentials,
+    hle: HasLoginError
+  ): void {
     this.http
       .post<TokenResponse>(`${this.baseApiUrl}/sessions`, {
         username,
         password,
         realm_name,
       })
-      .pipe(
-        tap(({ token, refresh_token }: TokenResponse) => {
+      .subscribe({
+        next: ({ token, refresh_token }: TokenResponse) => {
           const tokenValue = this.jwtChecker.setJwt(token, refresh_token);
           if (tokenValue) {
             this.token = tokenValue.token;
@@ -58,13 +65,11 @@ export class AuthService {
             this.expirationTime = tokenValue.expiration;
             this.tokenTime = Date.now();
             this.setLogoutTimer(tokenValue.expiration);
+            void this.router.navigate(['/']);
           }
-        })
-      )
-      .subscribe({
-        complete: () => {
-          console.log('Login complete, what next?');
-          void this.router.navigate(['/']);
+        },
+        error: (_error) => {
+          hle.loginError$.next(true);
         },
       });
   }
