@@ -10,7 +10,7 @@ export class JwtAuthService {
   }
 
   get userName(): string {
-    return this.parsedJwt.name;
+    return this.parsedJwt.preferred_username;
   }
 
   clearJwt(): void {

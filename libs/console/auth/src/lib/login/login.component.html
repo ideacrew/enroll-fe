@@ -1,8 +1,17 @@
 <form class="login-form">
   <h1 class="test-color">Sign In</h1>
+  <div class="login-error" *ngIf="loginError$ | async">
+    Was not able to log in with the given credentials.
+  </div>
   <div class="input-group">
     <label for="username">Username</label>
-    <input type="text" name="username" id="username" [(ngModel)]="username" />
+    <input
+      type="text"
+      name="username"
+      id="username"
+      (change)="inputChanged()"
+      [(ngModel)]="username"
+    />
   </div>
   <div class="input-group">
     <label for="password">Password</label>
@@ -10,6 +19,7 @@
       type="password"
       name="password"
       id="password"
+      (change)="inputChanged()"
       [(ngModel)]="password"
     />
   </div>
