@@ -12,7 +12,7 @@
           <ng-container *ngIf="policy.broker; else noBroker">
             {{ policy.broker.broker_name }}
           </ng-container>
-          <ng-template #noBroker>No broker found</ng-template>
+          <ng-template #noBroker>None</ng-template>
         </div>
       </div>
       <div *ngIf="policy.responsible_party">

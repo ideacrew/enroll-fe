@@ -2,12 +2,12 @@
   <div class="person" *ngIf="person$ | async as person; else loadingPerson">
     <h1 class="person-header">{{ person.person_name.full_name }}</h1>
 
-    <enroll-person-contact-info [person]="person"></enroll-person-contact-info>
-
     <div *ngFor="let member of person.members" class="member-information">
       <div class="member-information-header">
-        <h2>Member ID: {{ member.hbx_member_id }}</h2>
+        <h2>Personal Info</h2>
         <dl>
+          <dt>Member ID</dt>
+          <dd>{{ member.hbx_member_id }}</dd>
           <dt>Gender</dt>
           <!-- This translation is coming from the generic translations -->
           <dd>{{ t(member.gender) | titlecase }}</dd>
@@ -16,6 +16,10 @@
           <dt>SSN</dt>
           <dd>{{ member.ssn | formatSsn }}</dd>
         </dl>
+
+        <enroll-person-contact-info
+          [person]="person"
+        ></enroll-person-contact-info>
 
         <h2>Policies</h2>
         <details
@@ -46,8 +50,13 @@
       class="member-information"
     >
       <div class="member-information-header">
-        <h2>Responsible Party ID: {{ responsibleParty.id }}</h2>
+        <h2>Responsible Party</h2>
       </div>
+      <enroll-person-contact-info
+        [person]="person"
+      ></enroll-person-contact-info>
+
+      <h2>Policies</h2>
       <details
         [open]="policy.status === 'Submitted'"
         class="policy-summary"

@@ -104,8 +104,8 @@
                 </td>
                 <td>{{ member.hbx_member_id }}</td>
                 <td>{{ member.policies.length }}</td>
-                <td>{{ member.ssn | formatSsn }}</td>
-                <td>{{ member.dob | date : 'MM/dd/YYYY' }}</td>
+                <td>{{ member.ssn }}</td>
+                <td>{{ member.dob }}</td>
                 <td>{{ t(member.gender) | titlecase }}</td>
               </ng-container>
             </tr>
