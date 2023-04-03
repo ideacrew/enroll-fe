@@ -16,7 +16,7 @@ import {
 } from '@ngneat/transloco';
 
 import { Person } from '@enroll/carrier-portal/types';
-import { PersonService } from '@enroll/carrier-portal/data-access';
+import { PersonService, DataResult } from '@enroll/carrier-portal/data-access';
 import {
   FormatSsnPipe,
   MemberPolicyComponent,
@@ -61,7 +61,7 @@ export class MemberCoverageComponent {
   route = inject(ActivatedRoute);
 
   id!: string | null;
-  person$: Observable<Person> = this.route.paramMap.pipe(
+  person$: Observable<DataResult<Person>> = this.route.paramMap.pipe(
     map((parameters: ParamMap) => parameters.get('id') ?? '___IGNORE___'),
     filter((idString: string) => idString !== '___IGNORE___'),
     switchMap((id: string) => this.personService.getPerson(id))

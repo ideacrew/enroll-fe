@@ -87,14 +87,16 @@ export class MemberSearchComponent {
   }
 
   searchBySearchTerm(): void {
-    if (this.searchType === 'member_id') {
-      this.query = this.searchTerm || '';
-      this.searchPersonByIdentifier();
-    } else {
-      const [firstName, lastName] = (this.searchTerm || '').split(' ');
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.searchPersonByName();
+    if (this.searchTerm && this.searchTerm.length > 1) {
+      if (this.searchType === 'member_id') {
+        this.query = this.searchTerm || '';
+        this.searchPersonByIdentifier();
+      } else {
+        const [firstName, lastName] = (this.searchTerm || '').split(' ');
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.searchPersonByName();
+      }
     }
   }
 
