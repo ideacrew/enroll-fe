@@ -17,7 +17,11 @@
       </div>
       <div *ngIf="policy.responsible_party">
         <span class="group-info-header">Responsible Party</span>
-        <span>{{ policy.responsible_party.person_name.full_name }}</span>
+        <span>
+          <a [routerLink]="['..', policy.responsible_party.person_id]">
+            {{ policy.responsible_party.person_name.full_name }}
+          </a>
+        </span>
       </div>
     </div>
     <table class="ea-table">

@@ -17,6 +17,7 @@ export type Plan = {
 };
 
 export type PolicyResponsibleParty = {
+  person_id: string;
   responsible_party_id: string;
   person_name: PersonName;
 };

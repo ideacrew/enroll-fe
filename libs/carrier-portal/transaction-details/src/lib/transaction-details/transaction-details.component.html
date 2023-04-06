@@ -1,48 +1,57 @@
 <ng-container *transloco="let t">
   <h1>Transaction Details</h1>
   <ng-container
-    *ngIf="transaction$ | async as transaction; else loadingTransaction"
+    *ngIf="transaction$ | async as transactionResult; else loadingTransaction"
   >
-    <div class="transaction-information">
-      <dl>
-        <dt>Transaction Type</dt>
-        <dd>
-          {{ t('edi.' + transaction.transaction_kind) }}
-        </dd>
-        <dt>
-          {{ t('transactionDetails.referenceIdentification') | titlecase }}
-        </dt>
-        <dd>{{ transaction.reference_identification }}</dd>
-        <dt>Transaction Date</dt>
-        <dd>
-          {{ transaction.transaction_date | parseRawDate | date : 'M/d/yy' }}
-        </dd>
-        <dt>Transaction Time</dt>
-        <dd>{{ transaction.transaction_time | parseRawTime }}</dd>
-        <dt>Time Code</dt>
-        <dd>{{ transaction.time_code }}</dd>
-        <dt>Interchange Control Number</dt>
-        <dd>{{ transaction.interchange_control_number }}</dd>
-        <dt>Interchange File Name</dt>
-        <dd>{{ transaction.transmission_file_name }}</dd>
-        <dt>Sender</dt>
-        <dd>{{ transaction.sender ?? 'Sender unknown' }}</dd>
-        <dt>Receiver</dt>
-        <dd>{{ transaction.receiver ?? 'Receiver unknown' }}</dd>
-        <dt>Acknowledgement State</dt>
-        <dd>{{ transaction.ack_state }}</dd>
-        <dt>Acknowledged at</dt>
-        <dd>{{ transaction.ack_at }}</dd>
-      </dl>
-    </div>
-    <h2>EDI Payload</h2>
-    <pre class="edi-data parsed-transaction">
+    <ng-container
+      *ngIf="
+        transactionResult.ok && transactionResult.data;
+        let transaction;
+        else: loadingError
+      "
+    >
+      <div class="transaction-information">
+        <dl>
+          <dt>Transaction Type</dt>
+          <dd>
+            {{ t('edi.' + transaction.transaction_kind) }}
+          </dd>
+          <dt>
+            {{ t('transactionDetails.referenceIdentification') | titlecase }}
+          </dt>
+          <dd>{{ transaction.reference_identification }}</dd>
+          <dt>Transaction Date</dt>
+          <dd>
+            {{ transaction.transaction_date | parseRawDate | date : 'M/d/yy' }}
+          </dd>
+          <dt>Transaction Time</dt>
+          <dd>{{ transaction.transaction_time | parseRawTime }}</dd>
+          <dt>Time Code</dt>
+          <dd>{{ transaction.time_code }}</dd>
+          <dt>Interchange Control Number</dt>
+          <dd>{{ transaction.interchange_control_number }}</dd>
+          <dt>Interchange File Name</dt>
+          <dd>{{ transaction.transmission_file_name }}</dd>
+          <dt>Sender</dt>
+          <dd>{{ transaction.sender ?? 'Sender unknown' }}</dd>
+          <dt>Receiver</dt>
+          <dd>{{ transaction.receiver ?? 'Receiver unknown' }}</dd>
+          <dt>Acknowledgement State</dt>
+          <dd>{{ transaction.ack_state }}</dd>
+          <dt>Acknowledged at</dt>
+          <dd>{{ transaction.ack_at }}</dd>
+        </dl>
+      </div>
+      <h2>EDI Payload</h2>
+      <pre class="edi-data parsed-transaction">
       <span>{{ transaction.raw_content | parseEdiData }}</span>
     </pre>
-    <h2>Raw Payload</h2>
-    <pre class="edi-data raw-transaction">
+      <h2>Raw Payload</h2>
+      <pre class="edi-data raw-transaction">
       <span>{{ transaction.raw_content }}</span>
     </pre>
+    </ng-container>
+    <ng-template #loadingError> TRANSACTION NOT FOUND </ng-template>
   </ng-container>
 
   <ng-template #loadingTransaction>

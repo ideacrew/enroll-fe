@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { TenantConfigService } from '@enroll/tenant-config';
 import { Person } from '@enroll/carrier-portal/types';
 import { PersonSearchRequest, PersonSearchResult } from './types';
+import { DataResult, transformToResult } from './types';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +14,11 @@ export class PersonService {
   http = inject(HttpClient);
   baseApiUrl = inject(TenantConfigService).baseApiUrl;
 
-  getPerson(id: string): Observable<Person> {
-    return this.http.get<Person>(
-      `${this.baseApiUrl}/transaction_management/people/${id}`
+  getPerson(id: string): Observable<DataResult<Person>> {
+    return transformToResult(
+      this.http.get<Person>(
+        `${this.baseApiUrl}/transaction_management/people/${id}`
+      )
     );
   }
 
