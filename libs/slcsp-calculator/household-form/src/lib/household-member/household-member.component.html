@@ -3,6 +3,7 @@
   <enroll-household-member-dob [memberFormGroup]="householdMemberFormGroup" />
   <enroll-household-member-residence
     *ngIf="showResidence"
+    [currentTaxYear]="currentTaxYear"
     [memberFormGroup]="householdMemberFormGroup"
   />
 </form>

@@ -16,7 +16,7 @@ describe('ReviewHouseholdComponent', () => {
 
     fixture = TestBed.createComponent(ReviewHouseholdComponent);
     component = fixture.componentInstance;
-    component.householdForm = defaultHouseholdForm();
+    component.householdForm = defaultHouseholdForm('2022');
     fixture.detectChanges();
   });
 

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
 
@@ -8,5 +9,9 @@ import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReviewComponent {
-  householdForm = inject(HouseholdService).householdForm;
+  route = inject(ActivatedRoute);
+  currentTaxYear = <string>this.route.snapshot.params['taxYear'];
+  householdForm = inject(HouseholdService).setHouseholdForm(
+    this.currentTaxYear
+  );
 }

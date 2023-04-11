@@ -2,6 +2,9 @@
 <enroll-review-tax-year [householdForm]="householdForm" />
 <enroll-review-household [householdForm]="householdForm" />
 <!-- <enroll-household-form-info /> -->
-<a data-cy="continue-to-results" class="ea-button" routerLink="../results"
+<a
+  data-cy="continue-to-results"
+  class="ea-button"
+  routerLink="../../results/{{ currentTaxYear }}"
   >Continue</a
 >

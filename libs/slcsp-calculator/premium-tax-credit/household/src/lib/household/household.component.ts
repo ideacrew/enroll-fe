@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
 
@@ -10,8 +10,12 @@ import { HouseholdService } from '@enroll/slcsp-calculator/household-form';
 })
 export class HouseholdComponent {
   router = inject(Router);
+  route = inject(ActivatedRoute);
   householdService = inject(HouseholdService);
-  householdFormGroup = this.householdService.householdForm;
+  currentTaxYear = <string>this.route.snapshot.params['taxYear'];
+  householdFormGroup = this.householdService.setHouseholdForm(
+    this.currentTaxYear
+  );
   householdConfirmation$ = this.householdService.householdConfirmation$;
   householdMemberControls = this.householdService.householdMemberControls;
 
@@ -71,7 +75,8 @@ export class HouseholdComponent {
 
   navigateToMemberDetails(): void {
     if (this.validHouseholdPage) {
-      void this.router.navigateByUrl('/premium-tax-credit/household/member/1');
+      void this.router.navigate(['member/1'], { relativeTo: this.route });
+      //navigateByUrl(`/premium-tax-credit/household/${this.currentTaxYear}/member/1`);
     } else {
       throw new Error('Household page is not valid');
     }

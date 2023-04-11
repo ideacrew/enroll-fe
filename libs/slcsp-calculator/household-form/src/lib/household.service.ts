@@ -21,8 +21,11 @@ import { extendResidenceMonths } from './util/transforms/extend-residence-months
 export class HouseholdService {
   mock = false;
   // Initial form state for household form
+  private currentTaxYear: string | undefined;
   householdForm: FormGroup<HouseholdFormGroup> =
-    isDevMode() && this.mock ? mockHouseholdForm() : defaultHouseholdForm();
+    isDevMode() && this.mock
+      ? mockHouseholdForm()
+      : defaultHouseholdForm('2022');
 
   formHasBeenStarted = false;
 
@@ -40,6 +43,14 @@ export class HouseholdService {
   // Needed in order to iterate over the household members in the template
   get householdMemberControls(): Array<FormGroup<HouseholdMemberFormGroup>> {
     return this.householdMembersArray.controls;
+  }
+
+  setHouseholdForm(taxYear: string): FormGroup<HouseholdFormGroup> {
+    if (taxYear !== this.currentTaxYear) {
+      this.currentTaxYear = taxYear;
+      this.householdForm = defaultHouseholdForm(taxYear);
+    }
+    return this.householdForm;
   }
 
   updateHouseholdCount(newCount: number): void {

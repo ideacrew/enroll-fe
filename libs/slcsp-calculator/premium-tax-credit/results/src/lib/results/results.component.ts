@@ -9,6 +9,7 @@ import {
 import { BehaviorSubject, Observable } from 'rxjs';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { ActivatedRoute } from '@angular/router';
 
 import { months } from '@enroll/shared/types';
 import {
@@ -27,6 +28,8 @@ export class ResultsComponent implements OnInit {
   householdService = inject(HouseholdService);
   slcspEstimateService = inject(SlcspEstimateService);
   monthList = months;
+  route = inject(ActivatedRoute);
+  currentTaxYear = <string>this.route.snapshot.params['taxYear'];
   canShowErrorMsg$ = new BehaviorSubject(false);
   slcspValues$ = new BehaviorSubject<SlcspEstimate | undefined>(undefined);
 

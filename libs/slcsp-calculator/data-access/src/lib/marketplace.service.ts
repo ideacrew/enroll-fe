@@ -16,7 +16,10 @@ export class MarketplaceService {
   private readonly baseUrl = 'https://marketplace.api.healthcare.gov/api/v1';
   private readonly http = inject(HttpClient);
 
-  searchForZipCode(zipCode: string): Observable<MarketplaceCounty[] | string> {
+  searchForZipCode(
+    zipCode: string,
+    taxYear: string
+  ): Observable<MarketplaceCounty[] | string> {
     if (zipCode.length !== 5) {
       return throwError(() => new Error('Zip code must be 5 digits'));
     }
@@ -25,7 +28,7 @@ export class MarketplaceService {
       .get<MarketplaceCountyResponse>(
         `${this.baseUrl}/counties/by/zip/${zipCode}`,
         {
-          params: { apikey: this.apiKey, year: '2022' },
+          params: { apikey: this.apiKey, year: taxYear },
         }
       )
       .pipe(

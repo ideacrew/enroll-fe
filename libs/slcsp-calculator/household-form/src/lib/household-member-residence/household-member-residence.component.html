@@ -1,4 +1,4 @@
-<h2>Tell us where {{ memberName }} lived during all of 2022</h2>
+<h2>Tell us where {{ memberName }} lived during all of {{ currentTaxYear }}</h2>
 <span class="hint"
   >You'll need to provide residence information for each month.</span
 >
@@ -6,6 +6,7 @@
   <ng-container formArrayName="residences">
     <div *ngFor="let residence of residences.controls; let i = index">
       <enroll-member-residence-zipcode
+        [currentTaxYear]="currentTaxYear"
         [residenceFormGroup]="residences.at(i)"
         [memberName]="memberName"
         [index]="i"

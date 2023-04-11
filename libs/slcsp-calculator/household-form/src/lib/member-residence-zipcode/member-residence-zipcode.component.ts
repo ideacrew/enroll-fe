@@ -16,6 +16,7 @@ import {
 } from '@enroll/slcsp-calculator/data-access';
 
 import { ResidenceFormGroup } from '@enroll/slcsp-calculator/types';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'enroll-member-residence-zipcode',
@@ -31,6 +32,7 @@ export class MemberResidenceZipcodeComponent {
   zipCodeQuery = new FormControl<string | null>(null);
   selectedCounty!: MarketplaceCounty;
 
+  @Input() currentTaxYear!: string;
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
   @Input() memberName!: string;
   @Input() index!: number;
@@ -42,7 +44,10 @@ export class MemberResidenceZipcodeComponent {
       distinctUntilChanged(),
       switchMap((query) => {
         if (query !== null && query.length === 5) {
-          return this.marketplaceAPI.searchForZipCode(query);
+          return this.marketplaceAPI.searchForZipCode(
+            query,
+            this.currentTaxYear
+          );
         }
 
         if (query !== null && query.length < 5) {
