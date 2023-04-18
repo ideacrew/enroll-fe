@@ -13,14 +13,16 @@
 <form>
   <fieldset>
     <legend><span>What tax year are you working on?</span></legend>
-    <input
-      id="year-select-22"
-      type="radio"
-      name="year-select"
-      value="2022"
-      checked
-    />
-    <label for="year-select-22">2022</label>
+    <div *ngFor="let taxYear of taxYears">
+      <input
+        id="year-select-{{ taxYear }}"
+        type="radio"
+        name="year-select"
+        value="{{ taxYear }}"
+        [(ngModel)]="selectedTaxYear"
+      />
+      <label for="year-select-{{ taxYear }}">{{ taxYear }}</label>
+    </div>
   </fieldset>
 
   <button

@@ -14,7 +14,7 @@ describe('HouseholdConfirmationComponent', () => {
 
     fixture = TestBed.createComponent(HouseholdConfirmationComponent);
     component = fixture.componentInstance;
-    component.parent = defaultHouseholdForm();
+    component.parent = defaultHouseholdForm('2022');
     fixture.detectChanges();
   });
 

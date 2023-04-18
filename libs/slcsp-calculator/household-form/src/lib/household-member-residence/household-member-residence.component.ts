@@ -37,6 +37,7 @@ import { MemberAbsentComponent } from '../member-absent/member-absent.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HouseholdMemberResidencesComponent {
+  @Input() currentTaxYear!: string;
   @Input() memberFormGroup!: FormGroup<HouseholdMemberFormGroup>;
 
   get residences() {
@@ -103,7 +104,7 @@ export class HouseholdMemberResidencesComponent {
     const anotherResidence = this.numberOfResidences - 1 > index;
 
     return (
-      (this.validCounty(index) || this.isAbsent) &&
+      (this.validCounty(index) || this.isAbsent(index)) &&
       !noGapInResidence(this.residenceValues) &&
       !anotherResidence
     );

@@ -20,6 +20,7 @@ import { HouseholdMemberResidencesComponent } from '../household-member-residenc
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HouseholdMemberComponent {
+  @Input() currentTaxYear!: string;
   @Input() householdMemberFormGroup!: FormGroup<HouseholdMemberFormGroup>;
   @Input() memberId!: number;
 

@@ -5,7 +5,7 @@ import { FeatureShellComponent } from './feature-shell/feature-shell.component';
 
 export const premiumTaxCreditRoutes: Route[] = [
   {
-    path: 'results',
+    path: 'results/:taxYear',
     loadChildren: () =>
       import('@enroll/slcsp-calculator/premium-tax-credit/results').then(
         (m) => m.ResultsModule
@@ -13,7 +13,7 @@ export const premiumTaxCreditRoutes: Route[] = [
     canMatch: [formGuard],
   },
   {
-    path: 'review',
+    path: 'review/:taxYear',
     loadChildren: () =>
       import('@enroll/slcsp-calculator/premium-tax-credit/review').then(
         (m) => m.ReviewModule
@@ -21,7 +21,7 @@ export const premiumTaxCreditRoutes: Route[] = [
     canMatch: [formGuard],
   },
   {
-    path: 'household',
+    path: 'household/:taxYear',
     loadChildren: () =>
       import('@enroll/slcsp-calculator/premium-tax-credit/household').then(
         (m) => m.HouseholdModule

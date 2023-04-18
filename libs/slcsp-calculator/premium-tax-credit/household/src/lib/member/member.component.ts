@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { map, shareReplay, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -21,8 +21,10 @@ import { TitleCasePipe } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MemberComponent {
+  route = inject(ActivatedRoute);
+  currentTaxYear = <string>this.route.snapshot.params['taxYear'];
   householdService = inject(HouseholdService);
-  householdFormGroup = this.householdService.householdForm;
+  //householdFormGroup = this.householdService.setHouseHoldForm(this.currentTaxYear);
   householdMembersArray = this.householdService.householdMembersArray;
   memberId!: number;
   router = inject(Router);
@@ -65,9 +67,12 @@ export class MemberComponent {
         return false;
       }
 
-      if (Number.parseInt(value.year, 10) > 2022) {
+      if (
+        Number.parseInt(value.year, 10) >
+        Number.parseInt(this.currentTaxYear, 10)
+      ) {
         this.memberFormGroup.controls['dob'].setErrors({
-          msg: 'Date of birth cannot be after the tax year',
+          msg: `Date of birth cannot be after the tax year, ${this.currentTaxYear}`,
         });
         return false;
       }
@@ -141,9 +146,13 @@ export class MemberComponent {
 
   navigateToCoverage(): void {
     if (this.validMemberDetailPage) {
-      void this.router.navigateByUrl(
-        `/premium-tax-credit/household/member/${this.memberId}/coverage`
+      void this.router.navigate(
+        ['../..', 'member', this.memberId, 'coverage'],
+        { relativeTo: this.route }
       );
+      //void this.router.navigateByUrl(
+      //  `/premium-tax-credit/household/member/${this.memberId}/coverage`
+      //);
     } else {
       throw new Error('Member detail page is not valid');
     }

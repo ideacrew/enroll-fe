@@ -1,11 +1,14 @@
 <ng-container *ngIf="memberId$ | async as memberId">
   <enroll-household-member
+    [currentTaxYear]="currentTaxYear"
     [householdMemberFormGroup]="memberFormGroup"
     [memberId]="memberId"
   />
 
   <ng-container *ngIf="reviewing$ | async; else continue">
-    <a class="ea-button continue-button" routerLink="../../../review"
+    <a
+      class="ea-button continue-button"
+      routerLink="../../../review/{{ currentTaxYear }}"
       >Save Changes</a
     >
   </ng-container>

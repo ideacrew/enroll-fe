@@ -13,7 +13,9 @@ import {
 } from '@enroll/slcsp-calculator/types';
 import { residenceValidator } from '../util/validators/residence-validator';
 
-export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
+export const defaultHouseholdForm = (
+  taxYear: string
+): FormGroup<HouseholdFormGroup> =>
   new FormGroup<HouseholdFormGroup>({
     householdConfirmation: new FormControl(undefined, { nonNullable: true }),
     // Start with a single member in the household
@@ -24,7 +26,7 @@ export const defaultHouseholdForm = (): FormGroup<HouseholdFormGroup> =>
     }),
 
     // Start with 2022 because this isn't changing until 2024
-    taxYear: new FormControl('2022', { nonNullable: true }),
+    taxYear: new FormControl(taxYear, { nonNullable: true }),
 
     // This tool only exists for Maine, so use that as the default
     state: new FormControl('ME', { nonNullable: true }),

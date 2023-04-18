@@ -14,7 +14,7 @@ describe('ReviewTaxYearComponent', () => {
 
     fixture = TestBed.createComponent(ReviewTaxYearComponent);
     component = fixture.componentInstance;
-    component.householdForm = defaultHouseholdForm();
+    component.householdForm = defaultHouseholdForm('2022');
     fixture.detectChanges();
   });
 
