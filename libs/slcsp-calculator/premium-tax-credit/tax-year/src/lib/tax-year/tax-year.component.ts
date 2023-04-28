@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class TaxYearComponent {
   router = inject(Router);
   taxYears = this.determineTaxYears();
-  selectedTaxYear = '';
+  selectedTaxYear = this.taxYears[0];
 
   async navigateToHousehold() {
     if (this.selectedTaxYear && this.selectedTaxYear !== '') {
