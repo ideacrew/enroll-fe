@@ -20,4 +20,8 @@ export class ReviewHouseholdComponent {
   get householdMembers() {
     return this.householdForm.get('members')?.value;
   }
+
+  get taxYear() {
+    return this.householdForm.get('taxYear')?.value;
+  }
 }
