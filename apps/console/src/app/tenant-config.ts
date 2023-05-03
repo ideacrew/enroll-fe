@@ -19,4 +19,10 @@ export const consoleTenantConfig: TenantConfig[] = [
     tenant: 'me',
     baseApiUrl: 'https://preprod-console-api.cme.openhbx.org',
   },
+  {
+    host: 'carrier-portal.coverme.gov',
+    application: 'console',
+    tenant: 'me',
+    baseApiUrl: 'https://prod-console-api.cme.openhbx.org',
+  },
 ];

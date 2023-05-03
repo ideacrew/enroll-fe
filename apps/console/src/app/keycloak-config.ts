@@ -16,7 +16,7 @@ export const keycloakConfiguration: KeycloakConfig[] = [
   {
     host: 'carrier-portal.coverme.gov',
     clientId: 'openid',
-    realm: 'production',
-    url: 'TBD',
+    realm: 'coverme',
+    url: 'https://login.coverme.gov/auth',
   },
 ];
