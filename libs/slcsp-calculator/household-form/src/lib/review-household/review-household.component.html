@@ -5,7 +5,7 @@
     <div>{{ member.dob.month }}/{{ member.dob.day }}/{{ member.dob.year }}</div>
     <a
       class="edit-link"
-      routerLink="../household/member/{{ i + 1 }}"
+      routerLink="../../household/{{ taxYear }}/member/{{ i + 1 }}"
       [queryParams]="{ reviewing: true }"
       >Edit</a
     >
@@ -27,7 +27,7 @@
     </div>
     <a
       class="edit-link"
-      routerLink="../household/member/{{ i + 1 }}"
+      routerLink="../../household/{{ taxYear }}/member/{{ i + 1 }}"
       [queryParams]="{ reviewing: true }"
       >Edit</a
     >
@@ -37,7 +37,7 @@
     <div>{{ member.coverage | residenceMonths }}</div>
     <a
       class="edit-link"
-      routerLink="../household/member/{{ i + 1 }}/coverage"
+      routerLink="../../household/{{ taxYear }}/member/{{ i + 1 }}/coverage"
       [queryParams]="{ reviewing: true }"
       >Edit</a
     >
