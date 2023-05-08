@@ -11,25 +11,28 @@ import {
   TenantConfigService,
   TENANT_CONFIG,
 } from '@enroll/tenant-config';
-import { AuthGuard, AuthInterceptor } from '@enroll/console/auth';
+import {
+  AuthGuard,
+  AuthInterceptor,
+  KeycloakConfigService,
+} from '@enroll/console/auth';
 import {
   GenericTranslationsModule,
   TenantTranslationModule,
 } from '@enroll/shared/i18n';
 
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { KEYCLOAK_CONFIG, configKeycloakConfig } from '@enroll/console/auth';
+
 import { AppComponent } from './app.component';
 import { consoleTenantConfig } from './tenant-config';
+import { keycloakConfiguration } from './keycloak-config';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {
-        path: 'login',
-        loadChildren: () =>
-          import('@enroll/console/auth').then((m) => m.consoleAuthRoutes),
-      },
       {
         path: '',
         loadChildren: () =>
@@ -42,6 +45,7 @@ import { consoleTenantConfig } from './tenant-config';
     HttpClientModule,
     TenantTranslationModule,
     GenericTranslationsModule,
+    KeycloakAngularModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
@@ -52,12 +56,22 @@ import { consoleTenantConfig } from './tenant-config';
       multi: true,
     },
     {
+      provide: APP_INITIALIZER,
+      useFactory: configKeycloakConfig,
+      deps: [KeycloakConfigService, KeycloakService],
+      multi: true,
+    },
+    {
       provide: APPLICATION_NAME,
       useValue: 'console',
     },
     {
       provide: TENANT_CONFIG,
       useValue: consoleTenantConfig,
+    },
+    {
+      provide: KEYCLOAK_CONFIG,
+      useValue: keycloakConfiguration,
     },
   ],
   bootstrap: [AppComponent],

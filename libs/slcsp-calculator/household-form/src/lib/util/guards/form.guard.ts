@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { CanMatchFn, Router, ActivatedRoute } from '@angular/router';
+import { CanMatchFn, Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 
