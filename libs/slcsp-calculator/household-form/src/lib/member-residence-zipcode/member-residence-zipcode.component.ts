@@ -16,7 +16,6 @@ import {
 } from '@enroll/slcsp-calculator/data-access';
 
 import { ResidenceFormGroup } from '@enroll/slcsp-calculator/types';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'enroll-member-residence-zipcode',

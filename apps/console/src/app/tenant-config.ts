@@ -5,7 +5,7 @@ export const consoleTenantConfig: TenantConfig[] = [
     host: 'localhost',
     application: 'console',
     tenant: 'me',
-    baseApiUrl: 'https://preprod-console-api.cme.openhbx.org',
+    baseApiUrl: 'http://localhost:3000',
   },
   {
     host: 'preview.app.github.dev',

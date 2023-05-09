@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthService, JwtAuthService } from '@enroll/console/auth';
+import { KeycloakService } from 'keycloak-angular';
 import { PortalDataService } from '@enroll/carrier-portal/data-access';
 
 @Component({
@@ -14,16 +14,11 @@ import { PortalDataService } from '@enroll/carrier-portal/data-access';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShellComponent {
-  authService = inject(AuthService);
-  jwtService = inject(JwtAuthService);
+  authService = inject(KeycloakService);
   portalDataService = inject(PortalDataService);
   lastUpdatedData$ = this.portalDataService.getLatestUpdateData();
 
-  get userName(): string {
-    return this.jwtService.userName;
-  }
-
   logout() {
-    this.authService.logout();
+    void this.authService.logout();
   }
 }
