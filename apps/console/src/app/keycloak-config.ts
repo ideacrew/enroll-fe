@@ -10,7 +10,7 @@ export const keycloakConfiguration: KeycloakConfig[] = [
   {
     host: 'preprod-console.cme.openhbx.org',
     clientId: 'openid',
-    realm: 'Preprod',
+    realm: 'preprod',
     url: 'https://preprod-sso.priv.cme.openhbx.org/auth',
   },
 ];
