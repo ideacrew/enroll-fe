@@ -20,7 +20,7 @@ import { PersonService, DataResult } from '@enroll/carrier-portal/data-access';
 import {
   FormatSsnPipe,
   MemberPolicyComponent,
-  SortByStatusPipe,
+  SortByPolicyStartPipe,
 } from '@enroll/carrier-portal/ui';
 import { scopeLoader } from '@enroll/shared/i18n';
 import { PersonContactInfoComponent } from './person-contact-info.component';
@@ -33,7 +33,7 @@ import { PersonContactInfoComponent } from './person-contact-info.component';
     AsyncPipe,
     DatePipe,
     FormatSsnPipe,
-    SortByStatusPipe,
+    SortByPolicyStartPipe,
     MemberPolicyComponent,
     PersonContactInfoComponent,
     HttpClientModule,

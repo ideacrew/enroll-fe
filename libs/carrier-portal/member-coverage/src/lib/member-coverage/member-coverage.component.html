@@ -35,7 +35,7 @@
           <details
             [open]="policy.status === 'Submitted'"
             class="policy-summary"
-            *ngFor="let policy of member.policies | sortByStatus : 'Submitted'"
+            *ngFor="let policy of member.policies | sortByPolicyStart"
           >
             <summary>
               <ng-container
@@ -46,7 +46,7 @@
                 "
               ></ng-container>
               <span>{{ policy.status }}</span>
-              <span>{{ policy.rating_area }}</span>
+              <span>{{ policy.hbx_assigned_id }}</span>
               <span>{{ policy.plan.name }}</span>
             </summary>
             <enroll-member-policy [policy]="policy"></enroll-member-policy>
@@ -70,9 +70,7 @@
         <details
           [open]="policy.status === 'Submitted'"
           class="policy-summary"
-          *ngFor="
-            let policy of responsibleParty.policies | sortByStatus : 'Submitted'
-          "
+          *ngFor="let policy of responsibleParty.policies | sortByPolicyStart"
         >
           <summary>
             <ng-container
@@ -83,7 +81,7 @@
               "
             ></ng-container>
             <span>{{ policy.status }}</span>
-            <span>{{ policy.rating_area }}</span>
+            <span>{{ policy.hbx_assigned_id }}</span>
             <span>{{ policy.plan.name }}</span>
           </summary>
           <enroll-member-policy [policy]="policy"></enroll-member-policy>
