@@ -11,11 +11,11 @@
     </ng-template>
     <ng-template [ngIf]="person.home_phone">
       <dt>Home Phone</dt>
-      <dd>{{ person.home_phone }}</dd>
+      <dd>{{ person.home_phone | phoneNumber }}</dd>
     </ng-template>
     <ng-template [ngIf]="person.mobile_phone">
       <dt>Mobile Phone</dt>
-      <dd>{{ person.mobile_phone }}</dd>
+      <dd>{{ person.mobile_phone | phoneNumber }}</dd>
     </ng-template>
     <ng-template [ngIf]="person.home_email">
       <dt>Home Email</dt>
