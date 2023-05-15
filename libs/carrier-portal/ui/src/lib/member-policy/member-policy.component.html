@@ -7,6 +7,10 @@
         <span>{{ policy.rating_area }}</span>
       </div>
       <div>
+        <span class="group-info-header">Coverage Year</span>
+        <span>{{ policy.plan.coverage_year }}</span>
+      </div>
+      <div>
         <span class="group-info-header">Broker</span>
         <div>
           <ng-container *ngIf="policy.broker; else noBroker">

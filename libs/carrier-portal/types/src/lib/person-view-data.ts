@@ -13,6 +13,7 @@ export type Plan = {
   hios_id: string;
   name: string;
   product_kind: string;
+  coverage_year: string;
   carrier: Carrier;
 };
 
@@ -135,6 +136,7 @@ export const defaultPolicy: Policy = {
     hios_id: '',
     name: '',
     product_kind: '',
+    coverage_year: "2022",
     carrier: {
       id: '',
       name: '',
