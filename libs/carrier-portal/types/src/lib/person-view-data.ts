@@ -136,7 +136,7 @@ export const defaultPolicy: Policy = {
     hios_id: '',
     name: '',
     product_kind: '',
-    coverage_year: '2022',
+    coverage_year: '',
     carrier: {
       id: '',
       name: '',

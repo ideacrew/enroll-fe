@@ -119,7 +119,7 @@
         <tr *ngFor="let transaction of policy.transactions | sortByDate">
           <td>
             <a [routerLink]="['/carrier-portal/transactions', transaction.id]"
-              >{{ t('edi.' + transaction.kind) | titlecase }}
+              >{{ transaction.kind | titlecase }}
             </a>
           </td>
           <td>{{ transaction.status }}</td>

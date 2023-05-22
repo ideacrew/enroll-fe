@@ -21,6 +21,13 @@ export class PhoneNumberPipe implements PipeTransform {
       const rest = number.slice(6, 9);
       return `(${ac}) ${top}-${rest}`;
     }
+    if (number.length === 11) {
+      const first = number.slice(0, 1);
+      const ac = number.slice(1, 3);
+      const top = number.slice(4, 6);
+      const rest = number.slice(7, 10);
+      return `${first} (${ac}) ${top}-${rest}`;
+    }
     return number;
   }
 }
