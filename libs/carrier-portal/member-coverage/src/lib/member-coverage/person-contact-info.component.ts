@@ -7,11 +7,12 @@ import {
 } from '@ngneat/transloco';
 import { NgFor, NgIf } from '@angular/common';
 import { scopeLoader } from '@enroll/shared/i18n';
+import { PhoneNumberPipe } from '@enroll/carrier-portal/ui';
 
 @Component({
   selector: 'enroll-person-contact-info',
   standalone: true,
-  imports: [NgIf, NgFor, TranslocoModule],
+  imports: [NgIf, NgFor, PhoneNumberPipe, TranslocoModule],
   templateUrl: './person-contact-info.component.html',
   styleUrls: ['./member-coverage.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
