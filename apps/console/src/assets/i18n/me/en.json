@@ -8,7 +8,8 @@
   "customerService": "Customer Service",
   "client": {
     "shell": {
-      "copyright": "{{ currentYear }} Maine Cover ME. All Rights Reserved."
+      "copyright": "{{ currentYear }} Maine Cover ME. All Rights Reserved.",
+      "shellTitle": "CoverME.gov"
     }
   }
 }
