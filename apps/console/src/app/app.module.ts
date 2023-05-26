@@ -1,5 +1,5 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule, importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -27,6 +27,7 @@ import { KEYCLOAK_CONFIG, configKeycloakConfig } from '@enroll/console/auth';
 import { AppComponent } from './app.component';
 import { consoleTenantConfig } from './tenant-config';
 import { keycloakConfiguration } from './keycloak-config';
+import { ConsoleI18nModule } from './i18n.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,6 +49,7 @@ import { keycloakConfiguration } from './keycloak-config';
     KeycloakAngularModule,
   ],
   providers: [
+    importProvidersFrom(ConsoleI18nModule),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
       provide: APP_INITIALIZER,
