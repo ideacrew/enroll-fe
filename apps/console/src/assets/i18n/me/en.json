@@ -11,5 +11,32 @@
       "copyright": "{{ currentYear }} Maine Cover ME. All Rights Reserved.",
       "shellTitle": "CoverME.gov"
     }
+  },
+  "male": "male",
+  "female": "female",
+  "relationships": {
+    "spouse": "spouse",
+    "child": "child",
+    "parent": "parent",
+    "sibling": "sibling",
+    "grandparent": "grandparent",
+    "grandchild": "grandchild",
+    "aunt": "aunt",
+    "uncle": "uncle",
+    "nephew": "nephew",
+    "niece": "niece",
+    "cousin": "cousin",
+    "friend": "friend",
+    "partner": "partner",
+    "domestic_partner": "domestic partner",
+    "manager": "manager",
+    "assistant": "assistant",
+    "referred_by": "referred by",
+    "self": "self"
+  },
+  "edi": {
+    "maintenance": "maintenance",
+    "initial_enrollment": "initial enrollment",
+    "effectuation": "effectuation"
   }
 }
