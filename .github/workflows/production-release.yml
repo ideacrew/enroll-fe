@@ -90,5 +90,5 @@ jobs:
       - name: run many deployments
         run: npx nx affected --target=deploy:prod
         env: 
-          CONSOLE_PROD_BUCKET: ${{ secrets.CONSOLE_PROD_BUCKET }}
-          CONSOLE_DISTRIBUTION_ID: ${{ secrets.CONSOLE_DISTRIBUTION_ID }}
+          CONSOLE_BUCKET_PROD: ${{ secrets.CONSOLE_BUCKET_PROD }}
+          CONSOLE_DISTRIBUTION_ID_PROD: ${{ secrets.CONSOLE_DISTRIBUTION_ID_PROD }}
