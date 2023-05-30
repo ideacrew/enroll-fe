@@ -89,3 +89,6 @@ jobs:
           TENANT: ${{ matrix.client }}
       - name: run many deployments
         run: npx nx affected --target=deploy:prod
+        env: 
+          CONSOLE_PROD_BUCKET: ${{ secrets.CONSOLE_PROD_BUCKET }}
+          CONSOLE_DISTRIBUTION_ID: ${{ secrets.CONSOLE_DISTRIBUTION_ID }}
