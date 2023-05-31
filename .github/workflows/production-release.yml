@@ -46,10 +46,10 @@ jobs:
       number-of-agents: 3
       main-branch-name: trunk
       environment-variables: |
-        LINT_ARGS: {{ needs.prep.outputs.lint_args }}
-        TEST_ARGS: {{ needs.prep.outputs.test_args }}
-        BUILD_ARGS: {{ needs.prep.outputs.build_args }}
-        E2E_ARGS: {{ needs.prep.outputs.e2e_args }}
+        LINT_ARGS={{ needs.prep.outputs.lint_args }}
+        TEST_ARGS={{ needs.prep.outputs.test_args }}
+        BUILD_ARGS={{ needs.prep.outputs.build_args }}
+        E2E_ARGS={{ needs.prep.outputs.e2e_args }}
       init-commands: |
         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
       parallel-commands: |
