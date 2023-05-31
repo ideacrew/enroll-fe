@@ -42,6 +42,11 @@ jobs:
     name: Nx Cloud - Main Job
     needs: [prep]
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.2
+    env:
+      LINT_ARGS: {{ needs.prep.outputs.lint_args }}
+      TEST_ARGS: {{ needs.prep.outputs.test_args }}
+      BUILD_ARGS: {{ needs.prep.outputs.build_args }}
+      E2E_ARGS: {{ needs.prep.outputs.e2e_args }}
     with:
       number-of-agents: 3
       main-branch-name: trunk
@@ -52,10 +57,10 @@ jobs:
         npx nx-cloud record -- npx nx format:write
         npx nx-cloud record -- npx nx format:check
       parallel-commands-on-agents: |
-        npx nx affected --target=lint {{ needs.prep.outputs.lint_args }}
-        npx nx affected --target=test {{ needs.prep.outputs.test_args }}
-        npx nx affected --target=build {{ needs.prep.outputs.build_args }}
-        npx nx affected --target=e2e {{ needs.prep.outputs.e2e_args }}
+        npx nx affected --target=lint $LINT_ARGS
+        npx nx affected --target=test $TEST_ARGS
+        npx nx affected --target=build $BUILD_ARGS
+        npx nx affected --target=e2e $E2E_ARGS
       artifacts-path: dist/apps
       artifacts-name: affected-apps
 
