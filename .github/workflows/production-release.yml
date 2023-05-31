@@ -4,6 +4,13 @@ on:
   release:
     types: [released]
 
+  workflow_dispatch:
+    inputs:
+      app:
+        default: "console"
+        description: "App to build"
+        required: true
+
 concurrency:
   group: prod-${{ github.ref }}
   cancel-in-progress: true
@@ -21,10 +28,17 @@ jobs:
         npx nx-cloud record -- npx nx workspace-lint
         npx nx-cloud record -- npx nx format:check
       parallel-commands-on-agents: |
-        npx nx affected --target=lint --parallel=3
-        npx nx affected --target=test --parallel=3 --ci --code-coverage
-        npx nx affected --target=build --parallel=3
-        npx nx affected --target=e2e --parallel=3 --ci
+        if [[ "${{github.event_name}}" == "release" ]]; then 
+          npx nx affected --target=lint --parallel=3
+          npx nx affected --target=test --parallel=3 --ci --code-coverage
+          npx nx affected --target=build --parallel=3
+          npx nx affected --target=e2e --parallel=3 --ci
+        else
+          npx nx affected --target=lint --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json
+          npx nx affected --target=test --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci --code-coverage
+          npx nx affected --target=build --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json
+          npx nx affected --target=e2e --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci
+        fi
       artifacts-path: dist/apps
       artifacts-name: affected-apps
 
