@@ -16,8 +16,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  prep:
+    runs-on: ubuntu-latest
+    outputs:
+      lint_args: ${{ steps.prep.outputs.lint_args }}
+      test_args: ${{ steps.prep.outputs.test_args }}
+      build_args: ${{ steps.prep.outputs.build_args }}
+      e2e_args: ${{ steps.prep.outputs.e2e_args }}
+    steps:
+      - name: Set argument variables 
+        id: prep
+        run: |
+          if [[ "${{github.event_name}}" == "release" ]]; then 
+            echo ::set-output name=lint_args::"--parallel=3"
+            echo ::set-output name=test_args::"--parallel=3 --ci --code-coverage"
+            echo ::set-output name=build_args::"--parallel=3"
+            echo ::set-output name=e2e_args::"--parallel=3 --ci"
+          else
+            echo ::set-output name=lint_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
+            echo ::set-output name=test_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci --code-coverage"
+            echo ::set-output name=build_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
+            echo ::set-output name=e2e_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci"
+          fi 
   main:
     name: Nx Cloud - Main Job
+    needs: [prep]
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.2
     with:
       number-of-agents: 3
@@ -29,17 +52,10 @@ jobs:
         npx nx-cloud record -- npx nx format:write
         npx nx-cloud record -- npx nx format:check
       parallel-commands-on-agents: |
-        if [[ "${{github.event_name}}" == "release" ]]; then 
-          npx nx affected --target=lint --parallel=3
-          npx nx affected --target=test --parallel=3 --ci --code-coverage
-          npx nx affected --target=build --parallel=3
-          npx nx affected --target=e2e --parallel=3 --ci
-        else
-          npx nx affected --target=lint --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json
-          npx nx affected --target=test --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci --code-coverage
-          npx nx affected --target=build --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json
-          npx nx affected --target=e2e --parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci
-        fi
+        npx nx affected --target=lint {{ needs.prep.outputs.lint_args }}
+        npx nx affected --target=test {{ needs.prep.outputs.test_args }}
+        npx nx affected --target=build {{ needs.prep.outputs.build_args }}
+        npx nx affected --target=e2e {{ needs.prep.outputs.e2e_args }}
       artifacts-path: dist/apps
       artifacts-name: affected-apps
 
