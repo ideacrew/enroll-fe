@@ -23,6 +23,7 @@ jobs:
       test_args: ${{ steps.prep.outputs.test_args }}
       build_args: ${{ steps.prep.outputs.build_args }}
       e2e_args: ${{ steps.prep.outputs.e2e_args }}
+      deploy_args: ${{ steps.prep.outputs.deploy_args }}
     steps:
       - name: Set argument variables 
         id: prep
@@ -32,11 +33,13 @@ jobs:
             echo ::set-output name=test_args::"--parallel=3 --ci --code-coverage"
             echo ::set-output name=build_args::"--parallel=3"
             echo ::set-output name=e2e_args::"--parallel=3 --ci"
+            echo ::set-output name=deploy_args::""
           else
             echo ::set-output name=lint_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
             echo ::set-output name=test_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci --code-coverage"
             echo ::set-output name=build_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
             echo ::set-output name=e2e_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci"
+            echo ::set-output name=deploy_args::"--files apps/${{ github.event.inputs.app }}/project.json"
           fi 
   main:
     name: Nx Cloud - Main Job
@@ -75,7 +78,7 @@ jobs:
       matrix:
         client: [ic, me]
     name: Deploy affected applications
-    needs: [main, agents]
+    needs: [prep, main, agents]
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS credentials
@@ -124,7 +127,8 @@ jobs:
         env:
           TENANT: ${{ matrix.client }}
       - name: run many deployments
-        run: npx nx affected --target=deploy:prod
+        run: npx nx affected --target=deploy:prod ${DEPLOY_ARGS}
         env: 
           CONSOLE_BUCKET_PROD: ${{ secrets.CONSOLE_BUCKET_PROD }}
           CONSOLE_DISTRIBUTION_ID_PROD: ${{ secrets.CONSOLE_DISTRIBUTION_ID_PROD }}
+          DEPLOY_ARGS: ${{ needs.prep.outputs.deploy_args }}
