@@ -24,7 +24,9 @@ Cypress.Commands.add(
   'login',
   (email: string, password: string, tResponse: TokenResponse) => {
     cy.intercept({ method: 'POST', url: '**/sessions' }, tResponse);
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get('input[name="username"]').type(email).blur();
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get('input[name="password"]').type(password).blur();
     cy.get('button').contains('Sign In').click();
   }
