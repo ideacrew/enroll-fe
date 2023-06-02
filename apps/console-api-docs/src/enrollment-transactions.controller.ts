@@ -1,18 +1,9 @@
-import { of } from 'rxjs';
-import {
-  Controller,
-  Route,
-  Post,
-  Body,
-  Get,
-  Path,
-  Security,
-  Response,
-} from 'tsoa';
+import { Controller, Route, Get, Path, Security, Response } from 'tsoa';
 import { EnrollmentTransaction } from '@enroll/carrier-portal/types';
 
 @Route('transaction_management/enrollment_transactions')
 export class EnrollmentTransactionsController extends Controller {
+  /* eslint-disable @typescript-eslint/require-await, unicorn/no-null */
   @Get('{id}')
   @Security('BearerJWT')
   @Response('403', 'Access Denied', null)
@@ -20,6 +11,7 @@ export class EnrollmentTransactionsController extends Controller {
   public async showTransaction(
     @Path() id: string
   ): Promise<EnrollmentTransaction> {
+    /* eslint-disable @typescript-eslint/naming-convention */
     return {
       id: id,
       transaction_kind: '',
@@ -33,5 +25,7 @@ export class EnrollmentTransactionsController extends Controller {
       ack_state: '',
       ack_at: '',
     };
+    /* eslint-enable @typescript-eslint/naming-convention */
   }
+  /* eslint-enable @typescript-eslint/require-await, unicorn/no-null */
 }

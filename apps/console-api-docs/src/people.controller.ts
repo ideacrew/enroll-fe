@@ -1,4 +1,3 @@
-import { of } from 'rxjs';
 import {
   Controller,
   Route,
@@ -17,6 +16,7 @@ import { Person } from '@enroll/carrier-portal/types';
 
 @Route('transaction_management/people')
 export class PeopleController extends Controller {
+  /* eslint-disable @typescript-eslint/require-await, unicorn/no-null, @typescript-eslint/no-unused-vars */
   @Post('search')
   @Security('BearerJWT')
   @Response('403', 'Access Denied', null)
@@ -25,12 +25,15 @@ export class PeopleController extends Controller {
   ): Promise<PersonSearchResult[]> {
     return [];
   }
+  /* eslint-enable @typescript-eslint/require-await, unicorn/no-null, @typescript-eslint/no-unused-vars */
 
+  /* eslint-disable @typescript-eslint/require-await, unicorn/no-null */
   @Get('{id}')
   @Security('BearerJWT')
   @Response('403', 'Access Denied', null)
   @Response('404', 'Not Found', null)
   public async showPerson(@Path() id: string): Promise<Person> {
+    /* eslint-disable @typescript-eslint/naming-convention */
     return {
       id: id,
       person_name: {
@@ -40,5 +43,7 @@ export class PeopleController extends Controller {
       members: [],
       responsible_parties: [],
     };
+    /* eslint-enable @typescript-eslint/naming-convention */
   }
+  /* eslint-enable @typescript-eslint/require-await, unicorn/no-null */
 }

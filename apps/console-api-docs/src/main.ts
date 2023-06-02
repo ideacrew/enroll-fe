@@ -1,19 +1,15 @@
-import { PeopleController } from './people.controller';
-
 import * as express from 'express';
-import { json, urlencoded, application } from 'express';
+import { json, urlencoded, Router } from 'express';
 import { RegisterRoutes } from '../build/routes';
 
-export const app = express();
+export const app = <Router>express();
 
-// Use body parser to read sent json payloads
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 app.use(
   urlencoded({
     extended: true,
   })
 );
 app.use(json());
-
-app;
 
 RegisterRoutes(app);
