@@ -6,8 +6,8 @@
       They're not the premiums you paid.
     </p>
     <h2>
-      Enter these amounts on IRS Form 8962 when you prepare your 2022 income tax
-      return.
+      Enter these amounts on IRS Form 8962 when you prepare your
+      {{ currentTaxYear }} income tax return.
     </h2>
     <table #pdfTable class="premium-table">
       <thead>
@@ -48,7 +48,7 @@
       </p>
 
       <ng-template #loading>
-        <p class="alert-info">loading...</p>
+        <p class="alert-info">Loading...</p>
       </ng-template>
     </div>
   </ng-template>
