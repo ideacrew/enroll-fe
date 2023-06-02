@@ -1,0 +1,23 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*", "build/routes.ts"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["apps/console-api-docs/tsconfig.*?.json"]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["apps/console-api-docs/tsconfig.*?.json"]
+      },
+      "excludedFiles": ["static/**/*", "build/routes.ts"]
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "excludedFiles": ["static/**/*", "dist/**/*"]
+    }
+  ]
+}

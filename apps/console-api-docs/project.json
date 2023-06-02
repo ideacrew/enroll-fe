@@ -1,0 +1,60 @@
+{
+  "name": "console-api-docs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/console-api-docs/src",
+  "projectType": "application",
+  "namedInputs": {
+    "code": [
+      "{projectRoot}/apps/console-api-docs/src/**/*.ts",
+      "{projectRoot}/tsoa.js"
+    ],
+    "templates": [
+      "{projectRoot}/static/**/*",
+      "{projectRoot}/build/swagger.json"
+    ]
+  },
+  "targets": {
+    "pre-build": {
+      "executor": "nx:run-commands",
+      "inputs": ["code"],
+      "outputs": [
+        "apps/console-api-docs/build/routes.ts",
+        "apps/console-api-docs/build/swagger.json"
+      ],
+      "options": {
+        "command": "npx tsoa spec-and-routes -c tsoa.js",
+        "cwd": "apps/console-api-docs"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "inputs": ["templates"],
+      "dependsOn": ["pre-build"],
+      "outputs": ["apps/console-api-docs/dist/**/*"],
+      "options": {
+        "commands": [
+          "mkdir -p dist",
+          "cp -r static/* dist/",
+          "cp -r build/swagger.json dist/"
+        ],
+        "cwd": "apps/console-api-docs"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "console-api-docs:build",
+        "staticFilePath": "apps/console-api-docs/dist/"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/console-api-docs/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

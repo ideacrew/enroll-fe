@@ -3,3 +3,4 @@
 /dist
 /coverage
 .angular
+apps/console-api-docs/static
