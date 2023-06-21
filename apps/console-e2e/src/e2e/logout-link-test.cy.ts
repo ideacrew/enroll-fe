@@ -1,6 +1,7 @@
 import {
   setMocksForKeycloak,
   generateTokenResponse,
+  clickKeycloakLogin,
 } from '@enroll/shared/keycloak-mock';
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -41,6 +42,8 @@ describe('console - after having logged in', () => {
 
   it('should have a clickable logout link', () => {
     cy.visit('/');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    clickKeycloakLogin(cy);
     cy.get('a').contains('logout');
   });
 
@@ -53,6 +56,8 @@ describe('console - after having logged in', () => {
       { last_update_at: 'SOME UPDATE DATE' }
     );
     cy.visit('/');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    clickKeycloakLogin(cy);
     cy.contains('Data current as of: SOME UPDATE DATE');
   });
 });

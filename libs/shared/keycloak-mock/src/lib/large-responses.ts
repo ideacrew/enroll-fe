@@ -131,3 +131,22 @@ export const IFRAMERESPONSE = `
   </body>
   </html>
 `;
+
+export const loginFrame = (
+  redirectUri: string,
+  state: string,
+  code: string,
+  sessionState: string
+) => `
+<html>
+  <body>
+    <form id="keycloak-mock-login-form" method="get" action="/keycloak-mock/submit-auth">
+      <input type="hidden" name="redirectUri" value="${redirectUri}">
+      <input type="hidden" name="sessionState" value="${sessionState}">
+      <input type="hidden" name="code" value="${code}">
+      <input type="hidden" name="state" value="${state}">
+      <input type="submit" value="LOGIN MOCK KEYCLOAK USER">
+    </form>
+  </body>
+</html>
+`;

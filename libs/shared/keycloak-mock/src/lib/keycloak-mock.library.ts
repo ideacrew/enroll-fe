@@ -1,4 +1,4 @@
-import { cookiesResponse, IFRAMERESPONSE } from './large-responses';
+import { cookiesResponse, IFRAMERESPONSE, loginFrame } from './large-responses';
 
 const URLS = {
   auth: (realm: string) =>
@@ -27,13 +27,6 @@ const METHODS = {
 /* eslint-disable arrow-body-style */
 /* eslint-disable @typescript-eslint/naming-convention */
 const RESPONSES = {
-  auth: (
-    redirectUri: string,
-    state: string,
-    code: string,
-    sessionState: string
-  ) =>
-    `${redirectUri}#session_state=${sessionState}&code=${code}&state=${state}`,
   cookies: cookiesResponse,
   loginStatusIframe: IFRAMERESPONSE,
   loginStatusIframeInit: {
@@ -99,14 +92,14 @@ export const generateTokenResponse = (
 /* eslint-enable @typescript-eslint/naming-convention */
 /* eslint-enable arrow-body-style */
 
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 export function setMocksForKeycloak(
   tokenResponse: object,
   appRoot: string,
   realm: string,
   cy: Cypress.cy
 ): void {
-  /* eslint-disable @typescript-eslint/no-unsafe-call */
-  /* eslint-disable @typescript-eslint/no-unsafe-member-access */
   cy.intercept(
     {
       method: METHODS.loginStatusIframe,
@@ -165,11 +158,29 @@ export function setMocksForKeycloak(
       const sessionState = '5487e3d9-887a-4a8d-83d6-57e5b89c0230';
       const code =
         '05f2b594-8a79-4209-8f3c-a3c402a8760d.5487e3d9-887a-4a8d-83d6-57e5b89c0230.f31c0fd9-8b08-4165-abec-90a1ac395d58';
-      request.redirect(RESPONSES.auth(redirectUri, state, code, sessionState));
+      request.reply(loginFrame(redirectUri, state, code, sessionState));
+    }
+  );
+  cy.intercept(
+    {
+      method: 'GET',
+      url: '**/keycloak-mock/submit-auth**',
+    },
+    (request: any) => {
+      const { redirectUri, state, sessionState, code } = request.query;
+      /* eslint-disable @typescript-eslint/restrict-template-expressions */
+      request.redirect(
+        `${redirectUri}#session_state=${sessionState}&code=${code}&state=${state}`
+      );
+      /* eslint-enable @typescript-eslint/restrict-template-expressions */
     }
   );
   /* eslint-enable @typescript-eslint/no-unsafe-assignment */
   /* eslint-enable @typescript-eslint/no-unsafe-argument */
-  /* eslint-enable @typescript-eslint/no-unsafe-call */
-  /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
+
+export function clickKeycloakLogin(cy: Cypress.cy): void {
+  cy.get('#keycloak-mock-login-form').submit();
+}
+/* eslint-enable @typescript-eslint/no-unsafe-call */
+/* eslint-enable @typescript-eslint/no-unsafe-member-access */
