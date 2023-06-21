@@ -1,5 +1,4 @@
-import { Observable, of } from 'rxjs';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, isDevMode } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { TenantConfigService } from '@enroll/tenant-config';
 import { KEYCLOAK_CONFIG, KeycloakConfig } from './keycloak-config';
@@ -42,6 +41,7 @@ export class KeycloakConfigService {
         clientId: currentConfig.clientId,
       },
       initOptions: {
+        useNonce: !isDevMode(),
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html',

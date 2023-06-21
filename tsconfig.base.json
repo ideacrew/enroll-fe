@@ -66,6 +66,9 @@
       ],
       "@enroll/shared/analytics": ["libs/shared/analytics/src/index.ts"],
       "@enroll/shared/i18n": ["libs/shared/i18n/src/index.ts"],
+      "@enroll/shared/keycloak-mock": [
+        "libs/shared/keycloak-mock/src/index.ts"
+      ],
       "@enroll/shared/page-title": ["libs/shared/page-title/src/index.ts"],
       "@enroll/shared/state/root-store": [
         "libs/shared/state/root-store/src/index.ts"
