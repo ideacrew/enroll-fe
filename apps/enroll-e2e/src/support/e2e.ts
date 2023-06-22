@@ -14,5 +14,4 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-// eslint-disable-next-line unicorn/prevent-abbreviations
 import './commands';
