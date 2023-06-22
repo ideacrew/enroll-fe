@@ -76,7 +76,6 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-cypress": "^2.10.3",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-unicorn": "^45.0.2",
     "express": "^4.18.2",
     "jasmine-marbles": "~0.9.1",
     "jest": "28.1.3",
