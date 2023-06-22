@@ -138,7 +138,6 @@
         "arrow-body-style": "error",
         "constructor-super": "error",
         "eqeqeq": ["error", "smart"],
-        "guard-for-in": "error",
         "id-blacklist": "off",
         "id-match": "off",
         "import/no-deprecated": "warn",
