@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable no-var */
 import { Injectable, isDevMode } from '@angular/core';
 import { Router, NavigationEnd, RouterEvent, Event } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
-declare var gtag: Function;
+declare const gtag: Function;
 
 @Injectable({
   providedIn: 'root',
