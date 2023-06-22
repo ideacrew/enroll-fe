@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { KeycloakService } from 'keycloak-angular';
+import { KeycloakConfigService } from '@enroll/console/auth';
 import { PortalDataService } from '@enroll/carrier-portal/data-access';
 import { TranslocoModule } from '@ngneat/transloco';
 
@@ -15,7 +15,7 @@ import { TranslocoModule } from '@ngneat/transloco';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShellComponent {
-  authService = inject(KeycloakService);
+  authService = inject(KeycloakConfigService);
   portalDataService = inject(PortalDataService);
   lastUpdatedData$ = this.portalDataService.getLatestUpdateData();
 

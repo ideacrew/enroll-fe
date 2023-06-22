@@ -12,8 +12,8 @@ const email = 'email@domain.com';
 /* eslint-disable arrow-body-style */
 const generateToken = () => {
   return {
-    exp: Date.now() / 1000 + 300,
-    iat: Date.now() / 1000 + 300,
+    exp: Math.ceil(Date.now() / 1000) + 600,
+    iat: Math.ceil(Date.now() / 1000),
     jti: 'abcde',
     iss: 'someone',
     aud: 'somebody',
@@ -44,7 +44,8 @@ describe('console - after having logged in', () => {
     cy.visit('/');
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     clickKeycloakLogin(cy);
-    cy.get('a').contains('logout');
+    cy.get('a').contains('logout').click();
+    cy.get('#keycloak-mock-login-form').should('exist');
   });
 
   it('should have the last updated date', () => {

@@ -1,5 +1,5 @@
 import { inject, Injectable, isDevMode } from '@angular/core';
-import { KeycloakService } from 'keycloak-angular';
+import { KeycloakService, KeycloakEventType } from 'keycloak-angular';
 import { TenantConfigService } from '@enroll/tenant-config';
 import { KEYCLOAK_CONFIG, KeycloakConfig } from './keycloak-config';
 
@@ -32,9 +32,15 @@ export class KeycloakConfigService {
     return matchingConfig;
   }
 
+  logout(): void {
+    const logoutLocation = window.location.href;
+    this.keycloakService.clearToken();
+    void this.keycloakService.logout(logoutLocation);
+  }
+
   loadAndSetConfig(): Promise<boolean> {
     const currentConfig = this.currentKeycloakMapping;
-    return this.keycloakService.init({
+    const initResult = this.keycloakService.init({
       config: {
         url: currentConfig.url,
         realm: currentConfig.realm,
@@ -46,6 +52,19 @@ export class KeycloakConfigService {
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html',
       },
+      updateMinValidity: 300,
     });
+    /* eslint-disable unicorn/no-this-assignment */
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const kcService = this;
+    /* eslint-enable unicorn/no-this-assignment */
+    this.keycloakService.keycloakEvents$.subscribe({
+      next(event) {
+        if (event.type === KeycloakEventType.OnTokenExpired) {
+          kcService.logout();
+        }
+      },
+    });
+    return initResult;
   }
 }

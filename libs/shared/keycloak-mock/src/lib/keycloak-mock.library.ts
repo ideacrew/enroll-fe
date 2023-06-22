@@ -48,8 +48,8 @@ const RESPONSES = {
 
 const generateRefreshToken = (realm: string): any => {
   return {
-    exp: Date.now() / 1000 + 1800,
-    iat: Date.now() / 1000 + 1800,
+    exp: Math.ceil(Date.now() / 1000) + 1800,
+    iat: Math.ceil(Date.now() / 1000),
     jti: 'bbeb4af2-a60e-4ac9-89cf-6e102578c55e',
     iss: `http://localhost:8080/auth/realms/${realm}`,
     aud: `http://localhost:8080/auth/realms/${realm}`,
