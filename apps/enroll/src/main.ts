@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-top-level-await */
 import { HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom, APP_INITIALIZER } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
