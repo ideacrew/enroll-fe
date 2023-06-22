@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-/* eslint-disable unicorn/no-null */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import {

@@ -16,7 +16,7 @@ import { Person } from '@enroll/carrier-portal/types';
 
 @Route('transaction_management/people')
 export class PeopleController extends Controller {
-  /* eslint-disable @typescript-eslint/require-await, unicorn/no-null, @typescript-eslint/no-unused-vars */
+  /* eslint-disable @typescript-eslint/require-await, @typescript-eslint/no-unused-vars */
   @Post('search')
   @Security('BearerJWT')
   @Response('403', 'Access Denied', null)
@@ -25,9 +25,9 @@ export class PeopleController extends Controller {
   ): Promise<PersonSearchResult[]> {
     return [];
   }
-  /* eslint-enable @typescript-eslint/require-await, unicorn/no-null, @typescript-eslint/no-unused-vars */
+  /* eslint-enable @typescript-eslint/require-await, @typescript-eslint/no-unused-vars */
 
-  /* eslint-disable @typescript-eslint/require-await, unicorn/no-null */
+  /* eslint-disable @typescript-eslint/require-await */
   @Get('{id}')
   @Security('BearerJWT')
   @Response('403', 'Access Denied', null)
@@ -45,5 +45,5 @@ export class PeopleController extends Controller {
     };
     /* eslint-enable @typescript-eslint/naming-convention */
   }
-  /* eslint-enable @typescript-eslint/require-await, unicorn/no-null */
+  /* eslint-enable @typescript-eslint/require-await */
 }

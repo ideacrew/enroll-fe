@@ -16,7 +16,6 @@ import { TenantConfigService } from '@enroll/tenant-config';
 
 export class CustomHandler implements TranslocoMissingHandler {
   handle() {
-    // eslint-disable-next-line unicorn/no-null
     return 'missing translation';
   }
 }

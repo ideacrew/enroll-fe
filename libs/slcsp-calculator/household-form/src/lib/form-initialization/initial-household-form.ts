@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-null */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -50,7 +49,6 @@ export const defaultHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
 export const newHouseholdMember = (): FormGroup<HouseholdMemberFormGroup> =>
   new FormGroup<HouseholdMemberFormGroup>({
     primaryMember: new FormControl(false, { nonNullable: true }),
-    // eslint-disable-next-line unicorn/no-null
     relationship: new FormControl(null, { validators: [Validators.required] }),
     name: new FormControl<string | null>(null, {
       validators: [Validators.required],

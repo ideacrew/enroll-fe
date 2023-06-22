@@ -3,7 +3,7 @@ import { EnrollmentTransaction } from '@enroll/carrier-portal/types';
 
 @Route('transaction_management/enrollment_transactions')
 export class EnrollmentTransactionsController extends Controller {
-  /* eslint-disable @typescript-eslint/require-await, unicorn/no-null */
+  /* eslint-disable @typescript-eslint/require-await */
   @Get('{id}')
   @Security('BearerJWT')
   @Response('403', 'Access Denied', null)
@@ -27,5 +27,5 @@ export class EnrollmentTransactionsController extends Controller {
     };
     /* eslint-enable @typescript-eslint/naming-convention */
   }
-  /* eslint-enable @typescript-eslint/require-await, unicorn/no-null */
+  /* eslint-enable @typescript-eslint/require-await */
 }

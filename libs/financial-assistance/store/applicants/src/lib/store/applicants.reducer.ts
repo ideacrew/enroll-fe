@@ -29,7 +29,6 @@ const applicantsReducer = createReducer(
   on(ApplicantsActions.init, (state) => ({
     ...state,
     loaded: false,
-    // eslint-disable-next-line unicorn/no-null
     error: null,
   })),
   on(ApplicantsActions.loadApplicantsSuccess, (state, { applicants }) =>
