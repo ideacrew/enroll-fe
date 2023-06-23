@@ -27,6 +27,7 @@
     "financial-assistance-testing": "libs/financial-assistance/testing",
     "shared-analytics": "libs/shared/analytics",
     "shared-i18n": "libs/shared/i18n",
+    "shared-keycloak-mock": "libs/shared/keycloak-mock",
     "shared-page-title": "libs/shared/page-title",
     "shared-state-root-store": "libs/shared/state/root-store",
     "shared-theme": "libs/shared/theme",

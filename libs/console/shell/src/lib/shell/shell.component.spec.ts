@@ -1,13 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
-import { mockLoggedInKeycloakService } from '@enroll/console/auth';
+import {
+  KeycloakConfigService,
+  MockKeycloakConfigService,
+  KEYCLOAK_CONFIG,
+  MOCK_KEYCLOAK_CONFIG,
+  MockKeycloakService,
+} from '@enroll/console/auth';
 
 import {
   APPLICATION_NAME,
   MOCK_APPLICATION_CONFIG,
   TENANT_CONFIG,
   MOCK_TENANT_CONFIG,
+  MOCK_TENANT_CONFIG_SERVICE,
+  TenantConfigService,
 } from '@enroll/tenant-config';
 import { ActivatedRouteStub } from '@enroll/testing';
 
@@ -22,6 +30,14 @@ describe('ShellComponent', () => {
       imports: [ShellComponent],
       providers: [
         {
+          provide: KEYCLOAK_CONFIG,
+          useValue: MOCK_KEYCLOAK_CONFIG,
+        },
+        {
+          provide: TenantConfigService,
+          useClass: MOCK_TENANT_CONFIG_SERVICE,
+        },
+        {
           provide: APPLICATION_NAME,
           useValue: MOCK_APPLICATION_CONFIG,
         },
@@ -34,8 +50,12 @@ describe('ShellComponent', () => {
           useValue: new ActivatedRouteStub({ id: '123' }),
         },
         {
+          provide: KeycloakConfigService,
+          useClass: MockKeycloakConfigService,
+        },
+        {
           provide: KeycloakService,
-          useValue: mockLoggedInKeycloakService,
+          useClass: MockKeycloakService,
         },
       ],
     }).compileComponents();

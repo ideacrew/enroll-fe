@@ -1,14 +1,9 @@
-import { lastValueFrom, of } from 'rxjs';
 import { KeycloakService } from 'keycloak-angular';
+import { KeycloakConfig } from './keycloak/keycloak-config';
+import { KeycloakConfigService } from './keycloak/keycloak-config.service';
 
-export class MockKeycloakService extends KeycloakService {
-  constructor(private loggedIn: boolean) {
-    super();
-  }
+export class MockKeycloakConfigService extends KeycloakConfigService {}
 
-  override isLoggedIn() {
-    return lastValueFrom(of(this.loggedIn));
-  }
-}
+export class MockKeycloakService extends KeycloakService {}
 
-export const mockLoggedInKeycloakService = new MockKeycloakService(true);
+export const MOCK_KEYCLOAK_CONFIG: KeycloakConfig[] = [];
