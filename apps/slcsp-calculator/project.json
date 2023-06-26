@@ -100,7 +100,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "apps/slcsp-calculator/**/*.ts",
@@ -109,7 +109,7 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/slcsp-calculator"],
       "options": {
         "jestConfig": "apps/slcsp-calculator/jest.config.ts",
