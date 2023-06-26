@@ -1,7 +1,14 @@
 const nxPreset = require('@nx/jest/preset').default;
 
+const globalConf = {
+  // https://github.com/jestjs/jest/issues/13576#issuecomment-1572682459
+  collectCoverage: true,
+  coverageDirectory: `${process.env.NX_WORKSPACE_ROOT}/coverage/${process.env['NX_TASK_TARGET_PROJECT']}`,
+};
+
 module.exports = {
   ...nxPreset,
+  ...globalConf,
   /* TODO: Update to latest Jest snapshotFormat
    * By default Nx has kept the older style of Jest Snapshot formats
    * to prevent breaking of any existing tests with snapshots.
