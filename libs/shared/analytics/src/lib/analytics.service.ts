@@ -15,8 +15,9 @@ export class AnalyticsService {
     if (!isDevMode()) {
       this.router.events
         .pipe(
-          filter<Event, RouterEvent>(
-            (event: Event): event is RouterEvent => event instanceof RouterEvent
+          filter<Event | RouterEvent, RouterEvent>(
+            (event: Event | RouterEvent): event is RouterEvent =>
+              event instanceof RouterEvent
           ),
           filter<RouterEvent, NavigationEnd>(
             (event: RouterEvent): event is NavigationEnd =>
