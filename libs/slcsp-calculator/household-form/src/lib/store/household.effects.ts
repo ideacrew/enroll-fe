@@ -10,6 +10,8 @@ import * as HouseholdActions from './household.actions';
 export class HouseholdEffects {
   loadHouseholds$ = createEffect(this.loadHousehold());
 
+  constructor(private actions$: Actions) {}
+
   loadHousehold() {
     return () => {
       return this.actions$.pipe(
@@ -19,6 +21,4 @@ export class HouseholdEffects {
       );
     };
   }
-
-  constructor(private actions$: Actions) {}
 }

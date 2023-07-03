@@ -40,6 +40,10 @@ export class MemberComponent {
 
   constructor(private titlecase: TitleCasePipe) {}
 
+  get memberResidenceControl() {
+    return this.memberFormGroup.get('residences');
+  }
+
   get memberFormGroup(): FormGroup<HouseholdMemberFormGroup> {
     return this.householdMembersArray.at(this.memberId - 1);
   }
@@ -138,10 +142,6 @@ export class MemberComponent {
     let diff = (Date.now() - date.getTime()) / 1000;
     diff /= 60 * 60 * 24;
     return Math.abs(Math.round(diff / 365.25));
-  }
-
-  get memberResidenceControl() {
-    return this.memberFormGroup.get('residences');
   }
 
   navigateToCoverage(): void {

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { BehaviorSubject, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 
 import {
   constructNameQuery,
@@ -31,21 +31,21 @@ import { TranslocoModule } from '@ngneat/transloco';
 })
 export class MemberSearchComponent {
   searchType: 'member_id' | 'name' = 'member_id';
-
   searchTerm: string | undefined;
-
-  private pageHeading: BehaviorSubject<string> = new BehaviorSubject(
-    'Member Search'
-  );
-  pageHeading$ = this.pageHeading.asObservable();
-
   searchResults: Subject<PersonSearchResult[]> = new Subject();
   searchResults$ = this.searchResults.asObservable();
   query!: string;
   firstName!: string;
   lastName!: string;
-
   personService = inject(PersonService);
+  pageHeading$ = undefined as Observable<string> | undefined;
+  private pageHeading: BehaviorSubject<string> = new BehaviorSubject(
+    'Member Search'
+  );
+
+  constructor() {
+    this.pageHeading$ = this.pageHeading.asObservable();
+  }
 
   get noResultsMessage(): string {
     return this.searchType === 'member_id'

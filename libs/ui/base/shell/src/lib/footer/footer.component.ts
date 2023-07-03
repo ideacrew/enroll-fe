@@ -16,11 +16,11 @@ export class FooterComponent {
   @Input() tty = '';
   @Input() helpLink = '';
 
+  currentYear = new Date().getFullYear();
+
   get fullPhone(): string {
     return this.tty.length > 0
       ? `${this.phoneNumber} / TTY: ${this.tty}`
       : this.phoneNumber;
   }
-
-  currentYear = new Date().getFullYear();
 }

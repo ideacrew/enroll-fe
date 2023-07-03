@@ -13,6 +13,10 @@ export class JwtAuthService {
     return this.parsedJwt.preferred_username;
   }
 
+  get rawJwtFromLocalStorage(): string {
+    return localStorage.getItem('__jwt_authorization_current_token') ?? '';
+  }
+
   clearJwt(): void {
     localStorage.removeItem('__jwt_authorization_current_token');
     localStorage.removeItem('__jwt_authorization_refresh_token');
@@ -50,10 +54,6 @@ export class JwtAuthService {
       }
     }
     return undefined;
-  }
-
-  get rawJwtFromLocalStorage(): string {
-    return localStorage.getItem('__jwt_authorization_current_token') ?? '';
   }
 
   private validateAndGetExpiration(jwt: string): number {

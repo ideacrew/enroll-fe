@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
+  EventEmitter as EventTarget,
   Input,
   Output,
 } from '@angular/core';
@@ -20,8 +20,7 @@ import { HouseholdFormGroup } from '@enroll/slcsp-calculator/types';
 export class HouseholdCountComponent {
   @Input() parent!: FormGroup<HouseholdFormGroup>;
 
-  @Output() newHouseholdCount: EventEmitter<number> =
-    new EventEmitter<number>();
+  @Output() newHouseholdCount: EventTarget<number> = new EventTarget<number>();
 
   get householdCount(): number {
     return this.parent.get('householdCount')?.value ?? 0;

@@ -23,10 +23,6 @@ export class TenantConfigService {
   http = inject(HttpClient);
   tenantConfig: TenantConfig[] = inject(TENANT_CONFIG);
 
-  private get hostName(): string {
-    return window.location.host;
-  }
-
   get currentTenantMapping(): TenantConfig {
     const matchingConfig = this.tenantConfig.find(
       (config) =>
@@ -47,6 +43,10 @@ export class TenantConfigService {
 
   get baseApiUrl(): string {
     return this.currentTenantMapping.baseApiUrl;
+  }
+
+  private get hostName(): string {
+    return window.location.host;
   }
 
   loadAndSetConfig(): Observable<boolean> {

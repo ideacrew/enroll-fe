@@ -30,6 +30,15 @@ export class MemberResidenceMonthsComponent {
     return this.residenceFormGroup.get('county.state')?.value || '';
   }
 
+  get monthsText(): string {
+    const isAbsent = this.residenceFormGroup.get('absent')?.value || false;
+
+    return isAbsent
+      ? `What months did ${this.memberName} live in another country or was deceased?`
+      : `What months did ${this.memberName} live in ${this.countyName},
+    ${this.stateAbbreviation}?`;
+  }
+
   // Select all months that aren't disabled
   selectAllMonths(): void {
     const monthsControl = this.residenceFormGroup.get('months');
@@ -67,14 +76,5 @@ export class MemberResidenceMonthsComponent {
     }
 
     monthsControl.patchValue(newMonths);
-  }
-
-  get monthsText(): string {
-    const isAbsent = this.residenceFormGroup.get('absent')?.value || false;
-
-    return isAbsent
-      ? `What months did ${this.memberName} live in another country or was deceased?`
-      : `What months did ${this.memberName} live in ${this.countyName},
-    ${this.stateAbbreviation}?`;
   }
 }
