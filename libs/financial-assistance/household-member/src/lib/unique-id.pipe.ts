@@ -8,7 +8,7 @@ export class UniqueIdPipe implements PipeTransform {
     // Convert these lines into a pure function for testing
     const trimmed = value.trim();
     const lowerCase = trimmed.toLocaleLowerCase();
-    const slug = lowerCase.replace(/\s+/g, '-');
+    const slug = lowerCase.replaceAll(/\s+/g, '-');
 
     return slug;
   }

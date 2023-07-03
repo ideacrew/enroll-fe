@@ -7,15 +7,15 @@ import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
-import { routes } from './application.routes';
 import {
   configFactory,
   TenantConfigService,
   APPLICATION_NAME,
   TENANT_CONFIG,
 } from '@enroll/tenant-config';
-import { enrollTenantConfig } from './tenant-config';
 import { TITLE_EXTENSION } from '@enroll/shared/page-title';
+import { routes } from './application.routes';
+import { enrollTenantConfig } from './tenant-config';
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(
