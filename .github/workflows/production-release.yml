@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
     inputs:
       app:
-        default: "console"
-        description: "App to build"
+        default: 'console'
+        description: 'App to build'
         required: true
 
 concurrency:
@@ -25,10 +25,10 @@ jobs:
       e2e_args: ${{ steps.prep.outputs.e2e_args }}
       deploy_args: ${{ steps.prep.outputs.deploy_args }}
     steps:
-      - name: Set argument variables 
+      - name: Set argument variables
         id: prep
         run: |
-          if [[ "${{github.event_name}}" == "release" ]]; then 
+          if [[ "${{github.event_name}}" == "release" ]]; then
             echo ::set-output name=lint_args::"--parallel=3"
             echo ::set-output name=test_args::"--parallel=3 --ci --code-coverage"
             echo ::set-output name=build_args::"--parallel=3"
@@ -40,11 +40,11 @@ jobs:
             echo ::set-output name=build_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
             echo ::set-output name=e2e_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci"
             echo ::set-output name=deploy_args::"--files apps/${{ github.event.inputs.app }}/project.json"
-          fi 
+          fi
   main:
     name: Nx Cloud - Main Job
     needs: [prep]
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.2
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
     with:
       number-of-agents: 3
       main-branch-name: trunk
@@ -69,7 +69,7 @@ jobs:
 
   agents:
     name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11.2
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
     with:
       number-of-agents: 3
 
@@ -128,7 +128,7 @@ jobs:
           TENANT: ${{ matrix.client }}
       - name: run many deployments
         run: npx nx affected --target=deploy:prod ${DEPLOY_ARGS}
-        env: 
+        env:
           CONSOLE_BUCKET_PROD: ${{ secrets.CONSOLE_BUCKET_PROD }}
           CONSOLE_DISTRIBUTION_ID_PROD: ${{ secrets.CONSOLE_DISTRIBUTION_ID_PROD }}
           DEPLOY_ARGS: ${{ needs.prep.outputs.deploy_args }}
