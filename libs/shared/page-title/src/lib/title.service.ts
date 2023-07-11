@@ -26,8 +26,9 @@ export class TitleService {
   ) {
     this.router.events
       .pipe(
-        filter<Event, RouterEvent>(
-          (event: Event): event is RouterEvent => event instanceof RouterEvent
+        filter<Event, NavigationEnd>(
+          (event: Event): event is NavigationEnd =>
+            event instanceof NavigationEnd
         ),
         filter<RouterEvent, NavigationEnd>(
           (event: RouterEvent): event is NavigationEnd =>
