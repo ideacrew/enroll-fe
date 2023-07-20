@@ -25,3 +25,16 @@ jobs:
           with:
             name: Security Reports
             path: bearer.html
+  npm_audit:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: run npm audit
+          run: |
+            npm audit > npm_audit.txt
+        - name: upload npm audit failure report
+          uses: actions/upload-artifact@v3
+          if: failure()
+          with:
+            name: Security Reports
+            path: npm_audit.txt
