@@ -30,7 +30,7 @@
     "@ngrx/effects": "15.1.0",
     "@ngrx/entity": "15.1.0",
     "@ngrx/router-store": "15.1.0",
-    "@ngrx/store": "15.1.0",
+    "@ngrx/store": "15.4.0",
     "date-fns": "^2.28.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.28",
