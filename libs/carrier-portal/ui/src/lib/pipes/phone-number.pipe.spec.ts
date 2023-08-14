@@ -1,4 +1,3 @@
-import { of } from 'rxjs';
 import { PhoneNumberPipe } from './phone-number.pipe';
 
 describe('PhoneNumberPipe', () => {

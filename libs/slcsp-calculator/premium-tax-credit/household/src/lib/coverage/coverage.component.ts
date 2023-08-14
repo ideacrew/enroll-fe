@@ -36,6 +36,16 @@ export class CoverageComponent {
 
   reviewing$ = this.store.select(selectQueryParam('reviewing'));
 
+  get validCoverageForm(): boolean {
+    const coverageControl = this.householdMembersArray
+      .at(this.memberId - 1)
+      .get('coverage');
+
+    const isCoverageValid = coverageControl?.valid ?? false;
+
+    return isCoverageValid;
+  }
+
   nextStep() {
     if (this.memberId > this.householdMembersArray.length) {
       throw new Error('Invalid member id');
@@ -61,15 +71,5 @@ export class CoverageComponent {
         `/premium-tax-credit/review/${this.currentTaxYear}`
       );
     }
-  }
-
-  get validCoverageForm(): boolean {
-    const coverageControl = this.householdMembersArray
-      .at(this.memberId - 1)
-      .get('coverage');
-
-    const isCoverageValid = coverageControl?.valid ?? false;
-
-    return isCoverageValid;
   }
 }

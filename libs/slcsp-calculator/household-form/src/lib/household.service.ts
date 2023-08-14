@@ -20,8 +20,6 @@ import { extendResidenceMonths } from './util/transforms/extend-residence-months
 })
 export class HouseholdService {
   mock = false;
-  // Initial form state for household form
-  private currentTaxYear: string | undefined;
   householdForm: FormGroup<HouseholdFormGroup> =
     isDevMode() && this.mock
       ? mockHouseholdForm()
@@ -32,6 +30,9 @@ export class HouseholdService {
   readonly householdConfirmation$ = this.householdForm.get(
     'householdConfirmation'
   )?.valueChanges;
+
+  // Initial form state for household form
+  private currentTaxYear: string | undefined;
 
   // Needed in order to access the household members in the template
   get householdMembersArray(): FormArray<FormGroup<HouseholdMemberFormGroup>> {

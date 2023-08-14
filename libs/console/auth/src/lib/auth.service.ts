@@ -23,16 +23,16 @@ type HasLoginError = {
   providedIn: 'root',
 })
 export class AuthService {
+  http = inject(HttpClient);
   token: string | undefined = undefined;
+  baseApiUrl = inject(TenantConfigService).baseApiUrl;
+  jwtChecker = inject(JwtAuthService);
+  router = inject(Router);
+
   private refreshToken: string | undefined = undefined;
   private expirationTime!: number;
   private tokenTime!: number;
   private logoutTimerSubscription?: Subscription | undefined = undefined;
-
-  http = inject(HttpClient);
-  baseApiUrl = inject(TenantConfigService).baseApiUrl;
-  jwtChecker = inject(JwtAuthService);
-  router = inject(Router);
 
   constructor() {
     this.expirationTime = Date.now();
@@ -44,6 +44,19 @@ export class AuthService {
       this.expirationTime = currentJwtValues.expiration;
       this.setLogoutTimer(currentJwtValues.expiration);
     }
+  }
+
+  get loggedIn(): boolean {
+    return !!this.token;
+  }
+
+  get inRefreshInterval(): boolean {
+    const now = Date.now();
+
+    return (
+      now < this.expirationTime &&
+      now > (this.tokenTime + this.expirationTime) / 2
+    );
   }
 
   login(
@@ -68,7 +81,7 @@ export class AuthService {
             void this.router.navigate(['/']);
           }
         },
-        error: (_error) => {
+        error: () => {
           hle.loginError$.next(true);
         },
       });
@@ -108,19 +121,6 @@ export class AuthService {
           console.log('Token Refreshed.');
         },
       });
-  }
-
-  get loggedIn(): boolean {
-    return !!this.token;
-  }
-
-  get inRefreshInterval(): boolean {
-    const now = Date.now();
-
-    return (
-      now < this.expirationTime &&
-      now > (this.tokenTime + this.expirationTime) / 2
-    );
   }
 
   setLogoutTimer(timeInMillis: number): void {

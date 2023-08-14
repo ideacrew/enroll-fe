@@ -17,9 +17,6 @@ import { HouseholdMemberService } from '../household-member.service';
 export class ImmigrationDocumentComponent {
   vlpDocumentKind = vlpDocumentKind;
   form: FormGroup;
-  constructor(public householdMemberService: HouseholdMemberService) {
-    this.form = this.householdMemberService.householdMemberForm;
-  }
 
   needsAlienNumber: VlpDocumentKind[] = [
     'I-327 (Reentry Permit)',
@@ -104,6 +101,10 @@ export class ImmigrationDocumentComponent {
     'Other (With Alien Number)',
     'Other (With I-94 Number)',
   ];
+
+  constructor(public householdMemberService: HouseholdMemberService) {
+    this.form = this.householdMemberService.householdMemberForm;
+  }
 
   // Convert to pipe
   expirationDateLabel(document: VlpDocumentKind): string {

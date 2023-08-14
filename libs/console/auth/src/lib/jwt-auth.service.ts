@@ -5,6 +5,10 @@ import { JwtValues, JwtPayload } from './types';
 
 @Injectable({ providedIn: 'root' })
 export class JwtAuthService {
+  get rawJwtFromLocalStorage(): string {
+    return localStorage.getItem('__jwt_authorization_current_token') ?? '';
+  }
+
   get parsedJwt(): JwtPayload {
     return this.parseJwt(this.rawJwtFromLocalStorage);
   }
@@ -50,10 +54,6 @@ export class JwtAuthService {
       }
     }
     return undefined;
-  }
-
-  get rawJwtFromLocalStorage(): string {
-    return localStorage.getItem('__jwt_authorization_current_token') ?? '';
   }
 
   private validateAndGetExpiration(jwt: string): number {

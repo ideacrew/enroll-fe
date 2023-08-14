@@ -18,8 +18,8 @@
       "executor": "nx:run-commands",
       "inputs": ["code"],
       "outputs": [
-        "apps/console-api-docs/build/routes.ts",
-        "apps/console-api-docs/build/swagger.json"
+        "{projectRoot}/build/routes.ts",
+        "{projectRoot}/build/swagger.json"
       ],
       "options": {
         "command": "npx tsoa spec-and-routes -c tsoa.js",
@@ -30,7 +30,7 @@
       "executor": "nx:run-commands",
       "inputs": ["templates"],
       "dependsOn": ["pre-build"],
-      "outputs": ["apps/console-api-docs/dist/**/*"],
+      "outputs": ["{projectRoot}/dist/**/*"],
       "options": {
         "commands": [
           "mkdir -p dist",
@@ -41,7 +41,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/web:file-server",
+      "executor": "@nx/web:file-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "console-api-docs:build",
@@ -49,7 +49,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/console-api-docs/**/*.ts"]
