@@ -1,6 +1,12 @@
 disable-version-check: false
 report:
-    exclude-fingerprint: []
+    exclude-fingerprint:
+      # Publicly available API and Key
+      - d5fbfc19455cc1a121a095175069790c_0
+      # Used only to generate documentation - not part of the live site
+      - c8344bd4ffa194ba9d0f773c609f832e_0
+      - c8344bd4ffa194ba9d0f773c609f832e_1
+      - c8344bd4ffa194ba9d0f773c609f832e_2
     format: ""
     no-color: false
     output: ""
