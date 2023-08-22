@@ -1,0 +1,40 @@
+name: Security Checks
+on: push
+
+jobs:
+  bearer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install bearer
+        run: |
+          sudo apt-get install apt-transport-https
+          echo "deb [trusted=yes] https://apt.fury.io/bearer/ /" | sudo tee -a /etc/apt/sources.list.d/fury.list
+          sudo apt-get update
+          sudo apt-get install bearer
+      - name: run bearer
+        run: |
+          bearer scan --quiet --config-file ./bearer.yml .
+      - name: build bearer report
+        if: failure()
+        run: |
+          bearer scan --quiet --config-file ./bearer.yml --format html --output bearer.html .
+      - name: upload bearer failure report
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: Security Reports
+          path: bearer.html
+  npm_audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: run npm audit
+        run: |
+          npm audit --omit=dev > npm_audit.txt
+      - name: upload npm audit failure report
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: Security Reports
+          path: npm_audit.txt
