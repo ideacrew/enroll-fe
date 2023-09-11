@@ -1,11 +1,12 @@
 {
   "name": "financial-assistance-shell",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/financial-assistance/shell/src",
   "prefix": "enroll",
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/financial-assistance/shell"],
       "options": {
         "jestConfig": "libs/financial-assistance/shell/jest.config.ts",
@@ -13,7 +14,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/financial-assistance/shell/**/*.ts",

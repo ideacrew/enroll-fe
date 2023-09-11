@@ -26,15 +26,13 @@ import { ResidenceFormGroup } from '@enroll/slcsp-calculator/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MemberResidenceZipcodeComponent {
-  private readonly marketplaceAPI = inject(MarketplaceService);
-
-  zipCodeQuery = new FormControl<string | null>(null);
-  selectedCounty!: MarketplaceCounty;
-
   @Input() currentTaxYear!: string;
   @Input() residenceFormGroup!: FormGroup<ResidenceFormGroup>;
   @Input() memberName!: string;
   @Input() index!: number;
+
+  zipCodeQuery = new FormControl<string | null>(null);
+  selectedCounty!: MarketplaceCounty;
 
   zipCodeQueryValue$ = this.zipCodeQuery.valueChanges;
 
@@ -56,6 +54,8 @@ export class MemberResidenceZipcodeComponent {
         return of(null);
       })
     );
+
+  private readonly marketplaceAPI = inject(MarketplaceService);
 
   get countyStatus(): unknown {
     return this.residenceFormGroup.get('county')?.status;

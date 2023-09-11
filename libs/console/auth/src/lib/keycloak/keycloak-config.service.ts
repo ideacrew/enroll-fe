@@ -16,10 +16,6 @@ export class KeycloakConfigService {
   keycloakConfigs = inject(KEYCLOAK_CONFIG);
   keycloakService = inject(KeycloakService);
 
-  private get hostName(): string {
-    return window.location.host;
-  }
-
   get currentKeycloakMapping(): KeycloakConfig {
     const matchingConfig = this.keycloakConfigs.find((config) =>
       this.hostName.includes(config.host)
@@ -30,6 +26,10 @@ export class KeycloakConfigService {
     }
 
     return matchingConfig;
+  }
+
+  private get hostName(): string {
+    return window.location.host;
   }
 
   logout(): void {

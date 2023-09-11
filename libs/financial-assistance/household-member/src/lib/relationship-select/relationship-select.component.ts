@@ -9,7 +9,8 @@ import { relationships } from '@enroll/financial-assistance/entities';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RelationshipSelectComponent {
-  relationships = relationships;
   @Input() parent!: FormGroup;
   @Input() primaryApplicant = 'the primary applicant';
+
+  relationships = relationships;
 }

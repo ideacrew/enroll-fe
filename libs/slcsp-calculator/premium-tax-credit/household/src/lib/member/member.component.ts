@@ -119,6 +119,10 @@ export class MemberComponent {
     return isPrimaryMember ? validResidenceGroup && noGap : true;
   }
 
+  get memberResidenceControl() {
+    return this.memberFormGroup.get('residences');
+  }
+
   isValidDate(dob: { month: string; day: string; year: string }) {
     const month = Number.parseInt(dob.month, 10);
     const day = Number.parseInt(dob.day, 10);
@@ -138,10 +142,6 @@ export class MemberComponent {
     let diff = (Date.now() - date.getTime()) / 1000;
     diff /= 60 * 60 * 24;
     return Math.abs(Math.round(diff / 365.25));
-  }
-
-  get memberResidenceControl() {
-    return this.memberFormGroup.get('residences');
   }
 
   navigateToCoverage(): void {

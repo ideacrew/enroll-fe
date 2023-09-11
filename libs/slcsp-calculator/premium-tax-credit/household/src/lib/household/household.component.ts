@@ -19,16 +19,6 @@ export class HouseholdComponent {
   householdConfirmation$ = this.householdService.householdConfirmation$;
   householdMemberControls = this.householdService.householdMemberControls;
 
-  changeHouseholdCount(newCount: number): void {
-    if (newCount < 1) {
-      throw new Error('Household count must be greater than 0');
-    }
-
-    if (newCount >= 1) {
-      this.householdService.updateHouseholdCount(newCount);
-    }
-  }
-
   get primaryMemberName(): string {
     return (
       this.householdService.householdMembersArray.at(0).get('name')?.value ??
@@ -71,6 +61,16 @@ export class HouseholdComponent {
     );
 
     return validHouseholdCount && validHouseholdConfirmation && validNames;
+  }
+
+  changeHouseholdCount(newCount: number): void {
+    if (newCount < 1) {
+      throw new Error('Household count must be greater than 0');
+    }
+
+    if (newCount >= 1) {
+      this.householdService.updateHouseholdCount(newCount);
+    }
   }
 
   navigateToMemberDetails(): void {

@@ -25,6 +25,12 @@ import { HouseholdFormValue } from '@enroll/slcsp-calculator/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResultsComponent implements OnInit {
+  @ViewChild('pdfTable', { static: false }) pdfTable:
+    | ElementRef<HTMLTableElement>
+    | undefined;
+
+  @ViewChild('results', { static: false }) results!: ElementRef<HTMLDivElement>;
+
   householdService = inject(HouseholdService);
   slcspEstimateService = inject(SlcspEstimateService);
   monthList = months;
@@ -41,12 +47,6 @@ export class ResultsComponent implements OnInit {
       // Usually typecasting isn't great
       this.transformedValue
     );
-
-  @ViewChild('pdfTable', { static: false }) pdfTable:
-    | ElementRef<HTMLTableElement>
-    | undefined;
-
-  @ViewChild('results', { static: false }) results!: ElementRef<HTMLDivElement>;
 
   ngOnInit() {
     this.estimate$.subscribe({

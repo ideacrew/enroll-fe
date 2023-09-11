@@ -34,9 +34,7 @@ export class MemberSearchComponent {
 
   searchTerm: string | undefined;
 
-  private pageHeading: BehaviorSubject<string> = new BehaviorSubject(
-    'Member Search'
-  );
+  pageHeading: BehaviorSubject<string> = new BehaviorSubject('Member Search');
   pageHeading$ = this.pageHeading.asObservable();
 
   searchResults: Subject<PersonSearchResult[]> = new Subject();
