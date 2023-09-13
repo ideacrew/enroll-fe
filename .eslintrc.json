@@ -87,14 +87,9 @@
       "extends": [
         "plugin:@nx/typescript",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:unicorn/recommended"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ],
-      "plugins": [
-        "eslint-plugin-import",
-        "@angular-eslint/eslint-plugin",
-        "unicorn"
-      ],
+      "plugins": ["eslint-plugin-import", "@angular-eslint/eslint-plugin"],
       "rules": {
         "@angular-eslint/no-conflicting-lifecycle": "error",
         "@angular-eslint/no-host-metadata-property": "error",

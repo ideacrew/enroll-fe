@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-null */
 import {
   ChangeDetectionStrategy,
   Component,

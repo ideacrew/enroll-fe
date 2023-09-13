@@ -86,7 +86,6 @@ export class ResultsComponent implements OnInit {
       console.log(resultsContainer);
 
       await document.html(resultsContainer, {
-        // eslint-disable-next-line unicorn/prevent-abbreviations
         callback: function (doc) {
           doc.save('results.pdf');
         },
