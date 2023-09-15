@@ -1,4 +1,3 @@
-// eslint-disable-next-line unicorn/prevent-abbreviations
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({

@@ -54,10 +54,8 @@ export class KeycloakConfigService {
       },
       updateMinValidity: 300,
     });
-    /* eslint-disable unicorn/no-this-assignment */
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const kcService = this;
-    /* eslint-enable unicorn/no-this-assignment */
     this.keycloakService.keycloakEvents$.subscribe({
       next(event) {
         if (event.type === KeycloakEventType.OnTokenExpired) {

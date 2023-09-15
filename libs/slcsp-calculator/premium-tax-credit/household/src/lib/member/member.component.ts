@@ -53,7 +53,6 @@ export class MemberComponent {
     const isPrimaryMember = this.memberId === 1;
     const dob = this.memberFormGroup.get('dob');
 
-    // eslint-disable-next-line unicorn/no-null
     this.memberFormGroup.controls['dob'].setErrors(null);
 
     if (dob?.valid) {

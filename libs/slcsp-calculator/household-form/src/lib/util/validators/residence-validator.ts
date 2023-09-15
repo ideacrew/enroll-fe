@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-null */
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { ResidenceFormValue } from '@enroll/slcsp-calculator/types';
 

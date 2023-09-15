@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable unicorn/no-null */
+
 import { faker } from '@faker-js/faker';
 import {
   MemberSearchResult,
