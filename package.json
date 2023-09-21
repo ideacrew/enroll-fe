@@ -10,7 +10,8 @@
     "start:slcsp": "nx serve --project=slcsp-calculator --publicHost=${CODESPACE_NAME}-4206.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}:443",
     "start:console:local": "nx serve --project=console --configuration=proxy",
     "postinstall": "node ./decorate-angular-cli.js",
-    "start": "nx serve",
+    "start": "cd ../console && npm start",
+    "dev:console": "nx serve console",
     "build": "nx build",
     "test": "nx test",
     "doc": "node build/typedoc.js"
