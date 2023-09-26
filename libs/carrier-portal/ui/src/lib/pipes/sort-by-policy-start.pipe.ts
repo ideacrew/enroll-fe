@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
 import { Policy } from '@enroll/carrier-portal/types';
 
 @Pipe({
@@ -8,26 +7,20 @@ import { Policy } from '@enroll/carrier-portal/types';
 })
 export class SortByPolicyStartPipe implements PipeTransform {
   transform(policies: Policy[]): Policy[] {
-    const rawPolicies = [...policies];
-
-    const sortedPolicies = rawPolicies.sort((a, b) => {
-      const firstDate = this.policyStartDate(a);
-      const secondDate = this.policyStartDate(b);
-      if (firstDate > secondDate) {
+    policies.sort((a, b) => {
+      // First, sort by coverage_year in descending order
+      if (b.plan.coverage_year !== a.plan.coverage_year) {
+        return b.plan.coverage_year.localeCompare(a.plan.coverage_year);
+      }
+      // Then, prioritize "Submitted" status
+      if (a.status === 'Submitted' && b.status !== 'Submitted') {
         return -1;
-      } else if (firstDate < secondDate) {
+      }
+      if (a.status !== 'Submitted' && b.status === 'Submitted') {
         return 1;
       }
       return 0;
     });
-    return sortedPolicies;
-  }
-
-  private policyStartDate(policy: Policy): string {
-    const enrollees = policy.enrollees;
-    return enrollees
-      .map((a) => a.coverage_start)
-      .sort()
-      .reverse()[0];
+    return policies;
   }
 }
