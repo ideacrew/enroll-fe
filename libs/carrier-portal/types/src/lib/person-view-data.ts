@@ -145,3 +145,39 @@ export const defaultPolicy: Policy = {
   subscriber_hbx_member_id: '',
   status: 'Submitted',
 };
+
+function subscriber(pol: Policy): Enrollee | undefined {
+  return pol.enrollees.find(
+    (en: Enrollee) => en.hbx_member_id == pol.subscriber_hbx_member_id
+  );
+}
+
+export function isCancelled(pol: Policy): boolean {
+  const sub = subscriber(pol);
+  if (sub) {
+    if (sub.coverage_end) {
+      return sub.coverage_end <= sub.coverage_start;
+    }
+  }
+  return false;
+}
+
+export function isTerminated(pol: Policy): boolean {
+  const sub = subscriber(pol);
+  if (sub) {
+    return !!sub.coverage_end;
+  }
+  return false;
+}
+
+export function policyStartDate(policy: Policy): string {
+  const enrollees = policy.enrollees;
+  return enrollees
+    .map((a) => a.coverage_start)
+    .sort()
+    .reverse()[0];
+}
+
+export function startsBefore(polA: Policy, polB: Policy) {
+  return policyStartDate(polA) <= policyStartDate(polB);
+}

@@ -1,5 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Policy } from '@enroll/carrier-portal/types';
+import {
+  Policy,
+  isCancelled,
+  startsBefore,
+} from '@enroll/carrier-portal/types';
 
 @Pipe({
   name: 'sortByPolicyStart',
@@ -8,18 +12,27 @@ import { Policy } from '@enroll/carrier-portal/types';
 export class SortByPolicyStartPipe implements PipeTransform {
   transform(policies: Policy[]): Policy[] {
     policies.sort((a, b) => {
-      // First, sort by coverage_year in descending order
-      if (b.plan.coverage_year !== a.plan.coverage_year) {
-        return b.plan.coverage_year.localeCompare(a.plan.coverage_year);
+      // We want date ascending, so normal return values for sort are
+      // inverted.
+      // Remember, in javascript sort, >0 means reverse the elements.
+
+      // If they aren't the same coverage year, don't mind the cancel logic -
+      // just sort them.
+      if (a.plan.coverage_year != b.plan.coverage_year) {
+        return a.plan.coverage_year <= b.plan.coverage_year ? 1 : -1;
       }
-      // Then, prioritize "Submitted" status
-      if (a.status === 'Submitted' && b.status !== 'Submitted') {
+
+      // If one of them is canceled but the other isn't, the canceled one is
+      // punted to last place. (As long as it's within the same coverage year,
+      // which we handle above)
+      if (isCancelled(a) && !isCancelled(b)) {
+        return 1;
+      } else if (isCancelled(b) && !isCancelled(a)) {
         return -1;
       }
-      if (a.status !== 'Submitted' && b.status === 'Submitted') {
-        return 1;
-      }
-      return 0;
+
+      // Otherwise just sort them by reverse order for date
+      return startsBefore(a, b) ? 1 : -1;
     });
     return policies;
   }
