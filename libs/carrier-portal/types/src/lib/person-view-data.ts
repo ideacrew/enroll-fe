@@ -148,7 +148,7 @@ export const defaultPolicy: Policy = {
 
 function subscriber(pol: Policy): Enrollee | undefined {
   return pol.enrollees.find(
-    (en: Enrollee) => en.hbx_member_id == pol.subscriber_hbx_member_id
+    (en: Enrollee) => en.hbx_member_id === pol.subscriber_hbx_member_id
   );
 }
 

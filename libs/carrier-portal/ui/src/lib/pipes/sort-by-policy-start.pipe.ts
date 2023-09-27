@@ -11,7 +11,8 @@ import {
 })
 export class SortByPolicyStartPipe implements PipeTransform {
   transform(policies: Policy[]): Policy[] {
-    policies.sort((a, b) => {
+    const sortedPolicies = [...policies];
+    sortedPolicies.sort((a, b) => {
       // We want date ascending, so normal return values for sort are
       // inverted.
       // Remember, in javascript sort, >0 means reverse the elements.
