@@ -1,9 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {
-  Policy,
-  isCancelled,
-  startsBefore,
-} from '@enroll/carrier-portal/types';
+import { Policy, isCanceled, startsBefore } from '@enroll/carrier-portal/types';
 
 @Pipe({
   name: 'sortByPolicyStart',
@@ -19,16 +15,16 @@ export class SortByPolicyStartPipe implements PipeTransform {
 
       // If they aren't the same coverage year, don't mind the cancel logic -
       // just sort them.
-      if (a.plan.coverage_year != b.plan.coverage_year) {
+      if (a.plan.coverage_year !== b.plan.coverage_year) {
         return a.plan.coverage_year <= b.plan.coverage_year ? 1 : -1;
       }
 
       // If one of them is canceled but the other isn't, the canceled one is
       // punted to last place. (As long as it's within the same coverage year,
       // which we handle above)
-      if (isCancelled(a) && !isCancelled(b)) {
+      if (isCanceled(a) && !isCanceled(b)) {
         return 1;
-      } else if (isCancelled(b) && !isCancelled(a)) {
+      } else if (isCanceled(b) && !isCanceled(a)) {
         return -1;
       }
 

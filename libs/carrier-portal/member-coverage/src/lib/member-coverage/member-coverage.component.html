@@ -33,7 +33,7 @@
 
           <h2>Policies</h2>
           <details
-            [open]="policy.status === 'Submitted'"
+            [open]="policyExpanded(policy)"
             class="policy-summary"
             *ngFor="let policy of member.policies | sortByPolicyStart"
           >
@@ -69,7 +69,7 @@
 
         <h2>Policies</h2>
         <details
-          [open]="policy.status === 'Submitted'"
+          [open]="policyExpanded(policy)"
           class="policy-summary"
           *ngFor="let policy of responsibleParty.policies | sortByPolicyStart"
         >

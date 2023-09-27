@@ -152,7 +152,7 @@ function subscriber(pol: Policy): Enrollee | undefined {
   );
 }
 
-export function isCancelled(pol: Policy): boolean {
+export function isCanceled(pol: Policy): boolean {
   const sub = subscriber(pol);
   if (sub) {
     if (sub.coverage_end) {
