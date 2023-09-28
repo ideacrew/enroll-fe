@@ -45,7 +45,7 @@
           <td>{{ t('relationships.' + enrollee.relationship) | titlecase }}</td>
           <td>
             {{ enrollee.coverage_start | date : 'M/d/yy' }}
-            - {{ (enrollee.coverage_end | date : 'M/d/yy') ?? 'Current' }}
+            - {{ (enrollee.coverage_end | date : 'M/d/yy') ?? '' }}
           </td>
           <td>{{ enrollee.carrier_member_id }}</td>
           <td>{{ enrollee.carrier_policy_id }}</td>
