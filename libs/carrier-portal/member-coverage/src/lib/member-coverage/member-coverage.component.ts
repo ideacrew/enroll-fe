@@ -15,7 +15,7 @@ import {
   TranslocoModule,
 } from '@ngneat/transloco';
 
-import { Person } from '@enroll/carrier-portal/types';
+import { Person, Policy, isCanceled } from '@enroll/carrier-portal/types';
 import { PersonService, DataResult } from '@enroll/carrier-portal/data-access';
 import {
   FormatSsnPipe,
@@ -66,4 +66,8 @@ export class MemberCoverageComponent {
     filter((idString: string) => idString !== '___IGNORE___'),
     switchMap((id: string) => this.personService.getPerson(id))
   );
+
+  policyExpanded(pol: Policy): boolean {
+    return !isCanceled(pol);
+  }
 }
