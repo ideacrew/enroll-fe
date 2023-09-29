@@ -9,7 +9,7 @@ export const carrierPortalShellRoutes: Route[] = [
     component: ShellComponent,
     children: [
       {
-        path: 'member-search',
+        path: '',
         loadChildren: () =>
           import('@enroll/carrier-portal/member-search').then(
             (m) => m.carrierPortalMemberSearchRoutes
@@ -28,15 +28,6 @@ export const carrierPortalShellRoutes: Route[] = [
         loadChildren: () =>
           import('@enroll/carrier-portal/transaction-details').then(
             (m) => m.carrierPortalTransactionDetailsRoutes
-          ),
-        canActivate: [AuthGuard],
-      },
-
-      {
-        path: '',
-        loadChildren: () =>
-          import('@enroll/carrier-portal/landing-page').then(
-            (m) => m.carrierPortalLandingPageRoutes
           ),
         canActivate: [AuthGuard],
       },
