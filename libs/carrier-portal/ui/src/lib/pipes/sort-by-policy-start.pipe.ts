@@ -41,11 +41,4 @@ export class SortByPolicyStartPipe implements PipeTransform {
 
     return sortedPolicies;
   }
-  // private policyStartDate(policy: Policy): string {
-  //   const enrollees = policy.enrollees;
-  //   return enrollees
-  //     .map((a) => a.coverage_start)
-  //     .sort()
-  //     .reverse()[0];
-  // }
 }
