@@ -21,8 +21,16 @@ export class SortByPolicyStartPipe implements PipeTransform {
       }
 
       // Sort by effective date in descending order
-      const aEffectiveDate = new Date(a.enrollees[0].coverage_start);
-      const bEffectiveDate = new Date(b.enrollees[0].coverage_start);
+      // Make sure that if for some reason the enrollee array is empty, we don't
+      // throw an error
+      const aEffectiveDate =
+        a.enrollees && a.enrollees.length > 0
+          ? new Date(a.enrollees[0].coverage_start)
+          : '0';
+      const bEffectiveDate =
+        b.enrollees && b.enrollees.length > 0
+          ? new Date(b.enrollees[0].coverage_start)
+          : '0';
       if (aEffectiveDate > bEffectiveDate) {
         return -1;
       } else if (aEffectiveDate < bEffectiveDate) {
