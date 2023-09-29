@@ -26,10 +26,13 @@
   </div>
 </div>
 <main>
-  <div class="portal-data" *ngIf="lastUpdatedData$ | async as lastUpdated">
-    <ng-container *ngIf="lastUpdated.ok">
-      Data current as of: {{ lastUpdated.data.last_update_at }}
+  <div class="portal-data">
+    <ng-container *ngIf="lastUpdatedData$ | async as lastUpdated; else newDeb">
+      <ng-container *ngIf="lastUpdated.ok">
+        Data current as of: {{ lastUpdated.data.last_update_at }}
+      </ng-container>
     </ng-container>
+    <ng-template #newDeb> Data current as of: ... loading </ng-template>
   </div>
   <router-outlet></router-outlet>
 </main>
