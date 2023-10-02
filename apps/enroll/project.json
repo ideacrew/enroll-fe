@@ -43,7 +43,8 @@
           "libs/shared/theme/src/lib/styles/global.scss",
           "apps/enroll/src/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "allowedCommonJsDependencies": ["flat"]
       },
       "configurations": {
         "production": {

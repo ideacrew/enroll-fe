@@ -3,7 +3,6 @@
   "affected": {
     "defaultBase": "trunk"
   },
-  "npmScope": "enroll",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx-cloud",
