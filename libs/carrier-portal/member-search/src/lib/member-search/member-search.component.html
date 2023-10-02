@@ -97,7 +97,7 @@
             <tr *ngFor="let result of searchResults">
               <ng-container *ngFor="let member of result.members">
                 <td>
-                  <a [routerLink]="['..', 'members', result.id]">
+                  <a [routerLink]="['members', result.id]">
                     {{ result.person_name.first_name }}
                     {{ result.person_name.last_name }}
                   </a>
