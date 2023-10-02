@@ -1,2 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 // @import './styles/fonts';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  --font-smoothing: antialiased;
+}

@@ -72,3 +72,9 @@
     color: var(--type-secondary);
   }
 }
+
+.ea-table {
+  tbody > tr {
+    cursor: pointer;
+  }
+}

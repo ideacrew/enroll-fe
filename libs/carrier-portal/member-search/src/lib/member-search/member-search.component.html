@@ -94,21 +94,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let result of searchResults">
-              <ng-container *ngFor="let member of result.members">
+            <ng-container *ngFor="let result of searchResults">
+              <tr
+                *ngFor="let member of result.members"
+                [routerLink]="['members', result.id]"
+              >
                 <td>
-                  <a [routerLink]="['members', result.id]">
-                    {{ result.person_name.first_name }}
-                    {{ result.person_name.last_name }}
-                  </a>
+                  {{ result.person_name.first_name }}
+                  {{ result.person_name.last_name }}
                 </td>
                 <td>{{ member.hbx_member_id }}</td>
                 <td>{{ member.policies.length }}</td>
                 <td>{{ member.ssn }}</td>
                 <td>{{ member.dob }}</td>
                 <td>{{ t(member.gender) | titlecase }}</td>
-              </ng-container>
-            </tr>
+              </tr>
+            </ng-container>
           </tbody>
         </table>
       </div>
