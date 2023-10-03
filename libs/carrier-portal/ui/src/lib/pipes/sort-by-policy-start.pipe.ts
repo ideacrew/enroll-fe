@@ -31,6 +31,6 @@ export class SortByPolicyStartPipe implements PipeTransform {
       // Otherwise just sort them by reverse order for date
       return startsBefore(a, b) ? 1 : -1;
     });
-    return policies;
+    return sortedPolicies;
   }
 }
