@@ -1,127 +1,122 @@
-<ng-container *transloco="let t">
-  <div class="page-heading">
-    <h1>{{ pageHeading$ | async }}</h1>
+<header>
+  <h1>Search</h1>
 
-    <form class="fancy-search-box identifier">
-      <input
-        type="text"
-        name="id-search"
-        id="id-search"
-        placeholder="Search by selected attribute"
-        [(ngModel)]="searchTerm"
-      />
-      <button class="fancy-search-button" (click)="searchBySearchTerm()">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12.5 12.5L17 17M14 8.5C14 11.5376 11.5376 14 8.5 14C5.46243 14 3 11.5376 3 8.5C3 5.46243 5.46243 3 8.5 3C11.5376 3 14 5.46243 14 8.5Z"
-            stroke="var(--theme-primary-100)"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-        </svg>
-        <span class="visually-hidden">Search</span>
-      </button>
-      <button
-        type="button"
-        class="search-toggle"
-        (click)="setSearchType('name')"
-        *ngIf="searchType === 'member_id'; else searchByName"
+  <div class="search">
+    <input
+      type="text"
+      placeholder="Search by selected attribute"
+      (keyup.enter)="searchBySearchTerm()"
+      [(ngModel)]="searchTerm"
+    />
+    <button class="submit" (click)="searchBySearchTerm()">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <span>by SSN or HBX ID</span>
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M15 8L10.7071 12.2929C10.3166 12.6834 9.68342 12.6834 9.29289 12.2929L5 8"
-            stroke="#605E5C"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
+        <path
+          d="M12.5 12.5L17 17M14 8.5C14 11.5376 11.5376 14 8.5 14C5.46243 14 3 11.5376 3 8.5C3 5.46243 5.46243 3 8.5 3C11.5376 3 14 5.46243 14 8.5Z"
+          stroke="var(--theme-primary-100)"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
 
-      <ng-template #searchByName
-        ><button
-          type="button"
-          class="search-toggle"
-          (click)="setSearchType('member_id')"
-        >
-          <span>by Member Name</span>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 8L10.7071 12.2929C10.3166 12.6834 9.68342 12.6834 9.29289 12.2929L5 8"
-              stroke="#605E5C"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg></button
-      ></ng-template>
-    </form>
+    <button
+      class="toggle"
+      (click)="setSearchType('name')"
+      *ngIf="searchType === 'member_id'; else searchByName"
+    >
+      <span>by SSN or HBX ID</span>
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 8L10.7071 12.2929C10.3166 12.6834 9.68342 12.6834 9.29289 12.2929L5 8"
+          stroke="#605E5C"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
   </div>
 
-  <div
-    class="search-results"
-    *ngIf="searchResults$ | async as searchResults; else beginSearch"
-  >
-    <ng-container *ngIf="searchResults.length > 0; else noResults">
-      <h2>Search Results</h2>
-      <div class="person-result">
-        <table class="ea-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>HBX ID</th>
-              <th>Policy Count</th>
-              <th>SSN</th>
-              <th>Birth Year</th>
-              <th>Gender</th>
+  <ng-template #searchByName>
+    <button class="toggle" (click)="setSearchType('member_id')">
+      <span>by Member Name</span>
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 8L10.7071 12.2929C10.3166 12.6834 9.68342 12.6834 9.29289 12.2929L5 8"
+          stroke="#605E5C"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  </ng-template>
+</header>
+
+<div
+  class="results"
+  *ngIf="searchResults$ | async as searchResults; else beginSearch"
+>
+  <ng-container *ngIf="searchResults.length > 0; else noResults">
+    <p>{{ searchResults.length }} {{ pageHeading$ | async }}</p>
+
+    <div class="person-result">
+      <table class="ea-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>HBX ID</th>
+            <th>Policy Count</th>
+            <th>SSN</th>
+            <th>Birth Year</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let result of searchResults">
+            <tr
+              *ngFor="let member of result.members"
+              [routerLink]="['members', result.id]"
+            >
+              <td>
+                {{ result.person_name.first_name }}
+                {{ result.person_name.last_name }}
+              </td>
+              <td>{{ member.hbx_member_id }}</td>
+              <td>{{ member.policies.length }}</td>
+              <td>{{ member.ssn }}</td>
+              <td>{{ member.dob }}</td>
+              <td>{{ member.gender | titlecase }}</td>
             </tr>
-          </thead>
-          <tbody>
-            <ng-container *ngFor="let result of searchResults">
-              <tr
-                *ngFor="let member of result.members"
-                [routerLink]="['members', result.id]"
-              >
-                <td>
-                  {{ result.person_name.first_name }}
-                  {{ result.person_name.last_name }}
-                </td>
-                <td>{{ member.hbx_member_id }}</td>
-                <td>{{ member.policies.length }}</td>
-                <td>{{ member.ssn }}</td>
-                <td>{{ member.dob }}</td>
-                <td>{{ t(member.gender) | titlecase }}</td>
-              </tr>
-            </ng-container>
-          </tbody>
-        </table>
-      </div>
-    </ng-container>
-  </div>
-  <ng-template #noResults>
-    <h2>{{ noResultsMessage }}</h2>
-  </ng-template>
-
-  <ng-template #beginSearch
-    ><div class="empty-search-results">
-      <p>Begin searching to see results</p>
+          </ng-container>
+        </tbody>
+      </table>
     </div>
-  </ng-template>
-</ng-container>
+  </ng-container>
+</div>
+
+<ng-template #noResults>
+  <h2>{{ noResultsMessage }}</h2>
+</ng-template>
+
+<ng-template #beginSearch>
+  <div class="empty-search-results">
+    <p>Begin searching to see results</p>
+  </div>
+</ng-template>

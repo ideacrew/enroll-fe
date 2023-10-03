@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+
 import { BehaviorSubject, Subject, tap } from 'rxjs';
 
 import {
@@ -11,37 +11,27 @@ import {
   PersonSearchResult,
   PersonService,
 } from '@enroll/carrier-portal/data-access';
-import { FormatSsnPipe } from '@enroll/carrier-portal/ui';
-import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'enroll-member-search',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    FormatSsnPipe,
-    HttpClientModule,
-    TranslocoModule,
-  ],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './member-search.component.html',
   styleUrls: ['./member-search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MemberSearchComponent {
   searchType: 'member_id' | 'name' = 'member_id';
-
   searchTerm: string | undefined;
+  query!: string;
+  firstName!: string;
+  lastName!: string;
 
-  pageHeading: BehaviorSubject<string> = new BehaviorSubject('Member Search');
+  pageHeading: BehaviorSubject<string> = new BehaviorSubject('');
   pageHeading$ = this.pageHeading.asObservable();
 
   searchResults: Subject<PersonSearchResult[]> = new Subject();
   searchResults$ = this.searchResults.asObservable();
-  query!: string;
-  firstName!: string;
-  lastName!: string;
 
   personService = inject(PersonService);
 
@@ -51,40 +41,15 @@ export class MemberSearchComponent {
       : 'No members found with that name';
   }
 
-  searchPersonByIdentifier(): void {
-    this.personService
-      .searchPeople({ q: this.query })
-      .pipe(
-        tap((results) => {
-          this.pageHeading.next(this.generatePageHeading(this.query));
-          this.searchResults.next(results);
-        })
-      )
-      .subscribe();
+  public setSearchType(type: 'member_id' | 'name'): void {
+    this.searchType = type;
+    this.searchTerm = '';
+    this.firstName = '';
+    this.lastName = '';
+    this.query = '';
   }
 
-  searchPersonByName(): void {
-    const searchRequest: PersonNameQueryRequest | undefined =
-      constructNameQuery(this.firstName, this.lastName);
-    if (searchRequest === undefined) {
-      return;
-    }
-    this.personService
-      .searchPeople(searchRequest)
-      .pipe(
-        tap((results) => {
-          this.pageHeading.next(
-            this.generatePageHeading(
-              `${this.firstName ?? ''} ${this.lastName ?? ''}`
-            )
-          );
-          this.searchResults.next(results);
-        })
-      )
-      .subscribe();
-  }
-
-  searchBySearchTerm(): void {
+  public searchBySearchTerm(): void {
     if (this.searchTerm && this.searchTerm.length > 1) {
       if (this.searchType === 'member_id') {
         this.query = this.searchTerm || '';
@@ -98,17 +63,34 @@ export class MemberSearchComponent {
     }
   }
 
-  setSearchType(type: 'member_id' | 'name'): void {
-    this.searchType = type;
-    this.searchTerm = '';
-    this.firstName = '';
-    this.lastName = '';
-    this.query = '';
+  private searchPersonByIdentifier(): void {
+    this.personService
+      .searchPeople({ q: this.query })
+      .pipe(
+        tap((results) => {
+          this.pageHeading.next(`Results for "${this.query}"`);
+          this.searchResults.next(results);
+        })
+      )
+      .subscribe();
   }
 
-  generatePageHeading(query: string): string {
-    const trimmed = query.trim();
-
-    return `Search Results for "${trimmed}"`;
+  private searchPersonByName(): void {
+    const searchRequest: PersonNameQueryRequest | undefined =
+      constructNameQuery(this.firstName, this.lastName);
+    if (searchRequest === undefined) {
+      return;
+    }
+    this.personService
+      .searchPeople(searchRequest)
+      .pipe(
+        tap((results) => {
+          this.pageHeading.next(
+            `Results for "${this?.firstName} ${this?.lastName}"`
+          );
+          this.searchResults.next(results);
+        })
+      )
+      .subscribe();
   }
 }
