@@ -177,7 +177,3 @@ export function policyStartDate(policy: Policy): string {
     .sort()
     .reverse()[0];
 }
-
-export function startsBefore(polA: Policy, polB: Policy) {
-  return policyStartDate(polA) <= policyStartDate(polB);
-}
