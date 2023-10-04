@@ -16,8 +16,10 @@ export class SortByPolicyStartPipe implements PipeTransform {
       }
 
       // If they are the same coverage year, sort by status
-      if (a.status === 'Submitted') {
-        return a.status <= b.status ? 1 : -1;
+      if (startDateA === startDateB) {
+        if (a.status === 'Submitted') {
+          return a.status <= b.status ? 1 : -1;
+        }
       }
 
       return 0; // add default return value
