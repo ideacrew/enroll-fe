@@ -11,7 +11,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 
 import { Policy } from '@enroll/carrier-portal/types';
 
-import { SortByDatePipe } from '../pipes';
+import { SortByDatePipe, CheckEndDatePipe } from '../pipes';
 
 @Component({
   selector: 'enroll-member-policy',
@@ -23,6 +23,7 @@ import { SortByDatePipe } from '../pipes';
     DatePipe,
     CurrencyPipe,
     SortByDatePipe,
+    CheckEndDatePipe,
     TranslocoModule,
     TitleCasePipe,
   ],
