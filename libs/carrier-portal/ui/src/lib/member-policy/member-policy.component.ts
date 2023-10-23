@@ -33,5 +33,4 @@ import { SortByDatePipe, PolicyEndDatePipe } from '../pipes';
 })
 export class MemberPolicyComponent {
   @Input() policy!: Policy;
-  // currentYear = new Date().getFullYear().toString();
 }
