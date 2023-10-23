@@ -57,7 +57,8 @@
             <ng-template #noEndGiven>
               <ng-template
                 [ngIf]="
-                  (enrollee.coverage_start | date : 'yyyy') !== currentYear
+                  (enrollee.coverage_start | date : 'yyyy')!.toString() <
+                  currentYear
                 "
               >
                 12/31/{{ enrollee.coverage_start | date : 'yy' }}
