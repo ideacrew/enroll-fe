@@ -55,14 +55,7 @@
             </ng-template>
 
             <ng-template #noEndGiven>
-              <ng-template
-                [ngIf]="
-                  (enrollee.coverage_start | date : 'yyyy')!.toString() <
-                  currentYear
-                "
-              >
-                12/31/{{ enrollee.coverage_start | date : 'yy' }}
-              </ng-template>
+              {{ enrollee.coverage_start | policyEndDate }}
             </ng-template>
           </td>
           <td>{{ enrollee.carrier_member_id }}</td>

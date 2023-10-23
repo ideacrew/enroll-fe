@@ -11,7 +11,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 
 import { Policy } from '@enroll/carrier-portal/types';
 
-import { SortByDatePipe } from '../pipes';
+import { SortByDatePipe, PolicyEndDatePipe } from '../pipes';
 
 @Component({
   selector: 'enroll-member-policy',
@@ -23,6 +23,7 @@ import { SortByDatePipe } from '../pipes';
     DatePipe,
     CurrencyPipe,
     SortByDatePipe,
+    PolicyEndDatePipe,
     TranslocoModule,
     TitleCasePipe,
   ],
@@ -32,5 +33,5 @@ import { SortByDatePipe } from '../pipes';
 })
 export class MemberPolicyComponent {
   @Input() policy!: Policy;
-  currentYear = new Date().getFullYear().toString();
+  // currentYear = new Date().getFullYear().toString();
 }
