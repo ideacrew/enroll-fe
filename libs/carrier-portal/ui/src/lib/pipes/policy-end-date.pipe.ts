@@ -8,10 +8,10 @@ type DateString = string;
   standalone: true,
 })
 export class PolicyEndDatePipe implements PipeTransform {
+  currentYear = new Date().getFullYear().toString().substring(2, 4);
   transform(value: DateString) {
     const policyStartYear = value.substring(2, 4);
-    const currentYear = new Date().getFullYear().toString().substring(2, 4);
 
-    return policyStartYear < currentYear ? `12/31/${policyStartYear}` : '';
+    return policyStartYear < this.currentYear ? `12/31/${policyStartYear}` : '';
   }
 }
