@@ -1,11 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  AsyncPipe,
-  DatePipe,
-  NgFor,
-  NgIf,
-  TitleCasePipe,
-} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { filter, map, switchMap, Observable } from 'rxjs';
@@ -15,7 +9,7 @@ import {
   TranslocoModule,
 } from '@ngneat/transloco';
 
-import { Person, Policy, isCanceled } from '@enroll/carrier-portal/types';
+import { Enrollee, Person, Policy } from '@enroll/carrier-portal/types';
 import { PersonService, DataResult } from '@enroll/carrier-portal/data-access';
 import {
   FormatSsnPipe,
@@ -28,17 +22,13 @@ import { PersonContactInfoComponent } from './person-contact-info.component';
 @Component({
   standalone: true,
   imports: [
-    NgIf,
-    NgFor,
-    AsyncPipe,
-    DatePipe,
+    CommonModule,
     FormatSsnPipe,
     SortByPolicyStartPipe,
     MemberPolicyComponent,
     PersonContactInfoComponent,
     HttpClientModule,
     TranslocoModule,
-    TitleCasePipe,
   ],
   templateUrl: './member-coverage.component.html',
   styleUrls: ['./member-coverage.component.scss'],
@@ -67,7 +57,31 @@ export class MemberCoverageComponent {
     switchMap((id: string) => this.personService.getPerson(id))
   );
 
-  policyExpanded(pol: Policy): boolean {
-    return !isCanceled(pol);
+  public policyExpanded(pol: Policy): boolean {
+    return !this.isCanceled(pol);
+  }
+
+  private subscriber(pol: Policy): Enrollee | undefined {
+    return pol.enrollees.find(
+      (en: Enrollee) => en.hbx_member_id === pol.subscriber_hbx_member_id
+    );
+  }
+
+  private isCanceled(pol: Policy): boolean {
+    const sub = this.subscriber(pol);
+    if (sub) {
+      if (sub.coverage_end) {
+        return sub.coverage_end <= sub.coverage_start;
+      }
+    }
+    return false;
+  }
+
+  private isTerminated(pol: Policy): boolean {
+    const sub = this.subscriber(pol);
+    if (sub) {
+      return !!sub.coverage_end;
+    }
+    return false;
   }
 }
