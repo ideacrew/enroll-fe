@@ -6,3 +6,4 @@ export * from './phone-number.pipe';
 export * from './sort-by-date.pipe';
 export * from './sort-by-status.pipe';
 export * from './sort-by-policy-start.pipe';
+export * from './policy-end-date.pipe';
