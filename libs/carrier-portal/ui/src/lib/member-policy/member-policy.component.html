@@ -44,8 +44,19 @@
           </td>
           <td>{{ t('relationships.' + enrollee.relationship) | titlecase }}</td>
           <td>
-            {{ enrollee.coverage_start | date : 'M/d/yy' }}
-            - {{ (enrollee.coverage_end | date : 'M/d/yy') ?? '' }}
+            {{ enrollee.coverage_start | date : 'M/d/yy' }} -
+            <ng-container
+              *ngIf="enrollee.coverage_end; then endGiven; else noEndGiven"
+            >
+            </ng-container>
+
+            <ng-template #endGiven>
+              {{ enrollee.coverage_end | date : 'M/d/yy' }}
+            </ng-template>
+
+            <ng-template #noEndGiven>
+              {{ enrollee.coverage_start | policyEndDate }}
+            </ng-template>
           </td>
           <td>{{ enrollee.carrier_member_id }}</td>
           <td>{{ enrollee.carrier_policy_id }}</td>
