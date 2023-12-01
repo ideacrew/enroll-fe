@@ -44,7 +44,7 @@ jobs:
   main:
     name: Nx Cloud - Main Job
     needs: [prep]
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.2
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.14.0
     with:
       number-of-agents: 3
       main-branch-name: trunk
@@ -69,7 +69,7 @@ jobs:
 
   agents:
     name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11.2
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.14.0
     with:
       number-of-agents: 3
 
