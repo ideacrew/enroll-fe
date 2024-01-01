@@ -20,7 +20,7 @@ jobs:
         run: |
           bearer scan --quiet --config-file ./bearer.yml --format html --output bearer.html .
       - name: upload bearer failure report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: Security Reports
@@ -33,7 +33,7 @@ jobs:
         run: |
           npm audit --omit=dev > npm_audit.txt
       - name: upload npm audit failure report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: Security Reports
