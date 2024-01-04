@@ -12,13 +12,14 @@
   --grey-100: hsl(30, 2%, 50%);
   --grey-130: hsl(30, 2%, 37%);
   --grey-150: hsl(30, 2%, 23%);
-  --grey-160: hsl(30, 2%, 19%);
+  --grey-160: #31302f;
   --grey-190: hsl(30, 3%, 12%);
 
-  --body-color: hsl(0, 0%, 97%);
+  --body-color: hsl(0, 100%, 100%);
 
   --info-color: hsl(202, 100%, 27%);
-  --info-tint: hsl(202, 62%, 88%);
+
+  --info-tint: hsl(198, 28%, 93%);
   --success-color: hsl(130, 97%, 23%);
   --success-tint: hsl(130, 61%, 86%);
   --warning-color: hsl(44, 100%, 45%);
@@ -27,12 +28,14 @@
   --error-color: hsl(0, 69%, 38%);
   --error-tint: hsl(0, 80%, 86%);
 
-  --type-primary: var(--grey-160, chartreuse);
-  --type-secondary: var(--grey-130, chartreuse);
+  --type-primary: hsl(202, 29%, 17%);
+  --type-secondary: hsl(195, 2%, 37%);
   --type-placeholder: var(--grey-090, chartreuse);
   --type-disabled: hsl(20, 1%, 52%); // new color?
 
   --heading-color: var(--type-primary);
+
+  --sidenav-background: hsl(204, 6%, 85%);
 }
 
 body {
