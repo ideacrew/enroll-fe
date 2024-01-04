@@ -44,7 +44,8 @@
           "libs/shared/theme/src/lib/styles/global.scss",
           "apps/console/src/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "allowedCommonJsDependencies": ["flat", "base64-js", "js-sha256"]
       },
       "configurations": {
         "production": {
