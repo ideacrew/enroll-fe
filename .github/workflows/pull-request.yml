@@ -5,6 +5,10 @@ on:
     branches:
       - trunk
 
+permissions:
+  actions: read
+  contents: read
+
 concurrency:
   group: dte-${{ github.ref }}
   cancel-in-progress: true
