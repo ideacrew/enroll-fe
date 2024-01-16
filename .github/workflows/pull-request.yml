@@ -1,32 +1,36 @@
-name: Pull Requests
-on:
-  push:
-    branches:
-      # Change this if your primary branch is not main
-      - trunk
-  pull_request:
+name: pull request checks
 
-# Needed for nx-set-shas when run on the main branch
-permissions:
-  actions: read
-  contents: read
+on:
+  pull_request:
+    branches:
+      - trunk
+
+concurrency:
+  group: dte-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   main:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      # Cache node_modules
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: 'npm'
-      - run: npm ci
-      - uses: nrwl/nx-set-shas@v3
-      # This line is needed for nx affected to work when CI is running on a PR
-      - run: git branch --track trunk origin/trunk
+    name: Nx Cloud - Main Job
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
+    with:
+      number-of-agents: 3
+      main-branch-name: trunk
+      init-commands: |
+        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3 --verbose
+      parallel-commands: |
+        npx nx-cloud record -- npx nx workspace-lint
+        npx nx-cloud record -- npx nx format:check
+      parallel-commands-on-agents: |
+        npx nx affected --target=lint --parallel=3
+        npx nx affected --target=test --parallel=3 --ci --code-coverage
+        npx nx affected --target=build --parallel=3
+        npx nx affected --target=e2e --parallel=3 --ci
+      artifacts-path: dist/apps
+      artifacts-name: affected-apps
 
-      - run: npx nx-cloud record -- nx format:check
-      - run: npx nx affected -t lint,test,build --parallel=3
+  agents:
+    name: Nx Cloud - Agents
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
+    with:
+      number-of-agents: 3
