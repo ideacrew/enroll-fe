@@ -9,18 +9,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/util/transforms"],
       "options": {
-        "jestConfig": "libs/util/transforms/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/util/transforms/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/util/transforms/**/*.ts",
-          "libs/util/transforms/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:shared", "type:util"]

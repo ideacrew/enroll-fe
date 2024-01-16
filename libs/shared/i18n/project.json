@@ -9,18 +9,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/shared/i18n"],
       "options": {
-        "jestConfig": "libs/shared/i18n/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/shared/i18n/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/shared/i18n/**/*.ts",
-          "libs/shared/i18n/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:shared", "type:i18n"]

@@ -9,19 +9,12 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/slcsp-calculator/shell/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/slcsp-calculator/shell/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "libs/slcsp-calculator/shell/**/*.ts",
-          "libs/slcsp-calculator/shell/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": []

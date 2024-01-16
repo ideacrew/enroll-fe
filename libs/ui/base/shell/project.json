@@ -9,18 +9,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/ui/base/shell"],
       "options": {
-        "jestConfig": "libs/ui/base/shell/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/ui/base/shell/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/ui/base/shell/**/*.ts",
-          "libs/ui/base/shell/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:shared"]

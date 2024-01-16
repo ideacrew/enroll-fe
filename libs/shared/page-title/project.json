@@ -9,18 +9,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/shared/page-title"],
       "options": {
-        "jestConfig": "libs/shared/page-title/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/shared/page-title/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/shared/page-title/**/*.ts",
-          "libs/shared/page-title/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:shared"]

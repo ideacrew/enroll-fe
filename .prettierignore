@@ -4,3 +4,4 @@
 /coverage
 .angular
 apps/console-api-docs/static
+/.nx/cache

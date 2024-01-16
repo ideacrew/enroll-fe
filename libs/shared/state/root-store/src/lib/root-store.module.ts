@@ -21,7 +21,7 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
       }
     ),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument(),
+    StoreDevtoolsModule.instrument({connectInZone: true}),
     StoreRouterConnectingModule.forRoot(),
   ],
 })

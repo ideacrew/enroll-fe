@@ -11,18 +11,11 @@
         "{workspaceRoot}/coverage/libs/financial-assistance/entities"
       ],
       "options": {
-        "jestConfig": "libs/financial-assistance/entities/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/financial-assistance/entities/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/financial-assistance/entities/**/*.ts",
-          "libs/financial-assistance/entities/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:faa", "type:models"]
