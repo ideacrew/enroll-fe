@@ -1,6 +1,6 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*", "build/routes.ts"],
+  "ignorePatterns": ["!**/*", "build/routes.ts", "tsoa.js", "static/**/*", "dist/**/*"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
