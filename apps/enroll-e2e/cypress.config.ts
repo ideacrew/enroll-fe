@@ -5,5 +5,5 @@ export default defineConfig({
   e2e: {
     ...nxE2EPreset(__dirname),
     video: false,
-  },
+  } as Cypress.EndToEndConfigOptions | undefined,
 });
