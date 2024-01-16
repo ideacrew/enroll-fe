@@ -18,6 +18,9 @@ jobs:
       main-branch-name: trunk
       init-commands: |
         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
+      parallel-commands: |
+        npx nx-cloud record -- npx nx workspace-lint
+        npx nx-cloud record -- npx nx format:check
       artifacts-path: dist/apps
       artifacts-name: affected-apps
 
