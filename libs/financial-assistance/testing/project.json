@@ -9,18 +9,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/financial-assistance/testing"],
       "options": {
-        "jestConfig": "libs/financial-assistance/testing/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/financial-assistance/testing/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/financial-assistance/testing/**/*.ts",
-          "libs/financial-assistance/testing/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:faa", "type:testing"]

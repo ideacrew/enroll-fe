@@ -11,18 +11,11 @@
         "{workspaceRoot}/coverage/libs/financial-assistance/household-member"
       ],
       "options": {
-        "jestConfig": "libs/financial-assistance/household-member/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/financial-assistance/household-member/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/financial-assistance/household-member/**/*.ts",
-          "libs/financial-assistance/household-member/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:faa", "type:feature"]

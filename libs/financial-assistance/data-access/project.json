@@ -11,18 +11,11 @@
         "{workspaceRoot}/coverage/libs/financial-assistance/data-access"
       ],
       "options": {
-        "jestConfig": "libs/financial-assistance/data-access/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/financial-assistance/data-access/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/financial-assistance/data-access/**/*.ts",
-          "libs/financial-assistance/data-access/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:faa", "type:data-access"]

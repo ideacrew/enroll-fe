@@ -82,10 +82,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "slcsp-calculator:build:production"
+          "buildTarget": "slcsp-calculator:build:production"
         },
         "development": {
-          "browserTarget": "slcsp-calculator:build:development"
+          "buildTarget": "slcsp-calculator:build:development"
         }
       },
       "defaultConfiguration": "development",
@@ -96,24 +96,17 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "slcsp-calculator:build"
+        "buildTarget": "slcsp-calculator:build"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "apps/slcsp-calculator/**/*.ts",
-          "apps/slcsp-calculator/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/slcsp-calculator"],
       "options": {
-        "jestConfig": "apps/slcsp-calculator/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/slcsp-calculator/jest.config.ts"
       }
     },
     "deploy:dev": {

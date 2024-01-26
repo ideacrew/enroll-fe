@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 import { JwtValues, JwtPayload } from './types';
 
@@ -63,6 +63,6 @@ export class JwtAuthService {
 
   private parseJwt(jwt: string): JwtPayload {
     if (!jwt) return {} as JwtPayload; // need to make the specs pass
-    return jwt_decode<JwtPayload>(jwt);
+    return jwtDecode<JwtPayload>(jwt);
   }
 }

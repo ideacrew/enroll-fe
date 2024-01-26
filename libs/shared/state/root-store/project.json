@@ -9,18 +9,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/shared/state/root-store"],
       "options": {
-        "jestConfig": "libs/shared/state/root-store/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/shared/state/root-store/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/shared/state/root-store/**/*.ts",
-          "libs/shared/state/root-store/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["type:util-store"]

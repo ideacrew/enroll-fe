@@ -11,18 +11,11 @@
         "{workspaceRoot}/coverage/libs/financial-assistance/applicant"
       ],
       "options": {
-        "jestConfig": "libs/financial-assistance/applicant/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/financial-assistance/applicant/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/financial-assistance/applicant/**/*.ts",
-          "libs/financial-assistance/applicant/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:faa", "type:feature"]
