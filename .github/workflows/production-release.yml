@@ -37,7 +37,6 @@ jobs:
           npx nx run ${{ github.event.inputs.app }}:build
           npx nx run ${{ github.event.inputs.app }}:e2e --ci
         fi
-
       artifacts-path: dist/apps
       artifacts-name: affected-apps
 
