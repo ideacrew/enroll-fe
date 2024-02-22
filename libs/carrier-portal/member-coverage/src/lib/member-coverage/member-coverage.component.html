@@ -49,12 +49,13 @@
               <span>
                 <ng-container
                   *ngIf="
-                    policy.status === 'Submitted' &&
+                    (policy.status === 'Submitted' ||
+                      policy.status === 'Resubmitted') &&
                       policy.plan.coverage_year < currentYear;
                     else originalStatus
                   "
                 >
-                  Expired
+                  CY Ended
                 </ng-container>
 
                 <ng-template #originalStatus>
