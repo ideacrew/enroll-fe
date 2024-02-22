@@ -68,18 +68,21 @@ export class MemberSearchComponent implements OnInit {
   }
 
   searchPersonByIdentifier(): void {
+    this.loading = true;
     this.personService
       .searchPeople({ q: this.query })
       .pipe(
         tap((results) => {
           this.pageHeading.next(this.generatePageHeading(this.query));
           this.searchResults.next(results);
+          this.loading = false;
         }),
       )
       .subscribe();
   }
 
   searchPersonByName(): void {
+    this.loading = true;
     const searchRequest: PersonNameQueryRequest | undefined =
       constructNameQuery(this.firstName, this.lastName);
     if (searchRequest === undefined) {
@@ -89,7 +92,6 @@ export class MemberSearchComponent implements OnInit {
       .searchPeople(searchRequest)
       .pipe(
         tap((results) => {
-          this.loading = true;
           this.pageHeading.next(
             this.generatePageHeading(
               `${this.firstName ?? ''} ${this.lastName ?? ''}`,
