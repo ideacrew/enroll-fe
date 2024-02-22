@@ -75,12 +75,16 @@
     </form>
   </div>
 
-  <div
-    class="search-results"
+  <div *ngIf="loading" class="search-results">Loading...</div>
+
+  <ng-container
     *ngIf="searchResults$ | async as searchResults; else beginSearch"
   >
-    <ng-container *ngIf="searchResults.length > 0; else noResults">
+    <div *ngIf="!loading && searchResults.length > 0" class="search-results">
       <h2>Search Results</h2>
+
+      <button (click)="resetResults()">Reset</button>
+
       <div class="person-result">
         <table class="ea-table">
           <thead>
@@ -112,15 +116,25 @@
           </tbody>
         </table>
       </div>
-    </ng-container>
-  </div>
-  <ng-template #noResults>
-    <h2>{{ noResultsMessage }}</h2>
-  </ng-template>
+    </div>
 
-  <ng-template #beginSearch
-    ><div class="empty-search-results">
-      <p>Begin searching to see results</p>
+    <div
+      *ngIf="
+        !loading &&
+          searchResults.length === 0 &&
+          (pageHeading$ | async) !== 'Member Search';
+        else beginSearch
+      "
+      class="search-results"
+    >
+      <h2>Search Results</h2>
+      <p>{{ noResultsMessage }}</p>
+    </div>
+  </ng-container>
+
+  <ng-template #beginSearch>
+    <div *ngIf="!loading" class="search-results">
+      <p>Enter a search term to begin</p>
     </div>
   </ng-template>
 </ng-container>

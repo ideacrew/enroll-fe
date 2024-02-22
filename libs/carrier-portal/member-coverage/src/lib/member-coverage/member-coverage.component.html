@@ -10,6 +10,8 @@
         else: loadingError
       "
     >
+      <button (click)="goBack()">Back</button>
+
       <h1 class="person-header">{{ person.person_name.full_name }}</h1>
 
       <div *ngFor="let member of person.members" class="member-information">
@@ -22,7 +24,7 @@
             <!-- This translation is coming from the generic translations -->
             <dd>{{ t(member.gender) | titlecase }}</dd>
             <dt>DOB</dt>
-            <dd>{{ member.dob | date : 'MM/dd/YYYY' }}</dd>
+            <dd>{{ member.dob | date: 'MM/dd/YYYY' }}</dd>
             <dt>SSN</dt>
             <dd>{{ member.ssn | formatSsn }}</dd>
           </dl>
