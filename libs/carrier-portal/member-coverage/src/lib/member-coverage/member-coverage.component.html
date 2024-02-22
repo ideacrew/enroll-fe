@@ -22,7 +22,7 @@
             <!-- This translation is coming from the generic translations -->
             <dd>{{ t(member.gender) | titlecase }}</dd>
             <dt>DOB</dt>
-            <dd>{{ member.dob | date : 'MM/dd/YYYY' }}</dd>
+            <dd>{{ member.dob | date: 'MM/dd/YYYY' }}</dd>
             <dt>SSN</dt>
             <dd>{{ member.ssn | formatSsn }}</dd>
           </dl>
@@ -45,7 +45,48 @@
                   else dentalPolicyIcon
                 "
               ></ng-container>
-              <span>{{ policy.status }}</span>
+
+              <span>
+                <ng-container
+                  *ngIf="
+                    (policy.status === 'Submitted' ||
+                      policy.status === 'Resubmitted') &&
+                      policy.plan.coverage_year < currentYear;
+                    else originalStatus
+                  "
+                >
+                  CY Ended
+                </ng-container>
+
+                <ng-template #originalStatus>
+                  <span>
+                    <ng-container
+                      *ngIf="
+                        policy.status === 'Submitted' &&
+                        policy.plan.coverage_year >= currentYear
+                      "
+                    >
+                      Active
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        policy.status === 'Resubmitted' &&
+                        policy.plan.coverage_year >= currentYear
+                      "
+                    >
+                      Reinstated
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        policy.status !== 'Submitted' &&
+                        policy.status !== 'Resubmitted'
+                      "
+                    >
+                      {{ policy.status }}
+                    </ng-container>
+                  </span>
+                </ng-template>
+              </span>
               <span>{{ policy.hbx_assigned_id }}</span>
               <span>{{ policy.plan.coverage_year }}</span>
               <span>{{ policy.plan.name }}</span>

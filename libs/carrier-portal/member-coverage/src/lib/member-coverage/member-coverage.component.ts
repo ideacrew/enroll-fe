@@ -40,7 +40,7 @@ import { PersonContactInfoComponent } from './person-contact-info.component';
         scope: 'memberCoverage',
         loader: scopeLoader(
           (lang: string, root: string) =>
-            import(`./${root}/${lang}.json`) as Promise<Translation>
+            import(`./${root}/${lang}.json`) as Promise<Translation>,
         ),
       },
     },
@@ -49,12 +49,13 @@ import { PersonContactInfoComponent } from './person-contact-info.component';
 export class MemberCoverageComponent {
   personService = inject(PersonService);
   route = inject(ActivatedRoute);
+  currentYear = new Date().getFullYear().toString();
 
   id!: string | null;
   person$: Observable<DataResult<Person>> = this.route.paramMap.pipe(
     map((parameters: ParamMap) => parameters.get('id') ?? '___IGNORE___'),
     filter((idString: string) => idString !== '___IGNORE___'),
-    switchMap((id: string) => this.personService.getPerson(id))
+    switchMap((id: string) => this.personService.getPerson(id)),
   );
 
   public policyExpanded(pol: Policy): boolean {
@@ -63,7 +64,7 @@ export class MemberCoverageComponent {
 
   private subscriber(pol: Policy): Enrollee | undefined {
     return pol.enrollees.find(
-      (en: Enrollee) => en.hbx_member_id === pol.subscriber_hbx_member_id
+      (en: Enrollee) => en.hbx_member_id === pol.subscriber_hbx_member_id,
     );
   }
 
