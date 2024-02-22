@@ -5,6 +5,13 @@ on:
     branches:
       - trunk
 
+  workflow_dispatch:
+    inputs:
+      app:
+        default: ""
+        description: "App to build"
+        required: true
+
 concurrency:
   group: dte-${{ github.ref }}
   cancel-in-progress: true
@@ -12,7 +19,7 @@ concurrency:
 jobs:
   main:
     name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.14.0
     with:
       number-of-agents: 3
       main-branch-name: trunk
@@ -20,10 +27,17 @@ jobs:
         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
         npx nx-cloud record -- npx nx format:write
       parallel-commands-on-agents: |
-        npx nx affected --target=lint --parallel=3
-        npx nx affected --target=test --parallel=3 --ci --code-coverage
-        npx nx affected --target=build --parallel=3
-        npx nx affected --target=e2e --parallel=3 --ci
+        if [ -z "${{ github.event.inputs.app }}" ]; then
+          npx nx affected --target=lint --parallel=3
+          npx nx affected --target=test --parallel=3 --ci --code-coverage
+          npx nx affected --target=build --parallel=3
+          npx nx affected --target=e2e --parallel=3 --ci
+        else
+          npx nx run ${{ github.event.inputs.app }}:lint
+          npx nx run ${{ github.event.inputs.app }}:test --ci --code-coverage
+          npx nx run ${{ github.event.inputs.app }}:build
+          npx nx run ${{ github.event.inputs.app }}:e2e --ci
+        fi
       artifacts-path: dist/apps
       artifacts-name: affected-apps
 
