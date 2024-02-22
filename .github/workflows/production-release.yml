@@ -7,12 +7,8 @@ on:
   workflow_dispatch:
     inputs:
       app:
-        default: "console"
+        default: ""
         description: "App to build"
-        required: true
-      onlyeffected:
-        type: boolean
-        description: "Only Build Affected?"
         required: true
 
 concurrency:
@@ -20,57 +16,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  prep:
-    runs-on: ubuntu-latest
-    outputs:
-      lint_args: ${{ steps.prep.outputs.lint_args }}
-      test_args: ${{ steps.prep.outputs.test_args }}
-      build_args: ${{ steps.prep.outputs.build_args }}
-      e2e_args: ${{ steps.prep.outputs.e2e_args }}
-      deploy_args: ${{ steps.prep.outputs.deploy_args }}
-    steps:
-      - name: Set argument variables
-        id: prep
-        run: |
-          if [[ "${{github.event_name}}" == "release" ]]; then
-            echo ::set-output name=lint_args::"--parallel=3"
-            echo ::set-output name=test_args::"--parallel=3 --ci --code-coverage"
-            echo ::set-output name=build_args::"--parallel=3"
-            echo ::set-output name=e2e_args::"--parallel=3 --ci"
-            echo ::set-output name=deploy_args::""
-          else
-            echo ::set-output name=lint_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
-            echo ::set-output name=test_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci --code-coverage"
-            echo ::set-output name=build_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
-            echo ::set-output name=e2e_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci"
-            echo ::set-output name=deploy_args::"--files apps/${{ github.event.inputs.app }}/project.json"
-          fi
   main:
     name: Nx Cloud - Main Job
-    needs: [prep]
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.2
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.14
     with:
       number-of-agents: 3
       main-branch-name: trunk
-      environment-variables: |
-        LINT_ARGS=${{ needs.prep.outputs.lint_args }}
-        TEST_ARGS=${{ needs.prep.outputs.test_args }}
-        BUILD_ARGS=${{ needs.prep.outputs.build_args }}
-        E2E_ARGS=${{ needs.prep.outputs.e2e_args }}
       init-commands: |
         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
         npx nx-cloud record -- npx nx format:write
       parallel-commands-on-agents: |
-        if [[ "${{ github.event.inputs.onlyeffected }}" ]]; then
-          npx nx affected --verbose --target=lint ${LINT_ARGS}
-          npx nx affected --verbose --target=test ${TEST_ARGS}
-          npx nx affected --verbose --target=build ${BUILD_ARGS}
-          npx nx affected --verbose --target=e2e ${E2E_ARGS}
+        if [ -z "${{ github.event.inputs.app }}" ]; then
+          npx nx affected --target=lint --parallel=3
+          npx nx affected --target=test --parallel=3 --ci --code-coverage
+          npx nx affected --target=build --parallel=3
+          npx nx affected --target=e2e --parallel=3 --ci
         else
-          npx nx run-many --verbose --target=lint ${LINT_ARGS}
-          npx nx run-many --verbose --target=test ${TEST_ARGS}
-          npx nx run-many --verbose --target=build ${BUILD_ARGS}
-          npx nx run-many --verbose --target=e2e ${E2E_ARGS}
+          npx nx run ${{ github.event.inputs.app }}:lint
+          npx nx run ${{ github.event.inputs.app }}:test --ci --code-coverage
+          npx nx run ${{ github.event.inputs.app }}:build
+          npx nx run ${{ github.event.inputs.app }}:e2e --ci
         fi
 
       artifacts-path: dist/apps
