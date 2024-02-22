@@ -35,6 +35,7 @@ import { TranslocoModule } from '@ngneat/transloco';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MemberSearchComponent implements OnInit {
+  loading = false;
   searchType: 'member_id' | 'name' = 'member_id';
 
   searchTerm: string | undefined;
@@ -88,12 +89,14 @@ export class MemberSearchComponent implements OnInit {
       .searchPeople(searchRequest)
       .pipe(
         tap((results) => {
+          this.loading = true;
           this.pageHeading.next(
             this.generatePageHeading(
               `${this.firstName ?? ''} ${this.lastName ?? ''}`,
             ),
           );
           this.searchResults.next(results);
+          this.loading = false;
         }),
       )
       .subscribe();
@@ -140,5 +143,6 @@ export class MemberSearchComponent implements OnInit {
     this.searchTerm = '';
     this.searchType = 'member_id';
     this.searchResults.next([]);
+    this.pageHeading.next('Member Search');
   }
 }
