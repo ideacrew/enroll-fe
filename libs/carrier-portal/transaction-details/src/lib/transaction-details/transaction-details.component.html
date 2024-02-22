@@ -1,5 +1,4 @@
 <ng-container *transloco="let t">
-  <h1>Transaction Details</h1>
   <ng-container
     *ngIf="transaction$ | async as transactionResult; else loadingTransaction"
   >
@@ -10,6 +9,10 @@
         else: loadingError
       "
     >
+      <button (click)="goBack()">Back</button>
+
+      <h1>Transaction Details</h1>
+
       <div class="transaction-information">
         <dl>
           <dt>Transaction Type</dt>
@@ -22,7 +25,7 @@
           <dd>{{ transaction.reference_identification }}</dd>
           <dt>Transaction Date</dt>
           <dd>
-            {{ transaction.transaction_date | parseRawDate | date : 'M/d/yy' }}
+            {{ transaction.transaction_date | parseRawDate | date: 'M/d/yy' }}
           </dd>
           <dt>Transaction Time</dt>
           <dd>{{ transaction.transaction_time | parseRawTime }}</dd>

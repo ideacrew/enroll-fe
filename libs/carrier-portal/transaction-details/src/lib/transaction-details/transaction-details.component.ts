@@ -7,7 +7,13 @@ import {
 import { Component, inject } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import { Observable, map, filter, switchMap } from 'rxjs';
-import { AsyncPipe, DatePipe, NgIf, TitleCasePipe } from '@angular/common';
+import {
+  AsyncPipe,
+  DatePipe,
+  NgIf,
+  TitleCasePipe,
+  Location,
+} from '@angular/common';
 
 import {
   TransactionsService,
@@ -43,7 +49,7 @@ import { scopeLoader } from '@enroll/shared/i18n';
         scope: 'transactionDetails',
         loader: scopeLoader(
           (lang: string, root: string) =>
-            import(`./${root}/${lang}.json`) as Promise<Translation>
+            import(`./${root}/${lang}.json`) as Promise<Translation>,
         ),
       },
     },
@@ -57,6 +63,12 @@ export class TransactionDetailsComponent {
     this.route.paramMap.pipe(
       map((parameters: ParamMap) => parameters.get('id') ?? '___IGNORE___'),
       filter((idString: string) => idString !== '___IGNORE___'),
-      switchMap((id: string) => this.transactionsService.getTransaction(id))
+      switchMap((id: string) => this.transactionsService.getTransaction(id)),
     );
+
+  constructor(private location: Location) {}
+
+  goBack(): void {
+    this.location.back();
+  }
 }
