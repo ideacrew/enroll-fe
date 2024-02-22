@@ -81,6 +81,8 @@
   >
     <ng-container *ngIf="searchResults.length > 0; else noResults">
       <h2>Search Results</h2>
+
+      <button (click)="resetResults()">Reset</button>
       <div class="person-result">
         <table class="ea-table">
           <thead>
@@ -114,6 +116,7 @@
       </div>
     </ng-container>
   </div>
+
   <ng-template #noResults>
     <h2>{{ noResultsMessage }}</h2>
   </ng-template>

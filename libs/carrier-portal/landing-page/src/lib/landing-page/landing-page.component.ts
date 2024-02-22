@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,4 +10,9 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./landing-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LandingPageComponent {}
+export class LandingPageComponent implements OnInit {
+  ngOnInit(): void {
+    localStorage.removeItem('searchTerm');
+    localStorage.removeItem('searchType');
+  }
+}

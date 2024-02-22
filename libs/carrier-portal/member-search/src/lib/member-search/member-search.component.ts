@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -29,7 +34,7 @@ import { TranslocoModule } from '@ngneat/transloco';
   styleUrls: ['./member-search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MemberSearchComponent {
+export class MemberSearchComponent implements OnInit {
   searchType: 'member_id' | 'name' = 'member_id';
 
   searchTerm: string | undefined;
@@ -51,6 +56,16 @@ export class MemberSearchComponent {
       : 'No members found with that name';
   }
 
+  ngOnInit(): void {
+    if (localStorage.getItem('searchTerm')) {
+      this.searchTerm = localStorage.getItem('searchTerm') || '';
+      this.searchType =
+        (localStorage.getItem('searchType') as 'member_id') || '';
+
+      this.searchBySearchTerm();
+    }
+  }
+
   searchPersonByIdentifier(): void {
     this.personService
       .searchPeople({ q: this.query })
@@ -58,7 +73,7 @@ export class MemberSearchComponent {
         tap((results) => {
           this.pageHeading.next(this.generatePageHeading(this.query));
           this.searchResults.next(results);
-        })
+        }),
       )
       .subscribe();
   }
@@ -75,24 +90,31 @@ export class MemberSearchComponent {
         tap((results) => {
           this.pageHeading.next(
             this.generatePageHeading(
-              `${this.firstName ?? ''} ${this.lastName ?? ''}`
-            )
+              `${this.firstName ?? ''} ${this.lastName ?? ''}`,
+            ),
           );
           this.searchResults.next(results);
-        })
+        }),
       )
       .subscribe();
   }
 
   searchBySearchTerm(): void {
     if (this.searchTerm && this.searchTerm.length > 1) {
-      if (this.searchType === 'member_id') {
-        this.query = this.searchTerm || '';
+      this.query = this.searchTerm || '';
+      const [firstName, lastName] = (this.searchTerm || '').split(' ');
+      this.firstName = firstName;
+      this.lastName = lastName;
+
+      localStorage.setItem('searchTerm', this.searchTerm);
+      localStorage.setItem('searchType', this.searchType);
+
+      if (
+        localStorage.getItem('searchTerm') === 'member_id' ||
+        this.searchType === 'member_id'
+      ) {
         this.searchPersonByIdentifier();
       } else {
-        const [firstName, lastName] = (this.searchTerm || '').split(' ');
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.searchPersonByName();
       }
     }
@@ -110,5 +132,13 @@ export class MemberSearchComponent {
     const trimmed = query.trim();
 
     return `Search Results for "${trimmed}"`;
+  }
+
+  resetResults() {
+    localStorage.removeItem('searchTerm');
+    localStorage.removeItem('searchType');
+    this.searchTerm = '';
+    this.searchType = 'member_id';
+    this.searchResults.next([]);
   }
 }
