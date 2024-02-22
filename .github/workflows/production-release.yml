@@ -10,6 +10,10 @@ on:
         default: "console"
         description: "App to build"
         required: true
+      onlyeffected:
+        type: boolean
+        description: "Only Build Affected?"
+        required: true
 
 concurrency:
   group: prod-${{ github.ref }}
@@ -25,10 +29,10 @@ jobs:
       e2e_args: ${{ steps.prep.outputs.e2e_args }}
       deploy_args: ${{ steps.prep.outputs.deploy_args }}
     steps:
-      - name: Set argument variables 
+      - name: Set argument variables
         id: prep
         run: |
-          if [[ "${{github.event_name}}" == "release" ]]; then 
+          if [[ "${{github.event_name}}" == "release" ]]; then
             echo ::set-output name=lint_args::"--parallel=3"
             echo ::set-output name=test_args::"--parallel=3 --ci --code-coverage"
             echo ::set-output name=build_args::"--parallel=3"
@@ -40,7 +44,7 @@ jobs:
             echo ::set-output name=build_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json"
             echo ::set-output name=e2e_args::"--parallel=3 --files apps/${{ github.event.inputs.app }}/project.json --ci"
             echo ::set-output name=deploy_args::"--files apps/${{ github.event.inputs.app }}/project.json"
-          fi 
+          fi
   main:
     name: Nx Cloud - Main Job
     needs: [prep]
@@ -57,10 +61,18 @@ jobs:
         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
         npx nx-cloud record -- npx nx format:write
       parallel-commands-on-agents: |
-        npx nx affected --target=lint ${LINT_ARGS}
-        npx nx affected --target=test ${TEST_ARGS}
-        npx nx affected --target=build ${BUILD_ARGS}
-        npx nx affected --target=e2e ${E2E_ARGS}
+        if [[ "${{ github.event.inputs.onlyeffected }}" ]]; then
+          npx nx affected --verbose --target=lint ${LINT_ARGS}
+          npx nx affected --verbose --target=test ${TEST_ARGS}
+          npx nx affected --verbose --target=build ${BUILD_ARGS}
+          npx nx affected --verbose --target=e2e ${E2E_ARGS}
+        else
+          npx nx run-many --verbose --target=lint ${LINT_ARGS}
+          npx nx run-many --verbose --target=test ${TEST_ARGS}
+          npx nx run-many --verbose --target=build ${BUILD_ARGS}
+          npx nx run-many --verbose --target=e2e ${E2E_ARGS}
+        fi
+
       artifacts-path: dist/apps
       artifacts-name: affected-apps
 
@@ -125,7 +137,7 @@ jobs:
           TENANT: ${{ matrix.client }}
       - name: run many deployments
         run: npx nx affected --target=deploy:prod ${DEPLOY_ARGS}
-        env: 
+        env:
           CONSOLE_BUCKET_PROD: ${{ secrets.CONSOLE_BUCKET_PROD }}
           CONSOLE_DISTRIBUTION_ID_PROD: ${{ secrets.CONSOLE_DISTRIBUTION_ID_PROD }}
           DEPLOY_ARGS: ${{ needs.prep.outputs.deploy_args }}
