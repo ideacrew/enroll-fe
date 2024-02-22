@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { filter, map, switchMap, Observable } from 'rxjs';
@@ -40,7 +40,7 @@ import { PersonContactInfoComponent } from './person-contact-info.component';
         scope: 'memberCoverage',
         loader: scopeLoader(
           (lang: string, root: string) =>
-            import(`./${root}/${lang}.json`) as Promise<Translation>
+            import(`./${root}/${lang}.json`) as Promise<Translation>,
         ),
       },
     },
@@ -54,8 +54,14 @@ export class MemberCoverageComponent {
   person$: Observable<DataResult<Person>> = this.route.paramMap.pipe(
     map((parameters: ParamMap) => parameters.get('id') ?? '___IGNORE___'),
     filter((idString: string) => idString !== '___IGNORE___'),
-    switchMap((id: string) => this.personService.getPerson(id))
+    switchMap((id: string) => this.personService.getPerson(id)),
   );
+
+  constructor(private location: Location) {}
+
+  goBack(): void {
+    this.location.back();
+  }
 
   public policyExpanded(pol: Policy): boolean {
     return !this.isCanceled(pol);
@@ -63,7 +69,7 @@ export class MemberCoverageComponent {
 
   private subscriber(pol: Policy): Enrollee | undefined {
     return pol.enrollees.find(
-      (en: Enrollee) => en.hbx_member_id === pol.subscriber_hbx_member_id
+      (en: Enrollee) => en.hbx_member_id === pol.subscriber_hbx_member_id,
     );
   }
 
