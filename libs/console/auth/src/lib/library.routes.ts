@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
+import { ExpiredUserComponent } from './expired-user/expired-user.component';
 
 export const consoleAuthRoutes: Route[] = [
-  { path: '', component: LoginComponent },
+  { path: 'expired-user', component: ExpiredUserComponent },
 ];
