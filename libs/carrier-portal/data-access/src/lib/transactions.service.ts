@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { EnrollmentTransaction } from '@enroll/carrier-portal/types';
 import { TenantConfigService } from '@enroll/tenant-config';
-
+import { ExpiredUserService } from '@enroll/console/auth';
 import { DataResult, transformToResult } from './types';
 
 @Injectable({
@@ -13,12 +13,15 @@ import { DataResult, transformToResult } from './types';
 export class TransactionsService {
   http = inject(HttpClient);
   baseApiUrl = inject(TenantConfigService).baseApiUrl;
+  expiredUserService = inject(ExpiredUserService);
 
   getTransaction(id: string): Observable<DataResult<EnrollmentTransaction>> {
-    return transformToResult(
+    return transformToResult<EnrollmentTransaction>(
+      this.expiredUserService,
       this.http.get<EnrollmentTransaction>(
-        `${this.baseApiUrl}/transaction_management/enrollment_transactions/${id}`
-      )
+        `${this.baseApiUrl}/transaction_management/enrollment_transactions/${id}`,
+        { observe: 'response' },
+      ),
     );
   }
 }
