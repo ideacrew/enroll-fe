@@ -1,0 +1,44 @@
+{
+  "23e96adf081d329a3dd7f3faabc07023_0": {
+    "author": "Trey Evans",
+    "comment": "Standard error logging in Angular application initialization.",
+    "false_positive": true,
+    "ignored_at": "2024-05-03T15:15:58Z"
+  },
+  "3924831ff8accd3aaf427dd7bbccb33e_0": {
+    "author": "Trey Evans",
+    "comment": "Standard error logging in Angular application initialization.",
+    "false_positive": true,
+    "ignored_at": "2024-05-03T15:17:34Z"
+  },
+  "92126b47ead8cdd638a3f63e2faec731_0": {
+    "author": "Trey Evans",
+    "comment": "Error logging performed during loading of JSON file - does not expose any data or state.",
+    "false_positive": true,
+    "ignored_at": "2024-05-03T15:40:53Z"
+  },
+  "9d71d4a22087ff47afba812f0d365136_0": {
+    "author": "Trey Evans",
+    "comment": "Standard error logging in Angular application initialization.",
+    "false_positive": true,
+    "ignored_at": "2024-05-03T15:16:49Z"
+  },
+  "b162fab0a5f46f6fee32183030fc341f_0": {
+    "author": "Trey Evans",
+    "comment": "Timer logout debug message - exposes nothing.",
+    "false_positive": true,
+    "ignored_at": "2024-05-03T15:56:01Z"
+  },
+  "b162fab0a5f46f6fee32183030fc341f_1": {
+    "author": "Trey Evans",
+    "comment": "Timer logout debug message - exposes nothing.",
+    "false_positive": true,
+    "ignored_at": "2024-05-03T15:56:24Z"
+  },
+  "e73f21dde8c19d59e0ca34497f94c1b9_0": {
+    "author": "Trey Evans",
+    "comment": "Error logging performed during loading of JSON file - does not expose any data or state.",
+    "false_positive": true,
+    "ignored_at": "2024-05-03T15:39:34Z"
+  }
+}

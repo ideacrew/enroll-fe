@@ -29,3 +29,10 @@ scan:
   skip-path:
     # Used only to generate documentation - not part of the live site
     - 'apps/console-api-docs/static/swagger-ui.js'
+    - 'build/typedoc_utils.js'
+    # Deployment script, changes icons and is not part of the live site.
+    - '.github/scripts/update-console-favicon.js'
+    - '.github/scripts/update-slcsp-favicon.js'
+    # Console logging in test suites
+    - 'apps/enroll-e2e/src/support/commands.ts'
+    - 'apps/slcsp-calculator-e2e/src/support/commands.ts'
