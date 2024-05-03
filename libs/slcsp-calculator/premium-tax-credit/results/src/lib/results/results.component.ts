@@ -80,10 +80,7 @@ export class ResultsComponent implements OnInit {
     const resultsContainer = this.results.nativeElement;
 
     if (table !== undefined) {
-      console.log('Generating table');
       // await document.html(table);
-
-      console.log(resultsContainer);
 
       await document.html(resultsContainer, {
         callback: function (doc) {

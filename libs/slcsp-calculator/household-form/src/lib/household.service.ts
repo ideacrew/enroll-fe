@@ -78,7 +78,6 @@ export class HouseholdService {
 
   getTransformedValue(): HouseholdFormValue {
     const originalFormValue = this.householdForm.value as HouseholdFormValue;
-    console.log({ originalFormValue });
 
     const [primaryMember, ...secondaryMembers] = originalFormValue.members;
 
@@ -104,7 +103,6 @@ export class HouseholdService {
       ...originalFormValue,
       members: updatedMembers,
     };
-    console.log(transformedFormValue);
 
     return transformedFormValue;
   }
