@@ -90,6 +90,9 @@
       },
       "defaultConfiguration": "development",
       "options": {
+        "headers": {
+          "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-randomNonceGoesHere'; style-src 'self' 'nonce-randomNonceGoesHere';"
+        },
         "port": 4206
       }
     },

@@ -2,16 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="CSP_NONCE" content="**PLACEHOLDER_NONCE_SERVER**" />
+    <meta name="CSP_NONCE" content="randomNonceGoesHere" />
     <title>Tax Tool | CoverME.gov</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <script
+      nonce="randomNonceGoesHere"
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-2GBD58D48T"
     ></script>
-    <script>
+    <script nonce="randomNonceGoesHere">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -22,6 +23,6 @@
     </script>
   </head>
   <body>
-    <enroll-root ngCspNonce="**PLACEHOLDER_NONCE_SERVER**"></enroll-root>
+    <enroll-root ngCspNonce="randomNonceGoesHere"></enroll-root>
   </body>
 </html>

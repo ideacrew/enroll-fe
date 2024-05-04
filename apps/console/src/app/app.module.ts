@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,8 +13,9 @@ import {
 } from '@enroll/tenant-config';
 import {
   AuthGuard,
-  AuthInterceptor,
+  ExpiredUserService,
   KeycloakConfigService,
+  consoleAuthRoutes,
 } from '@enroll/console/auth';
 import {
   GenericTranslationsModule,
@@ -40,6 +41,10 @@ import { ConsoleI18nModule } from './i18n.module';
           import('@enroll/console/shell').then((m) => m.consoleShellRoutes),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'auth',
+        loadChildren: () => consoleAuthRoutes,
+      },
     ]),
     RootStoreModule,
     FormsModule,
@@ -49,8 +54,8 @@ import { ConsoleI18nModule } from './i18n.module';
     KeycloakAngularModule,
   ],
   providers: [
+    ExpiredUserService,
     importProvidersFrom(ConsoleI18nModule),
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
       provide: APP_INITIALIZER,
       useFactory: configFactory,

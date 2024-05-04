@@ -27,7 +27,7 @@
 </div>
 <main>
   <div class="portal-data" *ngIf="lastUpdatedData$ | async as lastUpdated">
-    <ng-container *ngIf="lastUpdated.ok">
+    <ng-container *ngIf="lastUpdated.ok && lastUpdated.data">
       Data current as of: {{ lastUpdated.data.last_update_at }}
     </ng-container>
   </div>
