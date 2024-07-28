@@ -11,7 +11,7 @@ export const keycloakConfiguration: KeycloakConfig[] = [
     host: 'preprod-console.cme.openhbx.org',
     clientId: 'openid',
     realm: 'preprod',
-    url: 'https://preprod-sso.cme.openhbx.org/auth',
+    url: 'https://preprod-sso.cme.openhbx.org',
   },
   {
     host: 'carrier-portal.coverme.gov',
